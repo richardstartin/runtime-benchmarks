@@ -32,6 +32,13 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.lexicalscope.jewelcli</groupId>
+            <artifactId>jewelcli</artifactId>
+            <version>0.8.9</version>
+            <scope>compile</scope>
+        </dependency>
+
 
 
 
@@ -54,6 +61,12 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
         <version>3.7</version>
+    </dependency>
+
+
+    <dependency>
+        <groupId>com.lexicalscope.jewelcli</groupId>
+        <artifactId>jewelcli</artifactId>
     </dependency>
 
 
