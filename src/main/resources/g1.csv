@@ -1,0 +1,5 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: scannerType","Param: size","Param: triggerName"
+"com.openkappa.runtime.gc.CursoredScannerBenchmark.scan","thrpt",1,15,62.633572,0.995514,"ops/us",SCANNER1,10,trigger1
+"com.openkappa.runtime.gc.CursoredScannerBenchmark.scan","thrpt",1,15,7.660122,0.231402,"ops/us",SCANNER1,100,trigger1
+"com.openkappa.runtime.gc.CursoredScannerBenchmark.scan","thrpt",1,15,23.833586,0.379903,"ops/us",SCANNER2,10,trigger1
+"com.openkappa.runtime.gc.CursoredScannerBenchmark.scan","thrpt",1,15,2.757419,0.148344,"ops/us",SCANNER2,100,trigger1

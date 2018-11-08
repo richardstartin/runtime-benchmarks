@@ -1,0 +1,1378 @@
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseCondCardMark -XX:+UseZGC -mx1G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.CursoredScannerBenchmark.scan
+# Parameters: (scannerType = SCANNER1, size = 10, triggerName = trigger1)
+
+# Run progress: 0.00% complete, ETA 00:01:20
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 40.184 ops/us
+# Warmup Iteration   2: 40.553 ops/us
+# Warmup Iteration   3: 43.935 ops/us
+# Warmup Iteration   4: 38.351 ops/us
+# Warmup Iteration   5: 39.055 ops/us
+Iteration   1: 42.326 ops/us
+Iteration   2: 41.649 ops/us
+Iteration   3: 38.417 ops/us
+Iteration   4: 38.012 ops/us
+Iteration   5: 37.452 ops/us
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.openkappa.runtime.gc.CursoredScannerBenchmark.scan":
+  39.571 ±(99.9%) 8.644 ops/us [Average]
+  (min, avg, max) = (37.452, 39.571, 42.326), stdev = 2.245
+  CI (99.9%): [30.927, 48.215] (assumes normal distribution)
+
+Secondary result "com.openkappa.runtime.gc.CursoredScannerBenchmark.scan:·asm":
+PrintAssembly processed: 151538 total address lines.
+Perf output processed (skipped 12.393 seconds):
+ Column 1: cycles (10674 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 (223 bytes) 
+
+                 0x00007fe47c7655b8: cmp    %ecx,%ebx
+         ╭       0x00007fe47c7655ba: jne    0x00007fe47c7655c3
+         │       0x00007fe47c7655bc: mov    $0x1,%eax
+         │╭      0x00007fe47c7655c1: jmp    0x00007fe47c7655c5
+         ↘│      0x00007fe47c7655c3: xor    %eax,%eax
+          ↘      0x00007fe47c7655c5: vpxor  %ymm1,%ymm1,%ymm1
+                 0x00007fe47c7655c9: vpxor  %ymm0,%ymm0,%ymm0  ;*invokevirtual equals {reexecute=0 rethrow=0 return_oop=0}
+                                                               ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                               ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                               ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.07%          0x00007fe47c7655cd: mov    %al,0x18(%rdx)     ;*putfield atCursor {reexecute=0 rethrow=0 return_oop=0}
+                                                               ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@9 (line 16)
+                                                               ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                               ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.02%          0x00007fe47c7655d0: mov    0x38(%rsp),%r10d
+                 0x00007fe47c7655d5: cmp    $0x1,%r10d
+                 0x00007fe47c7655d9: jbe    0x00007fe47c765d8e
+                 0x00007fe47c7655df: test   %eax,%eax
+                 0x00007fe47c7655e1: jne    0x00007fe47c765a5a  ;*return {reexecute=0 rethrow=0 return_oop=0}
+                                                               ; - com.openkappa.runtime.gc.CursoredScanner1::writeLong@12 (line 24)
+                                                               ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                               ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.19%          0x00007fe47c7655e7: mov    0x14(%rsp),%r10d
+  0.01%          0x00007fe47c7655ec: cmp    $0x2,%r10d
+                 0x00007fe47c7655f0: jle    0x00007fe47c7651c0  ;*aload_2 {reexecute=0 rethrow=0 return_oop=0}
+                                                               ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@22 (line 16)
+                                                               ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.01%          0x00007fe47c7655f6: mov    %r10d,%ebp
+  0.01%          0x00007fe47c7655f9: dec    %ebp
+  1.11%          0x00007fe47c7655fb: cmp    0x38(%rsp),%ebp
+  0.01%          0x00007fe47c7655ff: mov    0x38(%rsp),%r10d
+                 0x00007fe47c765604: cmovg  %r10d,%ebp
+                 0x00007fe47c765608: cmp    $0x2,%ebp
+                 0x00007fe47c76560b: jle    0x00007fe47c7657b3
+  1.22%          0x00007fe47c765611: cmp    $0x2,%r10d
+                 0x00007fe47c765615: jbe    0x00007fe47c765ea1
+                 0x00007fe47c76561b: mov    0x14(%rsp),%r10d
+                 0x00007fe47c765620: cmp    $0x2,%r10d
+                 0x00007fe47c765624: jbe    0x00007fe47c765ea3
+  0.02%          0x00007fe47c76562a: mov    $0x2,%r8d
+  1.19%    ╭     0x00007fe47c765630: jmp    0x00007fe47c76565c
+  2.69%    │  ↗  0x00007fe47c765632: movb   $0x0,0x18(%rdx)
+  3.15%    │╭ │  0x00007fe47c765636: jmp    0x00007fe47c765650
+           ││↗│  0x00007fe47c765638: movb   $0x1,0x18(%rdx)    ;*putfield atCursor {reexecute=0 rethrow=0 return_oop=0}
+           ││││                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@9 (line 16)
+           ││││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+           ││││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.43%    ││││  0x00007fe47c76563c: mov    0x18(%rsp),%r10
+  0.31%    ││││  0x00007fe47c765641: mov    0x18(%r10,%r8,8),%r10  ;*laload {reexecute=0 rethrow=0 return_oop=0}
+           ││││                                                ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getValue@5 (line 46)
+           ││││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@38 (line 17)
+           ││││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.24%    ││││  0x00007fe47c765646: mov    %r10,0x10(%rdx)    ;*putfield cursor {reexecute=0 rethrow=0 return_oop=0}
+           ││││                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeLong@9 (line 22)
+           ││││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+           ││││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.01%    ││││  0x00007fe47c76564a: nopw   0x0(%rax,%rax,1)   ;*aload_2 {reexecute=0 rethrow=0 return_oop=0}
+           ││││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@22 (line 16)
+           ││││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  4.20%    │↘││  0x00007fe47c765650: inc    %r8d               ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+           │ ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@46 (line 15)
+           │ ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.31%    │ ││  0x00007fe47c765653: cmp    %ebp,%r8d
+           │ ││  0x00007fe47c765656: jge    0x00007fe47c7657be
+  0.20%    ↘ ││  0x00007fe47c76565c: mov    0x18(%r14,%r8,8),%rcx  ;*goto {reexecute=0 rethrow=0 return_oop=0}
+             ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+             ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  2.90%      ││  0x00007fe47c765661: test   %rcx,0x20(%r15)
+             ││  0x00007fe47c765665: jne    0x00007fe47c76578d  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+             ││                                                ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getName@5 (line 42)
+             ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@26 (line 16)
+             ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  3.42%      ││  0x00007fe47c76566b: mov    0x30(%rsp),%r13
+  1.25%      ││  0x00007fe47c765670: cmp    %rcx,%r13
+             ╰│  0x00007fe47c765673: je     0x00007fe47c765638  ;*if_acmpne {reexecute=0 rethrow=0 return_oop=0}
+              │                                                ; - java.lang.String::equals@2 (line 1003)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.33%       │  0x00007fe47c765675: test   %rcx,%rcx
+              │  0x00007fe47c765678: je     0x00007fe47c76579c  ;*instanceof {reexecute=0 rethrow=0 return_oop=0}
+              │                                                ; - java.lang.String::equals@8 (line 1006)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  2.39%       │  0x00007fe47c76567e: movsbl 0x1c(%rcx),%r10d   ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
+              │                                                ; - java.lang.String::coder@7 (line 3258)
+              │                                                ; - java.lang.String::equals@24 (line 1008)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  3.40%       │  0x00007fe47c765683: cmp    %r10d,%r9d
+              │  0x00007fe47c765686: jne    0x00007fe47c76594d  ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+              │                                                ; - java.lang.String::equals@27 (line 1008)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.11%       │  0x00007fe47c76568c: test   %r9d,%r9d
+              │  0x00007fe47c76568f: jne    0x00007fe47c76599d  ;*ifne {reexecute=0 rethrow=0 return_oop=0}
+              │                                                ; - java.lang.String::isLatin1@10 (line 3266)
+              │                                                ; - java.lang.String::equals@31 (line 1009)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.20%       │  0x00007fe47c765695: mov    0x10(%rcx),%rsi    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+              │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+              │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  2.59%       │  0x00007fe47c765699: test   %rsi,0x20(%r15)
+              │  0x00007fe47c76569d: jne    0x00007fe47c7657a5  ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+              │                                                ; - java.lang.String::equals@42 (line 1009)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+              │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  3.26%       │  0x00007fe47c7656a3: mov    0x10(%rsi),%r11d
+  1.34%       │  0x00007fe47c7656a7: mov    0x10(%rsp),%r10d
+  0.22%       │  0x00007fe47c7656ac: cmp    %r11d,%r10d
+              ╰  0x00007fe47c7656af: jne    0x00007fe47c765632
+                 0x00007fe47c7656b5: add    $0x18,%rsi
+                 0x00007fe47c7656b9: mov    0x8(%rsp),%rdi
+                 0x00007fe47c7656be: mov    %r10d,%ecx
+                 0x00007fe47c7656c1: test   %ecx,%ecx
+                 0x00007fe47c7656c3: je     0x00007fe47c76576c
+                 0x00007fe47c7656c9: mov    %ecx,%eax
+                 0x00007fe47c7656cb: and    $0x1f,%eax
+                 0x00007fe47c7656ce: and    $0xffffffe0,%ecx
+                 0x00007fe47c7656d1: je     0x00007fe47c765722
+....................................................................................................
+ 39.77%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 (240 bytes) 
+
+                                                         ;   {optimized virtual_call}
+           0x00007fe47c765264: mov    0x18(%rsp),%r11
+           0x00007fe47c765269: movzbl 0x9c(%r11),%r10d   ;*getfield isDone {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@32 (line 163)
+                                                         ; implicit exception: dispatches to 0x00007fe47c7660f6
+           0x00007fe47c765271: test   %r10d,%r10d
+           0x00007fe47c765274: jne    0x00007fe47c765ea5  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@35 (line 163)
+           0x00007fe47c76527a: mov    $0x1,%ebp          ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@38 (line 164)
+  0.04%    0x00007fe47c76527f: mov    0x80(%rsp),%r10
+           0x00007fe47c765287: mov    0x28(%r10),%r13    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.01%    0x00007fe47c76528b: test   %r13,0x20(%r15)
+           0x00007fe47c76528f: jne    0x00007fe47c765b5a  ;*getfield cursoredScanner {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@1 (line 13)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.06%    0x00007fe47c765295: mov    0x30(%r10),%r9     ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.02%    0x00007fe47c765299: test   %r9,0x20(%r15)
+           0x00007fe47c76529d: jne    0x00007fe47c765b68  ;*getfield data {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@6 (line 14)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.03%    0x00007fe47c7652a3: mov    0x10(%r9),%r14     ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+                                                         ; implicit exception: dispatches to 0x00007fe47c766003
+  0.08%    0x00007fe47c7652a7: test   %r14,0x20(%r15)
+           0x00007fe47c7652ab: jne    0x00007fe47c765b76  ;*getfield names {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerState$Data::size@1 (line 38)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@16 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.15%    0x00007fe47c7652b1: mov    0x10(%r14),%r10d   ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerState$Data::size@4 (line 38)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@16 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+                                                         ; implicit exception: dispatches to 0x00007fe47c766012
+  0.44%    0x00007fe47c7652b5: test   %r10d,%r10d
+           0x00007fe47c7652b8: jbe    0x00007fe47c7651ce  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@19 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.38%    0x00007fe47c7652be: mov    0x18(%r9),%rbx     ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007fe47c7652c2: test   %rbx,0x20(%r15)
+           0x00007fe47c7652c6: jne    0x00007fe47c765b84  ;*getfield values {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getValue@1 (line 46)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@38 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.83%    0x00007fe47c7652cc: mov    0x18(%r14),%rcx    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.01%    0x00007fe47c7652d0: test   %rcx,0x20(%r15)
+           0x00007fe47c7652d4: jne    0x00007fe47c765b92  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getName@5 (line 42)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@26 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.27%    0x00007fe47c7652da: mov    0x8(%r13),%r8      ; implicit exception: dispatches to 0x00007fe47c766022
+           0x00007fe47c7652de: mov    %rbx,0x18(%rsp)
+  0.76%    0x00007fe47c7652e3: mov    %r10d,0x14(%rsp)
+           0x00007fe47c7652e8: mov    %r9,0x40(%rsp)
+  0.35%    0x00007fe47c7652ed: movabs $0x7fe45cf4ce28,%r10  ;   {metadata(&apos;com/openkappa/runtime/gc/CursoredScanner1&apos;)}
+           0x00007fe47c7652f7: cmp    %r10,%r8
+           0x00007fe47c7652fa: jne    0x00007fe47c765e5a
+  0.67%    0x00007fe47c765300: mov    %r13,%rdx          ;*invokeinterface writeName {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007fe47c765303: mov    0x20(%rdx),%r10    ;*getfield trigger {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@2 (line 16)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.38%    0x00007fe47c765307: mov    %r10,0x30(%rsp)    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007fe47c76530c: test   %r10,0x20(%r15)
+           0x00007fe47c765310: jne    0x00007fe47c765ba0  ;*getfield trigger {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@2 (line 16)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.77%    0x00007fe47c765316: mov    0x30(%rsp),%r10
+  0.01%    0x00007fe47c76531b: mov    0x10(%r10),%r8     ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@38 (line 1009)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+                                                         ; implicit exception: dispatches to 0x00007fe47c766036
+  0.71%    0x00007fe47c76531f: movsbl 0x1c(%r10),%r9d    ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::coder@7 (line 3258)
+                                                         ; - java.lang.String::equals@20 (line 1008)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.01%    0x00007fe47c765324: cmp    %rcx,%r10
+           0x00007fe47c765327: je     0x00007fe47c765a6c  ;*if_acmpne {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@2 (line 1003)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.59%    0x00007fe47c76532d: test   %rcx,%rcx
+           0x00007fe47c765330: je     0x00007fe47c765bb3  ;*instanceof {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@8 (line 1006)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007fe47c765336: movsbl 0x1c(%rcx),%r10d   ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::coder@7 (line 3258)
+                                                         ; - java.lang.String::equals@24 (line 1008)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.17%    0x00007fe47c76533b: cmp    %r10d,%r9d
+           0x00007fe47c76533e: jne    0x00007fe47c765f68  ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@27 (line 1008)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.82%    0x00007fe47c765344: test   %r9d,%r9d
+           0x00007fe47c765347: jne    0x00007fe47c765f70  ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007fe47c76534d: test   %r8,0x20(%r15)
+           0x00007fe47c765351: jne    0x00007fe47c765bc1
+           0x00007fe47c765357: mov    %r8,%rdi           ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@38 (line 1009)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.29%    0x00007fe47c76535a: mov    0x10(%rcx),%rsi    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  2.87%    0x00007fe47c76535e: test   %rsi,0x20(%r15)
+           0x00007fe47c765362: jne    0x00007fe47c765bd4  ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@42 (line 1009)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.59%    0x00007fe47c765368: mov    0x10(%rsi),%r10d
+  6.08%    0x00007fe47c76536c: mov    0x10(%rdi),%ecx
+  0.03%    0x00007fe47c76536f: cmp    %r10d,%ecx
+           0x00007fe47c765372: jne    0x00007fe47c765bba
+           0x00007fe47c765378: add    $0x18,%rsi
+           0x00007fe47c76537c: add    $0x18,%rdi
+           0x00007fe47c765380: test   %ecx,%ecx
+           0x00007fe47c765382: je     0x00007fe47c76542b
+           0x00007fe47c765388: mov    %ecx,%eax
+           0x00007fe47c76538a: and    $0x1f,%eax
+           0x00007fe47c76538d: and    $0xffffffe0,%ecx
+           0x00007fe47c765390: je     0x00007fe47c7653e1
+           0x00007fe47c765396: lea    (%rdi,%rcx,1),%rdi
+....................................................................................................
+ 20.41%  <total for region 2>
+
+....[Hottest Region 3]..............................................................................
+c2, level 4, com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 (192 bytes) 
+
+             0x00007fe47c765427: cmp    %ecx,%ebx
+         ╭   0x00007fe47c765429: jne    0x00007fe47c765432
+         │   0x00007fe47c76542b: mov    $0x1,%eax
+         │╭  0x00007fe47c765430: jmp    0x00007fe47c765434
+         ↘│  0x00007fe47c765432: xor    %eax,%eax
+          ↘  0x00007fe47c765434: vpxor  %ymm0,%ymm0,%ymm0
+             0x00007fe47c765438: vpxor  %ymm1,%ymm1,%ymm1  ;*invokevirtual equals {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.11%      0x00007fe47c76543c: mov    %al,0x18(%rdx)     ;*putfield atCursor {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@9 (line 16)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.03%      0x00007fe47c76543f: mov    0x18(%rsp),%r10
+             0x00007fe47c765444: mov    0x10(%r10),%r10d   ;*laload {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getValue@5 (line 46)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@38 (line 17)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+                                                           ; implicit exception: dispatches to 0x00007fe47c76604a
+             0x00007fe47c765448: mov    %r10d,0x38(%rsp)
+  0.98%      0x00007fe47c76544d: test   %r10d,%r10d
+             0x00007fe47c765450: jbe    0x00007fe47c765e8e
+  0.01%      0x00007fe47c765456: test   %eax,%eax
+             0x00007fe47c765458: jne    0x00007fe47c7659e0  ;*return {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - com.openkappa.runtime.gc.CursoredScanner1::writeLong@12 (line 24)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+             0x00007fe47c76545e: mov    0x14(%rsp),%r10d
+             0x00007fe47c765463: cmp    $0x1,%r10d
+             0x00007fe47c765467: jle    0x00007fe47c7651ce  ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.34%      0x00007fe47c76546d: test   %r8,0x20(%r15)
+             0x00007fe47c765471: jne    0x00007fe47c765be2  ;*aload_2 {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@22 (line 16)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.01%      0x00007fe47c765477: mov    0x14(%rsp),%r10d
+             0x00007fe47c76547c: cmp    $0x1,%r10d
+             0x00007fe47c765480: jbe    0x00007fe47c765e96
+  1.29%      0x00007fe47c765486: mov    0x20(%r14),%rcx    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+             0x00007fe47c76548a: test   %rcx,0x20(%r15)
+             0x00007fe47c76548e: jne    0x00007fe47c765bf5  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getName@5 (line 42)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@26 (line 16)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+             0x00007fe47c765494: mov    %r13,(%rsp)
+             0x00007fe47c765498: mov    %rbp,0x78(%rsp)
+  1.34%      0x00007fe47c76549d: mov    %r11,0x70(%rsp)
+  0.01%      0x00007fe47c7654a2: mov    %r8,%r10
+             0x00007fe47c7654a5: add    $0x18,%r10
+             0x00007fe47c7654a9: mov    %r10,0x8(%rsp)
+  1.08%      0x00007fe47c7654ae: mov    0x10(%r8),%r10d    ;*invokestatic equals {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - java.lang.String::equals@45 (line 1009)
+                                                           ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+             0x00007fe47c7654b2: mov    %r10d,0x10(%rsp)
+             0x00007fe47c7654b7: mov    0x30(%rsp),%r10
+             0x00007fe47c7654bc: cmp    %rcx,%r10
+             0x00007fe47c7654bf: je     0x00007fe47c765a76  ;*if_acmpne {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - java.lang.String::equals@2 (line 1003)
+                                                           ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.06%      0x00007fe47c7654c5: test   %rcx,%rcx
+             0x00007fe47c7654c8: je     0x00007fe47c765c03  ;*instanceof {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - java.lang.String::equals@8 (line 1006)
+                                                           ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+             0x00007fe47c7654ce: movsbl 0x1c(%rcx),%r10d   ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - java.lang.String::coder@7 (line 3258)
+                                                           ; - java.lang.String::equals@24 (line 1008)
+                                                           ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+             0x00007fe47c7654d3: cmp    %r10d,%r9d
+             0x00007fe47c7654d6: jne    0x00007fe47c765942  ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - java.lang.String::equals@27 (line 1008)
+                                                           ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.01%      0x00007fe47c7654dc: test   %r9d,%r9d
+             0x00007fe47c7654df: jne    0x00007fe47c765992  ;*ifne {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - java.lang.String::isLatin1@10 (line 3266)
+                                                           ; - java.lang.String::equals@31 (line 1009)
+                                                           ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.94%      0x00007fe47c7654e5: mov    0x10(%rcx),%rsi    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.02%      0x00007fe47c7654e9: test   %rsi,0x20(%r15)
+             0x00007fe47c7654ed: jne    0x00007fe47c765c11  ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - java.lang.String::equals@42 (line 1009)
+                                                           ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+                                                           ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                           ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+             0x00007fe47c7654f3: mov    0x10(%rsi),%r10d
+  0.01%      0x00007fe47c7654f7: mov    0x10(%rsp),%r11d
+  0.78%      0x00007fe47c7654fc: cmp    %r10d,%r11d
+             0x00007fe47c7654ff: jne    0x00007fe47c765c0a
+             0x00007fe47c765505: add    $0x18,%rsi
+             0x00007fe47c765509: mov    0x8(%rsp),%rdi
+             0x00007fe47c76550e: mov    %r11d,%ecx
+             0x00007fe47c765511: test   %ecx,%ecx
+             0x00007fe47c765513: je     0x00007fe47c7655bc
+             0x00007fe47c765519: mov    %ecx,%eax
+             0x00007fe47c76551b: and    $0x1f,%eax
+             0x00007fe47c76551e: and    $0xffffffe0,%ecx
+             0x00007fe47c765521: je     0x00007fe47c765572
+....................................................................................................
+ 10.01%  <total for region 3>
+
+....[Hottest Regions]...............................................................................
+ 39.77%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 (223 bytes) 
+ 20.41%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 (240 bytes) 
+ 10.01%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 (192 bytes) 
+  7.25%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 (94 bytes) 
+  6.71%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 (140 bytes) 
+  5.87%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 497 (55 bytes) 
+  4.04%   [kernel.kallsyms]  [unknown] (5 bytes) 
+  1.16%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 (2 bytes) 
+  1.08%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 (0 bytes) 
+  0.53%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 (28 bytes) 
+  0.52%   [kernel.kallsyms]  [unknown] (68 bytes) 
+  0.12%   [kernel.kallsyms]  [unknown] (39 bytes) 
+  0.09%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.07%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable (54 bytes) 
+  0.06%   [kernel.kallsyms]  [unknown] (2 bytes) 
+  0.06%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.05%   [kernel.kallsyms]  [unknown] (11 bytes) 
+  0.05%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.05%   [kernel.kallsyms]  [unknown] (43 bytes) 
+  0.05%   [kernel.kallsyms]  [unknown] (1 bytes) 
+  2.07%  <...other 172 warm regions...>
+....................................................................................................
+100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 86.96%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 523 
+  6.24%   [kernel.kallsyms]  [unknown] 
+  5.87%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 497 
+  0.07%           libjvm.so  _ZN5ZMark15try_mark_objectEP10ZMarkCachemb 
+  0.07%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable 
+  0.05%        libc-2.23.so  vfprintf 
+  0.05%           libjvm.so  _ZN5ZPage21relocate_object_innerEmm 
+  0.04%           libjvm.so  _ZN9xmlStream10write_textEPKcm.part.15 
+  0.03%          ld-2.23.so  __tls_get_addr 
+  0.03%           libjvm.so  _ZN8ZBarrier29mark_barrier_on_oop_slow_pathEm 
+  0.03%           libjvm.so  _ZN5ZMark20work_without_timeoutEP10ZMarkCacheP11ZMarkStripeP22ZMarkThreadLocalStacks 
+  0.02%        libc-2.23.so  __memset_avx2 
+  0.02%  libpthread-2.23.so  __pthread_disable_asynccancel 
+  0.02%           libjvm.so  _ZN5ZHeap21select_relocation_setEv 
+  0.02%           libjvm.so  _ZN10fileStream5writeEPKcm 
+  0.02%           libjvm.so  _ZN7Monitor28lock_without_safepoint_checkEv 
+  0.02%           libjvm.so  _ZN12outputStream44do_vsnprintf_and_write_with_automatic_bufferEPKcP13__va_list_tagb 
+  0.02%        libc-2.23.so  __memmove_avx_unaligned 
+  0.02%           libjvm.so  _ZN17ThreadsListHandleD2Ev 
+  0.02%           libjvm.so  _ZN12outputStream15update_positionEPKcm 
+  0.41%  <...other 43 warm methods...>
+....................................................................................................
+100.00%  <totals>
+
+....[Distribution by Source]........................................................................
+ 92.83%         c2, level 4
+  6.24%   [kernel.kallsyms]
+  0.64%           libjvm.so
+  0.16%        libc-2.23.so
+  0.04%  libpthread-2.23.so
+  0.04%         interpreter
+  0.03%          ld-2.23.so
+  0.02%      hsdis-amd64.so
+  0.01%       libz.so.1.2.8
+....................................................................................................
+100.00%  <totals>
+
+
+
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseCondCardMark -XX:+UseZGC -mx1G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.CursoredScannerBenchmark.scan
+# Parameters: (scannerType = SCANNER1, size = 100, triggerName = trigger1)
+
+# Run progress: 25.00% complete, ETA 00:01:18
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 4.419 ops/us
+# Warmup Iteration   2: 5.081 ops/us
+# Warmup Iteration   3: 5.127 ops/us
+# Warmup Iteration   4: 5.001 ops/us
+# Warmup Iteration   5: 4.911 ops/us
+Iteration   1: 6.057 ops/us
+Iteration   2: 5.850 ops/us
+Iteration   3: 5.940 ops/us
+Iteration   4: 5.275 ops/us
+Iteration   5: 5.405 ops/us
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.openkappa.runtime.gc.CursoredScannerBenchmark.scan":
+  5.705 ±(99.9%) 1.327 ops/us [Average]
+  (min, avg, max) = (5.275, 5.705, 6.057), stdev = 0.345
+  CI (99.9%): [4.378, 7.033] (assumes normal distribution)
+
+Secondary result "com.openkappa.runtime.gc.CursoredScannerBenchmark.scan:·asm":
+PrintAssembly processed: 153012 total address lines.
+Perf output processed (skipped 12.749 seconds):
+ Column 1: cycles (10534 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 (133 bytes) 
+
+               0x00007f7bc876798b: cmp    0x38(%rsp),%ebp
+               0x00007f7bc876798f: mov    0x38(%rsp),%r10d
+               0x00007f7bc8767994: cmovg  %r10d,%ebp
+  0.20%        0x00007f7bc8767998: cmp    $0x2,%ebp
+               0x00007f7bc876799b: jle    0x00007f7bc8767b43
+               0x00007f7bc87679a1: cmp    $0x2,%r10d
+               0x00007f7bc87679a5: jbe    0x00007f7bc8768259
+               0x00007f7bc87679ab: mov    0x14(%rsp),%r10d
+               0x00007f7bc87679b0: cmp    $0x2,%r10d
+               0x00007f7bc87679b4: jbe    0x00007f7bc876825b
+  0.18%        0x00007f7bc87679ba: mov    $0x2,%r8d
+         ╭     0x00007f7bc87679c0: jmp    0x00007f7bc87679ec
+  9.85%  │  ↗  0x00007f7bc87679c2: movb   $0x0,0x18(%rdx)
+  6.58%  │╭ │  0x00007f7bc87679c6: jmp    0x00007f7bc87679e0
+  0.09%  ││↗│  0x00007f7bc87679c8: movb   $0x1,0x18(%rdx)    ;*putfield atCursor {reexecute=0 rethrow=0 return_oop=0}
+         ││││                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@9 (line 16)
+         ││││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+         ││││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.42%  ││││  0x00007f7bc87679cc: mov    0x18(%rsp),%r10
+  0.09%  ││││  0x00007f7bc87679d1: mov    0x18(%r10,%r8,8),%r10  ;*laload {reexecute=0 rethrow=0 return_oop=0}
+         ││││                                                ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getValue@5 (line 46)
+         ││││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@38 (line 17)
+         ││││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.19%  ││││  0x00007f7bc87679d6: mov    %r10,0x10(%rdx)    ;*putfield cursor {reexecute=0 rethrow=0 return_oop=0}
+         ││││                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeLong@9 (line 22)
+         ││││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+         ││││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.05%  ││││  0x00007f7bc87679da: nopw   0x0(%rax,%rax,1)   ;*aload_2 {reexecute=0 rethrow=0 return_oop=0}
+         ││││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@22 (line 16)
+         ││││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+ 10.03%  │↘││  0x00007f7bc87679e0: inc    %r8d               ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+         │ ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@46 (line 15)
+         │ ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.08%  │ ││  0x00007f7bc87679e3: cmp    %ebp,%r8d
+         │ ││  0x00007f7bc87679e6: jge    0x00007f7bc8767b4e
+  0.01%  ↘ ││  0x00007f7bc87679ec: mov    0x18(%r14,%r8,8),%rcx  ;*goto {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  5.92%    ││  0x00007f7bc87679f1: test   %rcx,0x20(%r15)
+  0.01%    ││  0x00007f7bc87679f5: jne    0x00007f7bc8767b1d  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getName@5 (line 42)
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@26 (line 16)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+ 10.44%    ││  0x00007f7bc87679fb: mov    0x30(%rsp),%r13
+  0.14%    ││  0x00007f7bc8767a00: cmp    %rcx,%r13
+           ╰│  0x00007f7bc8767a03: je     0x00007f7bc87679c8  ;*if_acmpne {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::equals@2 (line 1003)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.05%     │  0x00007f7bc8767a05: test   %rcx,%rcx
+            │  0x00007f7bc8767a08: je     0x00007f7bc8767b2c  ;*instanceof {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::equals@8 (line 1006)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  6.08%     │  0x00007f7bc8767a0e: movsbl 0x1c(%rcx),%r10d   ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::coder@7 (line 3258)
+            │                                                ; - java.lang.String::equals@24 (line 1008)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  9.75%     │  0x00007f7bc8767a13: cmp    %r10d,%r9d
+            │  0x00007f7bc8767a16: jne    0x00007f7bc8767ce1  ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::equals@27 (line 1008)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.33%     │  0x00007f7bc8767a1c: test   %r9d,%r9d
+            │  0x00007f7bc8767a1f: jne    0x00007f7bc8767d31  ;*ifne {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::isLatin1@10 (line 3266)
+            │                                                ; - java.lang.String::equals@31 (line 1009)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.02%     │  0x00007f7bc8767a25: mov    0x10(%rcx),%rsi    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  6.08%     │  0x00007f7bc8767a29: test   %rsi,0x20(%r15)
+            │  0x00007f7bc8767a2d: jne    0x00007f7bc8767b35  ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::equals@42 (line 1009)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner1::writeName@6 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  9.78%     │  0x00007f7bc8767a33: mov    0x10(%rsi),%r11d
+  4.10%     │  0x00007f7bc8767a37: mov    0x10(%rsp),%r10d
+  0.01%     │  0x00007f7bc8767a3c: cmp    %r11d,%r10d
+  0.01%     ╰  0x00007f7bc8767a3f: jne    0x00007f7bc87679c2
+               0x00007f7bc8767a45: add    $0x18,%rsi
+               0x00007f7bc8767a49: mov    0x8(%rsp),%rdi
+               0x00007f7bc8767a4e: mov    %r10d,%ecx
+               0x00007f7bc8767a51: test   %ecx,%ecx
+               0x00007f7bc8767a53: je     0x00007f7bc8767afc
+               0x00007f7bc8767a59: mov    %ecx,%eax
+               0x00007f7bc8767a5b: and    $0x1f,%eax
+               0x00007f7bc8767a5e: and    $0xffffffe0,%ecx
+               0x00007f7bc8767a61: je     0x00007f7bc8767ab2
+               0x00007f7bc8767a67: lea    (%rdi,%rcx,1),%rdi
+....................................................................................................
+ 80.28%  <total for region 1>
+
+....[Hottest Regions]...............................................................................
+ 80.28%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 (133 bytes) 
+  4.53%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 (237 bytes) 
+  3.73%   [kernel.kallsyms]  [unknown] (5 bytes) 
+  2.28%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 (11 bytes) 
+  1.68%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 (91 bytes) 
+  1.40%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 (95 bytes) 
+  1.39%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 (192 bytes) 
+  0.90%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 505 (55 bytes) 
+  0.80%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 (59 bytes) 
+  0.22%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 (0 bytes) 
+  0.19%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 (11 bytes) 
+  0.16%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 (0 bytes) 
+  0.14%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.12%   [kernel.kallsyms]  [unknown] (39 bytes) 
+  0.11%   [kernel.kallsyms]  [unknown] (1 bytes) 
+  0.08%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable (52 bytes) 
+  0.07%           libjvm.so  _ZN5ZHeap21select_relocation_setEv (18 bytes) 
+  0.05%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.03%   [kernel.kallsyms]  [unknown] (1 bytes) 
+  0.03%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  1.80%  <...other 157 warm regions...>
+....................................................................................................
+ 99.99%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 92.93%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 537 
+  5.39%   [kernel.kallsyms]  [unknown] 
+  0.90%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 505 
+  0.08%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable 
+  0.07%           libjvm.so  _ZN5ZHeap21select_relocation_setEv 
+  0.03%           libjvm.so  _ZN8ZBarrier29mark_barrier_on_oop_slow_pathEm 
+  0.03%           libjvm.so  _ZN10fileStream5writeEPKcm 
+  0.03%           libjvm.so  _ZN5ZMark15try_mark_objectEP10ZMarkCachemb 
+  0.02%        libc-2.23.so  vfprintf 
+  0.02%           libjvm.so  _ZN5ZPage21relocate_object_innerEmm 
+  0.02%           libjvm.so  _ZN7Monitor28lock_without_safepoint_checkEv 
+  0.02%        libc-2.23.so  __strchrnul 
+  0.02%           libjvm.so  _ZN9CodeCache9find_blobEPv 
+  0.02%         interpreter  method entry point (kind = zerolocals)  
+  0.02%           libjvm.so  _ZN22VM_HandshakeAllThreads4doitEv 
+  0.01%        libc-2.23.so  __memset_avx2 
+  0.01%         interpreter  invoke return entry points  
+  0.01%           libjvm.so  _ZN12ConstantPool21impl_signature_ref_atEib 
+  0.01%           libjvm.so  _ZNK16ZObjectAllocator9remainingEv 
+  0.01%           libjvm.so  _ZN2os17elapsed_frequencyEv 
+  0.36%  <...other 38 warm methods...>
+....................................................................................................
+ 99.99%  <totals>
+
+....[Distribution by Source]........................................................................
+ 93.83%         c2, level 4
+  5.39%   [kernel.kallsyms]
+  0.60%           libjvm.so
+  0.09%        libc-2.23.so
+  0.04%         interpreter
+  0.02%      hsdis-amd64.so
+  0.02%  libpthread-2.23.so
+  0.01%       libdl-2.23.so
+....................................................................................................
+ 99.99%  <totals>
+
+
+
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseCondCardMark -XX:+UseZGC -mx1G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.CursoredScannerBenchmark.scan
+# Parameters: (scannerType = SCANNER2, size = 10, triggerName = trigger1)
+
+# Run progress: 50.00% complete, ETA 00:00:50
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 28.775 ops/us
+# Warmup Iteration   2: 31.082 ops/us
+# Warmup Iteration   3: 37.583 ops/us
+# Warmup Iteration   4: 38.750 ops/us
+# Warmup Iteration   5: 38.658 ops/us
+Iteration   1: 38.127 ops/us
+Iteration   2: 37.526 ops/us
+Iteration   3: 36.298 ops/us
+Iteration   4: 38.157 ops/us
+Iteration   5: 39.110 ops/us
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.openkappa.runtime.gc.CursoredScannerBenchmark.scan":
+  37.844 ±(99.9%) 3.980 ops/us [Average]
+  (min, avg, max) = (36.298, 37.844, 39.110), stdev = 1.034
+  CI (99.9%): [33.864, 41.824] (assumes normal distribution)
+
+Secondary result "com.openkappa.runtime.gc.CursoredScannerBenchmark.scan:·asm":
+PrintAssembly processed: 148388 total address lines.
+Perf output processed (skipped 12.520 seconds):
+ Column 1: cycles (10526 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (229 bytes) 
+
+               0x00007f0130765048: vpxor  %ymm1,%ymm1,%ymm1  ;*invokestatic equals {reexecute=0 rethrow=0 return_oop=0}
+                                                             ; - java.lang.String::equals@45 (line 1009)
+                                                             ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+                                                             ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                             ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+               0x00007f013076504c: test   %eax,%eax
+               0x00007f013076504e: jne    0x00007f0130764c10  ;*return {reexecute=0 rethrow=0 return_oop=0}
+                                                             ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@19 (line 23)
+                                                             ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                             ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.32%        0x00007f0130765054: cmp    $0x2,%r11d
+               0x00007f0130765058: jle    0x00007f0130764c2c  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                             ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@19 (line 15)
+                                                             ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.36%        0x00007f013076505e: mov    %r11d,%r9d
+  0.37%        0x00007f0130765061: dec    %r9d
+  0.15%        0x00007f0130765064: cmp    %r8d,%r9d
+  0.26%        0x00007f0130765067: cmovg  %r8d,%r9d
+  0.34%        0x00007f013076506b: cmp    $0x2,%r9d
+               0x00007f013076506f: jle    0x00007f013076524d
+  0.34%        0x00007f0130765075: cmp    $0x2,%r11d
+               0x00007f0130765079: jbe    0x00007f0130765812
+  0.09%        0x00007f013076507f: cmp    $0x2,%r8d
+               0x00007f0130765083: jbe    0x00007f0130765814
+  0.29%        0x00007f0130765089: mov    $0x2,%r10d
+  0.29%  ╭     0x00007f013076508f: jmp    0x00007f01307650cc
+  1.97%  │  ↗  0x00007f0130765091: mov    %r13d,%r11d
+  1.52%  │  │  0x00007f0130765094: mov    %rdx,%r13
+  1.59%  │  │  0x00007f0130765097: vmovd  %xmm0,%r8d
+  1.70%  │  │  0x00007f013076509c: vmovq  %xmm1,%rdx
+  2.19%  │╭ │  0x00007f01307650a1: jmp    0x00007f01307650c0
+         ││ │  0x00007f01307650a3: nopw   0x0(%rax,%rax,1)
+         ││ │  0x00007f01307650ac: data16 data16 xchg %ax,%ax
+         ││ │  0x00007f01307650b0: mov    %r13d,%r11d
+         ││ │  0x00007f01307650b3: mov    %rdx,%r13
+         ││ │  0x00007f01307650b6: vmovd  %xmm0,%r8d
+         ││ │  0x00007f01307650bb: vmovq  %xmm1,%rdx         ;*return {reexecute=0 rethrow=0 return_oop=0}
+         ││ │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@19 (line 23)
+         ││ │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+         ││ │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.96%  │↘↗│  0x00007f01307650c0: inc    %r10d              ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+         │ ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@46 (line 15)
+         │ ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.69%  │ ││  0x00007f01307650c3: cmp    %r9d,%r10d
+         │ ││  0x00007f01307650c6: jge    0x00007f0130765253
+  1.95%  ↘ ││  0x00007f01307650cc: mov    0x8(%rsp),%rbp
+  1.88%    ││  0x00007f01307650d1: mov    0x18(%rbp,%r10,8),%rcx  ;*goto {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.98%    ││  0x00007f01307650d6: test   %rcx,0x20(%r15)
+           ││  0x00007f01307650da: jne    0x00007f0130765230  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getName@5 (line 42)
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@26 (line 16)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.83%    ││  0x00007f01307650e0: mov    0x10(%rsp),%rbp
+  2.02%    ││  0x00007f01307650e5: mov    %rcx,0x20(%rbp)    ;*putfield current {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeName@2 (line 15)
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.57%    ││  0x00007f01307650e9: mov    0x18(%r13,%r10,8),%rbp  ;*laload {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getValue@5 (line 46)
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@38 (line 17)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  2.00%    ││  0x00007f01307650ee: cmp    %rcx,%rdx
+           ││  0x00007f01307650f1: je     0x00007f0130765222  ;*if_acmpne {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - java.lang.String::equals@2 (line 1003)
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.95%    ││  0x00007f01307650f7: test   %rcx,%rcx
+           ╰│  0x00007f01307650fa: je     0x00007f01307650c0  ;*instanceof {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::equals@8 (line 1006)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.95%     │  0x00007f01307650fc: movsbl 0x1c(%rcx),%ebx    ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::coder@7 (line 3258)
+            │                                                ; - java.lang.String::equals@24 (line 1008)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.89%     │  0x00007f0130765100: cmp    %ebx,%r14d
+            │  0x00007f0130765103: jne    0x00007f01307653c8  ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::equals@27 (line 1008)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.88%     │  0x00007f0130765109: test   %r14d,%r14d
+            │  0x00007f013076510c: jne    0x00007f01307653fd  ;*ifne {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::isLatin1@10 (line 3266)
+            │                                                ; - java.lang.String::equals@31 (line 1009)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.72%     │  0x00007f0130765112: mov    0x10(%rcx),%rsi    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.81%     │  0x00007f0130765116: test   %rsi,0x20(%r15)
+            │  0x00007f013076511a: jne    0x00007f013076523f  ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::equals@42 (line 1009)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.43%     │  0x00007f0130765120: vmovq  %rdx,%xmm1
+  1.88%     │  0x00007f0130765125: vmovd  %r8d,%xmm0
+  1.64%     │  0x00007f013076512a: mov    %r13,%rdx
+  2.03%     │  0x00007f013076512d: mov    %r11d,%r13d
+  1.49%     │  0x00007f0130765130: mov    0x10(%rsi),%r11d
+  1.64%     │  0x00007f0130765134: mov    0x70(%rsp),%r8d
+  1.87%     │  0x00007f0130765139: cmp    %r11d,%r8d
+            ╰  0x00007f013076513c: jne    0x00007f0130765091
+               0x00007f0130765142: add    $0x18,%rsi
+               0x00007f0130765146: mov    0x78(%rsp),%rdi
+               0x00007f013076514b: mov    %r8d,%ecx
+               0x00007f013076514e: test   %ecx,%ecx
+               0x00007f0130765150: je     0x00007f01307651f9
+               0x00007f0130765156: mov    %ecx,%eax
+               0x00007f0130765158: and    $0x1f,%eax
+               0x00007f013076515b: and    $0xffffffe0,%ecx   ;   {no_reloc}
+               0x00007f013076515e: je     0x00007f01307651af
+....................................................................................................
+ 51.86%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (284 bytes) 
+
+                                                         ;   {optimized virtual_call}
+           0x00007f0130764cd0: mov    0x30(%rsp),%r11
+           0x00007f0130764cd5: movzbl 0x9c(%r11),%r8d    ;*getfield isDone {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@32 (line 163)
+                                                         ; implicit exception: dispatches to 0x00007f0130765a62
+           0x00007f0130764cdd: test   %r8d,%r8d
+           0x00007f0130764ce0: jne    0x00007f0130765816  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@35 (line 163)
+           0x00007f0130764ce6: mov    $0x1,%ebp          ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@38 (line 164)
+  0.28%    0x00007f0130764ceb: mov    0x80(%rsp),%r10
+           0x00007f0130764cf3: mov    0x28(%r10),%r8     ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.81%    0x00007f0130764cf7: test   %r8,0x20(%r15)
+           0x00007f0130764cfb: jne    0x00007f013076552e  ;*getfield cursoredScanner {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@1 (line 13)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007f0130764d01: mov    0x30(%r10),%r10    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.18%    0x00007f0130764d05: test   %r10,0x20(%r15)
+           0x00007f0130764d09: jne    0x00007f013076553c  ;*getfield data {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@6 (line 14)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007f0130764d0f: mov    0x10(%r10),%r9     ;*getfield names {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerState$Data::size@1 (line 38)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@16 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+                                                         ; implicit exception: dispatches to 0x00007f013076596d
+  0.92%    0x00007f0130764d13: mov    %r9,0x8(%rsp)      ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.04%    0x00007f0130764d18: test   %r9,0x20(%r15)
+           0x00007f0130764d1c: jne    0x00007f0130765552  ;*getfield names {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerState$Data::size@1 (line 38)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@16 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.18%    0x00007f0130764d22: mov    0x8(%rsp),%r9
+  0.67%    0x00007f0130764d27: mov    0x10(%r9),%r9d     ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerState$Data::size@4 (line 38)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@16 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+                                                         ; implicit exception: dispatches to 0x00007f013076597e
+  4.86%    0x00007f0130764d2b: test   %r9d,%r9d
+           0x00007f0130764d2e: jbe    0x00007f0130764c3a  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@19 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.17%    0x00007f0130764d34: mov    0x18(%r10),%r13    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007f0130764d38: test   %r13,0x20(%r15)
+           0x00007f0130764d3c: jne    0x00007f0130765565  ;*getfield values {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getValue@1 (line 46)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@38 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007f0130764d42: mov    0x8(%rsp),%rcx
+           0x00007f0130764d47: mov    0x18(%rcx),%rcx    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.11%    0x00007f0130764d4b: test   %rcx,0x20(%r15)
+           0x00007f0130764d4f: jne    0x00007f0130765573  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getName@5 (line 42)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@26 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007f0130764d55: mov    0x8(%r8),%rbx      ; implicit exception: dispatches to 0x00007f013076598e
+           0x00007f0130764d59: mov    %r10,0x48(%rsp)
+           0x00007f0130764d5e: movabs $0x7f011093ce20,%r10  ;   {metadata(&apos;com/openkappa/runtime/gc/CursoredScanner2&apos;)}
+  0.97%    0x00007f0130764d68: cmp    %r10,%rbx
+           0x00007f0130764d6b: jne    0x00007f01307657d6
+           0x00007f0130764d71: mov    %r8,%r10           ;*invokeinterface writeName {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007f0130764d74: mov    %r10,0x10(%rsp)
+           0x00007f0130764d79: mov    %rcx,0x20(%r10)    ;*putfield current {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner2::writeName@2 (line 15)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.00%    0x00007f0130764d7d: mov    0x10(%r13),%r10d   ;*laload {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getValue@5 (line 46)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@38 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+                                                         ; implicit exception: dispatches to 0x00007f01307659a2
+  0.02%    0x00007f0130764d81: mov    %r10d,0x70(%rsp)
+           0x00007f0130764d86: test   %r10d,%r10d
+           0x00007f0130764d89: jbe    0x00007f013076580a
+           0x00007f0130764d8f: mov    0x10(%rsp),%r10
+  0.99%    0x00007f0130764d94: mov    0x18(%r10),%rdx    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.04%    0x00007f0130764d98: test   %rdx,0x20(%r15)
+           0x00007f0130764d9c: jne    0x00007f0130765586  ;*getfield trigger {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@1 (line 20)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007f0130764da2: mov    0x10(%rdx),%r10    ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@38 (line 1009)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+                                                         ; implicit exception: dispatches to 0x00007f01307659b2
+  0.13%    0x00007f0130764da6: mov    %r8,(%rsp)
+  0.75%    0x00007f0130764daa: mov    %rbp,0x38(%rsp)
+  0.01%    0x00007f0130764daf: mov    %r11,0x30(%rsp)
+           0x00007f0130764db4: movsbl 0x1c(%rdx),%r14d   ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::coder@7 (line 3258)
+                                                         ; - java.lang.String::equals@20 (line 1008)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.10%    0x00007f0130764db9: mov    0x18(%r13),%rbp    ;*laload {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getValue@5 (line 46)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@38 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.96%    0x00007f0130764dbd: cmp    %rcx,%rdx
+           0x00007f0130764dc0: je     0x00007f0130764c1e  ;*if_acmpne {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@2 (line 1003)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007f0130764dc6: test   %rcx,%rcx
+           0x00007f0130764dc9: je     0x00007f0130764edc  ;*instanceof {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@8 (line 1006)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.06%    0x00007f0130764dcf: movsbl 0x1c(%rcx),%ebx    ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::coder@7 (line 3258)
+                                                         ; - java.lang.String::equals@24 (line 1008)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.83%    0x00007f0130764dd3: cmp    %ebx,%r14d
+           0x00007f0130764dd6: jne    0x00007f01307653c5  ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@27 (line 1008)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007f0130764ddc: test   %r14d,%r14d
+           0x00007f0130764ddf: jne    0x00007f01307653fa  ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007f0130764de5: test   %r10,0x20(%r15)
+           0x00007f0130764de9: jne    0x00007f0130765597
+  0.08%    0x00007f0130764def: mov    %r10,%rdi          ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@38 (line 1009)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.75%    0x00007f0130764df2: mov    0x10(%rcx),%rsi    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.01%    0x00007f0130764df6: test   %rsi,0x20(%r15)
+           0x00007f0130764dfa: jne    0x00007f01307655a5  ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+                                                         ; - java.lang.String::equals@42 (line 1009)
+                                                         ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+                                                         ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                         ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+           0x00007f0130764e00: mov    0x10(%rsi),%r11d
+  0.45%    0x00007f0130764e04: mov    0x10(%rdi),%ecx
+  0.56%    0x00007f0130764e07: cmp    %r11d,%ecx
+           0x00007f0130764e0a: jne    0x00007f0130764edc
+           0x00007f0130764e10: add    $0x18,%rsi
+           0x00007f0130764e14: add    $0x18,%rdi
+           0x00007f0130764e18: test   %ecx,%ecx
+           0x00007f0130764e1a: je     0x00007f0130764ec3
+           0x00007f0130764e20: mov    %ecx,%eax
+           0x00007f0130764e22: and    $0x1f,%eax
+           0x00007f0130764e25: and    $0xffffffe0,%ecx
+           0x00007f0130764e28: je     0x00007f0130764e79
+           0x00007f0130764e2e: lea    (%rdi,%rcx,1),%rdi
+....................................................................................................
+ 17.91%  <total for region 2>
+
+....[Hottest Regions]...............................................................................
+ 51.86%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (229 bytes) 
+ 17.91%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (284 bytes) 
+  6.94%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (114 bytes) 
+  6.70%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (140 bytes) 
+  6.37%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (159 bytes) 
+  4.09%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 496 (55 bytes) 
+  3.21%   [kernel.kallsyms]  [unknown] (5 bytes) 
+  0.23%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (9 bytes) 
+  0.13%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.10%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable (47 bytes) 
+  0.09%   [kernel.kallsyms]  [unknown] (2 bytes) 
+  0.08%           libjvm.so  _ZN5ZPage14forward_objectEm (15 bytes) 
+  0.07%   [kernel.kallsyms]  [unknown] (39 bytes) 
+  0.07%   [kernel.kallsyms]  [unknown] (27 bytes) 
+  0.07%           libjvm.so  _ZN10fileStream5writeEPKcm (22 bytes) 
+  0.06%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.05%   [kernel.kallsyms]  [unknown] (22 bytes) 
+  0.05%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (51 bytes) 
+  1.87%  <...other 159 warm regions...>
+....................................................................................................
+ 99.99%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 90.01%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 
+  4.74%   [kernel.kallsyms]  [unknown] 
+  4.09%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 496 
+  0.10%           libjvm.so  _ZN5ZMark15try_mark_objectEP10ZMarkCachemb 
+  0.10%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable 
+  0.09%           libjvm.so  _ZN5ZPage14forward_objectEm 
+  0.07%           libjvm.so  _ZN5ZPage21relocate_object_innerEmm 
+  0.07%           libjvm.so  _ZN10fileStream5writeEPKcm 
+  0.05%           libjvm.so  _ZN8ZBarrier29mark_barrier_on_oop_slow_pathEm 
+  0.04%           libjvm.so  _ZN5ZMark20work_without_timeoutEP10ZMarkCacheP11ZMarkStripeP22ZMarkThreadLocalStacks 
+  0.04%           libjvm.so  _ZN5ZHeap21select_relocation_setEv 
+  0.03%        libc-2.23.so  _IO_fwrite 
+  0.02%          ld-2.23.so  __tls_get_addr 
+  0.02%           libjvm.so  _ZN20ClassLoaderDataGraph19clear_claimed_marksEv 
+  0.02%           libjvm.so  _ZNK19ZReferenceProcessor34is_referent_strongly_alive_or_nullEP7oopDesc13ReferenceType 
+  0.02%           libjvm.so  _ZN16ZObjectAllocator30alloc_small_object_from_workerEm16ZAllocationFlags 
+  0.02%           libjvm.so  _ZN13RelocIterator10initializeEP14CompiledMethodPhS2_ 
+  0.02%           libjvm.so  _ZN17ThreadsListHandleC2EP6Thread 
+  0.02%  libpthread-2.23.so  [unknown] 
+  0.01%           libjvm.so  _ZN12CompileQueue3getEv 
+  0.46%  <...other 48 warm methods...>
+....................................................................................................
+ 99.99%  <totals>
+
+....[Distribution by Source]........................................................................
+ 94.09%         c2, level 4
+  4.74%   [kernel.kallsyms]
+  0.97%           libjvm.so
+  0.07%        libc-2.23.so
+  0.05%  libpthread-2.23.so
+  0.04%         interpreter
+  0.02%          ld-2.23.so
+  0.01%      hsdis-amd64.so
+  0.01%      perf-26881.map
+....................................................................................................
+ 99.99%  <totals>
+
+
+
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseCondCardMark -XX:+UseZGC -mx1G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.CursoredScannerBenchmark.scan
+# Parameters: (scannerType = SCANNER2, size = 100, triggerName = trigger1)
+
+# Run progress: 75.00% complete, ETA 00:00:24
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 3.620 ops/us
+# Warmup Iteration   2: 3.915 ops/us
+# Warmup Iteration   3: 4.743 ops/us
+# Warmup Iteration   4: 4.961 ops/us
+# Warmup Iteration   5: 4.714 ops/us
+Iteration   1: 4.622 ops/us
+Iteration   2: 4.798 ops/us
+Iteration   3: 4.716 ops/us
+Iteration   4: 4.772 ops/us
+Iteration   5: 4.846 ops/us
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.openkappa.runtime.gc.CursoredScannerBenchmark.scan":
+  4.751 ±(99.9%) 0.330 ops/us [Average]
+  (min, avg, max) = (4.622, 4.751, 4.846), stdev = 0.086
+  CI (99.9%): [4.420, 5.081] (assumes normal distribution)
+
+Secondary result "com.openkappa.runtime.gc.CursoredScannerBenchmark.scan:·asm":
+PrintAssembly processed: 155149 total address lines.
+Perf output processed (skipped 12.454 seconds):
+ Column 1: cycles (10563 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (200 bytes) 
+
+               0x00007fa3d476545f: vpxor  %ymm1,%ymm1,%ymm1  ;*invokestatic equals {reexecute=0 rethrow=0 return_oop=0}
+                                                             ; - java.lang.String::equals@45 (line 1009)
+                                                             ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+                                                             ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                             ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+               0x00007fa3d4765463: test   %eax,%eax
+               0x00007fa3d4765465: jne    0x00007fa3d4765902  ;*return {reexecute=0 rethrow=0 return_oop=0}
+                                                             ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@19 (line 23)
+                                                             ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+                                                             ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.03%        0x00007fa3d476546b: cmp    $0x2,%edx
+               0x00007fa3d476546e: jle    0x00007fa3d4765022  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+                                                             ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@19 (line 15)
+                                                             ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  0.08%        0x00007fa3d4765474: mov    %edx,%r8d
+               0x00007fa3d4765477: dec    %r8d
+               0x00007fa3d476547a: cmp    %ebp,%r8d
+  0.02%        0x00007fa3d476547d: cmovg  %ebp,%r8d
+  0.06%        0x00007fa3d4765481: cmp    $0x2,%r8d
+               0x00007fa3d4765485: jle    0x00007fa3d4765641
+               0x00007fa3d476548b: cmp    $0x2,%edx
+               0x00007fa3d476548e: jbe    0x00007fa3d4765cbf
+               0x00007fa3d4765494: cmp    $0x2,%ebp
+               0x00007fa3d4765497: jbe    0x00007fa3d4765cc1
+  0.02%        0x00007fa3d476549d: mov    $0x2,%r11d
+  0.07%  ╭     0x00007fa3d47654a3: jmp    0x00007fa3d47654c7
+  5.08%  │  ↗  0x00007fa3d47654a5: mov    %rbp,%r10
+  1.21%  │  │  0x00007fa3d47654a8: vmovd  %xmm0,%ebp
+  4.79%  │  │  0x00007fa3d47654ac: mov    %r14,%r9
+  1.04%  │╭ │  0x00007fa3d47654af: jmp    0x00007fa3d47654bb
+         ││ │  0x00007fa3d47654b1: mov    %rbp,%r10
+         ││ │  0x00007fa3d47654b4: vmovd  %xmm0,%ebp
+         ││ │  0x00007fa3d47654b8: mov    %r14,%r9           ;*return {reexecute=0 rethrow=0 return_oop=0}
+         ││ │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@19 (line 23)
+         ││ │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+         ││ │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  5.05%  │↘↗│  0x00007fa3d47654bb: inc    %r11d              ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+         │ ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@46 (line 15)
+         │ ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.27%  │ ││  0x00007fa3d47654be: cmp    %r8d,%r11d
+         │ ││  0x00007fa3d47654c1: jge    0x00007fa3d4765647
+  5.05%  ↘ ││  0x00007fa3d47654c7: mov    0x8(%rsp),%r13
+  1.35%    ││  0x00007fa3d47654cc: mov    0x18(%r13,%r11,8),%rcx  ;*goto {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  5.00%    ││  0x00007fa3d47654d1: test   %rcx,0x20(%r15)
+           ││  0x00007fa3d47654d5: jne    0x00007fa3d4765624  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getName@5 (line 42)
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@26 (line 16)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.51%    ││  0x00007fa3d47654db: mov    0x10(%rsp),%r13
+  4.77%    ││  0x00007fa3d47654e0: mov    %rcx,0x20(%r13)    ;*putfield current {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeName@2 (line 15)
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@29 (line 16)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.47%    ││  0x00007fa3d47654e4: mov    0x18(%r10,%r11,8),%r13  ;*laload {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerState$Data::getValue@5 (line 46)
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@38 (line 17)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  5.82%    ││  0x00007fa3d47654e9: cmp    %rcx,%r9
+           ││  0x00007fa3d47654ec: je     0x00007fa3d4765616  ;*if_acmpne {reexecute=0 rethrow=0 return_oop=0}
+           ││                                                ; - java.lang.String::equals@2 (line 1003)
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+           ││                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+           ││                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.39%    ││  0x00007fa3d47654f2: test   %rcx,%rcx
+           ╰│  0x00007fa3d47654f5: je     0x00007fa3d47654bb  ;*instanceof {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::equals@8 (line 1006)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  4.81%     │  0x00007fa3d47654f7: movsbl 0x1c(%rcx),%ebx    ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::coder@7 (line 3258)
+            │                                                ; - java.lang.String::equals@24 (line 1008)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.60%     │  0x00007fa3d47654fb: mov    0x18(%rsp),%r14d
+  5.29%     │  0x00007fa3d4765500: cmp    %ebx,%r14d
+            │  0x00007fa3d4765503: jne    0x00007fa3d47657c1  ;*if_icmpne {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::equals@27 (line 1008)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.56%     │  0x00007fa3d4765509: test   %r14d,%r14d
+            │  0x00007fa3d476550c: jne    0x00007fa3d4765801  ;*ifne {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::isLatin1@10 (line 3266)
+            │                                                ; - java.lang.String::equals@31 (line 1009)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  4.75%     │  0x00007fa3d4765512: mov    0x10(%rcx),%rsi    ;*goto {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@49 (line 15)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  1.24%     │  0x00007fa3d4765516: test   %rsi,0x20(%r15)
+            │  0x00007fa3d476551a: jne    0x00007fa3d4765633  ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
+            │                                                ; - java.lang.String::equals@42 (line 1009)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScanner2::writeLong@8 (line 20)
+            │                                                ; - com.openkappa.runtime.gc.CursoredScannerBenchmark::scan@41 (line 17)
+            │                                                ; - com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub@19 (line 161)
+  5.31%     │  0x00007fa3d4765520: mov    %r9,%r14
+  1.18%     │  0x00007fa3d4765523: vmovd  %ebp,%xmm0
+  4.89%     │  0x00007fa3d4765527: mov    %r10,%rbp
+  1.26%     │  0x00007fa3d476552a: mov    0x10(%rsi),%r10d
+  6.39%     │  0x00007fa3d476552e: mov    0x70(%rsp),%r9d
+  1.27%     │  0x00007fa3d4765533: cmp    %r10d,%r9d
+            ╰  0x00007fa3d4765536: jne    0x00007fa3d47654a5
+               0x00007fa3d476553c: add    $0x18,%rsi
+               0x00007fa3d4765540: mov    0x78(%rsp),%rdi
+               0x00007fa3d4765545: mov    %r9d,%ecx
+               0x00007fa3d4765548: test   %ecx,%ecx
+               0x00007fa3d476554a: je     0x00007fa3d47655f3
+               0x00007fa3d4765550: mov    %ecx,%eax
+               0x00007fa3d4765552: and    $0x1f,%eax
+               0x00007fa3d4765555: and    $0xffffffe0,%ecx
+               0x00007fa3d4765558: je     0x00007fa3d47655a9  ;   {no_reloc}
+....................................................................................................
+ 84.64%  <total for region 1>
+
+....[Hottest Regions]...............................................................................
+ 84.64%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (200 bytes) 
+  3.61%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (313 bytes) 
+  2.79%   [kernel.kallsyms]  [unknown] (5 bytes) 
+  1.89%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (148 bytes) 
+  1.47%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (9 bytes) 
+  0.97%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (126 bytes) 
+  0.73%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (92 bytes) 
+  0.53%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 499 (55 bytes) 
+  0.19%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 (0 bytes) 
+  0.13%   [kernel.kallsyms]  [unknown] (42 bytes) 
+  0.11%   [kernel.kallsyms]  [unknown] (1 bytes) 
+  0.10%   [kernel.kallsyms]  [unknown] (24 bytes) 
+  0.10%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable (49 bytes) 
+  0.09%   [kernel.kallsyms]  [unknown] (37 bytes) 
+  0.07%   [kernel.kallsyms]  [unknown] (15 bytes) 
+  0.06%           libjvm.so  _ZN5ZPage14forward_objectEm (15 bytes) 
+  0.05%   [kernel.kallsyms]  [unknown] (23 bytes) 
+  0.05%           libjvm.so  _ZN5ZHeap21select_relocation_setEv (18 bytes) 
+  0.05%           libjvm.so  _ZN21OopOopIterateDispatchI22ZMarkBarrierOopClosureILb0EEE5Table15oop_oop_iterateI13InstanceKlassP7oopDescEEvPS1_S7_P5Klass (5 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (30 bytes) 
+  2.34%  <...other 189 warm regions...>
+....................................................................................................
+100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 93.49%         c2, level 4  com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jmhTest::scan_thrpt_jmhStub, version 527 
+  4.66%   [kernel.kallsyms]  [unknown] 
+  0.53%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 499 
+  0.10%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable 
+  0.08%           libjvm.so  _ZN5ZMark15try_mark_objectEP10ZMarkCachemb 
+  0.06%           libjvm.so  _ZN5ZPage14forward_objectEm 
+  0.06%           libjvm.so  _ZN21OopOopIterateDispatchI22ZMarkBarrierOopClosureILb0EEE5Table15oop_oop_iterateI13InstanceKlassP7oopDescEEvPS1_S7_P5Klass 
+  0.05%           libjvm.so  _ZN8ZBarrier29mark_barrier_on_oop_slow_pathEm 
+  0.05%           libjvm.so  _ZN5ZHeap21select_relocation_setEv 
+  0.04%           libjvm.so  _ZN5ZPage21relocate_object_innerEmm 
+  0.04%  libpthread-2.23.so  pthread_cond_timedwait@@GLIBC_2.3.2 
+  0.04%           libjvm.so  _ZN17ThreadsListHandleC2EP6Thread 
+  0.04%           libjvm.so  _ZN7Monitor6unlockEv 
+  0.03%          ld-2.23.so  __tls_get_addr 
+  0.03%           libjvm.so  _ZN5ZMark20work_without_timeoutEP10ZMarkCacheP11ZMarkStripeP22ZMarkThreadLocalStacks 
+  0.03%           libjvm.so  _ZN13RelocIterator10initializeEP14CompiledMethodPhS2_ 
+  0.03%      hsdis-amd64.so  print_insn 
+  0.02%        libc-2.23.so  vfprintf 
+  0.02%           libjvm.so  _ZN16ZObjectAllocator27alloc_object_for_relocationEm 
+  0.02%           libjvm.so  _ZN7Monitor28lock_without_safepoint_checkEv 
+  0.62%  <...other 60 warm methods...>
+....................................................................................................
+100.00%  <totals>
+
+....[Distribution by Source]........................................................................
+ 94.02%         c2, level 4
+  4.66%   [kernel.kallsyms]
+  1.04%           libjvm.so
+  0.10%        libc-2.23.so
+  0.07%         interpreter
+  0.05%  libpthread-2.23.so
+  0.03%          ld-2.23.so
+  0.03%      hsdis-amd64.so
+  0.01%      perf-26938.map
+....................................................................................................
+100.00%  <totals>
+
+
+
+# Run complete. Total time: 00:01:37
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                           (scannerType)  (size)  (triggerName)   Mode  Cnt   Score   Error   Units
+CursoredScannerBenchmark.scan            SCANNER1      10       trigger1  thrpt    5  39.571 ± 8.644  ops/us
+CursoredScannerBenchmark.scan:·asm       SCANNER1      10       trigger1  thrpt          NaN             ---
+CursoredScannerBenchmark.scan            SCANNER1     100       trigger1  thrpt    5   5.705 ± 1.327  ops/us
+CursoredScannerBenchmark.scan:·asm       SCANNER1     100       trigger1  thrpt          NaN             ---
+CursoredScannerBenchmark.scan            SCANNER2      10       trigger1  thrpt    5  37.844 ± 3.980  ops/us
+CursoredScannerBenchmark.scan:·asm       SCANNER2      10       trigger1  thrpt          NaN             ---
+CursoredScannerBenchmark.scan            SCANNER2     100       trigger1  thrpt    5   4.751 ± 0.330  ops/us
+CursoredScannerBenchmark.scan:·asm       SCANNER2     100       trigger1  thrpt          NaN             ---
