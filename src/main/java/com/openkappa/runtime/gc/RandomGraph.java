@@ -2,8 +2,9 @@ package com.openkappa.runtime.gc;
 
 import org.openjdk.jmh.annotations.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
@@ -12,22 +13,29 @@ public class RandomGraph {
 
   public static class Node {
 
-    private final List<Node> links = new ArrayList<>();
+    private final int id;
+
+    private final Node[] links;
+
+    public Node(int id, int total) {
+      this.id = id;
+      this.links = new Node[total];
+    }
 
     public void link(Node node) {
-      links.add(node);
+      links[node.id] = node;
     }
 
     public void unlink(Node node) {
-      links.remove(node);
+      links[node.id] = null;
     }
   }
 
   @State(Scope.Benchmark)
   public static class Nodes {
-    @Param({"10000"})
+    @Param({"10", "100"})
     int rows;
-    @Param({"3"})
+    @Param({"10", "100"})
     int columns;
     @Param({"65536"})
     int period;
@@ -35,12 +43,12 @@ public class RandomGraph {
     private Node[][] nodes;
     private int[][] transitions;
 
-    @Setup(Level.Iteration)
+    @Setup(Level.Trial)
     public void setup() {
       nodes = new Node[columns][rows];
       for (int i = 0; i < columns; ++i) {
         for (int j = 0; j < rows; ++j) {
-          nodes[i][j] = new Node();
+          nodes[i][j] = new Node(i * rows + j, columns  * rows);
         }
       }
       transitions = new int[period][4];
@@ -76,5 +84,4 @@ public class RandomGraph {
     nodes.unlink();
     return nodes;
   }
-
 }

@@ -1,0 +1,521 @@
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -mx8G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 1 s each
+# Measurement: 100 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.RandomGraph.permute
+# Parameters: (columns = 10, period = 65536, rows = 10)
+
+# Run progress: 0.00% complete, ETA 01:07:00
+# Fork: 1 of 1
+# Warmup Iteration   1: 67.132 ops/us
+# Warmup Iteration   2: 66.357 ops/us
+# Warmup Iteration   3: 71.025 ops/us
+# Warmup Iteration   4: 73.630 ops/us
+# Warmup Iteration   5: 72.360 ops/us
+Iteration   1: 71.602 ops/us
+Iteration   2: 72.950 ops/us
+Iteration   3: 72.964 ops/us
+Iteration   4: 71.414 ops/us
+Iteration   5: 73.301 ops/us
+Iteration   6: 72.641 ops/us
+Iteration   7: 73.192 ops/us
+Iteration   8: 73.110 ops/us
+Iteration   9: 73.432 ops/us
+Iteration  10: 72.758 ops/us
+Iteration  11: 71.527 ops/us
+Iteration  12: 73.074 ops/us
+Iteration  13: 73.221 ops/us
+Iteration  14: 72.753 ops/us
+Iteration  15: 73.524 ops/us
+Iteration  16: 74.015 ops/us
+Iteration  17: 73.730 ops/us
+Iteration  18: 74.147 ops/us
+Iteration  19: 73.508 ops/us
+Iteration  20: 73.915 ops/us
+Iteration  21: 72.920 ops/us
+Iteration  22: 73.625 ops/us
+Iteration  23: 73.479 ops/us
+Iteration  24: 73.682 ops/us
+Iteration  25: 73.336 ops/us
+Iteration  26: 72.415 ops/us
+Iteration  27: 73.434 ops/us
+Iteration  28: 73.341 ops/us
+Iteration  29: 73.600 ops/us
+Iteration  30: 61.284 ops/us
+Iteration  31: 62.355 ops/us
+Iteration  32: 72.402 ops/us
+Iteration  33: 72.581 ops/us
+Iteration  34: 72.181 ops/us
+Iteration  35: 71.994 ops/us
+Iteration  36: 73.042 ops/us
+Iteration  37: 72.120 ops/us
+Iteration  38: 72.530 ops/us
+Iteration  39: 72.249 ops/us
+Iteration  40: 72.561 ops/us
+Iteration  41: 71.910 ops/us
+Iteration  42: 72.781 ops/us
+Iteration  43: 72.811 ops/us
+Iteration  44: 72.506 ops/us
+Iteration  45: 72.284 ops/us
+Iteration  46: 71.812 ops/us
+Iteration  47: 72.226 ops/us
+Iteration  48: 73.250 ops/us
+Iteration  49: 72.138 ops/us
+Iteration  50: 72.191 ops/us
+Iteration  51: 73.338 ops/us
+Iteration  52: 71.979 ops/us
+Iteration  53: 72.780 ops/us
+Iteration  54: 72.895 ops/us
+Iteration  55: 73.013 ops/us
+Iteration  56: 73.584 ops/us
+Iteration  57: 72.316 ops/us
+Iteration  58: 72.513 ops/us
+Iteration  59: 71.739 ops/us
+Iteration  60: 72.428 ops/us
+Iteration  61: 72.923 ops/us
+Iteration  62: 72.044 ops/us
+Iteration  63: 73.094 ops/us
+Iteration  64: 71.428 ops/us
+Iteration  65: 72.259 ops/us
+Iteration  66: 71.828 ops/us
+Iteration  67: 72.969 ops/us
+Iteration  68: 73.302 ops/us
+Iteration  69: 72.531 ops/us
+Iteration  70: 72.997 ops/us
+Iteration  71: 73.238 ops/us
+Iteration  72: 71.642 ops/us
+Iteration  73: 73.090 ops/us
+Iteration  74: 72.265 ops/us
+Iteration  75: 72.761 ops/us
+Iteration  76: 73.315 ops/us
+Iteration  77: 72.545 ops/us
+Iteration  78: 71.114 ops/us
+Iteration  79: 72.759 ops/us
+Iteration  80: 73.291 ops/us
+Iteration  81: 73.059 ops/us
+Iteration  82: 72.712 ops/us
+Iteration  83: 71.836 ops/us
+Iteration  84: 73.201 ops/us
+Iteration  85: 73.066 ops/us
+Iteration  86: 72.774 ops/us
+Iteration  87: 72.099 ops/us
+Iteration  88: 72.575 ops/us
+Iteration  89: 72.488 ops/us
+Iteration  90: 72.008 ops/us
+Iteration  91: 72.597 ops/us
+Iteration  92: 72.310 ops/us
+Iteration  93: 72.946 ops/us
+Iteration  94: 72.826 ops/us
+Iteration  95: 72.553 ops/us
+Iteration  96: 72.027 ops/us
+Iteration  97: 72.931 ops/us
+Iteration  98: 72.697 ops/us
+Iteration  99: 71.984 ops/us
+Iteration 100: 71.645 ops/us
+
+
+Result "com.openkappa.runtime.gc.RandomGraph.permute":
+  72.481 ±(99.9%) 0.562 ops/us [Average]
+  (min, avg, max) = (61.284, 72.481, 74.147), stdev = 1.657
+  CI (99.9%): [71.919, 73.043] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -mx8G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 1 s each
+# Measurement: 100 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.RandomGraph.permute
+# Parameters: (columns = 10, period = 65536, rows = 100)
+
+# Run progress: 25.00% complete, ETA 00:50:17
+# Fork: 1 of 1
+# Warmup Iteration   1: 27.183 ops/us
+# Warmup Iteration   2: 28.479 ops/us
+# Warmup Iteration   3: 28.687 ops/us
+# Warmup Iteration   4: 28.902 ops/us
+# Warmup Iteration   5: 31.634 ops/us
+Iteration   1: 29.594 ops/us
+Iteration   2: 29.334 ops/us
+Iteration   3: 29.899 ops/us
+Iteration   4: 28.934 ops/us
+Iteration   5: 29.015 ops/us
+Iteration   6: 27.833 ops/us
+Iteration   7: 28.565 ops/us
+Iteration   8: 30.175 ops/us
+Iteration   9: 27.761 ops/us
+Iteration  10: 28.215 ops/us
+Iteration  11: 28.027 ops/us
+Iteration  12: 29.509 ops/us
+Iteration  13: 27.903 ops/us
+Iteration  14: 29.586 ops/us
+Iteration  15: 28.764 ops/us
+Iteration  16: 30.267 ops/us
+Iteration  17: 27.736 ops/us
+Iteration  18: 29.409 ops/us
+Iteration  19: 28.829 ops/us
+Iteration  20: 30.035 ops/us
+Iteration  21: 28.768 ops/us
+Iteration  22: 28.813 ops/us
+Iteration  23: 28.723 ops/us
+Iteration  24: 27.487 ops/us
+Iteration  25: 28.504 ops/us
+Iteration  26: 28.652 ops/us
+Iteration  27: 28.928 ops/us
+Iteration  28: 28.387 ops/us
+Iteration  29: 28.935 ops/us
+Iteration  30: 28.274 ops/us
+Iteration  31: 29.150 ops/us
+Iteration  32: 27.971 ops/us
+Iteration  33: 29.046 ops/us
+Iteration  34: 29.312 ops/us
+Iteration  35: 29.561 ops/us
+Iteration  36: 29.561 ops/us
+Iteration  37: 29.682 ops/us
+Iteration  38: 30.037 ops/us
+Iteration  39: 29.543 ops/us
+Iteration  40: 29.541 ops/us
+Iteration  41: 29.634 ops/us
+Iteration  42: 28.494 ops/us
+Iteration  43: 29.598 ops/us
+Iteration  44: 29.157 ops/us
+Iteration  45: 28.327 ops/us
+Iteration  46: 28.913 ops/us
+Iteration  47: 29.804 ops/us
+Iteration  48: 29.420 ops/us
+Iteration  49: 28.005 ops/us
+Iteration  50: 30.327 ops/us
+Iteration  51: 29.799 ops/us
+Iteration  52: 27.706 ops/us
+Iteration  53: 28.576 ops/us
+Iteration  54: 29.012 ops/us
+Iteration  55: 28.592 ops/us
+Iteration  56: 29.624 ops/us
+Iteration  57: 28.891 ops/us
+Iteration  58: 28.285 ops/us
+Iteration  59: 25.758 ops/us
+Iteration  60: 26.894 ops/us
+Iteration  61: 28.466 ops/us
+Iteration  62: 30.009 ops/us
+Iteration  63: 29.883 ops/us
+Iteration  64: 27.856 ops/us
+Iteration  65: 29.722 ops/us
+Iteration  66: 29.835 ops/us
+Iteration  67: 28.822 ops/us
+Iteration  68: 23.845 ops/us
+Iteration  69: 22.327 ops/us
+Iteration  70: 25.817 ops/us
+Iteration  71: 30.352 ops/us
+Iteration  72: 27.211 ops/us
+Iteration  73: 30.126 ops/us
+Iteration  74: 27.417 ops/us
+Iteration  75: 29.216 ops/us
+Iteration  76: 30.230 ops/us
+Iteration  77: 29.258 ops/us
+Iteration  78: 29.340 ops/us
+Iteration  79: 29.078 ops/us
+Iteration  80: 27.840 ops/us
+Iteration  81: 29.685 ops/us
+Iteration  82: 29.472 ops/us
+Iteration  83: 29.291 ops/us
+Iteration  84: 28.962 ops/us
+Iteration  85: 28.910 ops/us
+Iteration  86: 30.361 ops/us
+Iteration  87: 30.310 ops/us
+Iteration  88: 28.878 ops/us
+Iteration  89: 28.817 ops/us
+Iteration  90: 29.717 ops/us
+Iteration  91: 28.836 ops/us
+Iteration  92: 28.900 ops/us
+Iteration  93: 28.163 ops/us
+Iteration  94: 30.194 ops/us
+Iteration  95: 29.791 ops/us
+Iteration  96: 29.888 ops/us
+Iteration  97: 29.663 ops/us
+Iteration  98: 28.015 ops/us
+Iteration  99: 30.449 ops/us
+Iteration 100: 28.748 ops/us
+
+
+Result "com.openkappa.runtime.gc.RandomGraph.permute":
+  28.868 ±(99.9%) 0.422 ops/us [Average]
+  (min, avg, max) = (22.327, 28.868, 30.449), stdev = 1.243
+  CI (99.9%): [28.446, 29.289] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -mx8G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 1 s each
+# Measurement: 100 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.RandomGraph.permute
+# Parameters: (columns = 100, period = 65536, rows = 10)
+
+# Run progress: 50.00% complete, ETA 00:33:31
+# Fork: 1 of 1
+# Warmup Iteration   1: 30.262 ops/us
+# Warmup Iteration   2: 27.253 ops/us
+# Warmup Iteration   3: 28.266 ops/us
+# Warmup Iteration   4: 30.904 ops/us
+# Warmup Iteration   5: 28.760 ops/us
+Iteration   1: 26.865 ops/us
+Iteration   2: 30.452 ops/us
+Iteration   3: 26.248 ops/us
+Iteration   4: 20.040 ops/us
+Iteration   5: 26.881 ops/us
+Iteration   6: 27.919 ops/us
+Iteration   7: 26.222 ops/us
+Iteration   8: 28.384 ops/us
+Iteration   9: 25.841 ops/us
+Iteration  10: 27.964 ops/us
+Iteration  11: 29.198 ops/us
+Iteration  12: 26.388 ops/us
+Iteration  13: 25.891 ops/us
+Iteration  14: 26.417 ops/us
+Iteration  15: 27.068 ops/us
+Iteration  16: 29.203 ops/us
+Iteration  17: 29.497 ops/us
+Iteration  18: 27.880 ops/us
+Iteration  19: 27.873 ops/us
+Iteration  20: 29.670 ops/us
+Iteration  21: 29.024 ops/us
+Iteration  22: 28.431 ops/us
+Iteration  23: 27.201 ops/us
+Iteration  24: 28.380 ops/us
+Iteration  25: 29.693 ops/us
+Iteration  26: 28.045 ops/us
+Iteration  27: 29.965 ops/us
+Iteration  28: 29.033 ops/us
+Iteration  29: 28.872 ops/us
+Iteration  30: 29.850 ops/us
+Iteration  31: 26.632 ops/us
+Iteration  32: 27.675 ops/us
+Iteration  33: 28.074 ops/us
+Iteration  34: 29.167 ops/us
+Iteration  35: 26.285 ops/us
+Iteration  36: 29.232 ops/us
+Iteration  37: 26.148 ops/us
+Iteration  38: 28.478 ops/us
+Iteration  39: 27.893 ops/us
+Iteration  40: 27.906 ops/us
+Iteration  41: 28.778 ops/us
+Iteration  42: 29.671 ops/us
+Iteration  43: 28.056 ops/us
+Iteration  44: 28.306 ops/us
+Iteration  45: 28.837 ops/us
+Iteration  46: 29.358 ops/us
+Iteration  47: 29.262 ops/us
+Iteration  48: 30.216 ops/us
+Iteration  49: 28.473 ops/us
+Iteration  50: 29.057 ops/us
+Iteration  51: 28.530 ops/us
+Iteration  52: 28.139 ops/us
+Iteration  53: 27.204 ops/us
+Iteration  54: 26.998 ops/us
+Iteration  55: 27.046 ops/us
+Iteration  56: 27.737 ops/us
+Iteration  57: 27.840 ops/us
+Iteration  58: 27.489 ops/us
+Iteration  59: 30.664 ops/us
+Iteration  60: 27.839 ops/us
+Iteration  61: 28.497 ops/us
+Iteration  62: 28.482 ops/us
+Iteration  63: 26.885 ops/us
+Iteration  64: 29.804 ops/us
+Iteration  65: 28.455 ops/us
+Iteration  66: 28.018 ops/us
+Iteration  67: 28.036 ops/us
+Iteration  68: 29.398 ops/us
+Iteration  69: 27.058 ops/us
+Iteration  70: 28.804 ops/us
+Iteration  71: 27.434 ops/us
+Iteration  72: 27.814 ops/us
+Iteration  73: 29.800 ops/us
+Iteration  74: 28.451 ops/us
+Iteration  75: 29.838 ops/us
+Iteration  76: 29.236 ops/us
+Iteration  77: 28.293 ops/us
+Iteration  78: 27.469 ops/us
+Iteration  79: 27.536 ops/us
+Iteration  80: 28.875 ops/us
+Iteration  81: 29.543 ops/us
+Iteration  82: 28.867 ops/us
+Iteration  83: 27.958 ops/us
+Iteration  84: 27.703 ops/us
+Iteration  85: 27.822 ops/us
+Iteration  86: 28.215 ops/us
+Iteration  87: 28.123 ops/us
+Iteration  88: 28.449 ops/us
+Iteration  89: 27.570 ops/us
+Iteration  90: 29.273 ops/us
+Iteration  91: 27.408 ops/us
+Iteration  92: 28.817 ops/us
+Iteration  93: 28.154 ops/us
+Iteration  94: 27.326 ops/us
+Iteration  95: 27.407 ops/us
+Iteration  96: 29.245 ops/us
+Iteration  97: 29.353 ops/us
+Iteration  98: 27.127 ops/us
+Iteration  99: 28.021 ops/us
+Iteration 100: 28.794 ops/us
+
+
+Result "com.openkappa.runtime.gc.RandomGraph.permute":
+  28.147 ±(99.9%) 0.457 ops/us [Average]
+  (min, avg, max) = (20.040, 28.147, 30.664), stdev = 1.347
+  CI (99.9%): [27.691, 28.604] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -mx8G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 1 s each
+# Measurement: 100 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.RandomGraph.permute
+# Parameters: (columns = 100, period = 65536, rows = 100)
+
+# Run progress: 75.00% complete, ETA 00:16:45
+# Fork: 1 of 1
+# Warmup Iteration   1: 2.741 ops/us
+# Warmup Iteration   2: 2.807 ops/us
+# Warmup Iteration   3: 2.792 ops/us
+# Warmup Iteration   4: 2.813 ops/us
+# Warmup Iteration   5: 2.810 ops/us
+Iteration   1: 2.815 ops/us
+Iteration   2: 2.837 ops/us
+Iteration   3: 2.841 ops/us
+Iteration   4: 2.846 ops/us
+Iteration   5: 2.855 ops/us
+Iteration   6: 2.837 ops/us
+Iteration   7: 2.840 ops/us
+Iteration   8: 2.842 ops/us
+Iteration   9: 2.837 ops/us
+Iteration  10: 2.840 ops/us
+Iteration  11: 2.839 ops/us
+Iteration  12: 2.845 ops/us
+Iteration  13: 2.839 ops/us
+Iteration  14: 2.840 ops/us
+Iteration  15: 2.837 ops/us
+Iteration  16: 2.841 ops/us
+Iteration  17: 2.839 ops/us
+Iteration  18: 2.841 ops/us
+Iteration  19: 2.837 ops/us
+Iteration  20: 2.839 ops/us
+Iteration  21: 2.840 ops/us
+Iteration  22: 2.842 ops/us
+Iteration  23: 2.840 ops/us
+Iteration  24: 2.841 ops/us
+Iteration  25: 2.839 ops/us
+Iteration  26: 2.843 ops/us
+Iteration  27: 2.841 ops/us
+Iteration  28: 2.838 ops/us
+Iteration  29: 2.842 ops/us
+Iteration  30: 2.840 ops/us
+Iteration  31: 2.838 ops/us
+Iteration  32: 2.840 ops/us
+Iteration  33: 2.837 ops/us
+Iteration  34: 2.837 ops/us
+Iteration  35: 2.837 ops/us
+Iteration  36: 2.839 ops/us
+Iteration  37: 2.838 ops/us
+Iteration  38: 2.840 ops/us
+Iteration  39: 2.837 ops/us
+Iteration  40: 2.837 ops/us
+Iteration  41: 2.842 ops/us
+Iteration  42: 2.837 ops/us
+Iteration  43: 2.838 ops/us
+Iteration  44: 2.841 ops/us
+Iteration  45: 2.838 ops/us
+Iteration  46: 2.840 ops/us
+Iteration  47: 2.838 ops/us
+Iteration  48: 2.838 ops/us
+Iteration  49: 2.840 ops/us
+Iteration  50: 2.843 ops/us
+Iteration  51: 2.670 ops/us
+Iteration  52: 2.816 ops/us
+Iteration  53: 2.850 ops/us
+Iteration  54: 2.851 ops/us
+Iteration  55: 2.852 ops/us
+Iteration  56: 2.854 ops/us
+Iteration  57: 2.853 ops/us
+Iteration  58: 2.851 ops/us
+Iteration  59: 2.854 ops/us
+Iteration  60: 2.855 ops/us
+Iteration  61: 2.852 ops/us
+Iteration  62: 2.850 ops/us
+Iteration  63: 2.857 ops/us
+Iteration  64: 2.857 ops/us
+Iteration  65: 2.855 ops/us
+Iteration  66: 2.853 ops/us
+Iteration  67: 2.853 ops/us
+Iteration  68: 2.858 ops/us
+Iteration  69: 2.849 ops/us
+Iteration  70: 2.857 ops/us
+Iteration  71: 2.851 ops/us
+Iteration  72: 2.857 ops/us
+Iteration  73: 2.852 ops/us
+Iteration  74: 2.851 ops/us
+Iteration  75: 2.849 ops/us
+Iteration  76: 2.852 ops/us
+Iteration  77: 2.856 ops/us
+Iteration  78: 2.854 ops/us
+Iteration  79: 2.848 ops/us
+Iteration  80: 2.858 ops/us
+Iteration  81: 2.853 ops/us
+Iteration  82: 2.146 ops/us
+Iteration  83: 2.268 ops/us
+Iteration  84: 2.839 ops/us
+Iteration  85: 2.839 ops/us
+Iteration  86: 2.841 ops/us
+Iteration  87: 2.839 ops/us
+Iteration  88: 2.840 ops/us
+Iteration  89: 2.844 ops/us
+Iteration  90: 2.840 ops/us
+Iteration  91: 2.840 ops/us
+Iteration  92: 2.838 ops/us
+Iteration  93: 2.838 ops/us
+Iteration  94: 2.840 ops/us
+Iteration  95: 2.835 ops/us
+Iteration  96: 2.837 ops/us
+Iteration  97: 2.836 ops/us
+Iteration  98: 2.837 ops/us
+Iteration  99: 2.837 ops/us
+Iteration 100: 2.835 ops/us
+
+
+Result "com.openkappa.runtime.gc.RandomGraph.permute":
+  2.829 ±(99.9%) 0.031 ops/us [Average]
+  (min, avg, max) = (2.146, 2.829, 2.858), stdev = 0.092
+  CI (99.9%): [2.798, 2.860] (assumes normal distribution)
+
+
+# Run complete. Total time: 01:07:03
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark            (columns)  (period)  (rows)   Mode  Cnt   Score   Error   Units
+RandomGraph.permute         10     65536      10  thrpt  100  72.481 ± 0.562  ops/us
+RandomGraph.permute         10     65536     100  thrpt  100  28.868 ± 0.422  ops/us
+RandomGraph.permute        100     65536      10  thrpt  100  28.147 ± 0.457  ops/us
+RandomGraph.permute        100     65536     100  thrpt  100   2.829 ± 0.031  ops/us
