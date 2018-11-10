@@ -1,0 +1,1543 @@
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -mx8G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.RandomGraph.permute
+# Parameters: (columns = 10, period = 65536, rows = 10)
+
+# Run progress: 0.00% complete, ETA 00:03:40
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 61.248 ops/us
+# Warmup Iteration   2: 72.136 ops/us
+# Warmup Iteration   3: 63.423 ops/us
+# Warmup Iteration   4: 72.044 ops/us
+# Warmup Iteration   5: 66.887 ops/us
+Iteration   1: 60.871 ops/us
+Iteration   2: 60.465 ops/us
+Iteration   3: 65.199 ops/us
+Iteration   4: 72.363 ops/us
+Iteration   5: 66.797 ops/us
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.openkappa.runtime.gc.RandomGraph.permute":
+  65.139 ±(99.9%) 18.765 ops/us [Average]
+  (min, avg, max) = (60.465, 65.139, 72.363), stdev = 4.873
+  CI (99.9%): [46.374, 83.904] (assumes normal distribution)
+
+Secondary result "com.openkappa.runtime.gc.RandomGraph.permute:·asm":
+PrintAssembly processed: 154527 total address lines.
+Perf output processed (skipped 7.539 seconds):
+ Column 1: cycles (51446 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 548 (554 bytes) 
+
+                                                                  ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+                    0x00007f417854a24a: mov    $0x1,%ebp
+         ╭          0x00007f417854a24f: jmp    0x00007f417854a2b5
+         │   ↗      0x00007f417854a251: lea    0x18(%r8),%r10
+         │   │      0x00007f417854a255: callq  0x00007f4170a49bc0  ;   {runtime_call zgc_load_barrier_stubs}
+         │   │      0x00007f417854a25a: nopw   0x0(%rax,%rax,1)   ;*getfield links {reexecute=0 rethrow=0 return_oop=0}
+         │   │                                                    ; - com.openkappa.runtime.gc.RandomGraph$Node::unlink@1 (line 30)
+         │   │                                                    ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@63 (line 77)
+         │   │                                                    ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         │   │                                                    ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.02%  │   │↗     0x00007f417854a260: mov    0x10(%r9),%r11d    ;*getfield id {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.RandomGraph$Node::unlink@5 (line 30)
+         │   ││                                                   ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@63 (line 77)
+         │   ││                                                   ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+         │   ││                                                   ; implicit exception: dispatches to 0x00007f417854ad02
+  0.72%  │   ││     0x00007f417854a264: mov    0x10(%r10),%r9d    ; implicit exception: dispatches to 0x00007f417854ad0e
+  1.75%  │   ││     0x00007f417854a268: cmp    %r9d,%r11d
+  0.00%  │   ││     0x00007f417854a26b: jae    0x00007f417854a79a
+  1.67%  │   ││     0x00007f417854a271: movq   $0x0,0x18(%r10,%r11,8)  ;*invokevirtual permute {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  1.59%  │   ││     0x00007f417854a27a: mov    0x10(%rsp),%rsi
+  0.02%  │   ││     0x00007f417854a27f: mov    0x70(%rsp),%rdx
+  0.33%  │   ││     0x00007f417854a284: data16 xchg %ax,%ax
+  1.23%  │   ││     0x00007f417854a287: callq  0x00007f4170a69780  ; ImmutableOopMap{[96]=Oop [104]=Oop [112]=Oop [120]=Oop [16]=Oop }
+         │   ││                                                   ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@22 (line 145)
+         │   ││                                                   ;   {optimized virtual_call}
+  1.27%  │   ││     0x00007f417854a28c: mov    0x60(%rsp),%r10
+  0.52%  │   ││     0x00007f417854a291: movzbl 0x9c(%r10),%r11d   ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.34%  │   ││     0x00007f417854a299: mov    0x108(%r15),%r10
+  1.21%  │   ││     0x00007f417854a2a0: mov    0x8(%rsp),%rbp
+  0.45%  │   ││     0x00007f417854a2a5: add    $0x1,%rbp          ; ImmutableOopMap{[96]=Oop [104]=Oop [112]=Oop [120]=Oop [16]=Oop }
+         │   ││                                                   ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+         │   ││     0x00007f417854a2a9: test   %eax,(%r10)        ;   {poll}
+  0.30%  │   ││     0x00007f417854a2ac: test   %r11d,%r11d
+  0.00%  │   ││     0x00007f417854a2af: jne    0x00007f417854a7d7  ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@38 (line 148)
+  1.19%  ↘   ││     0x00007f417854a2b5: mov    0x70(%rsp),%r10
+  0.47%      ││     0x00007f417854a2ba: mov    0x20(%r10),%r13    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+             ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.03%      ││     0x00007f417854a2be: test   %r13,0x20(%r15)
+          ╭  ││     0x00007f417854a2c2: jne    0x00007f417854a48f  ;*getfield nodes {reexecute=0 rethrow=0 return_oop=0}
+          │  ││                                                   ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@20 (line 72)
+          │  ││                                                   ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          │  ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.33%   │  ││↗    0x00007f417854a2c8: mov    0x28(%r10),%rax    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          │  │││                                                  ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  1.19%   │  │││    0x00007f417854a2cc: test   %rax,0x20(%r15)
+          │╭ │││    0x00007f417854a2d0: jne    0x00007f417854a49d  ;*getfield transitions {reexecute=0 rethrow=0 return_oop=0}
+          ││ │││                                                  ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@24 (line 72)
+          ││ │││                                                  ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ │││                                                  ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.46%   ││ │││↗   0x00007f417854a2d6: mov    0x18(%r10),%r10d
+  0.01%   ││ ││││   0x00007f417854a2da: mov    0x70(%rsp),%r11
+  0.30%   ││ ││││   0x00007f417854a2df: mov    0x1c(%r11),%r8d    ;*getfield pos {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@2 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  1.17%   ││ ││││   0x00007f417854a2e3: dec    %r10d              ;*isub {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@16 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.47%   ││ ││││   0x00007f417854a2e6: mov    %r8d,%ecx
+          ││ ││││   0x00007f417854a2e9: and    %r10d,%ecx         ;*iand {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@17 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.35%   ││ ││││   0x00007f417854a2ec: mov    %r8d,%r11d
+  1.18%   ││ ││││   0x00007f417854a2ef: inc    %r11d              ;*iadd {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@7 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.44%   ││ ││││   0x00007f417854a2f2: mov    0x70(%rsp),%r9
+          ││ ││││   0x00007f417854a2f7: mov    %r11d,0x1c(%r9)    ;*putfield pos {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@8 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.39%   ││ ││││   0x00007f417854a2fb: mov    0x10(%rax),%r9d    ; implicit exception: dispatches to 0x00007f417854ac3e
+  1.21%   ││ ││││   0x00007f417854a2ff: cmp    %r9d,%ecx
+          ││ ││││   0x00007f417854a302: jae    0x00007f417854a54f
+  0.43%   ││ ││││   0x00007f417854a308: mov    %rbp,0x8(%rsp)
+  0.00%   ││ ││││   0x00007f417854a30d: mov    0x18(%rax,%rcx,8),%rdx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.47%   ││ ││││   0x00007f417854a312: test   %rdx,0x20(%r15)
+          ││╭││││   0x00007f417854a316: jne    0x00007f417854a4ab  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          │││││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@28 (line 72)
+          │││││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          │││││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  1.23%   │││││││↗  0x00007f417854a31c: mov    0x10(%rdx),%edi    ; implicit exception: dispatches to 0x00007f417854ac4e
+  1.93%   ││││││││  0x00007f417854a31f: cmp    $0x3,%edi
+  0.00%   ││││││││  0x00007f417854a322: jbe    0x00007f417854a809
+  0.45%   ││││││││  0x00007f417854a328: mov    0x18(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@30 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.79%   ││││││││  0x00007f417854a32b: mov    0x10(%r13),%esi    ; implicit exception: dispatches to 0x00007f417854ac5a
+  0.90%   ││││││││  0x00007f417854a32f: cmp    %esi,%edi
+          ││││││││  0x00007f417854a331: jae    0x00007f417854a572
+  0.47%   ││││││││  0x00007f417854a337: mov    0x18(%r13,%rdi,8),%rbp  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  3.01%   ││││││││  0x00007f417854a33c: test   %rbp,0x20(%r15)
+  1.38%   ││││││││  0x00007f417854a340: jne    0x00007f417854a4ba  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@31 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  1.51%   ││││││││  0x00007f417854a346: mov    0x1c(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@39 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.24%   ││││││││  0x00007f417854a349: mov    0x10(%rbp),%ebx    ; implicit exception: dispatches to 0x00007f417854ac6a
+  3.16%   ││││││││  0x00007f417854a34c: cmp    %ebx,%edi
+          ││││││││  0x00007f417854a34e: jae    0x00007f417854a5ae
+  1.63%   ││││││││  0x00007f417854a354: mov    0x18(%rbp,%rdi,8),%rbx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.74%   ││││││││  0x00007f417854a359: test   %rbx,0x20(%r15)
+          ││││││││  0x00007f417854a35d: jne    0x00007f417854a4c9  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@40 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  1.46%   ││││││││  0x00007f417854a363: mov    0x20(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@52 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.17%   ││││││││  0x00007f417854a366: cmp    %esi,%edi
+          ││││││││  0x00007f417854a368: jae    0x00007f417854a5c2
+  0.36%   ││││││││  0x00007f417854a36e: mov    0x18(%r13,%rdi,8),%rbp  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.32%   ││││││││  0x00007f417854a373: test   %rbp,0x20(%r15)
+          ││││││││  0x00007f417854a377: jne    0x00007f417854a4d8  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@53 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  1.43%   ││││││││  0x00007f417854a37d: mov    0x24(%rdx),%ecx    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@61 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.02%   ││││││││  0x00007f417854a380: mov    0x10(%rbp),%edi    ; implicit exception: dispatches to 0x00007f417854ac7a
+  1.60%   ││││││││  0x00007f417854a383: cmp    %edi,%ecx
+          ││││││││  0x00007f417854a385: jae    0x00007f417854a602
+  1.55%   ││││││││  0x00007f417854a38b: mov    0x18(%rbp,%rcx,8),%rdx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.45%   ││││││││  0x00007f417854a390: test   %rdx,0x20(%r15)
+          ││││││││  0x00007f417854a394: jne    0x00007f417854a4e7  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@62 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.66%   ││││││││  0x00007f417854a39a: mov    0x18(%rbx),%rdi    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+          ││││││││                                                ; implicit exception: dispatches to 0x00007f417854ac8a
+  3.05%   ││││││││  0x00007f417854a39e: test   %rdi,0x20(%r15)
+  0.00%   ││││││││  0x00007f417854a3a2: jne    0x00007f417854a4f6  ;*getfield links {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@1 (line 26)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  1.80%   ││││││││  0x00007f417854a3a8: mov    0x10(%rdx),%ecx    ;*getfield id {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@5 (line 26)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+          ││││││││                                                ; implicit exception: dispatches to 0x00007f417854ac9a
+  4.06%   ││││││││  0x00007f417854a3ab: mov    0x10(%rdi),%ebx    ; implicit exception: dispatches to 0x00007f417854aca6
+  6.05%   ││││││││  0x00007f417854a3ae: cmp    %ebx,%ecx
+  0.00%   ││││││││  0x00007f417854a3b0: jae    0x00007f417854a61a
+  1.94%   ││││││││  0x00007f417854a3b6: mov    %rdx,0x18(%rdi,%rcx,8)  ;*aastore {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@9 (line 26)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  4.98%   ││││││││  0x00007f417854a3bb: and    %r10d,%r11d        ;*iand {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@17 (line 76)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.03%   ││││││││  0x00007f417854a3be: add    $0x2,%r8d
+          ││││││││  0x00007f417854a3c2: mov    0x70(%rsp),%r10
+  0.37%   ││││││││  0x00007f417854a3c7: mov    %r8d,0x1c(%r10)    ;*putfield pos {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@8 (line 76)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  1.65%   ││││││││  0x00007f417854a3cb: cmp    %r9d,%r11d
+          ││││││││  0x00007f417854a3ce: jae    0x00007f417854a656
+  0.03%   ││││││││  0x00007f417854a3d4: mov    0x18(%rax,%r11,8),%rbx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.10%   ││││││││  0x00007f417854a3d9: test   %rbx,0x20(%r15)
+          ││││││││  0x00007f417854a3dd: jne    0x00007f417854a504  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@28 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.41%   ││││││││  0x00007f417854a3e3: mov    0x10(%rbx),%r8d    ; implicit exception: dispatches to 0x00007f417854acba
+  2.40%   ││││││││  0x00007f417854a3e7: cmp    $0x3,%r8d
+          ││││││││  0x00007f417854a3eb: jbe    0x00007f417854a846
+  0.03%   ││││││││  0x00007f417854a3f1: mov    0x18(%rbx),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@30 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.23%   ││││││││  0x00007f417854a3f5: cmp    %esi,%r10d
+          ││││││││  0x00007f417854a3f8: jae    0x00007f417854a696
+  0.45%   ││││││││  0x00007f417854a3fe: mov    0x18(%r13,%r10,8),%rcx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  1.69%   ││││││││  0x00007f417854a403: test   %rcx,0x20(%r15)
+          ││││││││  0x00007f417854a407: jne    0x00007f417854a513  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@31 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.05%   ││││││││  0x00007f417854a40d: mov    0x18(%rax,%r11,8),%rdi  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@37 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.00%   ││││││││  0x00007f417854a412: mov    0x10(%rdi),%r10d   ; implicit exception: dispatches to 0x00007f417854acc6
+  0.41%   ││││││││  0x00007f417854a416: cmp    $0x2,%r10d
+          ││││││││  0x00007f417854a41a: jbe    0x00007f417854a886
+  1.53%   ││││││││  0x00007f417854a420: mov    0x1c(%rdi),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@39 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.05%   ││││││││  0x00007f417854a424: mov    0x10(%rcx),%r9d    ; implicit exception: dispatches to 0x00007f417854acd2
+  0.17%   ││││││││  0x00007f417854a428: cmp    %r9d,%r10d
+          ││││││││  0x00007f417854a42b: jae    0x00007f417854a6d6
+  0.53%   ││││││││  0x00007f417854a431: mov    0x18(%rcx,%r10,8),%r8  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  1.60%   ││││││││  0x00007f417854a436: test   %r8,0x20(%r15)
+          ││││││││  0x00007f417854a43a: jne    0x00007f417854a522  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@40 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.10%   ││││││││  0x00007f417854a440: mov    0x20(%rdi),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@52 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.26%   ││││││││  0x00007f417854a444: cmp    %esi,%r10d
+  0.00%   ││││││││  0x00007f417854a447: jae    0x00007f417854a716
+  0.42%   ││││││││  0x00007f417854a44d: mov    0x18(%r13,%r10,8),%r11  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  1.54%   ││││││││  0x00007f417854a452: test   %r11,0x20(%r15)
+          ││││││││  0x00007f417854a456: jne    0x00007f417854a531  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@53 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.09%   ││││││││  0x00007f417854a45c: mov    0x24(%rbx),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@61 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.01%   ││││││││  0x00007f417854a460: mov    0x10(%r11),%r9d    ; implicit exception: dispatches to 0x00007f417854ace2
+  0.58%   ││││││││  0x00007f417854a464: cmp    %r9d,%r10d
+  0.01%   ││││││││  0x00007f417854a467: jae    0x00007f417854a75a
+  1.50%   ││││││││  0x00007f417854a46d: mov    0x18(%r11,%r10,8),%r9  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.10%   ││││││││  0x00007f417854a472: test   %r9,0x20(%r15)
+          ││││││││  0x00007f417854a476: jne    0x00007f417854a540  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@62 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.05%   ││││││││  0x00007f417854a47c: mov    0x18(%r8),%r10     ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+          ││││││││                                                ; implicit exception: dispatches to 0x00007f417854acf2
+  0.84%   ││││││││  0x00007f417854a480: test   %r10,0x20(%r15)
+  0.00%   │││╰││││  0x00007f417854a484: jne    0x00007f417854a251
+  1.58%   │││ ╰│││  0x00007f417854a48a: jmpq   0x00007f417854a260
+          ↘││  │││  0x00007f417854a48f: lea    0x20(%r10),%r13
+           ││  │││  0x00007f417854a493: callq  0x00007f4170a49d40  ;   {runtime_call zgc_load_barrier_stubs}
+           ││  ╰││  0x00007f417854a498: jmpq   0x00007f417854a2c8
+           ↘│   ││  0x00007f417854a49d: lea    0x28(%r10),%rax
+            │   ││  0x00007f417854a4a1: callq  0x00007f4170a49500  ;   {runtime_call zgc_load_barrier_stubs}
+            │   ╰│  0x00007f417854a4a6: jmpq   0x00007f417854a2d6
+            ↘    │  0x00007f417854a4ab: lea    0x18(%rax,%rcx,8),%rdx
+                 │  0x00007f417854a4b0: callq  0x00007f4170a49680  ;   {runtime_call zgc_load_barrier_stubs}
+                 ╰  0x00007f417854a4b5: jmpq   0x00007f417854a31c
+                    0x00007f417854a4ba: lea    0x18(%r13,%rdi,8),%rbp
+....................................................................................................
+ 87.65%  <total for region 1>
+
+....[Hottest Regions]...............................................................................
+ 87.65%         c2, level 4  com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 548 (554 bytes) 
+  8.96%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 517 (75 bytes) 
+  2.59%   [kernel.kallsyms]  [unknown] (5 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (68 bytes) 
+  0.03%   [kernel.kallsyms]  [unknown] (1 bytes) 
+  0.03%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable (54 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (24 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (3 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (50 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (32 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (30 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (28 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (12 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (35 bytes) 
+  0.01%           libjvm.so  _ZN5ZStat11run_serviceEv (13 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (24 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (9 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (23 bytes) 
+  0.51%  <...other 194 warm regions...>
+....................................................................................................
+100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 87.65%         c2, level 4  com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 548 
+  8.96%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 517 
+  3.23%   [kernel.kallsyms]  [unknown] 
+  0.03%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable 
+  0.02%           libjvm.so  _ZN5ZStat11run_serviceEv 
+  0.01%           libjvm.so  _ZN9xmlStream10write_textEPKcm.part.15 
+  0.01%  libpthread-2.23.so  pthread_cond_timedwait@@GLIBC_2.3.2 
+  0.00%        libc-2.23.so  vfprintf 
+  0.00%           libjvm.so  _ZN12TruncatedSeq3addEd 
+  0.00%           libjvm.so  _ZN13defaultStream5writeEPKcm 
+  0.00%        libc-2.23.so  _IO_default_xsputn 
+  0.00%           libjvm.so  _ZN13RelocIterator10initializeEP14CompiledMethodPhS2_ 
+  0.00%           libjvm.so  _ZN13xmlTextStream5writeEPKcm 
+  0.00%        libc-2.23.so  syscall 
+  0.00%        libc-2.23.so  __libc_disable_asynccancel 
+  0.00%  libpthread-2.23.so  pthread_mutex_lock 
+  0.00%           libjvm.so  _ZNK14ZPageAllocator20current_max_capacityEv 
+  0.00%           libjvm.so  _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.constprop.263 
+  0.00%           libjvm.so  _ZN10ValueStack25pin_stack_for_linear_scanEv 
+  0.00%           libjvm.so  _ZNK9VMRegImpl8print_onEP12outputStream 
+  0.06%  <...other 32 warm methods...>
+....................................................................................................
+100.00%  <totals>
+
+....[Distribution by Source]........................................................................
+ 96.60%         c2, level 4
+  3.23%   [kernel.kallsyms]
+  0.11%           libjvm.so
+  0.03%        libc-2.23.so
+  0.02%  libpthread-2.23.so
+  0.01%         interpreter
+  0.00%      hsdis-amd64.so
+....................................................................................................
+100.00%  <totals>
+
+
+
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -mx8G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.RandomGraph.permute
+# Parameters: (columns = 10, period = 65536, rows = 100)
+
+# Run progress: 25.00% complete, ETA 00:02:57
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 24.218 ops/us
+# Warmup Iteration   2: 21.155 ops/us
+# Warmup Iteration   3: 19.252 ops/us
+# Warmup Iteration   4: 22.836 ops/us
+# Warmup Iteration   5: 22.401 ops/us
+Iteration   1: 25.990 ops/us
+Iteration   2: 23.468 ops/us
+Iteration   3: 25.999 ops/us
+Iteration   4: 26.700 ops/us
+Iteration   5: 26.572 ops/us
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.openkappa.runtime.gc.RandomGraph.permute":
+  25.746 ±(99.9%) 5.060 ops/us [Average]
+  (min, avg, max) = (23.468, 25.746, 26.700), stdev = 1.314
+  CI (99.9%): [20.686, 30.806] (assumes normal distribution)
+
+Secondary result "com.openkappa.runtime.gc.RandomGraph.permute:·asm":
+PrintAssembly processed: 146004 total address lines.
+Perf output processed (skipped 7.299 seconds):
+ Column 1: cycles (51441 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 522 (554 bytes) 
+
+                                                                  ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+                    0x00007f63b076474a: mov    $0x1,%ebp
+         ╭          0x00007f63b076474f: jmp    0x00007f63b07647b5
+         │   ↗      0x00007f63b0764751: lea    0x18(%r8),%r10
+         │   │      0x00007f63b0764755: callq  0x00007f63a8c66bc0  ;   {runtime_call zgc_load_barrier_stubs}
+         │   │      0x00007f63b076475a: nopw   0x0(%rax,%rax,1)   ;*getfield links {reexecute=0 rethrow=0 return_oop=0}
+         │   │                                                    ; - com.openkappa.runtime.gc.RandomGraph$Node::unlink@1 (line 30)
+         │   │                                                    ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@63 (line 77)
+         │   │                                                    ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         │   │                                                    ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.12%  │   │↗     0x00007f63b0764760: mov    0x10(%r9),%r11d    ;*getfield id {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.RandomGraph$Node::unlink@5 (line 30)
+         │   ││                                                   ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@63 (line 77)
+         │   ││                                                   ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+         │   ││                                                   ; implicit exception: dispatches to 0x00007f63b0765202
+  7.12%  │   ││     0x00007f63b0764764: mov    0x10(%r10),%r9d    ; implicit exception: dispatches to 0x00007f63b076520e
+  3.71%  │   ││     0x00007f63b0764768: cmp    %r9d,%r11d
+  0.00%  │   ││     0x00007f63b076476b: jae    0x00007f63b0764cd2
+  0.66%  │   ││     0x00007f63b0764771: movq   $0x0,0x18(%r10,%r11,8)  ;*invokevirtual permute {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  9.07%  │   ││     0x00007f63b076477a: mov    0x10(%rsp),%rsi
+  0.10%  │   ││     0x00007f63b076477f: mov    0x70(%rsp),%rdx
+  0.05%  │   ││     0x00007f63b0764784: data16 xchg %ax,%ax
+  0.24%  │   ││     0x00007f63b0764787: callq  0x00007f63a8c86780  ; ImmutableOopMap{[96]=Oop [104]=Oop [112]=Oop [120]=Oop [16]=Oop }
+         │   ││                                                   ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@22 (line 145)
+         │   ││                                                   ;   {optimized virtual_call}
+  0.33%  │   ││     0x00007f63b076478c: mov    0x60(%rsp),%r10
+  0.47%  │   ││     0x00007f63b0764791: movzbl 0x9c(%r10),%r11d   ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.36%  │   ││     0x00007f63b0764799: mov    0x108(%r15),%r10
+  0.29%  │   ││     0x00007f63b07647a0: mov    0x8(%rsp),%rbp
+  0.44%  │   ││     0x00007f63b07647a5: add    $0x1,%rbp          ; ImmutableOopMap{[96]=Oop [104]=Oop [112]=Oop [120]=Oop [16]=Oop }
+         │   ││                                                   ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.01%  │   ││     0x00007f63b07647a9: test   %eax,(%r10)        ;   {poll}
+  0.07%  │   ││     0x00007f63b07647ac: test   %r11d,%r11d
+         │   ││     0x00007f63b07647af: jne    0x00007f63b0764a54  ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@38 (line 148)
+  0.28%  ↘   ││     0x00007f63b07647b5: mov    0x70(%rsp),%r10
+  0.42%      ││     0x00007f63b07647ba: mov    0x20(%r10),%r13    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+             ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.08%      ││     0x00007f63b07647be: test   %r13,0x20(%r15)
+          ╭  ││     0x00007f63b07647c2: jne    0x00007f63b076498f  ;*getfield nodes {reexecute=0 rethrow=0 return_oop=0}
+          │  ││                                                   ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@20 (line 72)
+          │  ││                                                   ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          │  ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.13%   │  ││↗    0x00007f63b07647c8: mov    0x28(%r10),%rax    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          │  │││                                                  ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.30%   │  │││    0x00007f63b07647cc: test   %rax,0x20(%r15)
+  0.01%   │╭ │││    0x00007f63b07647d0: jne    0x00007f63b076499d  ;*getfield transitions {reexecute=0 rethrow=0 return_oop=0}
+          ││ │││                                                  ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@24 (line 72)
+          ││ │││                                                  ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ │││                                                  ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.41%   ││ │││↗   0x00007f63b07647d6: mov    0x18(%r10),%r10d
+  0.01%   ││ ││││   0x00007f63b07647da: mov    0x70(%rsp),%r11
+  0.10%   ││ ││││   0x00007f63b07647df: mov    0x1c(%r11),%r8d    ;*getfield pos {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@2 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.30%   ││ ││││   0x00007f63b07647e3: dec    %r10d              ;*isub {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@16 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.44%   ││ ││││   0x00007f63b07647e6: mov    %r8d,%ecx
+  0.01%   ││ ││││   0x00007f63b07647e9: and    %r10d,%ecx         ;*iand {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@17 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.11%   ││ ││││   0x00007f63b07647ec: mov    %r8d,%r11d
+  0.28%   ││ ││││   0x00007f63b07647ef: inc    %r11d              ;*iadd {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@7 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.48%   ││ ││││   0x00007f63b07647f2: mov    0x70(%rsp),%r9
+  0.01%   ││ ││││   0x00007f63b07647f7: mov    %r11d,0x1c(%r9)    ;*putfield pos {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@8 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.11%   ││ ││││   0x00007f63b07647fb: mov    0x10(%rax),%r9d    ; implicit exception: dispatches to 0x00007f63b076513e
+  0.33%   ││ ││││   0x00007f63b07647ff: cmp    %r9d,%ecx
+          ││ ││││   0x00007f63b0764802: jae    0x00007f63b0764a86
+  0.41%   ││ ││││   0x00007f63b0764808: mov    %rbp,0x8(%rsp)
+          ││ ││││   0x00007f63b076480d: mov    0x18(%rax,%rcx,8),%rdx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.17%   ││ ││││   0x00007f63b0764812: test   %rdx,0x20(%r15)
+          ││╭││││   0x00007f63b0764816: jne    0x00007f63b07649ab  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          │││││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@28 (line 72)
+          │││││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          │││││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.30%   │││││││↗  0x00007f63b076481c: mov    0x10(%rdx),%edi    ; implicit exception: dispatches to 0x00007f63b076514e
+  3.28%   ││││││││  0x00007f63b076481f: cmp    $0x3,%edi
+  0.00%   ││││││││  0x00007f63b0764822: jbe    0x00007f63b0764d0a
+  0.12%   ││││││││  0x00007f63b0764828: mov    0x18(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@30 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.97%   ││││││││  0x00007f63b076482b: mov    0x10(%r13),%esi    ; implicit exception: dispatches to 0x00007f63b076515a
+  0.30%   ││││││││  0x00007f63b076482f: cmp    %esi,%edi
+          ││││││││  0x00007f63b0764831: jae    0x00007f63b0764aaa
+  0.42%   ││││││││  0x00007f63b0764837: mov    0x18(%r13,%rdi,8),%rbp  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.37%   ││││││││  0x00007f63b076483c: test   %rbp,0x20(%r15)
+  0.18%   ││││││││  0x00007f63b0764840: jne    0x00007f63b07649ba  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@31 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.34%   ││││││││  0x00007f63b0764846: mov    0x1c(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@39 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.41%   ││││││││  0x00007f63b0764849: mov    0x10(%rbp),%ebx    ; implicit exception: dispatches to 0x00007f63b076516a
+  0.31%   ││││││││  0x00007f63b076484c: cmp    %ebx,%edi
+  0.00%   ││││││││  0x00007f63b076484e: jae    0x00007f63b0764ae6
+  0.18%   ││││││││  0x00007f63b0764854: mov    0x18(%rbp,%rdi,8),%rbx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.68%   ││││││││  0x00007f63b0764859: test   %rbx,0x20(%r15)
+  0.00%   ││││││││  0x00007f63b076485d: jne    0x00007f63b07649c9  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@40 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.52%   ││││││││  0x00007f63b0764863: mov    0x20(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@52 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.95%   ││││││││  0x00007f63b0764866: cmp    %esi,%edi
+          ││││││││  0x00007f63b0764868: jae    0x00007f63b0764afa
+  0.06%   ││││││││  0x00007f63b076486e: mov    0x18(%r13,%rdi,8),%rbp  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.34%   ││││││││  0x00007f63b0764873: test   %rbp,0x20(%r15)
+          ││││││││  0x00007f63b0764877: jne    0x00007f63b07649d8  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@53 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.58%   ││││││││  0x00007f63b076487d: mov    0x24(%rdx),%ecx    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@61 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.01%   ││││││││  0x00007f63b0764880: mov    0x10(%rbp),%edi    ; implicit exception: dispatches to 0x00007f63b076517a
+  0.16%   ││││││││  0x00007f63b0764883: cmp    %edi,%ecx
+          ││││││││  0x00007f63b0764885: jae    0x00007f63b0764b3a
+  0.34%   ││││││││  0x00007f63b076488b: mov    0x18(%rbp,%rcx,8),%rdx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.76%   ││││││││  0x00007f63b0764890: test   %rdx,0x20(%r15)
+  0.00%   ││││││││  0x00007f63b0764894: jne    0x00007f63b07649e7  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@62 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.12%   ││││││││  0x00007f63b076489a: mov    0x18(%rbx),%rdi    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+          ││││││││                                                ; implicit exception: dispatches to 0x00007f63b076518a
+ 10.88%   ││││││││  0x00007f63b076489e: test   %rdi,0x20(%r15)
+  0.00%   ││││││││  0x00007f63b07648a2: jne    0x00007f63b07649f6  ;*getfield links {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@1 (line 26)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.59%   ││││││││  0x00007f63b07648a8: mov    0x10(%rdx),%ecx    ;*getfield id {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@5 (line 26)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+          ││││││││                                                ; implicit exception: dispatches to 0x00007f63b076519a
+  6.64%   ││││││││  0x00007f63b07648ab: mov    0x10(%rdi),%ebx    ; implicit exception: dispatches to 0x00007f63b07651a6
+  4.38%   ││││││││  0x00007f63b07648ae: cmp    %ebx,%ecx
+  0.00%   ││││││││  0x00007f63b07648b0: jae    0x00007f63b0764b52
+  0.60%   ││││││││  0x00007f63b07648b6: mov    %rdx,0x18(%rdi,%rcx,8)  ;*aastore {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@9 (line 26)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  8.33%   ││││││││  0x00007f63b07648bb: and    %r10d,%r11d        ;*iand {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@17 (line 76)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.19%   ││││││││  0x00007f63b07648be: add    $0x2,%r8d
+  0.00%   ││││││││  0x00007f63b07648c2: mov    0x70(%rsp),%r10
+  0.20%   ││││││││  0x00007f63b07648c7: mov    %r8d,0x1c(%r10)    ;*putfield pos {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@8 (line 76)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.49%   ││││││││  0x00007f63b07648cb: cmp    %r9d,%r11d
+          ││││││││  0x00007f63b07648ce: jae    0x00007f63b0764b8e
+  0.11%   ││││││││  0x00007f63b07648d4: mov    0x18(%rax,%r11,8),%rbx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.40%   ││││││││  0x00007f63b07648d9: test   %rbx,0x20(%r15)
+          ││││││││  0x00007f63b07648dd: jne    0x00007f63b0764a04  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@28 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.17%   ││││││││  0x00007f63b07648e3: mov    0x10(%rbx),%r8d    ; implicit exception: dispatches to 0x00007f63b07651ba
+  2.85%   ││││││││  0x00007f63b07648e7: cmp    $0x3,%r8d
+  0.00%   ││││││││  0x00007f63b07648eb: jbe    0x00007f63b0764d46
+  0.17%   ││││││││  0x00007f63b07648f1: mov    0x18(%rbx),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@30 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  1.12%   ││││││││  0x00007f63b07648f5: cmp    %esi,%r10d
+  0.00%   ││││││││  0x00007f63b07648f8: jae    0x00007f63b0764bce
+  0.16%   ││││││││  0x00007f63b07648fe: mov    0x18(%r13,%r10,8),%rcx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.58%   ││││││││  0x00007f63b0764903: test   %rcx,0x20(%r15)
+          ││││││││  0x00007f63b0764907: jne    0x00007f63b0764a13  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@31 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.14%   ││││││││  0x00007f63b076490d: mov    0x18(%rax,%r11,8),%rdi  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@37 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.00%   ││││││││  0x00007f63b0764912: mov    0x10(%rdi),%r10d   ; implicit exception: dispatches to 0x00007f63b07651c6
+  0.16%   ││││││││  0x00007f63b0764916: cmp    $0x2,%r10d
+  0.00%   ││││││││  0x00007f63b076491a: jbe    0x00007f63b0764d86
+  0.50%   ││││││││  0x00007f63b0764920: mov    0x1c(%rdi),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@39 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.18%   ││││││││  0x00007f63b0764924: mov    0x10(%rcx),%r9d    ; implicit exception: dispatches to 0x00007f63b07651d2
+  0.10%   ││││││││  0x00007f63b0764928: cmp    %r9d,%r10d
+          ││││││││  0x00007f63b076492b: jae    0x00007f63b0764c0e
+  0.15%   ││││││││  0x00007f63b0764931: mov    0x18(%rcx,%r10,8),%r8  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.68%   ││││││││  0x00007f63b0764936: test   %r8,0x20(%r15)
+          ││││││││  0x00007f63b076493a: jne    0x00007f63b0764a22  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@40 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.13%   ││││││││  0x00007f63b0764940: mov    0x20(%rdi),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@52 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.86%   ││││││││  0x00007f63b0764944: cmp    %esi,%r10d
+          ││││││││  0x00007f63b0764947: jae    0x00007f63b0764c4e
+  0.15%   ││││││││  0x00007f63b076494d: mov    0x18(%r13,%r10,8),%r11  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.50%   ││││││││  0x00007f63b0764952: test   %r11,0x20(%r15)
+          ││││││││  0x00007f63b0764956: jne    0x00007f63b0764a31  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@53 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.18%   ││││││││  0x00007f63b076495c: mov    0x24(%rbx),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@61 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.00%   ││││││││  0x00007f63b0764960: mov    0x10(%r11),%r9d    ; implicit exception: dispatches to 0x00007f63b07651e2
+  0.22%   ││││││││  0x00007f63b0764964: cmp    %r9d,%r10d
+  0.00%   ││││││││  0x00007f63b0764967: jae    0x00007f63b0764c92
+  0.54%   ││││││││  0x00007f63b076496d: mov    0x18(%r11,%r10,8),%r9  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.36%   ││││││││  0x00007f63b0764972: test   %r9,0x20(%r15)
+          ││││││││  0x00007f63b0764976: jne    0x00007f63b0764a40  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@62 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.03%   ││││││││  0x00007f63b076497c: mov    0x18(%r8),%r10     ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+          ││││││││                                                ; implicit exception: dispatches to 0x00007f63b07651f2
+  9.55%   ││││││││  0x00007f63b0764980: test   %r10,0x20(%r15)
+          │││╰││││  0x00007f63b0764984: jne    0x00007f63b0764751
+  0.62%   │││ ╰│││  0x00007f63b076498a: jmpq   0x00007f63b0764760
+          ↘││  │││  0x00007f63b076498f: lea    0x20(%r10),%r13
+           ││  │││  0x00007f63b0764993: callq  0x00007f63a8c66d40  ;   {runtime_call zgc_load_barrier_stubs}
+           ││  ╰││  0x00007f63b0764998: jmpq   0x00007f63b07647c8
+           ↘│   ││  0x00007f63b076499d: lea    0x28(%r10),%rax
+            │   ││  0x00007f63b07649a1: callq  0x00007f63a8c66500  ;   {runtime_call zgc_load_barrier_stubs}
+            │   ╰│  0x00007f63b07649a6: jmpq   0x00007f63b07647d6
+            ↘    │  0x00007f63b07649ab: lea    0x18(%rax,%rcx,8),%rdx
+                 │  0x00007f63b07649b0: callq  0x00007f63a8c66680  ;   {runtime_call zgc_load_barrier_stubs}
+                 ╰  0x00007f63b07649b5: jmpq   0x00007f63b076481c
+                    0x00007f63b07649ba: lea    0x18(%r13,%rdi,8),%rbp
+....................................................................................................
+ 92.07%  <total for region 1>
+
+....[Hottest Regions]...............................................................................
+ 92.07%         c2, level 4  com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 522 (554 bytes) 
+  4.61%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 488 (75 bytes) 
+  2.47%   [kernel.kallsyms]  [unknown] (5 bytes) 
+  0.03%   [kernel.kallsyms]  [unknown] (6 bytes) 
+  0.03%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable (32 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (41 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (18 bytes) 
+  0.02%  libpthread-2.23.so  pthread_cond_timedwait@@GLIBC_2.3.2 (24 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (45 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (28 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (22 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (8 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (37 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (14 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (10 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (24 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (21 bytes) 
+  0.60%  <...other 238 warm regions...>
+....................................................................................................
+100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 92.07%         c2, level 4  com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 522 
+  4.61%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 488 
+  3.05%   [kernel.kallsyms]  [unknown] 
+  0.03%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable 
+  0.02%  libpthread-2.23.so  pthread_cond_timedwait@@GLIBC_2.3.2 
+  0.01%      hsdis-amd64.so  print_insn 
+  0.01%              [vdso]  [unknown] 
+  0.01%           libjvm.so  _ZN7VMError17is_error_reportedEv 
+  0.01%  libpthread-2.23.so  pthread_mutex_lock 
+  0.01%           libjvm.so  _ZN9xmlStream10write_textEPKcm.part.15 
+  0.01%        libc-2.23.so  _IO_vsnprintf 
+  0.01%          ld-2.23.so  __tls_get_addr 
+  0.01%           libjvm.so  _ZNK13WatcherThread5sleepEv 
+  0.01%           libjvm.so  _ZN7Monitor28lock_without_safepoint_checkEv 
+  0.01%           libjvm.so  _ZN2os13PlatformEvent4parkEl 
+  0.01%           libjvm.so  _ZN7Monitor5IWaitEP6Threadl 
+  0.01%           libjvm.so  _ZN15StatSamplerTask4taskEv 
+  0.00%           libjvm.so  _ZN15PerfLongVariant6sampleEv 
+  0.00%        libc-2.23.so  __clock_gettime 
+  0.00%           libjvm.so  _ZN10fileStream5writeEPKcm 
+  0.12%  <...other 55 warm methods...>
+....................................................................................................
+100.00%  <totals>
+
+....[Distribution by Source]........................................................................
+ 96.68%         c2, level 4
+  3.05%   [kernel.kallsyms]
+  0.16%           libjvm.so
+  0.04%  libpthread-2.23.so
+  0.03%        libc-2.23.so
+  0.01%      hsdis-amd64.so
+  0.01%              [vdso]
+  0.01%          ld-2.23.so
+  0.00%         interpreter
+....................................................................................................
+100.00%  <totals>
+
+
+
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -mx8G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.RandomGraph.permute
+# Parameters: (columns = 100, period = 65536, rows = 10)
+
+# Run progress: 50.00% complete, ETA 00:01:57
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 21.335 ops/us
+# Warmup Iteration   2: 21.018 ops/us
+# Warmup Iteration   3: 20.286 ops/us
+# Warmup Iteration   4: 27.528 ops/us
+# Warmup Iteration   5: 20.129 ops/us
+Iteration   1: 23.110 ops/us
+Iteration   2: 23.352 ops/us
+Iteration   3: 24.080 ops/us
+Iteration   4: 24.947 ops/us
+Iteration   5: 25.628 ops/us
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.openkappa.runtime.gc.RandomGraph.permute":
+  24.224 ±(99.9%) 4.090 ops/us [Average]
+  (min, avg, max) = (23.110, 24.224, 25.628), stdev = 1.062
+  CI (99.9%): [20.133, 28.314] (assumes normal distribution)
+
+Secondary result "com.openkappa.runtime.gc.RandomGraph.permute:·asm":
+PrintAssembly processed: 151920 total address lines.
+Perf output processed (skipped 7.536 seconds):
+ Column 1: cycles (51252 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 537 (554 bytes) 
+
+                                                                  ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+                    0x00007f57f076414a: mov    $0x1,%ebp
+         ╭          0x00007f57f076414f: jmp    0x00007f57f07641b5
+         │   ↗      0x00007f57f0764151: lea    0x18(%r8),%r10
+         │   │      0x00007f57f0764155: callq  0x00007f57e8c66bc0  ;   {runtime_call zgc_load_barrier_stubs}
+         │   │      0x00007f57f076415a: nopw   0x0(%rax,%rax,1)   ;*getfield links {reexecute=0 rethrow=0 return_oop=0}
+         │   │                                                    ; - com.openkappa.runtime.gc.RandomGraph$Node::unlink@1 (line 30)
+         │   │                                                    ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@63 (line 77)
+         │   │                                                    ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         │   │                                                    ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.08%  │   │↗     0x00007f57f0764160: mov    0x10(%r9),%r11d    ;*getfield id {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.RandomGraph$Node::unlink@5 (line 30)
+         │   ││                                                   ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@63 (line 77)
+         │   ││                                                   ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+         │   ││                                                   ; implicit exception: dispatches to 0x00007f57f0764c02
+  7.19%  │   ││     0x00007f57f0764164: mov    0x10(%r10),%r9d    ; implicit exception: dispatches to 0x00007f57f0764c0e
+  3.77%  │   ││     0x00007f57f0764168: cmp    %r9d,%r11d
+         │   ││     0x00007f57f076416b: jae    0x00007f57f07646d2
+  0.63%  │   ││     0x00007f57f0764171: movq   $0x0,0x18(%r10,%r11,8)  ;*invokevirtual permute {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  8.43%  │   ││     0x00007f57f076417a: mov    0x10(%rsp),%rsi
+  0.09%  │   ││     0x00007f57f076417f: mov    0x70(%rsp),%rdx
+  0.09%  │   ││     0x00007f57f0764184: data16 xchg %ax,%ax
+  0.28%  │   ││     0x00007f57f0764187: callq  0x00007f57e8c86780  ; ImmutableOopMap{[96]=Oop [104]=Oop [112]=Oop [120]=Oop [16]=Oop }
+         │   ││                                                   ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@22 (line 145)
+         │   ││                                                   ;   {optimized virtual_call}
+  0.40%  │   ││     0x00007f57f076418c: mov    0x60(%rsp),%r10
+  0.45%  │   ││     0x00007f57f0764191: movzbl 0x9c(%r10),%r11d   ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.16%  │   ││     0x00007f57f0764199: mov    0x108(%r15),%r10
+  0.27%  │   ││     0x00007f57f07641a0: mov    0x8(%rsp),%rbp
+  0.42%  │   ││     0x00007f57f07641a5: add    $0x1,%rbp          ; ImmutableOopMap{[96]=Oop [104]=Oop [112]=Oop [120]=Oop [16]=Oop }
+         │   ││                                                   ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.01%  │   ││     0x00007f57f07641a9: test   %eax,(%r10)        ;   {poll}
+  0.08%  │   ││     0x00007f57f07641ac: test   %r11d,%r11d
+         │   ││     0x00007f57f07641af: jne    0x00007f57f0764454  ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+         │   ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@38 (line 148)
+  0.29%  ↘   ││     0x00007f57f07641b5: mov    0x70(%rsp),%r10
+  0.45%      ││     0x00007f57f07641ba: mov    0x20(%r10),%r13    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+             ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.07%      ││     0x00007f57f07641be: test   %r13,0x20(%r15)
+          ╭  ││     0x00007f57f07641c2: jne    0x00007f57f076438f  ;*getfield nodes {reexecute=0 rethrow=0 return_oop=0}
+          │  ││                                                   ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@20 (line 72)
+          │  ││                                                   ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          │  ││                                                   ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.08%   │  ││↗    0x00007f57f07641c8: mov    0x28(%r10),%rax    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          │  │││                                                  ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.29%   │  │││    0x00007f57f07641cc: test   %rax,0x20(%r15)
+  0.01%   │╭ │││    0x00007f57f07641d0: jne    0x00007f57f076439d  ;*getfield transitions {reexecute=0 rethrow=0 return_oop=0}
+          ││ │││                                                  ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@24 (line 72)
+          ││ │││                                                  ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ │││                                                  ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.41%   ││ │││↗   0x00007f57f07641d6: mov    0x18(%r10),%r10d
+  0.02%   ││ ││││   0x00007f57f07641da: mov    0x70(%rsp),%r11
+  0.07%   ││ ││││   0x00007f57f07641df: mov    0x1c(%r11),%r8d    ;*getfield pos {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@2 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.30%   ││ ││││   0x00007f57f07641e3: dec    %r10d              ;*isub {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@16 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.44%   ││ ││││   0x00007f57f07641e6: mov    %r8d,%ecx
+  0.01%   ││ ││││   0x00007f57f07641e9: and    %r10d,%ecx         ;*iand {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@17 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.08%   ││ ││││   0x00007f57f07641ec: mov    %r8d,%r11d
+  0.28%   ││ ││││   0x00007f57f07641ef: inc    %r11d              ;*iadd {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@7 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.47%   ││ ││││   0x00007f57f07641f2: mov    0x70(%rsp),%r9
+  0.01%   ││ ││││   0x00007f57f07641f7: mov    %r11d,0x1c(%r9)    ;*putfield pos {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@8 (line 71)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.09%   ││ ││││   0x00007f57f07641fb: mov    0x10(%rax),%r9d    ; implicit exception: dispatches to 0x00007f57f0764b3e
+  0.29%   ││ ││││   0x00007f57f07641ff: cmp    %r9d,%ecx
+          ││ ││││   0x00007f57f0764202: jae    0x00007f57f0764486
+  0.42%   ││ ││││   0x00007f57f0764208: mov    %rbp,0x8(%rsp)
+  0.00%   ││ ││││   0x00007f57f076420d: mov    0x18(%rax,%rcx,8),%rdx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││ ││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.16%   ││ ││││   0x00007f57f0764212: test   %rdx,0x20(%r15)
+  0.00%   ││╭││││   0x00007f57f0764216: jne    0x00007f57f07643ab  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          │││││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@28 (line 72)
+          │││││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          │││││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.31%   │││││││↗  0x00007f57f076421c: mov    0x10(%rdx),%edi    ; implicit exception: dispatches to 0x00007f57f0764b4e
+  3.31%   ││││││││  0x00007f57f076421f: cmp    $0x3,%edi
+          ││││││││  0x00007f57f0764222: jbe    0x00007f57f076470a
+  0.09%   ││││││││  0x00007f57f0764228: mov    0x18(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@30 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  1.08%   ││││││││  0x00007f57f076422b: mov    0x10(%r13),%esi    ; implicit exception: dispatches to 0x00007f57f0764b5a
+  0.25%   ││││││││  0x00007f57f076422f: cmp    %esi,%edi
+          ││││││││  0x00007f57f0764231: jae    0x00007f57f07644aa
+  0.41%   ││││││││  0x00007f57f0764237: mov    0x18(%r13,%rdi,8),%rbp  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.42%   ││││││││  0x00007f57f076423c: test   %rbp,0x20(%r15)
+  0.18%   ││││││││  0x00007f57f0764240: jne    0x00007f57f07643ba  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@31 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.33%   ││││││││  0x00007f57f0764246: mov    0x1c(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@39 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.33%   ││││││││  0x00007f57f0764249: mov    0x10(%rbp),%ebx    ; implicit exception: dispatches to 0x00007f57f0764b6a
+  0.68%   ││││││││  0x00007f57f076424c: cmp    %ebx,%edi
+          ││││││││  0x00007f57f076424e: jae    0x00007f57f07644e6
+  0.20%   ││││││││  0x00007f57f0764254: mov    0x18(%rbp,%rdi,8),%rbx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.55%   ││││││││  0x00007f57f0764259: test   %rbx,0x20(%r15)
+          ││││││││  0x00007f57f076425d: jne    0x00007f57f07643c9  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@40 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.42%   ││││││││  0x00007f57f0764263: mov    0x20(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@52 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.95%   ││││││││  0x00007f57f0764266: cmp    %esi,%edi
+          ││││││││  0x00007f57f0764268: jae    0x00007f57f07644fa
+  0.11%   ││││││││  0x00007f57f076426e: mov    0x18(%r13,%rdi,8),%rbp  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.32%   ││││││││  0x00007f57f0764273: test   %rbp,0x20(%r15)
+  0.00%   ││││││││  0x00007f57f0764277: jne    0x00007f57f07643d8  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@53 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.49%   ││││││││  0x00007f57f076427d: mov    0x24(%rdx),%ecx    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@61 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.01%   ││││││││  0x00007f57f0764280: mov    0x10(%rbp),%edi    ; implicit exception: dispatches to 0x00007f57f0764b7a
+  0.49%   ││││││││  0x00007f57f0764283: cmp    %edi,%ecx
+          ││││││││  0x00007f57f0764285: jae    0x00007f57f076453a
+  0.32%   ││││││││  0x00007f57f076428b: mov    0x18(%rbp,%rcx,8),%rdx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.58%   ││││││││  0x00007f57f0764290: test   %rdx,0x20(%r15)
+          ││││││││  0x00007f57f0764294: jne    0x00007f57f07643e7  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@62 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.08%   ││││││││  0x00007f57f076429a: mov    0x18(%rbx),%rdi    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+          ││││││││                                                ; implicit exception: dispatches to 0x00007f57f0764b8a
+ 11.61%   ││││││││  0x00007f57f076429e: test   %rdi,0x20(%r15)
+          ││││││││  0x00007f57f07642a2: jne    0x00007f57f07643f6  ;*getfield links {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@1 (line 26)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.60%   ││││││││  0x00007f57f07642a8: mov    0x10(%rdx),%ecx    ;*getfield id {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@5 (line 26)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+          ││││││││                                                ; implicit exception: dispatches to 0x00007f57f0764b9a
+  6.60%   ││││││││  0x00007f57f07642ab: mov    0x10(%rdi),%ebx    ; implicit exception: dispatches to 0x00007f57f0764ba6
+  4.42%   ││││││││  0x00007f57f07642ae: cmp    %ebx,%ecx
+          ││││││││  0x00007f57f07642b0: jae    0x00007f57f0764552
+  0.58%   ││││││││  0x00007f57f07642b6: mov    %rdx,0x18(%rdi,%rcx,8)  ;*aastore {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@9 (line 26)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  7.85%   ││││││││  0x00007f57f07642bb: and    %r10d,%r11d        ;*iand {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@17 (line 76)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.13%   ││││││││  0x00007f57f07642be: add    $0x2,%r8d
+  0.00%   ││││││││  0x00007f57f07642c2: mov    0x70(%rsp),%r10
+  0.15%   ││││││││  0x00007f57f07642c7: mov    %r8d,0x1c(%r10)    ;*putfield pos {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@8 (line 76)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.54%   ││││││││  0x00007f57f07642cb: cmp    %r9d,%r11d
+          ││││││││  0x00007f57f07642ce: jae    0x00007f57f076458e
+  0.10%   ││││││││  0x00007f57f07642d4: mov    0x18(%rax,%r11,8),%rbx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.50%   ││││││││  0x00007f57f07642d9: test   %rbx,0x20(%r15)
+          ││││││││  0x00007f57f07642dd: jne    0x00007f57f0764404  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@28 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.16%   ││││││││  0x00007f57f07642e3: mov    0x10(%rbx),%r8d    ; implicit exception: dispatches to 0x00007f57f0764bba
+  3.10%   ││││││││  0x00007f57f07642e7: cmp    $0x3,%r8d
+          ││││││││  0x00007f57f07642eb: jbe    0x00007f57f0764746
+  0.15%   ││││││││  0x00007f57f07642f1: mov    0x18(%rbx),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@30 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.86%   ││││││││  0x00007f57f07642f5: cmp    %esi,%r10d
+          ││││││││  0x00007f57f07642f8: jae    0x00007f57f07645ce
+  0.20%   ││││││││  0x00007f57f07642fe: mov    0x18(%r13,%r10,8),%rcx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.59%   ││││││││  0x00007f57f0764303: test   %rcx,0x20(%r15)
+          ││││││││  0x00007f57f0764307: jne    0x00007f57f0764413  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@31 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.14%   ││││││││  0x00007f57f076430d: mov    0x18(%rax,%r11,8),%rdi  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@37 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.01%   ││││││││  0x00007f57f0764312: mov    0x10(%rdi),%r10d   ; implicit exception: dispatches to 0x00007f57f0764bc6
+  0.11%   ││││││││  0x00007f57f0764316: cmp    $0x2,%r10d
+          ││││││││  0x00007f57f076431a: jbe    0x00007f57f0764786
+  0.47%   ││││││││  0x00007f57f0764320: mov    0x1c(%rdi),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@39 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.15%   ││││││││  0x00007f57f0764324: mov    0x10(%rcx),%r9d    ; implicit exception: dispatches to 0x00007f57f0764bd2
+  0.31%   ││││││││  0x00007f57f0764328: cmp    %r9d,%r10d
+  0.00%   ││││││││  0x00007f57f076432b: jae    0x00007f57f076460e
+  0.20%   ││││││││  0x00007f57f0764331: mov    0x18(%rcx,%r10,8),%r8  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.61%   ││││││││  0x00007f57f0764336: test   %r8,0x20(%r15)
+          ││││││││  0x00007f57f076433a: jne    0x00007f57f0764422  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@40 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.16%   ││││││││  0x00007f57f0764340: mov    0x20(%rdi),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@52 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.89%   ││││││││  0x00007f57f0764344: cmp    %esi,%r10d
+          ││││││││  0x00007f57f0764347: jae    0x00007f57f076464e
+  0.14%   ││││││││  0x00007f57f076434d: mov    0x18(%r13,%r10,8),%r11  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.46%   ││││││││  0x00007f57f0764352: test   %r11,0x20(%r15)
+          ││││││││  0x00007f57f0764356: jne    0x00007f57f0764431  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@53 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.16%   ││││││││  0x00007f57f076435c: mov    0x24(%rbx),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@61 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.01%   ││││││││  0x00007f57f0764360: mov    0x10(%r11),%r9d    ; implicit exception: dispatches to 0x00007f57f0764be2
+  0.38%   ││││││││  0x00007f57f0764364: cmp    %r9d,%r10d
+          ││││││││  0x00007f57f0764367: jae    0x00007f57f0764692
+  0.47%   ││││││││  0x00007f57f076436d: mov    0x18(%r11,%r10,8),%r9  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.25%   ││││││││  0x00007f57f0764372: test   %r9,0x20(%r15)
+          ││││││││  0x00007f57f0764376: jne    0x00007f57f0764440  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@62 (line 77)
+          ││││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.03%   ││││││││  0x00007f57f076437c: mov    0x18(%r8),%r10     ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+          ││││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+          ││││││││                                                ; implicit exception: dispatches to 0x00007f57f0764bf2
+ 10.31%   ││││││││  0x00007f57f0764380: test   %r10,0x20(%r15)
+  0.00%   │││╰││││  0x00007f57f0764384: jne    0x00007f57f0764151
+  0.60%   │││ ╰│││  0x00007f57f076438a: jmpq   0x00007f57f0764160
+          ↘││  │││  0x00007f57f076438f: lea    0x20(%r10),%r13
+           ││  │││  0x00007f57f0764393: callq  0x00007f57e8c66d40  ;   {runtime_call zgc_load_barrier_stubs}
+           ││  ╰││  0x00007f57f0764398: jmpq   0x00007f57f07641c8
+           ↘│   ││  0x00007f57f076439d: lea    0x28(%r10),%rax
+            │   ││  0x00007f57f07643a1: callq  0x00007f57e8c66500  ;   {runtime_call zgc_load_barrier_stubs}
+            │   ╰│  0x00007f57f07643a6: jmpq   0x00007f57f07641d6
+            ↘    │  0x00007f57f07643ab: lea    0x18(%rax,%rcx,8),%rdx
+                 │  0x00007f57f07643b0: callq  0x00007f57e8c66680  ;   {runtime_call zgc_load_barrier_stubs}
+                 ╰  0x00007f57f07643b5: jmpq   0x00007f57f076421c
+                    0x00007f57f07643ba: lea    0x18(%r13,%rdi,8),%rbp
+....................................................................................................
+ 92.49%  <total for region 1>
+
+....[Hottest Regions]...............................................................................
+ 92.49%         c2, level 4  com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 537 (554 bytes) 
+  4.61%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 509 (75 bytes) 
+  1.96%   [kernel.kallsyms]  [unknown] (5 bytes) 
+  0.07%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.03%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.03%   [kernel.kallsyms]  [unknown] (16 bytes) 
+  0.02%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable (54 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (12 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (39 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (39 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (37 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (13 bytes) 
+  0.01%           libjvm.so  _ZN2os13PlatformEvent4parkEl (24 bytes) 
+  0.01%           libjvm.so  _ZN15StatSamplerTask4taskEv (20 bytes) 
+  0.01%           libjvm.so  _ZN6Thread10muxAcquireEPVlPKc (12 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (5 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (6 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (17 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.65%  <...other 257 warm regions...>
+....................................................................................................
+100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 92.49%         c2, level 4  com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 537 
+  4.61%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 509 
+  2.61%   [kernel.kallsyms]  [unknown] 
+  0.02%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable 
+  0.01%           libjvm.so  _ZN2os13PlatformEvent4parkEl 
+  0.01%      hsdis-amd64.so  print_insn 
+  0.01%           libjvm.so  _ZN7Monitor28lock_without_safepoint_checkEv 
+  0.01%              [vdso]  [unknown] 
+  0.01%           libjvm.so  _ZN6Thread10muxAcquireEPVlPKc 
+  0.01%           libjvm.so  _ZN15StatSamplerTask4taskEv 
+  0.01%          ld-2.23.so  __tls_get_addr 
+  0.01%           libjvm.so  _ZN2os13javaTimeNanosEv 
+  0.01%           libjvm.so  _ZN7VMError17is_error_reportedEv 
+  0.01%        libc-2.23.so  vfprintf 
+  0.01%           libjvm.so  _ZN15PerfLongVariant6sampleEv 
+  0.01%           libjvm.so  _ZN10fileStream5writeEPKcm 
+  0.01%           libjvm.so  _ZN12PeriodicTask14real_time_tickEi 
+  0.01%  libpthread-2.23.so  pthread_cond_timedwait@@GLIBC_2.3.2 
+  0.01%           libjvm.so  _ZN13WatcherThread3runEv 
+  0.01%  libpthread-2.23.so  pthread_mutex_unlock 
+  0.14%  <...other 61 warm methods...>
+....................................................................................................
+100.00%  <totals>
+
+....[Distribution by Source]........................................................................
+ 97.11%         c2, level 4
+  2.61%   [kernel.kallsyms]
+  0.19%           libjvm.so
+  0.04%        libc-2.23.so
+  0.03%  libpthread-2.23.so
+  0.01%      hsdis-amd64.so
+  0.01%              [vdso]
+  0.01%          ld-2.23.so
+  0.00%         interpreter
+....................................................................................................
+100.00%  <totals>
+
+
+
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -mx8G -XX:+AlwaysPreTouch
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.gc.RandomGraph.permute
+# Parameters: (columns = 100, period = 65536, rows = 100)
+
+# Run progress: 75.00% complete, ETA 00:00:58
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 2.283 ops/us
+# Warmup Iteration   2: 2.466 ops/us
+# Warmup Iteration   3: 2.582 ops/us
+# Warmup Iteration   4: 2.552 ops/us
+# Warmup Iteration   5: 2.574 ops/us
+Iteration   1: 2.109 ops/us
+Iteration   2: 1.611 ops/us
+Iteration   3: 1.635 ops/us
+Iteration   4: 2.163 ops/us
+Iteration   5: 1.898 ops/us
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.openkappa.runtime.gc.RandomGraph.permute":
+  1.883 ±(99.9%) 0.991 ops/us [Average]
+  (min, avg, max) = (1.611, 1.883, 2.163), stdev = 0.257
+  CI (99.9%): [0.892, 2.875] (assumes normal distribution)
+
+Secondary result "com.openkappa.runtime.gc.RandomGraph.permute:·asm":
+PrintAssembly processed: 154645 total address lines.
+Perf output processed (skipped 8.231 seconds):
+ Column 1: cycles (51343 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 541 (550 bytes) 
+
+                                                               ; - com.openkappa.runtime.gc.RandomGraph$Node::unlink@1 (line 30)
+                                                               ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@63 (line 77)
+                                                               ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+                                                               ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+                 0x00007fc0938f15e0: mov    0x10(%r9),%r11d    ;*getfield id {reexecute=0 rethrow=0 return_oop=0}
+                                                               ; - com.openkappa.runtime.gc.RandomGraph$Node::unlink@5 (line 30)
+                                                               ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@63 (line 77)
+                                                               ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+                                                               ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+                                                               ; implicit exception: dispatches to 0x00007fc0938f2082
+  7.30%          0x00007fc0938f15e4: mov    0x10(%r10),%r9d    ; implicit exception: dispatches to 0x00007fc0938f208e
+ 11.11%          0x00007fc0938f15e8: cmp    %r9d,%r11d
+                 0x00007fc0938f15eb: jae    0x00007fc0938f1b52
+  0.13%          0x00007fc0938f15f1: movq   $0x0,0x18(%r10,%r11,8)  ;*invokevirtual permute {reexecute=0 rethrow=0 return_oop=0}
+                                                               ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  3.12%          0x00007fc0938f15fa: mov    0x10(%rsp),%rsi
+  0.03%          0x00007fc0938f15ff: mov    0x70(%rsp),%rdx
+  0.01%          0x00007fc0938f1604: data16 xchg %ax,%ax
+  0.05%          0x00007fc0938f1607: callq  0x00007fc08be16780  ; ImmutableOopMap{[96]=Oop [104]=Oop [112]=Oop [120]=Oop [16]=Oop }
+                                                               ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+                                                               ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@22 (line 145)
+                                                               ;   {optimized virtual_call}
+  0.06%          0x00007fc0938f160c: mov    0x60(%rsp),%r10
+  0.05%          0x00007fc0938f1611: movzbl 0x9c(%r10),%r11d   ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                               ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.03%          0x00007fc0938f1619: mov    0x108(%r15),%r10
+  0.04%          0x00007fc0938f1620: mov    0x8(%rsp),%rbp
+  0.03%          0x00007fc0938f1625: add    $0x1,%rbp          ; ImmutableOopMap{[96]=Oop [104]=Oop [112]=Oop [120]=Oop [16]=Oop }
+                                                               ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+                                                               ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.00%          0x00007fc0938f1629: test   %eax,(%r10)        ;   {poll}
+                 0x00007fc0938f162c: test   %r11d,%r11d
+                 0x00007fc0938f162f: jne    0x00007fc0938f18d4  ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+                                                               ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@38 (line 148)
+  0.05%          0x00007fc0938f1635: mov    0x70(%rsp),%r10
+  0.06%          0x00007fc0938f163a: mov    0x20(%r10),%r13    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                               ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.01%          0x00007fc0938f163e: test   %r13,0x20(%r15)
+         ╭       0x00007fc0938f1642: jne    0x00007fc0938f180f  ;*getfield nodes {reexecute=0 rethrow=0 return_oop=0}
+         │                                                     ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@20 (line 72)
+         │                                                     ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         │                                                     ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.01%  │  ↗    0x00007fc0938f1648: mov    0x28(%r10),%rax    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │  │                                                  ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.05%  │  │    0x00007fc0938f164c: test   %rax,0x20(%r15)
+         │╭ │    0x00007fc0938f1650: jne    0x00007fc0938f181d  ;*getfield transitions {reexecute=0 rethrow=0 return_oop=0}
+         ││ │                                                  ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@24 (line 72)
+         ││ │                                                  ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││ │                                                  ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.06%  ││ │↗   0x00007fc0938f1656: mov    0x18(%r10),%r10d
+         ││ ││   0x00007fc0938f165a: mov    0x70(%rsp),%r11
+  0.00%  ││ ││   0x00007fc0938f165f: mov    0x1c(%r11),%r8d    ;*getfield pos {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@2 (line 71)
+         ││ ││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││ ││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.05%  ││ ││   0x00007fc0938f1663: dec    %r10d              ;*isub {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@16 (line 71)
+         ││ ││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││ ││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.04%  ││ ││   0x00007fc0938f1666: mov    %r8d,%ecx
+         ││ ││   0x00007fc0938f1669: and    %r10d,%ecx         ;*iand {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@17 (line 71)
+         ││ ││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││ ││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.00%  ││ ││   0x00007fc0938f166c: mov    %r8d,%r11d
+  0.04%  ││ ││   0x00007fc0938f166f: inc    %r11d              ;*iadd {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@7 (line 71)
+         ││ ││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││ ││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.05%  ││ ││   0x00007fc0938f1672: mov    0x70(%rsp),%r9
+         ││ ││   0x00007fc0938f1677: mov    %r11d,0x1c(%r9)    ;*putfield pos {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@8 (line 71)
+         ││ ││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││ ││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.01%  ││ ││   0x00007fc0938f167b: mov    0x10(%rax),%r9d    ; implicit exception: dispatches to 0x00007fc0938f1fbe
+  0.08%  ││ ││   0x00007fc0938f167f: cmp    %r9d,%ecx
+         ││ ││   0x00007fc0938f1682: jae    0x00007fc0938f1906
+  0.05%  ││ ││   0x00007fc0938f1688: mov    %rbp,0x8(%rsp)
+         ││ ││   0x00007fc0938f168d: mov    0x18(%rax,%rcx,8),%rdx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.03%  ││ ││   0x00007fc0938f1692: test   %rdx,0x20(%r15)
+         ││╭││   0x00007fc0938f1696: jne    0x00007fc0938f182b  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         │││││                                                 ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@28 (line 72)
+         │││││                                                 ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         │││││                                                 ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.07%  │││││↗  0x00007fc0938f169c: mov    0x10(%rdx),%edi    ; implicit exception: dispatches to 0x00007fc0938f1fce
+  0.14%  ││││││  0x00007fc0938f169f: cmp    $0x3,%edi
+         ││││││  0x00007fc0938f16a2: jbe    0x00007fc0938f1b8a
+  0.00%  ││││││  0x00007fc0938f16a8: mov    0x18(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@30 (line 72)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.04%  ││││││  0x00007fc0938f16ab: mov    0x10(%r13),%esi    ; implicit exception: dispatches to 0x00007fc0938f1fda
+  0.05%  ││││││  0x00007fc0938f16af: cmp    %esi,%edi
+         ││││││  0x00007fc0938f16b1: jae    0x00007fc0938f192a
+  0.06%  ││││││  0x00007fc0938f16b7: mov    0x18(%r13,%rdi,8),%rbp  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.02%  ││││││  0x00007fc0938f16bc: test   %rbp,0x20(%r15)
+  0.00%  ││││││  0x00007fc0938f16c0: jne    0x00007fc0938f183a  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@31 (line 72)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.07%  ││││││  0x00007fc0938f16c6: mov    0x1c(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@39 (line 72)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.05%  ││││││  0x00007fc0938f16c9: mov    0x10(%rbp),%ebx    ; implicit exception: dispatches to 0x00007fc0938f1fea
+  0.09%  ││││││  0x00007fc0938f16cc: cmp    %ebx,%edi
+         ││││││  0x00007fc0938f16ce: jae    0x00007fc0938f1966
+  0.00%  ││││││  0x00007fc0938f16d4: mov    0x18(%rbp,%rdi,8),%rbx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.20%  ││││││  0x00007fc0938f16d9: test   %rbx,0x20(%r15)
+         ││││││  0x00007fc0938f16dd: jne    0x00007fc0938f1849  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@40 (line 72)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.05%  ││││││  0x00007fc0938f16e3: mov    0x20(%rdx),%edi    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@52 (line 72)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.05%  ││││││  0x00007fc0938f16e6: cmp    %esi,%edi
+         ││││││  0x00007fc0938f16e8: jae    0x00007fc0938f197a
+  0.02%  ││││││  0x00007fc0938f16ee: mov    0x18(%r13,%rdi,8),%rbp  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.08%  ││││││  0x00007fc0938f16f3: test   %rbp,0x20(%r15)
+         ││││││  0x00007fc0938f16f7: jne    0x00007fc0938f1858  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@53 (line 72)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.07%  ││││││  0x00007fc0938f16fd: mov    0x24(%rdx),%ecx    ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@61 (line 72)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.00%  ││││││  0x00007fc0938f1700: mov    0x10(%rbp),%edi    ; implicit exception: dispatches to 0x00007fc0938f1ffa
+  0.25%  ││││││  0x00007fc0938f1703: cmp    %edi,%ecx
+         ││││││  0x00007fc0938f1705: jae    0x00007fc0938f19ba
+  0.05%  ││││││  0x00007fc0938f170b: mov    0x18(%rbp,%rcx,8),%rdx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.42%  ││││││  0x00007fc0938f1710: test   %rdx,0x20(%r15)
+         ││││││  0x00007fc0938f1714: jne    0x00007fc0938f1867  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@62 (line 72)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.03%  ││││││  0x00007fc0938f171a: mov    0x18(%rbx),%rdi    ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+         ││││││                                                ; implicit exception: dispatches to 0x00007fc0938f200a
+ 25.56%  ││││││  0x00007fc0938f171e: test   %rdi,0x20(%r15)
+  0.00%  ││││││  0x00007fc0938f1722: jne    0x00007fc0938f1876  ;*getfield links {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@1 (line 26)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.28%  ││││││  0x00007fc0938f1728: mov    0x10(%rdx),%ecx    ;*getfield id {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@5 (line 26)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+         ││││││                                                ; implicit exception: dispatches to 0x00007fc0938f201a
+  7.84%  ││││││  0x00007fc0938f172b: mov    0x10(%rdi),%ebx    ; implicit exception: dispatches to 0x00007fc0938f2026
+ 10.83%  ││││││  0x00007fc0938f172e: cmp    %ebx,%ecx
+         ││││││  0x00007fc0938f1730: jae    0x00007fc0938f19d2
+  0.18%  ││││││  0x00007fc0938f1736: mov    %rdx,0x18(%rdi,%rcx,8)  ;*aastore {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Node::link@9 (line 26)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::link@63 (line 72)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@1 (line 83)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  3.07%  ││││││  0x00007fc0938f173b: and    %r10d,%r11d        ;*iand {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@17 (line 76)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.02%  ││││││  0x00007fc0938f173e: add    $0x2,%r8d
+         ││││││  0x00007fc0938f1742: mov    0x70(%rsp),%r10
+  0.04%  ││││││  0x00007fc0938f1747: mov    %r8d,0x1c(%r10)    ;*putfield pos {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@8 (line 76)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.06%  ││││││  0x00007fc0938f174b: cmp    %r9d,%r11d
+         ││││││  0x00007fc0938f174e: jae    0x00007fc0938f1a0e
+         ││││││  0x00007fc0938f1754: mov    0x18(%rax,%r11,8),%rbx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.08%  ││││││  0x00007fc0938f1759: test   %rbx,0x20(%r15)
+  0.00%  ││││││  0x00007fc0938f175d: jne    0x00007fc0938f1884  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@28 (line 77)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.04%  ││││││  0x00007fc0938f1763: mov    0x10(%rbx),%r8d    ; implicit exception: dispatches to 0x00007fc0938f203a
+  0.20%  ││││││  0x00007fc0938f1767: cmp    $0x3,%r8d
+         ││││││  0x00007fc0938f176b: jbe    0x00007fc0938f1bc6
+  0.00%  ││││││  0x00007fc0938f1771: mov    0x18(%rbx),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@30 (line 77)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.01%  ││││││  0x00007fc0938f1775: cmp    %esi,%r10d
+  0.00%  ││││││  0x00007fc0938f1778: jae    0x00007fc0938f1a4e
+  0.05%  ││││││  0x00007fc0938f177e: mov    0x18(%r13,%r10,8),%rcx  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.07%  ││││││  0x00007fc0938f1783: test   %rcx,0x20(%r15)
+         ││││││  0x00007fc0938f1787: jne    0x00007fc0938f1893  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@31 (line 77)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.00%  ││││││  0x00007fc0938f178d: mov    0x18(%rax,%r11,8),%rdi  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@37 (line 77)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.00%  ││││││  0x00007fc0938f1792: mov    0x10(%rdi),%r10d   ; implicit exception: dispatches to 0x00007fc0938f2046
+  0.03%  ││││││  0x00007fc0938f1796: cmp    $0x2,%r10d
+         ││││││  0x00007fc0938f179a: jbe    0x00007fc0938f1c06
+  0.06%  ││││││  0x00007fc0938f17a0: mov    0x1c(%rdi),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@39 (line 77)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+         ││││││  0x00007fc0938f17a4: mov    0x10(%rcx),%r9d    ; implicit exception: dispatches to 0x00007fc0938f2052
+  0.06%  ││││││  0x00007fc0938f17a8: cmp    %r9d,%r10d
+         ││││││  0x00007fc0938f17ab: jae    0x00007fc0938f1a8e
+  0.05%  ││││││  0x00007fc0938f17b1: mov    0x18(%rcx,%r10,8),%r8  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.12%  ││││││  0x00007fc0938f17b6: test   %r8,0x20(%r15)
+         ││││││  0x00007fc0938f17ba: jne    0x00007fc0938f18a2  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@40 (line 77)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.00%  ││││││  0x00007fc0938f17c0: mov    0x20(%rdi),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@52 (line 77)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.03%  ││││││  0x00007fc0938f17c4: cmp    %esi,%r10d
+         ││││││  0x00007fc0938f17c7: jae    0x00007fc0938f1ace
+  0.04%  ││││││  0x00007fc0938f17cd: mov    0x18(%r13,%r10,8),%r11  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.07%  ││││││  0x00007fc0938f17d2: test   %r11,0x20(%r15)
+         ││││││  0x00007fc0938f17d6: jne    0x00007fc0938f18b1  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@53 (line 77)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.01%  ││││││  0x00007fc0938f17dc: mov    0x24(%rbx),%r10d   ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@61 (line 77)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+         ││││││  0x00007fc0938f17e0: mov    0x10(%r11),%r9d    ; implicit exception: dispatches to 0x00007fc0938f2062
+  0.08%  ││││││  0x00007fc0938f17e4: cmp    %r9d,%r10d
+         ││││││  0x00007fc0938f17e7: jae    0x00007fc0938f1b12
+  0.07%  ││││││  0x00007fc0938f17ed: mov    0x18(%r11,%r10,8),%r9  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+  0.06%  ││││││  0x00007fc0938f17f2: test   %r9,0x20(%r15)
+         ││││││  0x00007fc0938f17f6: jne    0x00007fc0938f18c0  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph$Nodes::unlink@62 (line 77)
+         ││││││                                                ; - com.openkappa.runtime.gc.RandomGraph::permute@5 (line 84)
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@19 (line 145)
+  0.00%  ││││││  0x00007fc0938f17fc: mov    0x18(%r8),%r10     ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         ││││││                                                ; - com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub@35 (line 147)
+         ││││││                                                ; implicit exception: dispatches to 0x00007fc0938f2072
+ 22.55%  ││││││  0x00007fc0938f1800: test   %r10,0x20(%r15)
+  0.00%  ││││││  0x00007fc0938f1804: jne    0x00007fc0938f15d1
+  0.26%  ││││││  0x00007fc0938f180a: jmpq   0x00007fc0938f15e0
+         ↘│││││  0x00007fc0938f180f: lea    0x20(%r10),%r13
+          │││││  0x00007fc0938f1813: callq  0x00007fc08bdf6d40  ;   {runtime_call zgc_load_barrier_stubs}
+          ││╰││  0x00007fc0938f1818: jmpq   0x00007fc0938f1648
+          ↘│ ││  0x00007fc0938f181d: lea    0x28(%r10),%rax
+           │ ││  0x00007fc0938f1821: callq  0x00007fc08bdf6500  ;   {runtime_call zgc_load_barrier_stubs}
+           │ ╰│  0x00007fc0938f1826: jmpq   0x00007fc0938f1656
+           ↘  │  0x00007fc0938f182b: lea    0x18(%rax,%rcx,8),%rdx
+              │  0x00007fc0938f1830: callq  0x00007fc08bdf6680  ;   {runtime_call zgc_load_barrier_stubs}
+              ╰  0x00007fc0938f1835: jmpq   0x00007fc0938f169c
+                 0x00007fc0938f183a: lea    0x18(%r13,%rdi,8),%rbp
+....................................................................................................
+ 96.24%  <total for region 1>
+
+....[Hottest Regions]...............................................................................
+ 96.24%         c2, level 4  com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 541 (550 bytes) 
+  1.95%   [kernel.kallsyms]  [unknown] (5 bytes) 
+  0.47%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 517 (75 bytes) 
+  0.15%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (3 bytes) 
+  0.04%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable (54 bytes) 
+  0.03%   [kernel.kallsyms]  [unknown] (39 bytes) 
+  0.03%   [kernel.kallsyms]  [unknown] (3 bytes) 
+  0.03%   [kernel.kallsyms]  [unknown] (15 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (28 bytes) 
+  0.02%  libpthread-2.23.so  pthread_cond_timedwait@@GLIBC_2.3.2 (24 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (20 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%           libjvm.so  _ZN6Thread10muxAcquireEPVlPKc (12 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (12 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (31 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.01%           libjvm.so  _ZN15PerfLongVariant6sampleEv (28 bytes) 
+  0.01%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.86%  <...other 301 warm regions...>
+....................................................................................................
+100.00%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 96.24%         c2, level 4  com.openkappa.runtime.gc.generated.RandomGraph_permute_jmhTest::permute_thrpt_jmhStub, version 541 
+  2.92%   [kernel.kallsyms]  [unknown] 
+  0.47%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 517 
+  0.04%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable 
+  0.03%  libpthread-2.23.so  pthread_cond_timedwait@@GLIBC_2.3.2 
+  0.02%        libc-2.23.so  vfprintf 
+  0.02%           libjvm.so  _ZN2os13PlatformEvent4parkEl 
+  0.02%           libjvm.so  _ZN6Thread10muxAcquireEPVlPKc 
+  0.01%              [vdso]  [unknown] 
+  0.01%           libjvm.so  _ZN9xmlStream10write_textEPKcm.part.15 
+  0.01%           libjvm.so  _ZN15PerfLongVariant6sampleEv 
+  0.01%           libjvm.so  _ZN7Monitor5IWaitEP6Threadl 
+  0.01%  libpthread-2.23.so  __pthread_disable_asynccancel 
+  0.01%           libjvm.so  _ZN13RelocIterator10initializeEP14CompiledMethodPhS2_ 
+  0.01%           libjvm.so  _ZN15StatSamplerTask4taskEv 
+  0.01%        libc-2.23.so  __clock_gettime 
+  0.01%           libjvm.so  _ZN7Monitor28lock_without_safepoint_checkEv 
+  0.01%      hsdis-amd64.so  print_insn 
+  0.00%           libjvm.so  _ZN2os13javaTimeNanosEv 
+  0.00%           libjvm.so  _ZNK13WatcherThread5sleepEv 
+  0.15%  <...other 64 warm methods...>
+....................................................................................................
+100.00%  <totals>
+
+....[Distribution by Source]........................................................................
+ 96.71%         c2, level 4
+  2.92%   [kernel.kallsyms]
+  0.23%           libjvm.so
+  0.06%        libc-2.23.so
+  0.05%  libpthread-2.23.so
+  0.01%              [vdso]
+  0.01%         interpreter
+  0.01%      hsdis-amd64.so
+  0.00%         c1, level 1
+  0.00%          ld-2.23.so
+  0.00%    Unknown, level 0
+....................................................................................................
+100.00%  <totals>
+
+
+
+# Run complete. Total time: 00:03:54
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                 (columns)  (period)  (rows)   Mode  Cnt   Score    Error   Units
+RandomGraph.permute              10     65536      10  thrpt    5  65.139 ± 18.765  ops/us
+RandomGraph.permute:·asm         10     65536      10  thrpt          NaN              ---
+RandomGraph.permute              10     65536     100  thrpt    5  25.746 ±  5.060  ops/us
+RandomGraph.permute:·asm         10     65536     100  thrpt          NaN              ---
+RandomGraph.permute             100     65536      10  thrpt    5  24.224 ±  4.090  ops/us
+RandomGraph.permute:·asm        100     65536      10  thrpt          NaN              ---
+RandomGraph.permute             100     65536     100  thrpt    5   1.883 ±  0.991  ops/us
+RandomGraph.permute:·asm        100     65536     100  thrpt          NaN              ---

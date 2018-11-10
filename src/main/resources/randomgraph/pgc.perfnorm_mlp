@@ -1,0 +1,13 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: columns","Param: period","Param: rows"
+"com.openkappa.runtime.gc.RandomGraph.permute","thrpt",1,5,75.618572,1.101209,"ops/us",10,65536,10
+"com.openkappa.runtime.gc.RandomGraph.permute:l1d_pend_miss.pending","thrpt",1,1,1.860548,NaN,"#/op",10,65536,10
+"com.openkappa.runtime.gc.RandomGraph.permute:l1d_pend_miss.pending_cycles","thrpt",1,1,1.776699,NaN,"#/op",10,65536,10
+"com.openkappa.runtime.gc.RandomGraph.permute","thrpt",1,5,36.536473,0.968949,"ops/us",10,65536,100
+"com.openkappa.runtime.gc.RandomGraph.permute:l1d_pend_miss.pending","thrpt",1,1,73.856470,NaN,"#/op",10,65536,100
+"com.openkappa.runtime.gc.RandomGraph.permute:l1d_pend_miss.pending_cycles","thrpt",1,1,47.108962,NaN,"#/op",10,65536,100
+"com.openkappa.runtime.gc.RandomGraph.permute","thrpt",1,5,36.561011,0.870752,"ops/us",100,65536,10
+"com.openkappa.runtime.gc.RandomGraph.permute:l1d_pend_miss.pending","thrpt",1,1,76.825476,NaN,"#/op",100,65536,10
+"com.openkappa.runtime.gc.RandomGraph.permute:l1d_pend_miss.pending_cycles","thrpt",1,1,49.194398,NaN,"#/op",100,65536,10
+"com.openkappa.runtime.gc.RandomGraph.permute","thrpt",1,5,9.695271,0.830894,"ops/us",100,65536,100
+"com.openkappa.runtime.gc.RandomGraph.permute:l1d_pend_miss.pending","thrpt",1,1,376.819511,NaN,"#/op",100,65536,100
+"com.openkappa.runtime.gc.RandomGraph.permute:l1d_pend_miss.pending_cycles","thrpt",1,1,221.130684,NaN,"#/op",100,65536,100
