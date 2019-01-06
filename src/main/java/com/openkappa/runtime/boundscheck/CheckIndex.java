@@ -2,7 +2,6 @@ package com.openkappa.runtime.boundscheck;
 
 import org.openjdk.jmh.annotations.*;
 
-import java.nio.DoubleBuffer;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
