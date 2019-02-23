@@ -1,4 +1,4 @@
-package com.openkappa.runtime.inlining;
+package com.openkappa.runtime.inlining.hashers;
 
 import com.openkappa.runtime.DataUtil;
 

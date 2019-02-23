@@ -1,4 +1,4 @@
-package com.openkappa.simd.inlining;
+package com.openkappa.runtime.inlining;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;

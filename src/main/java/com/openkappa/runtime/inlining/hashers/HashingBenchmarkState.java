@@ -1,4 +1,4 @@
-package com.openkappa.runtime.inlining;
+package com.openkappa.runtime.inlining.hashers;
 
 public interface HashingBenchmarkState {
   Hasher getHasher();

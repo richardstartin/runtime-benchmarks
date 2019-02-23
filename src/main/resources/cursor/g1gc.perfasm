@@ -1129,7 +1129,7 @@ c2, level 4, com.openkappa.runtime.gc.generated.CursoredScannerBenchmark_scan_jm
 # Timeout: 10 min per iteration
 # Threads: 1 thread, will synchronize iterations
 # Benchmark mode: Throughput, ops/time
-# Benchmark: com.openkappa.simd.inlining.MegamorphicList.sumLength_Random2
+# Benchmark: com.openkappa.runtime.inlining.MegamorphicList.sumLength_Random2
 
 # Run progress: 80.00% complete, ETA 00:01:02
 # Fork: 1 of 1
@@ -1148,12 +1148,12 @@ Iteration   5: 38.428 ops/us
 # Processing profiler results: LinuxPerfAsmProfiler 
 
 
-Result "com.openkappa.simd.inlining.MegamorphicList.sumLength_Random2":
+Result "com.openkappa.runtime.inlining.MegamorphicList.sumLength_Random2":
   37.722 ±(99.9%) 3.869 ops/us [Average]
   (min, avg, max) = (36.017, 37.722, 38.500), stdev = 1.005
   CI (99.9%): [33.853, 41.590] (assumes normal distribution)
 
-Secondary result "com.openkappa.simd.inlining.MegamorphicList.sumLength_Random2:·asm":
+Secondary result "com.openkappa.runtime.inlining.MegamorphicList.sumLength_Random2:·asm":
 PrintAssembly processed: 132081 total address lines.
 Perf output processed (skipped 51.978 seconds):
  Column 1: cycles (10291 events)
@@ -1171,7 +1171,7 @@ c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Ran
                    0x00007f3b9875d30a: mov    $0x1,%ebp
          ╭         0x00007f3b9875d30f: jmp    0x00007f3b9875d350
          │  ↗      0x00007f3b9875d311: xor    %edx,%edx          ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
-         │  │                                                    ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@24 (line 61)
+         │  │                                                    ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@24 (line 61)
          │  │                                                    ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.52%  │  │  ↗   0x00007f3b9875d313: mov    %r14,0x60(%rsp)
          │  │  │   0x00007f3b9875d318: mov    %r13,0x70(%rsp)    ;*invokevirtual sumLength_Random2 {reexecute=0 rethrow=0 return_oop=0}
@@ -1186,7 +1186,7 @@ c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Ran
   1.14%  │  │  │   0x00007f3b9875d32c: mov    0x60(%rsp),%r14
   0.28%  │  │  │   0x00007f3b9875d331: movzbl 0x94(%r14),%r11d   ;*invokestatic currentThread {reexecute=0 rethrow=0 return_oop=0}
          │  │  │                                                 ; - java.util.concurrent.ThreadLocalRandom::current@3 (line 177)
-         │  │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
+         │  │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
          │  │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
          │  │  │   0x00007f3b9875d339: mov    0x108(%r15),%r10
   0.92%  │  │  │   0x00007f3b9875d340: add    $0x1,%rbp          ; ImmutableOopMap{r14=Oop [112]=Oop [0]=Oop [16]=Oop }
@@ -1197,31 +1197,31 @@ c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Ran
          │  │  │   0x00007f3b9875d34a: jne    0x00007f3b9875d627
          ↘  │  │   0x00007f3b9875d350: mov    0x318(%r15),%r8    ;*invokestatic currentThread {reexecute=0 rethrow=0 return_oop=0}
             │  │                                                 ; - java.util.concurrent.ThreadLocalRandom::current@3 (line 177)
-            │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
+            │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
             │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.80%     │  │   0x00007f3b9875d357: mov    0x70(%rsp),%r13
   0.02%     │  │   0x00007f3b9875d35c: mov    0xc(%r13),%r10d    ;*getfield strings {reexecute=0 rethrow=0 return_oop=0}
-            │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@1 (line 59)
+            │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@1 (line 59)
             │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.24%     │  │   0x00007f3b9875d360: mov    0xf0(%r8),%r11d    ;*invokevirtual getInt {reexecute=0 rethrow=0 return_oop=0}
             │  │                                                 ; - java.util.concurrent.ThreadLocalRandom::current@9 (line 177)
-            │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
+            │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
             │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
             │  │   0x00007f3b9875d367: test   %r11d,%r11d
             │  │   0x00007f3b9875d36a: je     0x00007f3b9875d6fa  ;*ifne {reexecute=0 rethrow=0 return_oop=0}
             │  │                                                 ; - java.util.concurrent.ThreadLocalRandom::current@12 (line 177)
-            │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
+            │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
             │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.69%     │  │   0x00007f3b9875d370: movabs $0x9e3779b97f4a7c15,%r11
   0.10%     │  │   0x00007f3b9875d37a: add    0xe8(%r8),%r11     ;*ladd {reexecute=0 rethrow=0 return_oop=0}
             │  │                                                 ; - java.util.concurrent.ThreadLocalRandom::nextSeed@24 (line 197)
             │  │                                                 ; - java.util.concurrent.ThreadLocalRandom::nextInt@15 (line 311)
-            │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@8 (line 59)
+            │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@8 (line 59)
             │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.29%     │  │   0x00007f3b9875d381: mov    %r11,0xe8(%r8)     ;*invokevirtual putLong {reexecute=0 rethrow=0 return_oop=0}
             │  │                                                 ; - java.util.concurrent.ThreadLocalRandom::nextSeed@27 (line 196)
             │  │                                                 ; - java.util.concurrent.ThreadLocalRandom::nextInt@15 (line 311)
-            │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@8 (line 59)
+            │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@8 (line 59)
             │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
             │  │   0x00007f3b9875d388: mov    %r11,%r8
   0.78%     │  │   0x00007f3b9875d38b: shr    $0x21,%r8
@@ -1230,7 +1230,7 @@ c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Ran
             │  │   0x00007f3b9875d39c: imul   %r11,%r8           ;*lmul {reexecute=0 rethrow=0 return_oop=0}
             │  │                                                 ; - java.util.concurrent.ThreadLocalRandom::mix32@9 (line 140)
             │  │                                                 ; - java.util.concurrent.ThreadLocalRandom::nextInt@18 (line 311)
-            │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@8 (line 59)
+            │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@8 (line 59)
             │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   1.45%     │  │   0x00007f3b9875d3a0: mov    %r8,%r11
   0.07%     │  │   0x00007f3b9875d3a3: shr    $0x21,%r11
@@ -1241,13 +1241,13 @@ c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Ran
   0.60%     │  │   0x00007f3b9875d3bc: mov    %r11d,%r11d
   0.39%     │  │   0x00007f3b9875d3bf: and    $0x1,%r11d         ;*iand {reexecute=0 rethrow=0 return_oop=0}
             │  │                                                 ; - java.util.concurrent.ThreadLocalRandom::nextInt@34 (line 314)
-            │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@8 (line 59)
+            │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@8 (line 59)
             │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.77%     │  │   0x00007f3b9875d3c3: mov    0xc(%r10),%r8d     ; implicit exception: dispatches to 0x00007f3b9875da16
   0.04%     │  │   0x00007f3b9875d3c7: cmp    %r8d,%r11d
             │  │   0x00007f3b9875d3ca: jae    0x00007f3b9875d692
   0.84%     │  │   0x00007f3b9875d3d0: mov    0x10(%r10,%r11,4),%r11d  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
-            │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@11 (line 59)
+            │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@11 (line 59)
             │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   3.45%     │  │   0x00007f3b9875d3d5: mov    0x8(%r11),%r10d    ; implicit exception: dispatches to 0x00007f3b9875da2a
   3.49%     │  │   0x00007f3b9875d3d9: mov    %r11,%rax
@@ -1256,30 +1256,30 @@ c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Ran
   3.71%   │ │  │   0x00007f3b9875d3e5: cmp    $0x20005ff8,%r10d  ;   {metadata(&apos;java/util/ArrayList&apos;)}
           │ │  │   0x00007f3b9875d3ec: jne    0x00007f3b9875d6ca
   1.76%   │ │  │   0x00007f3b9875d3f2: mov    %rax,%r10          ;*invokeinterface size {reexecute=0 rethrow=0 return_oop=0}
-          │ │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
+          │ │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
           │ │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
           │ │  │   0x00007f3b9875d3f5: mov    0x10(%r10),%r10d   ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
           │ │  │                                                 ; - java.util.ArrayList::size@1 (line 284)
-          │ │  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
+          │ │  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
           │ │  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   1.96%   │╭│  │   0x00007f3b9875d3f9: jmp    0x00007f3b9875d406
   3.57%   ↘││  │   0x00007f3b9875d3fb: mov    %rax,%r10          ;*invokeinterface size {reexecute=0 rethrow=0 return_oop=0}
-           ││  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
+           ││  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
            ││  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.29%    ││  │   0x00007f3b9875d3fe: mov    0xc(%r10),%r11d    ;*getfield elements {reexecute=0 rethrow=0 return_oop=0}
            ││  │                                                 ; - java.util.ImmutableCollections$ListN::size@1 (line 435)
-           ││  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+           ││  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
            ││  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   2.07%    ││  │   0x00007f3b9875d402: mov    0xc(%r11),%r10d    ;*synchronization entry
-           ││  │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+           ││  │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
            ││  │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
            ││  │                                                 ; implicit exception: dispatches to 0x00007f3b9875da3a
   2.27%    ↘│  │   0x00007f3b9875d406: test   %r10d,%r10d
             ╰  │   0x00007f3b9875d409: jle    0x00007f3b9875d311  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
-               │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@24 (line 61)
+               │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@24 (line 61)
                │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.81%        │   0x00007f3b9875d40f: mov    %rax,%r11          ;*goto {reexecute=0 rethrow=0 return_oop=0}
-               │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@46 (line 61)
+               │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@46 (line 61)
                │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
                │   0x00007f3b9875d412: mov    0x8(%r11),%r8d
                │   0x00007f3b9875d416: cmp    $0x20006241,%r8d   ;   {metadata(&apos;java/util/ImmutableCollections$ListN&apos;)}
@@ -1287,38 +1287,38 @@ c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Ran
   0.69%      │ │   0x00007f3b9875d41f: cmp    $0x20005ff8,%r8d   ;   {metadata(&apos;java/util/ArrayList&apos;)}
              │ │   0x00007f3b9875d426: jne    0x00007f3b9875d732
   0.39%      │ │   0x00007f3b9875d42c: mov    %r11,%r9           ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
-             │ │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
+             │ │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
              │ │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
              │ │   0x00007f3b9875d42f: mov    0x10(%r9),%r8d     ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
              │ │                                                 ; - java.util.ArrayList::get@2 (line 458)
-             │ │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
+             │ │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
              │ │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.02%      │ │   0x00007f3b9875d433: test   %r8d,%r8d
              │ │   0x00007f3b9875d436: jl     0x00007f3b9875d732
   0.46%      │ │   0x00007f3b9875d43c: mov    0x14(%r9),%edi     ;*getfield elementData {reexecute=0 rethrow=0 return_oop=0}
              │ │                                                 ; - java.util.ArrayList::elementData@1 (line 442)
              │ │                                                 ; - java.util.ArrayList::get@11 (line 459)
-             │ │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
+             │ │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
              │ │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.04%      │ │   0x00007f3b9875d440: mov    0xc(%rdi),%ebx     ;*aaload {reexecute=0 rethrow=0 return_oop=0}
              │ │                                                 ; - java.util.ArrayList::elementData@5 (line 442)
              │ │                                                 ; - java.util.ArrayList::get@11 (line 459)
-             │ │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
+             │ │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
              │ │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
              │ │                                                 ; implicit exception: dispatches to 0x00007f3b9875d732
   1.46%      │ │   0x00007f3b9875d443: xor    %r9d,%r9d
   0.01%      │ │   0x00007f3b9875d446: xor    %edx,%edx
              │ │   0x00007f3b9875d448: jmpq   0x00007f3b9875d4e7
   0.01%      ↘ │   0x00007f3b9875d44d: mov    %r11,%rax          ;*invokeinterface get {reexecute=0 rethrow=0 return_oop=0}
-               │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
+               │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
                │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.58%        │   0x00007f3b9875d450: mov    0xc(%rax),%r9d     ;*getfield elements {reexecute=0 rethrow=0 return_oop=0}
                │                                                 ; - java.util.ImmutableCollections$ListN::get@1 (line 440)
-               │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+               │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
                │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
                │   0x00007f3b9875d454: mov    0xc(%r9),%edi      ;*aaload {reexecute=0 rethrow=0 return_oop=0}
                │                                                 ; - java.util.ImmutableCollections$ListN::get@5 (line 440)
-               │                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+               │                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
                │                                                 ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
                │                                                 ; implicit exception: dispatches to 0x00007f3b9875d732
   0.02%        │   0x00007f3b9875d458: xor    %r10d,%r10d
@@ -1326,65 +1326,65 @@ c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Ran
   0.50%       ╭│   0x00007f3b9875d45d: jmp    0x00007f3b9875d473
               ││   0x00007f3b9875d45f: nop
   0.47%       ││↗  0x00007f3b9875d460: mov    %r11,%r8           ;*invokeinterface size {reexecute=0 rethrow=0 return_oop=0}
-              │││                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
+              │││                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
               │││                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.48%       │││  0x00007f3b9875d463: mov    0xc(%r8),%esi      ;*getfield elements {reexecute=0 rethrow=0 return_oop=0}
               │││                                                ; - java.util.ImmutableCollections$ListN::size@1 (line 435)
-              │││                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+              │││                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
               │││                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.91%       │││  0x00007f3b9875d467: mov    0xc(%rsi),%esi     ;*synchronization entry
-              │││                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+              │││                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
               │││                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
               │││                                                ; implicit exception: dispatches to 0x00007f3b9875da06
   1.18%       │││  0x00007f3b9875d46a: cmp    %esi,%r10d
               │╰│  0x00007f3b9875d46d: jge    0x00007f3b9875d313  ;*iload_2 {reexecute=0 rethrow=0 return_oop=0}
-              │ │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@27 (line 62)
+              │ │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@27 (line 62)
               │ │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.68%       ↘ │  0x00007f3b9875d473: cmp    %edi,%r10d
                 │  0x00007f3b9875d476: jae    0x00007f3b9875d55a
   0.54%         │  0x00007f3b9875d47c: mov    0x10(%r9,%r10,4),%esi  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
                 │                                                ; - java.util.ImmutableCollections$ListN::get@5 (line 440)
-                │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+                │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
                 │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.53%         │  0x00007f3b9875d481: mov    0x8(%rsi),%ebx     ; implicit exception: dispatches to 0x00007f3b9875d9ce
   2.80%         │  0x00007f3b9875d484: mov    %rsi,%rcx          ;*synchronization entry
-                │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+                │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
                 │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.56%         │  0x00007f3b9875d487: cmp    $0x20000301,%ebx   ;   {metadata(&apos;java/lang/String&apos;)}
                 │  0x00007f3b9875d48d: jne    0x00007f3b9875d982  ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
-                │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@35 (line 62)
+                │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@35 (line 62)
                 │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   1.20%         │  0x00007f3b9875d493: mov    0xc(%rcx),%esi     ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
                 │                                                ; - java.lang.String::length@1 (line 658)
-                │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
+                │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
                 │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.52%         │  0x00007f3b9875d496: mov    0xc(%rsi),%ebx     ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
                 │                                                ; - java.lang.String::length@4 (line 658)
-                │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
+                │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
                 │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
                 │                                                ; implicit exception: dispatches to 0x00007f3b9875d9be
   3.95%         │  0x00007f3b9875d499: mov    0x8(%r11),%esi     ;*invokeinterface size {reexecute=0 rethrow=0 return_oop=0}
-                │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
+                │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
                 │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.55%         │  0x00007f3b9875d49d: movsbl 0x14(%rcx),%ecx    ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
                 │                                                ; - java.lang.String::coder@7 (line 3258)
                 │                                                ; - java.lang.String::length@6 (line 658)
-                │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
+                │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
                 │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.63%         │  0x00007f3b9875d4a1: sar    %cl,%ebx
   3.23%         │  0x00007f3b9875d4a3: add    %ebx,%edx          ;*iadd {reexecute=0 rethrow=0 return_oop=0}
-                │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@41 (line 62)
+                │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@41 (line 62)
                 │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.69%         │  0x00007f3b9875d4a5: inc    %r10d              ;*invokestatic currentThread {reexecute=0 rethrow=0 return_oop=0}
                 │                                                ; - java.util.concurrent.ThreadLocalRandom::current@3 (line 177)
-                │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
+                │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
                 │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.63%         │  0x00007f3b9875d4a8: mov    0x108(%r15),%r8    ; ImmutableOopMap{r11=Oop r9=NarrowOop rax=Oop r13=Oop r14=Oop [0]=Oop [16]=Oop }
                 │                                                ;*goto {reexecute=1 rethrow=0 return_oop=0}
-                │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@46 (line 61)
+                │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@46 (line 61)
                 │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   1.04%         │  0x00007f3b9875d4af: test   %eax,(%r8)         ;*goto {reexecute=0 rethrow=0 return_oop=0}
-                │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@46 (line 61)
+                │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@46 (line 61)
                 │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
                 │                                                ;   {poll}
   1.25%         │  0x00007f3b9875d4b2: cmp    $0x20006241,%esi   ;   {metadata(&apos;java/util/ImmutableCollections$ListN&apos;)}
@@ -1392,7 +1392,7 @@ c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Ran
                    0x00007f3b9875d4ba: cmp    $0x20005ff8,%esi   ;   {metadata(&apos;java/util/ArrayList&apos;)}
                    0x00007f3b9875d4c0: jne    0x00007f3b9875d65a
                    0x00007f3b9875d4c6: mov    %r11,%r8           ;*invokeinterface size {reexecute=0 rethrow=0 return_oop=0}
-                                                                 ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
+                                                                 ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
                                                                  ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
                    0x00007f3b9875d4c9: mov    0x10(%r8),%esi     ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
 ....................................................................................................
@@ -1401,76 +1401,76 @@ c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Ran
 ....[Hottest Region 2]..............................................................................
 c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub, version 520 (118 bytes) 
 
-                                                          ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
+                                                          ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
                                                           ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
             0x00007f3b9875d4d3: mov    0xc(%r9),%r9d      ;*getfield elements {reexecute=0 rethrow=0 return_oop=0}
                                                           ; - java.util.ImmutableCollections$ListN::size@1 (line 435)
-                                                          ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+                                                          ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
                                                           ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
             0x00007f3b9875d4d7: mov    0xc(%r9),%r9d      ;*synchronization entry
-                                                          ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+                                                          ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
                                                           ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
                                                           ; implicit exception: dispatches to 0x00007f3b9875da06
   0.23%  ↗  0x00007f3b9875d4db: cmp    %r9d,%r10d
          │  0x00007f3b9875d4de: jge    0x00007f3b9875d313  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@24 (line 61)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@24 (line 61)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.35%  │  0x00007f3b9875d4e4: mov    %r10d,%r9d         ;*iload_2 {reexecute=0 rethrow=0 return_oop=0}
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@27 (line 62)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@27 (line 62)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   2.01%  │  0x00007f3b9875d4e7: cmp    %r8d,%r9d
          │  0x00007f3b9875d4ea: jae    0x00007f3b9875d59a
   0.82%  │  0x00007f3b9875d4f0: mov    %r9d,%r10d         ;*invokestatic checkIndex {reexecute=0 rethrow=0 return_oop=0}
          │                                                ; - java.util.Objects::checkIndex@3 (line 372)
          │                                                ; - java.util.ArrayList::get@5 (line 458)
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.30%  │  0x00007f3b9875d4f3: cmp    %ebx,%r10d
          │  0x00007f3b9875d4f6: jae    0x00007f3b9875d5de
   0.42%  │  0x00007f3b9875d4fc: mov    0x10(%rdi,%r10,4),%r9d  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
          │                                                ; - java.util.ArrayList::elementData@5 (line 442)
          │                                                ; - java.util.ArrayList::get@11 (line 459)
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@30 (line 62)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   1.89%  │  0x00007f3b9875d501: mov    0x8(%r9),%esi      ; implicit exception: dispatches to 0x00007f3b9875d9d4
   2.29%  │  0x00007f3b9875d505: mov    %r9,%rcx           ;*synchronization entry
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.17%  │  0x00007f3b9875d508: cmp    $0x20000301,%esi   ;   {metadata(&apos;java/lang/String&apos;)}
          │  0x00007f3b9875d50e: jne    0x00007f3b9875d988  ;*checkcast {reexecute=0 rethrow=0 return_oop=0}
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@35 (line 62)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@35 (line 62)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.78%  │  0x00007f3b9875d514: mov    0xc(%rcx),%esi     ;*getfield value {reexecute=0 rethrow=0 return_oop=0}
          │                                                ; - java.lang.String::length@1 (line 658)
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   2.09%  │  0x00007f3b9875d517: mov    0xc(%rsi),%r9d     ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
          │                                                ; - java.lang.String::length@4 (line 658)
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
          │                                                ; implicit exception: dispatches to 0x00007f3b9875d9be
   3.57%  │  0x00007f3b9875d51b: movsbl 0x14(%rcx),%ecx    ;*getfield coder {reexecute=0 rethrow=0 return_oop=0}
          │                                                ; - java.lang.String::coder@7 (line 3258)
          │                                                ; - java.lang.String::length@6 (line 658)
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@38 (line 62)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.18%  │  0x00007f3b9875d51f: sar    %cl,%r9d
   5.22%  │  0x00007f3b9875d522: add    %r9d,%edx          ;*iadd {reexecute=0 rethrow=0 return_oop=0}
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@41 (line 62)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@41 (line 62)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.17%  │  0x00007f3b9875d525: inc    %r10d              ;*iinc {reexecute=0 rethrow=0 return_oop=0}
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@43 (line 61)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@43 (line 61)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.23%  │  0x00007f3b9875d528: mov    0x8(%r11),%esi     ;*invokestatic currentThread {reexecute=0 rethrow=0 return_oop=0}
          │                                                ; - java.util.concurrent.ThreadLocalRandom::current@3 (line 177)
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@4 (line 59)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.64%  │  0x00007f3b9875d52c: mov    0x108(%r15),%r9    ; ImmutableOopMap{r11=Oop rdi=NarrowOop rax=Oop r13=Oop r14=Oop [0]=Oop [16]=Oop }
          │                                                ;*goto {reexecute=1 rethrow=0 return_oop=0}
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@46 (line 61)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@46 (line 61)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   2.24%  │  0x00007f3b9875d533: test   %eax,(%r9)         ;*goto {reexecute=0 rethrow=0 return_oop=0}
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@46 (line 61)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@46 (line 61)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
          │                                                ;   {poll}
   0.16%  │  0x00007f3b9875d536: cmp    $0x20006241,%esi   ;   {metadata(&apos;java/util/ImmutableCollections$ListN&apos;)}
@@ -1478,17 +1478,17 @@ c2, level 4, com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Ran
   0.25%  │  0x00007f3b9875d53e: cmp    $0x20005ff8,%esi   ;   {metadata(&apos;java/util/ArrayList&apos;)}
          │  0x00007f3b9875d544: jne    0x00007f3b9875d660
   0.65%  │  0x00007f3b9875d54a: mov    %r11,%r9           ;*invokeinterface size {reexecute=0 rethrow=0 return_oop=0}
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   2.14%  │  0x00007f3b9875d54d: mov    0x10(%r9),%r9d     ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
          │                                                ; - java.util.ArrayList::size@1 (line 284)
-         │                                                ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
+         │                                                ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@19 (line 61)
          │                                                ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
   0.20%  ╰  0x00007f3b9875d551: jmp    0x00007f3b9875d4db
             0x00007f3b9875d553: xor    %edx,%edx
             0x00007f3b9875d555: jmpq   0x00007f3b9875d2da  ;*aaload {reexecute=0 rethrow=0 return_oop=0}
                                                           ; - java.util.ImmutableCollections$ListN::get@5 (line 440)
-                                                          ; - com.openkappa.simd.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
+                                                          ; - com.openkappa.runtime.inlining.MegamorphicList::sumLength_Random2@-1 (line 59)
                                                           ; - com.openkappa.simd.inlining.generated.MegamorphicList_sumLength_Random2_jmhTest::sumLength_Random2_thrpt_jmhStub@17 (line 119)
             0x00007f3b9875d55a: mov    $0xffffffe4,%esi
             0x00007f3b9875d55f: mov    %r14,0x60(%rsp)
