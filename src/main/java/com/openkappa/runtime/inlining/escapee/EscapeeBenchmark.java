@@ -94,6 +94,8 @@ public class EscapeeBenchmark {
   }
 
 
+
+
   @State(Scope.Benchmark)
   public static class StringEscapeeState {
     Escapee<String>[] escapees;
@@ -126,6 +128,37 @@ public class EscapeeBenchmark {
     for (Escapee<String> escapee : state.escapees) {
       bh.consume(escapee.map(state.input, x -> state.ifPresent).orElseGet(() -> state.ifAbsent));
     }
+  }
+
+
+  @State(Scope.Benchmark)
+  public static class InstantStoreEscapeeState {
+    @Param({"ONE", "TWO", "THREE", "FOUR"})
+    Scenario scenario;
+    @Param({"true", "false"})
+    boolean isPresent;
+    int size = 4;
+    String input;
+    Escapee<Instant>[] escapees;
+    Instant[] target;
+
+
+    @Setup(Level.Trial)
+    public void init() {
+      escapees = new Escapee[size];
+      target = new Instant[size];
+      scenario.fill(escapees);
+      input = isPresent ? "" : null;
+    }
+  }
+
+  @Benchmark
+  @OperationsPerInvocation(4)
+  public void mapAndStoreValue(InstantStoreEscapeeState state, Blackhole bh) {
+    for (int i = 0; i < state.escapees.length; ++i) {
+      state.target[i] = state.escapees[i].map(state.input, x -> Instant.now()).orElseGet(Instant::now);
+    }
+    bh.consume(state.target);
   }
 
 }
