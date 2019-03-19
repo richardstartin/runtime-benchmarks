@@ -32,7 +32,7 @@ public class DataInputBenchmark {
     }
   }
 
-  private static int getShort(byte[] value, int i) {
+  private static short getShort(byte[] value, int i) {
     return UNSAFE.getShort(value, BYTE_ARRAY_OFFSET + i);
   }
 
@@ -118,6 +118,30 @@ public class DataInputBenchmark {
 
     void reset() {
       bis.reset();
+    }
+  }
+
+  @State(Scope.Benchmark)
+  public static class UnsafeDataInputState extends ByteArrayState {
+
+    UnsafeDataInput dataInput;
+    @Param({"8", "16", "24", "32"})
+    int size;
+
+    byte[] data;
+
+    public void createData() {
+      this.data = createByteArray(size);
+    }
+
+    @Setup(Level.Trial)
+    public void init() {
+      createData();
+      this.dataInput = new UnsafeDataInput(data);
+    }
+
+    void reset() {
+      dataInput.reset();
     }
   }
 
@@ -242,6 +266,42 @@ public class DataInputBenchmark {
     int pos = 0;
     while (pos < size) {
       bh.consume(input.getLong());
+      pos += 8;
+    }
+    state.reset();
+  }
+
+  @Benchmark
+  public void unsafeDataInputReadShort(UnsafeDataInputState state, Blackhole bh) throws IOException {
+    DataInput input = state.dataInput;
+    int size = state.size;
+    int pos = 0;
+    while (pos < size) {
+      bh.consume(input.readShort());
+      pos += 2;
+    }
+    state.reset();
+  }
+
+  @Benchmark
+  public void unsafeDataInputReadInt(UnsafeDataInputState state, Blackhole bh) throws IOException {
+    DataInput input = state.dataInput;
+    int size = state.size;
+    int pos = 0;
+    while (pos < size) {
+      bh.consume(input.readInt());
+      pos += 4;
+    }
+    state.reset();
+  }
+
+  @Benchmark
+  public void unsafeDataInputReadLong(UnsafeDataInputState state, Blackhole bh) throws IOException {
+    DataInput input = state.dataInput;
+    int size = state.size;
+    int pos = 0;
+    while (pos < size) {
+      bh.consume(input.readLong());
       pos += 8;
     }
     state.reset();
@@ -401,6 +461,99 @@ public static class BufferDataInput implements DataInput {
   @Override
   public String readUTF() {
     return null;
+  }
+}
+
+public static class UnsafeDataInput implements DataInput {
+
+    private final byte[] data;
+    int pos;
+
+  public UnsafeDataInput(byte[] data) {
+    this.data = data;
+  }
+
+  @Override
+  public void readFully(byte[] b) {
+
+  }
+
+  @Override
+  public void readFully(byte[] b, int off, int len) {
+
+  }
+
+  @Override
+  public int skipBytes(int n) {
+    return pos += n;
+  }
+
+  @Override
+  public boolean readBoolean() {
+    return data[pos++] != 0;
+  }
+
+  @Override
+  public byte readByte() {
+    return data[pos++];
+  }
+
+  @Override
+  public int readUnsignedByte() {
+    return data[pos++] & 0xFF;
+  }
+
+  @Override
+  public short readShort() {
+    pos += 2;
+    return getShort(data,pos - 2);
+  }
+
+  @Override
+  public int readUnsignedShort() {
+    pos += 2;
+    return getShort(data, pos - 2) & 0xFFFF;
+  }
+
+  @Override
+  public char readChar() {
+    return 0;
+  }
+
+  @Override
+  public int readInt() {
+    pos += 4;
+    return getInt(data,pos - 4);
+  }
+
+  @Override
+  public long readLong() {
+    pos += 8;
+    return getLong(data, pos - 8);
+  }
+
+  @Override
+  public float readFloat() {
+    return 0;
+  }
+
+  @Override
+  public double readDouble() {
+    return 0;
+  }
+
+  @Override
+  public String readLine() {
+    return null;
+  }
+
+  @Override
+  public String readUTF() {
+    return null;
+  }
+
+  public void reset() {
+    this.pos = 0;
   }
 }
 }
