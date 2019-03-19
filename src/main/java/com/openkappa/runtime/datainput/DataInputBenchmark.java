@@ -2,11 +2,13 @@ package com.openkappa.runtime.datainput;
 
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
+import sun.misc.Unsafe;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.nio.ByteBuffer;
 
 import static com.openkappa.runtime.DataUtil.createByteArray;
@@ -16,9 +18,30 @@ import static java.util.concurrent.TimeUnit.MICROSECONDS;
 public class DataInputBenchmark {
 
 
-  public static abstract class ByteArrayState {
+  private static final Unsafe UNSAFE;
+  private static final long BYTE_ARRAY_OFFSET;
 
-    abstract void reset();
+  static {
+    try {
+      Field f = Unsafe.class.getDeclaredField("theUnsafe");
+      f.setAccessible(true);
+      UNSAFE = (Unsafe) f.get(null);
+      BYTE_ARRAY_OFFSET = UNSAFE.arrayBaseOffset(byte[].class);
+    } catch (Exception e) {
+      throw new IllegalStateException(e);
+    }
+  }
+
+  private static int getShort(byte[] value, int i) {
+    return UNSAFE.getShort(value, BYTE_ARRAY_OFFSET + i);
+  }
+
+  private static int getInt(byte[] value, int i) {
+    return UNSAFE.getInt(value, BYTE_ARRAY_OFFSET + i);
+  }
+
+  private static long getLong(byte[] value, int i) {
+    return UNSAFE.getLong(value, BYTE_ARRAY_OFFSET + i);
   }
 
   @State(Scope.Benchmark)
@@ -41,7 +64,6 @@ public class DataInputBenchmark {
       this.buffer = ByteBuffer.wrap(data);
     }
 
-    @Override
     void reset() {
       buffer.position(0);
     }
@@ -68,7 +90,6 @@ public class DataInputBenchmark {
       this.dataInput = new BufferDataInput(buffer);
     }
 
-    @Override
     void reset() {
       buffer.position(0);
     }
@@ -95,9 +116,26 @@ public class DataInputBenchmark {
       this.dataInput = new DataInputStream(bis);
     }
 
-    @Override
     void reset() {
       bis.reset();
+    }
+  }
+
+  @State(Scope.Benchmark)
+  public static class ByteArrayState {
+
+    @Param({"8", "16", "24", "32"})
+    int size;
+
+    byte[] data;
+
+    public void createData() {
+      this.data = createByteArray(size);
+    }
+
+    @Setup(Level.Trial)
+    public void init() {
+      createData();
     }
   }
 
@@ -185,7 +223,6 @@ public class DataInputBenchmark {
     state.reset();
   }
 
-
   @Benchmark
   public void bufferReadInt(ByteBufferBackedDataInputState state, Blackhole bh) {
     ByteBuffer input = state.buffer;
@@ -208,6 +245,80 @@ public class DataInputBenchmark {
       pos += 8;
     }
     state.reset();
+  }
+
+  @Benchmark
+  public void readLongUnsafe(ByteArrayState state, Blackhole bh) {
+    byte[] bytes = state.data;
+    int size = state.size;
+    int pos = 0;
+    while (pos < size) {
+      bh.consume(getLong(bytes, pos));
+      pos += 8;
+    }
+  }
+
+  @Benchmark
+  public void readIntUnsafe(ByteArrayState state, Blackhole bh) {
+    byte[] bytes = state.data;
+    int size = state.size;
+    int pos = 0;
+    while (pos < size) {
+      bh.consume(getInt(bytes, pos));
+      pos += 4;
+    }
+  }
+
+  @Benchmark
+  public void readShortUnsafe(ByteArrayState state, Blackhole bh) {
+    byte[] bytes = state.data;
+    int size = state.size;
+    int pos = 0;
+    while (pos < size) {
+      bh.consume(getShort(bytes, pos));
+      pos += 2;
+    }
+  }
+
+
+  @Benchmark
+  public void readLong(ByteArrayState state, Blackhole bh) {
+    byte[] bytes = state.data;
+    int size = state.size;
+    int pos = 0;
+    while (pos < size) {
+      bh.consume((bytes[pos] & 0xFFL) << 56
+              | (bytes[pos + 1] & 0xFFL) << 48
+              | (bytes[pos + 2] & 0xFFL) << 40
+              | (bytes[pos + 3] & 0xFFL) << 32
+              | (bytes[pos + 4] & 0xFFL) << 24
+              | (bytes[pos + 5] & 0xFFL) << 16
+              | (bytes[pos + 6] & 0xFFL) << 8
+              | (bytes[pos + 7] & 0xFFL));
+      pos += 8;
+    }
+  }
+
+  @Benchmark
+  public void readInt(ByteArrayState state, Blackhole bh) {
+    byte[] bytes = state.data;
+    int size = state.size;
+    int pos = 0;
+    while (pos < size) {
+      bh.consume(((bytes[pos] & 0xFF) << 24) | ((bytes[pos + 1] & 0xFF) << 16)| ((bytes[pos + 2] & 0xFF) << 8) | (bytes[pos + 3] & 0xFF));
+      pos += 4;
+    }
+  }
+
+  @Benchmark
+  public void readShort(ByteArrayState state, Blackhole bh) {
+    byte[] bytes = state.data;
+    int size = state.size;
+    int pos = 0;
+    while (pos < size) {
+      bh.consume(((bytes[pos] & 0xFF) << 8) | (bytes[pos + 1] & 0xFF));
+      pos += 2;
+    }
   }
 
 public static class BufferDataInput implements DataInput {
