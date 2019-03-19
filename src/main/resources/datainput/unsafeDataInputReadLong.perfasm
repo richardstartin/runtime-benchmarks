@@ -1,0 +1,312 @@
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.datainput.DataInputBenchmark.unsafeDataInputReadLong
+# Parameters: (size = 24)
+
+# Run progress: 0.00% complete, ETA 00:00:10
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 62.473 ops/us
+# Warmup Iteration   2: 70.057 ops/us
+# Warmup Iteration   3: 72.593 ops/us
+# Warmup Iteration   4: 72.383 ops/us
+# Warmup Iteration   5: 78.431 ops/us
+Iteration   1: 77.625 ops/us
+Iteration   2: 78.101 ops/us
+Iteration   3: 73.235 ops/us
+Iteration   4: 68.294 ops/us
+Iteration   5: 70.011 ops/us
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.openkappa.runtime.datainput.DataInputBenchmark.unsafeDataInputReadLong":
+  73.453 ±(99.9%) 16.952 ops/us [Average]
+  (min, avg, max) = (68.294, 73.453, 78.101), stdev = 4.402
+  CI (99.9%): [56.501, 90.406] (assumes normal distribution)
+
+Secondary result "com.openkappa.runtime.datainput.DataInputBenchmark.unsafeDataInputReadLong:·asm":
+PrintAssembly processed: 133011 total address lines.
+Perf output processed (skipped 7.417 seconds):
+ Column 1: cycles (5115 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub, version 521 (291 bytes) 
+
+                                                              ; implicit exception: dispatches to 0x00007fe4d8757d52
+                0x00007fe4d8757a29: test   %r10d,%r10d
+                0x00007fe4d8757a2c: jne    0x00007fe4d8757bba  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                              ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@32 (line 147)
+                0x00007fe4d8757a32: mov    0x60(%rsp),%rcx
+                0x00007fe4d8757a37: test   %rcx,%rcx
+                0x00007fe4d8757a3a: je     0x00007fe4d8757caa
+                0x00007fe4d8757a40: mov    $0x1,%ebx
+         ╭      0x00007fe4d8757a45: jmpq   0x00007fe4d8757b37
+         │      0x00007fe4d8757a4a: nopw   0x0(%rax,%rax,1)
+  4.16%  │↗     0x00007fe4d8757a50: mov    0x60(%rsp),%r13
+         ││     0x00007fe4d8757a55: mov    0x68(%rsp),%rax
+  0.66%  ││     0x00007fe4d8757a5a: mov    0x70(%rsp),%r11
+  1.47%  ││     0x00007fe4d8757a5f: mov    0x78(%rsp),%rcx
+  2.15%  ││     0x00007fe4d8757a64: mov    (%rsp),%r8
+         ││     0x00007fe4d8757a68: mov    0x8(%rsp),%rbx
+  0.82%  ││     0x00007fe4d8757a6d: mov    0x10(%rsp),%r10d
+  1.94%  ││     0x00007fe4d8757a72: mov    0x14(%rsp),%r9d
+  2.11%  ││     0x00007fe4d8757a77: mov    0x18(%rsp),%r14    ;*aload_2 {reexecute=0 rethrow=0 return_oop=0}
+         ││                                                   ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@21 (line 304)
+         ││                                                   ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.94%  ││  ↗  0x00007fe4d8757a7c: mov    0x10(%r12,%r9,8),%esi  ;*getfield data {reexecute=0 rethrow=0 return_oop=0}
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$UnsafeDataInput::readLong@12 (line 532)
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@23 (line 304)
+         ││  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.98%  ││  │  0x00007fe4d8757a81: mov    0xc(%r12,%r9,8),%edx  ;*getfield pos {reexecute=0 rethrow=0 return_oop=0}
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$UnsafeDataInput::readLong@2 (line 531)
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@23 (line 304)
+         ││  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  1.23%  ││  │  0x00007fe4d8757a86: mov    %edx,%edi
+  2.91%  ││  │  0x00007fe4d8757a88: add    $0x8,%edi
+  1.19%  ││  │  0x00007fe4d8757a8b: mov    %edi,0xc(%r12,%r9,8)  ;*putfield pos {reexecute=0 rethrow=0 return_oop=0}
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$UnsafeDataInput::readLong@8 (line 531)
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@23 (line 304)
+         ││  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  2.03%  ││  │  0x00007fe4d8757a90: movslq %edx,%rdi          ;*i2l {reexecute=0 rethrow=0 return_oop=0}
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::getLong@8 (line 44)
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$UnsafeDataInput::readLong@22 (line 532)
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@23 (line 304)
+         ││  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  1.23%  ││  │  0x00007fe4d8757a93: test   %esi,%esi
+         ││  │  0x00007fe4d8757a95: je     0x00007fe4d8757b78  ;*invokevirtual getLong {reexecute=0 rethrow=0 return_oop=0}
+         ││  │                                                ; - sun.misc.Unsafe::getLong@5 (line 267)
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::getLong@10 (line 44)
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$UnsafeDataInput::readLong@22 (line 532)
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@23 (line 304)
+         ││  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  3.07%  ││  │  0x00007fe4d8757a9b: mov    %r14,0x18(%rsp)
+  0.80%  ││  │  0x00007fe4d8757aa0: mov    %r9d,0x14(%rsp)
+  1.97%  ││  │  0x00007fe4d8757aa5: mov    %r10d,0x10(%rsp)
+  1.29%  ││  │  0x00007fe4d8757aaa: mov    %rbx,0x8(%rsp)
+  2.66%  ││  │  0x00007fe4d8757aaf: mov    %r8,(%rsp)
+  0.59%  ││  │  0x00007fe4d8757ab3: mov    %rcx,0x78(%rsp)
+  1.80%  ││  │  0x00007fe4d8757ab8: mov    %r11,0x70(%rsp)
+  1.15%  ││  │  0x00007fe4d8757abd: mov    %rax,0x68(%rsp)
+  3.05%  ││  │  0x00007fe4d8757ac2: mov    %r13,0x60(%rsp)    ;*invokeinterface readLong {reexecute=0 rethrow=0 return_oop=0}
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@23 (line 304)
+         ││  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.57%  ││  │  0x00007fe4d8757ac7: lea    (%r12,%rsi,8),%r10
+  1.88%  ││  │  0x00007fe4d8757acb: mov    0x10(%r10,%rdi,1),%rdx  ;*invokevirtual getLong {reexecute=0 rethrow=0 return_oop=0}
+         ││  │                                                ; - sun.misc.Unsafe::getLong@5 (line 267)
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::getLong@10 (line 44)
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$UnsafeDataInput::readLong@22 (line 532)
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@23 (line 304)
+         ││  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  1.72%  ││  │  0x00007fe4d8757ad0: mov    %rcx,%rsi
+  3.01%  ││  │  0x00007fe4d8757ad3: callq  0x00007fe4d0c84f00  ; ImmutableOopMap{[96]=Oop [104]=Oop [112]=Oop [120]=Oop [0]=Oop [20]=NarrowOop [24]=Oop }
+         ││  │                                                ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@28 (line 304)
+         ││  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+         ││  │                                                ;   {optimized virtual_call}
+  5.81%  ││  │  0x00007fe4d8757ad8: add    $0x8,%ebp          ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@31 (line 305)
+         ││  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  1.19%  ││  │  0x00007fe4d8757adb: cmp    0x10(%rsp),%ebp
+  0.02%  │╰  │  0x00007fe4d8757adf: jl     0x00007fe4d8757a50  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+         │   │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@18 (line 303)
+         │   │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.18%  │   │  0x00007fe4d8757ae5: mov    0x70(%rsp),%r11
+  1.52%  │   │  0x00007fe4d8757aea: mov    0x18(%r11),%r9d    ;*getfield dataInput {reexecute=0 rethrow=0 return_oop=0}
+         │   │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$UnsafeDataInputState::reset@1 (line 144)
+         │   │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@38 (line 307)
+         │   │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.51%  │   │  0x00007fe4d8757aee: test   %r9d,%r9d
+         │   │  0x00007fe4d8757af1: je     0x00007fe4d8757c52  ;*invokevirtual reset {reexecute=0 rethrow=0 return_oop=0}
+         │   │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$UnsafeDataInputState::reset@4 (line 144)
+         │   │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@38 (line 307)
+         │   │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.23%  │   │  0x00007fe4d8757af7: mov    (%rsp),%r8
+         │   │  0x00007fe4d8757afb: movzbl 0x94(%r8),%r10d
+  1.31%  │   │  0x00007fe4d8757b03: mov    0x60(%rsp),%r13
+  0.55%  │   │  0x00007fe4d8757b08: mov    0x68(%rsp),%rax
+  0.41%  │   │  0x00007fe4d8757b0d: mov    0x78(%rsp),%rcx
+         │   │  0x00007fe4d8757b12: mov    0x8(%rsp),%rbx     ;*getfield isDone {reexecute=0 rethrow=0 return_oop=0}
+         │   │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@29 (line 147)
+  1.41%  │  ↗│  0x00007fe4d8757b17: movl   $0x0,0xc(%r12,%r9,8)  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+         │  ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@32 (line 147)
+  1.78%  │  ││  0x00007fe4d8757b20: mov    0x108(%r15),%r9
+  0.10%  │  ││  0x00007fe4d8757b27: add    $0x1,%rbx          ; ImmutableOopMap{r11=Oop r8=Oop rcx=Oop rax=Oop r13=Oop }
+         │  ││                                                ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         │  ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@32 (line 147)
+         │  ││  0x00007fe4d8757b2b: test   %eax,(%r9)         ;   {poll}
+  1.11%  │  ││  0x00007fe4d8757b2e: test   %r10d,%r10d
+         │  ││  0x00007fe4d8757b31: jne    0x00007fe4d8757bbf  ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+         │  ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@35 (line 148)
+  0.98%  ↘  ││  0x00007fe4d8757b37: mov    0x14(%r11),%r10d   ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+            ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@6 (line 301)
+            ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.12%     ││  0x00007fe4d8757b3b: mov    0x18(%r11),%r9d    ;*getfield dataInput {reexecute=0 rethrow=0 return_oop=0}
+            ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@1 (line 300)
+            ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+            ││  0x00007fe4d8757b3f: test   %r10d,%r10d
+           ╭││  0x00007fe4d8757b42: jg     0x00007fe4d8757b57  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+           │││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@18 (line 303)
+           │││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+           │││  0x00007fe4d8757b44: test   %r9d,%r9d
+           │││  0x00007fe4d8757b47: je     0x00007fe4d8757c52  ;*invokevirtual reset {reexecute=0 rethrow=0 return_oop=0}
+           │││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$UnsafeDataInputState::reset@4 (line 144)
+           │││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@38 (line 307)
+           │││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+           │││  0x00007fe4d8757b4d: movzbl 0x94(%r8),%r10d    ;*getfield isDone {reexecute=0 rethrow=0 return_oop=0}
+           │││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@29 (line 147)
+           │╰│  0x00007fe4d8757b55: jmp    0x00007fe4d8757b17
+  1.15%    ↘ │  0x00007fe4d8757b57: test   %r9d,%r9d
+             │  0x00007fe4d8757b5a: je     0x00007fe4d8757bec
+  1.23%      │  0x00007fe4d8757b60: cmp    $0x7ffffff8,%r10d
+             │  0x00007fe4d8757b67: jg     0x00007fe4d8757c1e  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+             │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@18 (line 303)
+             │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.14%      │  0x00007fe4d8757b6d: lea    (%r12,%r9,8),%r14  ;*getfield dataInput {reexecute=0 rethrow=0 return_oop=0}
+             │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@1 (line 300)
+             │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+             │  0x00007fe4d8757b71: xor    %ebp,%ebp
+  0.90%      ╰  0x00007fe4d8757b73: jmpq   0x00007fe4d8757a7c  ;*invokevirtual getLong {reexecute=0 rethrow=0 return_oop=0}
+                                                              ; - sun.misc.Unsafe::getLong@5 (line 267)
+                                                              ; - com.openkappa.runtime.datainput.DataInputBenchmark::getLong@10 (line 44)
+                                                              ; - com.openkappa.runtime.datainput.DataInputBenchmark$UnsafeDataInput::readLong@22 (line 532)
+                                                              ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@23 (line 304)
+                                                              ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+                0x00007fe4d8757b78: add    $0x10,%rdi         ;*ladd {reexecute=0 rethrow=0 return_oop=0}
+                                                              ; - com.openkappa.runtime.datainput.DataInputBenchmark::getLong@9 (line 44)
+                                                              ; - com.openkappa.runtime.datainput.DataInputBenchmark$UnsafeDataInput::readLong@22 (line 532)
+                                                              ; - com.openkappa.runtime.datainput.DataInputBenchmark::unsafeDataInputReadLong@23 (line 304)
+                                                              ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub@19 (line 145)
+....................................................................................................
+ 68.04%  <total for region 1>
+
+....[Hottest Region 2]..............................................................................
+c2, level 4, org.openjdk.jmh.infra.Blackhole::consume, version 485 (55 bytes) 
+
+             # parm0:    rdx:rdx   = long
+             #           [sp+0x30]  (sp of caller)
+             0x00007fe4d8752c20: mov    0x8(%rsi),%r10d
+             0x00007fe4d8752c24: movabs $0x800000000,%r12
+             0x00007fe4d8752c2e: add    %r12,%r10
+             0x00007fe4d8752c31: xor    %r12,%r12
+             0x00007fe4d8752c34: cmp    %r10,%rax
+             0x00007fe4d8752c37: jne    0x00007fe4d0c84c80  ;   {runtime_call ic_miss_stub}
+             0x00007fe4d8752c3d: data16 xchg %ax,%ax
+           [Verified Entry Point]
+  2.13%      0x00007fe4d8752c40: mov    %eax,-0x14000(%rsp)
+  4.42%      0x00007fe4d8752c47: push   %rbp
+  0.61%      0x00007fe4d8752c48: sub    $0x20,%rsp         ;*synchronization entry
+                                                           ; - org.openjdk.jmh.infra.Blackhole::consume@-1 (line 392)
+  3.23%      0x00007fe4d8752c4c: mov    0x90(%rsi),%r10    ;*getfield l1 {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - org.openjdk.jmh.infra.Blackhole::consume@1 (line 392)
+  2.76%      0x00007fe4d8752c53: mov    %rdx,%r11
+  0.72%      0x00007fe4d8752c56: xor    0xa0(%rsi),%r11    ;*lxor {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - org.openjdk.jmh.infra.Blackhole::consume@17 (line 394)
+  1.66%      0x00007fe4d8752c5d: mov    %rdx,%r8
+  1.35%      0x00007fe4d8752c60: xor    %r10,%r8           ;*lxor {reexecute=0 rethrow=0 return_oop=0}
+                                                           ; - org.openjdk.jmh.infra.Blackhole::consume@13 (line 394)
+  2.85%      0x00007fe4d8752c63: cmp    %r11,%r8
+         ╭   0x00007fe4d8752c66: je     0x00007fe4d8752c78  ;*ifne {reexecute=0 rethrow=0 return_oop=0}
+         │                                                 ; - org.openjdk.jmh.infra.Blackhole::consume@19 (line 394)
+  0.51%  │   0x00007fe4d8752c68: add    $0x20,%rsp
+  1.66%  │   0x00007fe4d8752c6c: pop    %rbp
+  2.40%  │   0x00007fe4d8752c6d: mov    0x108(%r15),%r10
+  2.91%  │   0x00007fe4d8752c74: test   %eax,(%r10)        ;   {poll_return}
+  1.23%  │   0x00007fe4d8752c77: retq   
+         ↘   0x00007fe4d8752c78: cmp    %r11,%r8
+             0x00007fe4d8752c7b: mov    $0xffffffff,%ebp
+          ╭  0x00007fe4d8752c80: jl     0x00007fe4d8752c8a
+          │  0x00007fe4d8752c82: setne  %bpl
+          │  0x00007fe4d8752c86: movzbl %bpl,%ebp          ;*lcmp {reexecute=0 rethrow=0 return_oop=0}
+          │                                                ; - org.openjdk.jmh.infra.Blackhole::consume@18 (line 394)
+          ↘  0x00007fe4d8752c8a: mov    %rsi,(%rsp)
+             0x00007fe4d8752c8e: mov    %rdx,0x8(%rsp)
+             0x00007fe4d8752c93: mov    $0xffffff4d,%esi
+             0x00007fe4d8752c98: data16 xchg %ax,%ax
+....................................................................................................
+ 28.45%  <total for region 2>
+
+....[Hottest Regions]...............................................................................
+ 68.04%         c2, level 4  com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub, version 521 (291 bytes) 
+ 28.45%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 485 (55 bytes) 
+  1.11%   [kernel.kallsyms]  [unknown] (6 bytes) 
+  0.31%   [kernel.kallsyms]  [unknown] (1 bytes) 
+  0.25%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable (47 bytes) 
+  0.20%   [kernel.kallsyms]  [unknown] (37 bytes) 
+  0.14%   [kernel.kallsyms]  [unknown] (2 bytes) 
+  0.06%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (5 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (20 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (11 bytes) 
+  0.04%           libjvm.so  _ZL12event_to_envPvPKcS_ (2 bytes) 
+  0.04%           libjvm.so  _ZN13defaultStream5writeEPKcm (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  1.04%  <...other 53 warm regions...>
+....................................................................................................
+ 99.98%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 68.04%         c2, level 4  com.openkappa.runtime.datainput.generated.DataInputBenchmark_unsafeDataInputReadLong_jmhTest::unsafeDataInputReadLong_thrpt_jmhStub, version 521 
+ 28.45%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 485 
+  2.54%   [kernel.kallsyms]  [unknown] 
+  0.25%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable 
+  0.04%           libjvm.so  _ZL12event_to_envPvPKcS_ 
+  0.04%      hsdis-amd64.so  print_insn 
+  0.04%         interpreter  method entry point (kind = zerolocals)  
+  0.04%           libjvm.so  _ZN10fileStream5writeEPKcm 
+  0.04%           libjvm.so  _ZN13defaultStream5writeEPKcm 
+  0.02%           libjvm.so  _ZN16LIR_OpVisitState5visitEP6LIR_Op 
+  0.02%         interpreter  invoke return entry points  
+  0.02%           libjvm.so  _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.constprop.263 
+  0.02%           libjvm.so  syscall@plt 
+  0.02%        libc-2.27.so  vfprintf 
+  0.02%           libjvm.so  _ZN16LinearScanWalker14alloc_free_regEP8Interval 
+  0.02%           libjvm.so  _ZN13MallocTracker11record_freeEPv 
+  0.02%        libc-2.27.so  _IO_padn 
+  0.02%         interpreter  iinc  132 iinc  
+  0.02%         c1, level 3  java.io.ObjectOutputStream$HandleTable::insert, version 522 
+  0.02%         c1, level 1  java.net.URL::getProtocol, version 310 
+  0.29%  <...other 15 warm methods...>
+....................................................................................................
+ 99.98%  <totals>
+
+....[Distribution by Source]........................................................................
+ 96.48%         c2, level 4
+  2.54%   [kernel.kallsyms]
+  0.65%           libjvm.so
+  0.14%         interpreter
+  0.08%        libc-2.27.so
+  0.04%      hsdis-amd64.so
+  0.04%         c1, level 3
+  0.02%         c1, level 1
+....................................................................................................
+ 99.98%  <totals>
+
+
+
+# Run complete. Total time: 00:00:13
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                                        (size)   Mode  Cnt   Score    Error   Units
+DataInputBenchmark.unsafeDataInputReadLong           24  thrpt    5  73.453 ± 16.952  ops/us
+DataInputBenchmark.unsafeDataInputReadLong:·asm      24  thrpt          NaN              ---

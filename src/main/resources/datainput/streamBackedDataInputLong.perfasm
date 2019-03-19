@@ -1,0 +1,442 @@
+# JMH version: 1.21
+# VM version: JDK 11, OpenJDK 64-Bit Server VM, 11+28
+# VM invoker: /usr/lib/jvm/jdk-11/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.datainput.DataInputBenchmark.streamBackedDataInputReadLong
+# Parameters: (size = 24)
+
+# Run progress: 0.00% complete, ETA 00:00:10
+# Fork: 1 of 1
+# Preparing profilers: LinuxPerfAsmProfiler 
+# Profilers consume stdout and stderr from target VM, use -v EXTRA to copy to console
+# Warmup Iteration   1: 26.198 ops/us
+# Warmup Iteration   2: 25.300 ops/us
+# Warmup Iteration   3: 25.457 ops/us
+# Warmup Iteration   4: 28.634 ops/us
+# Warmup Iteration   5: 28.641 ops/us
+Iteration   1: 28.309 ops/us
+Iteration   2: 28.255 ops/us
+Iteration   3: 28.396 ops/us
+Iteration   4: 28.473 ops/us
+Iteration   5: 28.535 ops/us
+# Processing profiler results: LinuxPerfAsmProfiler 
+
+
+Result "com.openkappa.runtime.datainput.DataInputBenchmark.streamBackedDataInputReadLong":
+  28.394 ±(99.9%) 0.443 ops/us [Average]
+  (min, avg, max) = (28.255, 28.394, 28.535), stdev = 0.115
+  CI (99.9%): [27.951, 28.836] (assumes normal distribution)
+
+Secondary result "com.openkappa.runtime.datainput.DataInputBenchmark.streamBackedDataInputReadLong:·asm":
+PrintAssembly processed: 140700 total address lines.
+Perf output processed (skipped 7.219 seconds):
+ Column 1: cycles (5156 events)
+
+Hottest code regions (>10.00% "cycles" events):
+
+....[Hottest Region 1]..............................................................................
+c2, level 4, com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub, version 528 (702 bytes) 
+
+                                                              ; implicit exception: dispatches to 0x00007f2de875cf6e
+                0x00007f2de875be45: test   %r10d,%r10d
+                0x00007f2de875be48: jne    0x00007f2de875c512  ;*ifeq {reexecute=0 rethrow=0 return_oop=0}
+                                                              ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@32 (line 147)
+                0x00007f2de875be4e: mov    0x30(%rsp),%r10
+                0x00007f2de875be53: test   %r10,%r10
+                0x00007f2de875be56: je     0x00007f2de875cc6e
+                0x00007f2de875be5c: mov    $0x1,%r13d
+         ╭      0x00007f2de875be62: jmpq   0x00007f2de875c0ef
+         │      0x00007f2de875be67: nopw   0x0(%rax,%rax,1)
+  1.63%  │ ↗    0x00007f2de875be70: mov    %rbp,%r13
+  0.06%  │ │    0x00007f2de875be73: mov    0x8(%rsp),%r14d
+         │ │    0x00007f2de875be78: mov    0x10(%rsp),%r8     ;*aload_2 {reexecute=0 rethrow=0 return_oop=0}
+         │ │                                                  ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@21 (line 220)
+         │ │                                                  ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.54%  │ │ ↗  0x00007f2de875be7d: mov    0x18(%r8),%ebp     ;*getfield readBuffer {reexecute=0 rethrow=0 return_oop=0}
+         │ │ │                                                ; - java.io.DataInputStream::readLong@2 (line 421)
+         │ │ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │ │ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  1.32%  │ │ │  0x00007f2de875be81: mov    0xc(%r8),%r11d     ;*getfield in {reexecute=0 rethrow=0 return_oop=0}
+         │ │ │                                                ; - java.io.DataInputStream::readFully@22 (line 200)
+         │ │ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │ │ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │ │ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.06%  │ │ │  0x00007f2de875be85: mov    0x8(%r12,%r11,8),%r9d  ; implicit exception: dispatches to 0x00007f2de875ce82
+  0.80%  │ │ │  0x00007f2de875be8a: cmp    $0xfc38,%r9d       ;   {metadata(&apos;java/io/ByteArrayInputStream&apos;)}
+         │╭│ │  0x00007f2de875be91: jne    0x00007f2de875c133
+  1.32%  │││ │  0x00007f2de875be97: shl    $0x3,%r11          ;*invokevirtual read {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  1.16%  │││ │  0x00007f2de875be9b: mov    (%r11),%rax
+  0.23%  │││ │  0x00007f2de875be9e: mov    %rax,%r9
+  0.10%  │││ │  0x00007f2de875bea1: and    $0x7,%r9
+  1.22%  │││ │  0x00007f2de875bea5: cmp    $0x5,%r9
+         │││ │  0x00007f2de875bea9: jne    0x00007f2de875c167
+  1.76%  │││ │  0x00007f2de875beaf: mov    (%rsp),%r9
+  0.06%  │││ │  0x00007f2de875beb3: mov    0xb8(%r9),%r9
+  0.16%  │││ │  0x00007f2de875beba: mov    %r9,%rcx           ;*goto {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.DataInputStream::readFully@59 (line 204)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.33%  │││ │  0x00007f2de875bebd: or     %r15,%rcx
+  2.25%  │││ │  0x00007f2de875bec0: mov    %rcx,%rbx
+  0.04%  │││ │  0x00007f2de875bec3: xor    %rax,%rbx
+  0.10%  │││ │  0x00007f2de875bec6: test   $0xffffffffffffff87,%rbx
+         │││ │  0x00007f2de875becd: jne    0x00007f2de875c2a2  ;*synchronization entry
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@-1 (line 173)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.35%  │││ │  0x00007f2de875bed3: mov    0xc(%r12,%rbp,8),%edi  ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@3 (line 173)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+         │││ │                                                ; implicit exception: dispatches to 0x00007f2de875ce92
+  2.11%  │││ │  0x00007f2de875bed8: mov    %edi,%ecx
+  0.04%  │││ │  0x00007f2de875beda: or     $0x8,%ecx          ;*ior {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - jdk.internal.util.Preconditions::checkFromIndexSize@4 (line 342)
+         │││ │                                                ; - java.util.Objects::checkFromIndexSize@4 (line 424)
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@4 (line 173)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.04%  │││ │  0x00007f2de875bedd: test   %ecx,%ecx
+         │││ │  0x00007f2de875bedf: jl     0x00007f2de875c43a  ;*iflt {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - jdk.internal.util.Preconditions::checkFromIndexSize@5 (line 342)
+         │││ │                                                ; - java.util.Objects::checkFromIndexSize@4 (line 424)
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@4 (line 173)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.45%  │││ │  0x00007f2de875bee5: cmp    $0x8,%edi
+         │││ │  0x00007f2de875bee8: jl     0x00007f2de875c472  ;*if_icmple {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - jdk.internal.util.Preconditions::checkFromIndexSize@12 (line 342)
+         │││ │                                                ; - java.util.Objects::checkFromIndexSize@4 (line 424)
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@4 (line 173)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  2.08%  │││ │  0x00007f2de875beee: mov    0xc(%r11),%r9d     ;*getfield pos {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@9 (line 175)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.04%  │││ │  0x00007f2de875bef2: mov    0x14(%r11),%ecx    ;*getfield count {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@13 (line 175)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.04%  │││ │  0x00007f2de875bef6: cmp    %ecx,%r9d
+         │││ │  0x00007f2de875bef9: jge    0x00007f2de875c4a6  ;*if_icmplt {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@16 (line 175)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.54%  │││ │  0x00007f2de875beff: sub    %r9d,%ecx          ;*isub {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@29 (line 179)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  1.78%  │││ │  0x00007f2de875bf02: cmp    $0x8,%ecx
+         │││ │  0x00007f2de875bf05: jl     0x00007f2de875c4de  ;*if_icmple {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@35 (line 180)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.06%  │││ │  0x00007f2de875bf0b: mov    0x18(%r11),%ebx    ;*getfield buf {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@48 (line 186)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.21%  │││ │  0x00007f2de875bf0f: mov    0xc(%r12,%rbx,8),%ecx  ; implicit exception: dispatches to 0x00007f2de875cea6
+  1.45%  │││ │  0x00007f2de875bf14: test   %r9d,%r9d
+         │││ │  0x00007f2de875bf17: jl     0x00007f2de875c2d5
+  0.66%  │││ │  0x00007f2de875bf1d: mov    %r9d,%esi
+  0.10%  │││ │  0x00007f2de875bf20: add    $0x8,%esi
+  0.08%  │││ │  0x00007f2de875bf23: cmp    %esi,%ecx
+         │││ │  0x00007f2de875bf25: jb     0x00007f2de875c2d5
+  1.45%  │││ │  0x00007f2de875bf2b: cmp    $0x8,%edi
+         │││ │  0x00007f2de875bf2e: jb     0x00007f2de875c2d5  ;*invokestatic arraycopy {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@58 (line 186)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  1.03%  │││ │  0x00007f2de875bf34: mov    %esi,0xc(%r11)     ;*putfield pos {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@68 (line 187)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.06%  │││ │  0x00007f2de875bf38: lea    (%r12,%rbx,8),%rcx
+  0.02%  │││ │  0x00007f2de875bf3c: movslq %r9d,%r9
+  1.69%  │││ │  0x00007f2de875bf3f: movsbl 0x10(%rcx,%r9,1),%edi
+  1.18%  │││ │  0x00007f2de875bf45: mov    %dil,0x10(%r12,%rbp,8)
+  2.35%  │││ │  0x00007f2de875bf4a: movsbl 0x11(%rcx,%r9,1),%edi
+         │││ │  0x00007f2de875bf50: mov    %dil,0x11(%r12,%rbp,8)
+  1.96%  │││ │  0x00007f2de875bf55: movsbl 0x12(%rcx,%r9,1),%edi
+  0.41%  │││ │  0x00007f2de875bf5b: mov    %dil,0x12(%r12,%rbp,8)
+  1.86%  │││ │  0x00007f2de875bf60: movsbl 0x13(%rcx,%r9,1),%edi
+  0.02%  │││ │  0x00007f2de875bf66: mov    %dil,0x13(%r12,%rbp,8)
+  2.25%  │││ │  0x00007f2de875bf6b: movsbl 0x14(%rcx,%r9,1),%edi
+  0.41%  │││ │  0x00007f2de875bf71: mov    %dil,0x14(%r12,%rbp,8)
+  1.92%  │││ │  0x00007f2de875bf76: movsbl 0x15(%rcx,%r9,1),%edi
+         │││ │  0x00007f2de875bf7c: mov    %dil,0x15(%r12,%rbp,8)
+  2.50%  │││ │  0x00007f2de875bf81: movsbl 0x16(%rcx,%r9,1),%edi
+  0.21%  │││ │  0x00007f2de875bf87: mov    %dil,0x16(%r12,%rbp,8)
+  2.33%  │││ │  0x00007f2de875bf8c: movsbl 0x17(%rcx,%r9,1),%ecx
+  0.02%  │││ │  0x00007f2de875bf92: mov    %cl,0x17(%r12,%rbp,8)
+  2.40%  │││ │  0x00007f2de875bf97: mov    $0x7,%r9d
+  0.02%  │││ │  0x00007f2de875bf9d: and    (%r11),%r9
+  0.29%  │││ │  0x00007f2de875bfa0: cmp    $0x5,%r9
+         │││ │  0x00007f2de875bfa4: jne    0x00007f2de875c30e  ;*ireturn {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.ByteArrayInputStream::read@72 (line 188)
+         │││ │                                                ; - java.io.DataInputStream::readFully@34 (line 200)
+         │││ │                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+         │││ │  0x00007f2de875bfaa: mov    0x18(%r8),%r11d    ;*getfield readBuffer {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.DataInputStream::readLong@12 (line 422)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  2.04%  │││ │  0x00007f2de875bfae: mov    0xc(%r12,%r11,8),%ecx  ; implicit exception: dispatches to 0x00007f2de875cec6
+  0.04%  │││ │  0x00007f2de875bfb3: cmp    $0x7,%ecx
+         │││ │  0x00007f2de875bfb6: jbe    0x00007f2de875c3e6
+  0.35%  │││ │  0x00007f2de875bfbc: mov    %r10d,0xc(%rsp)
+         │││ │  0x00007f2de875bfc1: mov    %r8,0x10(%rsp)
+  2.21%  │││ │  0x00007f2de875bfc6: mov    %r14d,0x8(%rsp)
+  0.12%  │││ │  0x00007f2de875bfcb: mov    %r13,%rbp          ;*invokeinterface readLong {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.29%  │││ │  0x00007f2de875bfce: movzbq 0x11(%r12,%r11,8),%r10
+  0.02%  │││ │  0x00007f2de875bfd4: movzbq 0x12(%r12,%r11,8),%rcx
+  1.84%  │││ │  0x00007f2de875bfda: movsbq 0x10(%r12,%r11,8),%rdx
+  0.02%  │││ │  0x00007f2de875bfe0: shl    $0x30,%r10
+  0.23%  │││ │  0x00007f2de875bfe4: shl    $0x38,%rdx
+         │││ │  0x00007f2de875bfe8: add    %r10,%rdx
+  1.80%  │││ │  0x00007f2de875bfeb: movzbq 0x13(%r12,%r11,8),%rbx
+  0.12%  │││ │  0x00007f2de875bff1: movzbq 0x14(%r12,%r11,8),%rdi
+  0.23%  │││ │  0x00007f2de875bff7: shl    $0x20,%rbx
+  0.14%  │││ │  0x00007f2de875bffb: shl    $0x18,%rdi
+  1.65%  │││ │  0x00007f2de875bfff: movzbl 0x15(%r12,%r11,8),%r9d
+  0.12%  │││ │  0x00007f2de875c005: movzbl 0x16(%r12,%r11,8),%r8d
+  0.35%  │││ │  0x00007f2de875c00b: movzbq 0x17(%r12,%r11,8),%r10
+  0.76%  │││ │  0x00007f2de875c011: shl    $0x10,%r9d
+  1.55%  │││ │  0x00007f2de875c015: movslq %r9d,%r11
+  1.05%  │││ │  0x00007f2de875c018: shl    $0x8,%r8d
+  0.21%  │││ │  0x00007f2de875c01c: movslq %r8d,%r8
+  1.78%  │││ │  0x00007f2de875c01f: shl    $0x28,%rcx
+  0.29%  │││ │  0x00007f2de875c023: add    %rcx,%rdx
+  0.58%  │││ │  0x00007f2de875c026: add    %rbx,%rdx
+  0.21%  │││ │  0x00007f2de875c029: add    %rdi,%rdx
+  2.19%  │││ │  0x00007f2de875c02c: add    %r11,%rdx
+  0.45%  │││ │  0x00007f2de875c02f: add    %r8,%rdx
+  1.16%  │││ │  0x00007f2de875c032: add    %r10,%rdx          ;*ladd {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - java.io.DataInputStream::readLong@126 (line 422)
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  2.00%  │││ │  0x00007f2de875c035: mov    0x30(%rsp),%rsi
+  0.58%  │││ │  0x00007f2de875c03a: xchg   %ax,%ax
+  0.10%  │││ │  0x00007f2de875c03c: vzeroupper 
+  2.29%  │││ │  0x00007f2de875c03f: callq  0x00007f2de0c84f00  ; ImmutableOopMap{[144]=Oop [152]=Oop [160]=Oop [168]=Oop [16]=Oop [48]=Oop }
+         │││ │                                                ;*invokevirtual consume {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@28 (line 220)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+         │││ │                                                ;   {optimized virtual_call}
+  1.76%  │││ │  0x00007f2de875c044: mov    0xc(%rsp),%r10d
+  0.56%  │││ │  0x00007f2de875c049: add    $0x8,%r10d         ;*iinc {reexecute=0 rethrow=0 return_oop=0}
+         │││ │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@31 (line 221)
+         │││ │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.04%  │││ │  0x00007f2de875c04d: cmp    0x8(%rsp),%r10d
+         ││╰ │  0x00007f2de875c052: jl     0x00007f2de875be70
+  0.27%  ││  │  0x00007f2de875c058: mov    %rbp,%r13          ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+         ││  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@18 (line 219)
+         ││  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.62%  ││ ↗│  0x00007f2de875c05b: mov    0xa0(%rsp),%r10
+  0.02%  ││ ││  0x00007f2de875c063: mov    0x18(%r10),%ebp    ;*getfield bis {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$StreamBackedDataInpuState::reset@1 (line 120)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@38 (line 223)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+         ││ ││  0x00007f2de875c067: test   %ebp,%ebp
+         ││ ││  0x00007f2de875c069: je     0x00007f2de875c556  ;*invokevirtual reset {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$StreamBackedDataInpuState::reset@4 (line 120)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@38 (line 223)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.19%  ││ ││  0x00007f2de875c06f: lea    (%r12,%rbp,8),%r9  ;*getfield bis {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$StreamBackedDataInpuState::reset@1 (line 120)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@38 (line 223)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.47%  ││ ││  0x00007f2de875c073: mov    (%r9),%rax
+  0.64%  ││ ││  0x00007f2de875c076: mov    %rax,%r10
+         ││ ││  0x00007f2de875c079: and    $0x7,%r10
+  0.56%  ││ ││  0x00007f2de875c07d: cmp    $0x5,%r10
+         ││ ││  0x00007f2de875c081: jne    0x00007f2de875c56b
+  1.09%  ││ ││  0x00007f2de875c087: mov    (%rsp),%r10
+         ││ ││  0x00007f2de875c08b: mov    0xb8(%r10),%r10
+         ││ ││  0x00007f2de875c092: mov    %r10,%r11          ;*goto {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                ; - java.io.DataInputStream::readFully@59 (line 204)
+         ││ ││                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+         ││ ││  0x00007f2de875c095: or     %r15,%r11
+  0.87%  ││ ││  0x00007f2de875c098: mov    %r11,%r8
+         ││ ││  0x00007f2de875c09b: xor    %rax,%r8
+         ││ ││  0x00007f2de875c09e: test   $0xffffffffffffff87,%r8
+         ││ ││  0x00007f2de875c0a5: jne    0x00007f2de875c72b  ;*synchronization entry
+         ││ ││                                                ; - java.io.ByteArrayInputStream::reset@-1 (line 281)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark$StreamBackedDataInpuState::reset@4 (line 120)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@38 (line 223)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.10%  ││ ││  0x00007f2de875c0ab: mov    0x10(%r12,%rbp,8),%r11d
+  0.85%  ││ ││  0x00007f2de875c0b0: mov    %r11d,0xc(%r12,%rbp,8)
+  0.02%  ││ ││  0x00007f2de875c0b5: mov    $0x7,%r10d
+         ││ ││  0x00007f2de875c0bb: and    (%r9),%r10
+  0.14%  ││ ││  0x00007f2de875c0be: cmp    $0x5,%r10
+         ││ ││  0x00007f2de875c0c2: jne    0x00007f2de875c67b  ;*invokevirtual streamBackedDataInputReadLong {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.87%  ││ ││  0x00007f2de875c0c8: mov    0x90(%rsp),%r10
+         ││ ││  0x00007f2de875c0d0: movzbl 0x94(%r10),%r11d   ;*goto {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                ; - java.io.DataInputStream::readFully@59 (line 204)
+         ││ ││                                                ; - java.io.DataInputStream::readLong@8 (line 421)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+         ││ ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+         ││ ││  0x00007f2de875c0d8: mov    0x108(%r15),%r10
+  0.08%  ││ ││  0x00007f2de875c0df: add    $0x1,%r13          ; ImmutableOopMap{[144]=Oop [152]=Oop [160]=Oop [168]=Oop [48]=Oop }
+         ││ ││                                                ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+         ││ ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@32 (line 147)
+  0.70%  ││ ││  0x00007f2de875c0e3: test   %eax,(%r10)        ;   {poll}
+         ││ ││  0x00007f2de875c0e6: test   %r11d,%r11d
+         ││ ││  0x00007f2de875c0e9: jne    0x00007f2de875c518  ;*aload_1 {reexecute=0 rethrow=0 return_oop=0}
+         ││ ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@35 (line 148)
+         ↘│ ││  0x00007f2de875c0ef: mov    0xa0(%rsp),%r10
+  0.04%   │ ││  0x00007f2de875c0f7: mov    0x14(%r10),%r14d   ;*getfield size {reexecute=0 rethrow=0 return_oop=0}
+          │ ││                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@6 (line 217)
+          │ ││                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.70%   │ ││  0x00007f2de875c0fb: test   %r14d,%r14d
+          │ ╰│  0x00007f2de875c0fe: jle    0x00007f2de875c05b  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+          │  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@18 (line 219)
+          │  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+          │  │  0x00007f2de875c104: mov    0x1c(%r10),%r10d   ;*getfield dataInput {reexecute=0 rethrow=0 return_oop=0}
+          │  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@1 (line 216)
+          │  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+          │  │  0x00007f2de875c108: mov    0x8(%r12,%r10,8),%r11d  ; implicit exception: dispatches to 0x00007f2de875c796
+  0.12%   │  │  0x00007f2de875c10d: cmp    $0x87a90,%r11d     ;   {metadata(&apos;java/io/DataInputStream&apos;)}
+          │  │  0x00007f2de875c114: jne    0x00007f2de875c796
+  0.87%   │  │  0x00007f2de875c11a: cmp    $0x7ffffff8,%r14d
+          │  │  0x00007f2de875c121: jg     0x00007f2de875c75e  ;*if_icmpge {reexecute=0 rethrow=0 return_oop=0}
+          │  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@18 (line 219)
+          │  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+  0.02%   │  │  0x00007f2de875c127: lea    (%r12,%r10,8),%r8  ;*invokeinterface readLong {reexecute=0 rethrow=0 return_oop=0}
+          │  │                                                ; - com.openkappa.runtime.datainput.DataInputBenchmark::streamBackedDataInputReadLong@23 (line 220)
+          │  │                                                ; - com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub@19 (line 145)
+          │  │  0x00007f2de875c12b: xor    %r10d,%r10d
+  0.06%   │  ╰  0x00007f2de875c12e: jmpq   0x00007f2de875be7d
+          ↘     0x00007f2de875c133: mov    $0xffffffde,%esi
+                0x00007f2de875c138: mov    %r13,0x8(%rsp)
+                0x00007f2de875c13d: mov    %r14d,0x28(%rsp)
+                0x00007f2de875c142: mov    %r10d,0x2c(%rsp)
+                0x00007f2de875c147: mov    %r8,0x38(%rsp)
+                0x00007f2de875c14c: mov    %r8,0x40(%rsp)
+                0x00007f2de875c151: mov    %r11d,0x48(%rsp)
+                0x00007f2de875c156: xchg   %ax,%ax
+                0x00007f2de875c158: vzeroupper 
+                0x00007f2de875c15b: callq  0x00007f2de0c86900  ; ImmutableOopMap{rbp=NarrowOop [144]=Oop [152]=Oop [160]=Oop [168]=Oop [48]=Oop [56]=Oop [64]=Oop [72]=NarrowOop }
+....................................................................................................
+ 85.96%  <total for region 1>
+
+....[Hottest Regions]...............................................................................
+ 85.96%         c2, level 4  com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub, version 528 (702 bytes) 
+  9.79%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 493 (55 bytes) 
+  2.02%   [kernel.kallsyms]  [unknown] (6 bytes) 
+  0.23%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable (47 bytes) 
+  0.14%   [kernel.kallsyms]  [unknown] (36 bytes) 
+  0.14%   [kernel.kallsyms]  [unknown] (3 bytes) 
+  0.06%   [kernel.kallsyms]  [unknown] (9 bytes) 
+  0.06%        libc-2.27.so  syscall (0 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (3 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (21 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.04%   [kernel.kallsyms]  [unknown] (21 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  0.02%   [kernel.kallsyms]  [unknown] (0 bytes) 
+  1.28%  <...other 66 warm regions...>
+....................................................................................................
+ 99.98%  <totals>
+
+....[Hottest Methods (after inlining)]..............................................................
+ 85.96%         c2, level 4  com.openkappa.runtime.datainput.generated.DataInputBenchmark_streamBackedDataInputReadLong_jmhTest::streamBackedDataInputReadLong_thrpt_jmhStub, version 528 
+  9.79%         c2, level 4  org.openjdk.jmh.infra.Blackhole::consume, version 493 
+  3.22%   [kernel.kallsyms]  [unknown] 
+  0.23%           libjvm.so  _ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescTable 
+  0.06%        libc-2.27.so  syscall 
+  0.04%        libc-2.27.so  __strchr_avx2 
+  0.04%           libjvm.so  _ZN12outputStream15update_positionEPKcm 
+  0.02%           libjvm.so  _ZN15ciObjectFactory10get_symbolEP6Symbol 
+  0.02%      hsdis-amd64.so  OP_REG 
+  0.02%           libjvm.so  _ZN5ciEnvC1EP11CompileTaski 
+  0.02%           libjvm.so  _ZNK10ciMetadata12is_classlessEv 
+  0.02%           libjvm.so  _Z12as_BasicTypeN11LIR_OprDesc7OprTypeE 
+  0.02%           libjvm.so  _ZN13RelocIterator10initializeEP14CompiledMethodPhS2_ 
+  0.02%        libc-2.27.so  vfprintf 
+  0.02%           libjvm.so  _ZN16BacktraceBuilder4pushEP6MethodiP6Thread 
+  0.02%           libjvm.so  _ZL12event_to_envPvPKcS_ 
+  0.02%      hsdis-amd64.so  print_insn 
+  0.02%         c2, level 4  jdk.internal.reflect.ClassFileAssembler::emitConstantPoolUTF8, version 378 
+  0.02%        libc-2.27.so  _IO_padn 
+  0.02%    Unknown, level 0  java.lang.Class::isInstance, version 535 
+  0.39%  <...other 20 warm methods...>
+....................................................................................................
+ 99.98%  <totals>
+
+....[Distribution by Source]........................................................................
+ 95.77%         c2, level 4
+  3.22%   [kernel.kallsyms]
+  0.64%           libjvm.so
+  0.21%        libc-2.27.so
+  0.04%      hsdis-amd64.so
+  0.04%         interpreter
+  0.02%      perf-10049.map
+  0.02%  libpthread-2.27.so
+  0.02%    Unknown, level 0
+....................................................................................................
+ 99.98%  <totals>
+
+
+
+# Run complete. Total time: 00:00:13
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                                              (size)   Mode  Cnt   Score   Error   Units
+DataInputBenchmark.streamBackedDataInputReadLong           24  thrpt    5  28.394 ± 0.443  ops/us
+DataInputBenchmark.streamBackedDataInputReadLong:·asm      24  thrpt          NaN             ---
