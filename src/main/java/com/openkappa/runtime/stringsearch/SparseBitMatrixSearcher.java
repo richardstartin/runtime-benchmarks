@@ -1,5 +1,7 @@
 package com.openkappa.runtime.stringsearch;
 
+import java.util.Arrays;
+
 public class SparseBitMatrixSearcher implements Searcher {
 
     public static void main(String... args) {
@@ -27,13 +29,13 @@ public class SparseBitMatrixSearcher implements Searcher {
                 existence[value >>> 6] |= (1L << value);
             }
         }
-        this.masks = new long[cardinality];
+        this.masks = new long[cardinality + 1];
         this.positions = new byte[256];
         int index = 0;
         for (byte key : searchString) {
             int position = position(key, existence);
-            positions[key & 0xFF] = (byte)position(key, existence);
-            masks[position] |= (1L << index);
+            positions[key & 0xFF] = (byte)position;
+            masks[position + 1] |= (1L << index);
             ++index;
         }
         this.success = 1L << (searchString.length - 1);
@@ -43,7 +45,7 @@ public class SparseBitMatrixSearcher implements Searcher {
         long current = 0L;
         for (int i = 0; i < data.length; ++i) {
             int value = data[i] & 0xFF;
-            long mask = masks[positions[value] & 0xFF];
+            long mask = masks[(positions[value] & 0xFF) + 1];
             current = ((current << 1) | 1) & mask;
             if ((current & success) == success) {
                 return i - Long.numberOfTrailingZeros(success);
