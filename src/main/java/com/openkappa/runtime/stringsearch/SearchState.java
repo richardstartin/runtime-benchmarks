@@ -1,10 +1,11 @@
 package com.openkappa.runtime.stringsearch;
 
 import org.openjdk.jmh.annotations.*;
+import org.openjdk.jol.info.GraphLayout;
 
 import java.util.SplittableRandom;
 
-@State(Scope.Benchmark)
+@State(Scope.Thread)
 public class SearchState {
 
     public enum SearcherType {
@@ -62,6 +63,7 @@ public class SearchState {
         for (byte[] datum : data) {
             tryFill(datum, random, term);
         }
+        System.out.println(GraphLayout.parseInstance(searcher).toFootprint());
     }
 
     public static void main(String... args) {

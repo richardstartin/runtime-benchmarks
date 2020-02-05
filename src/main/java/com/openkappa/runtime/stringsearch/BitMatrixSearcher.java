@@ -13,7 +13,7 @@ public class BitMatrixSearcher implements Searcher {
     private final long success;
 
     public BitMatrixSearcher(byte[] searchString) {
-        if (searchString.length >= 64) {
+        if (searchString.length > 64) {
             throw new IllegalArgumentException("Too many bytes");
         }
         long word = 1L;
