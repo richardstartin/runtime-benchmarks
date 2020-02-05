@@ -1,5 +1,7 @@
 package com.openkappa.runtime.stringsearch;
 
+import java.util.Arrays;
+
 public class SparseBitMatrixSearcher implements Searcher {
 
     public static void main(String... args) {
@@ -12,14 +14,13 @@ public class SparseBitMatrixSearcher implements Searcher {
     private final long[] masks;
     private byte[] positions;
     private final long success;
-    private final long[] existence;
 
     public SparseBitMatrixSearcher(byte[] searchString) {
         if (searchString.length > 64) {
             throw new IllegalArgumentException("Too many bytes");
         }
         int cardinality = 0;
-        this.existence = new long[4];
+        long[] existence = new long[4];
         for (byte key : searchString) {
             int value = key & 0xFF;
             long word = existence[value >>> 6];
@@ -28,8 +29,9 @@ public class SparseBitMatrixSearcher implements Searcher {
                 existence[value >>> 6] |= (1L << value);
             }
         }
-        this.masks = new long[cardinality];
+        this.masks = new long[cardinality + 1];
         this.positions = new byte[256];
+        Arrays.fill(positions, (byte)cardinality);
         int index = 0;
         for (byte key : searchString) {
             int position = position(key, existence);
@@ -44,12 +46,10 @@ public class SparseBitMatrixSearcher implements Searcher {
         long current = 0L;
         for (int i = 0; i < data.length; ++i) {
             int value = data[i] & 0xFF;
-            if ((existence[value >>> 6] & (1L << value)) != 0) {
-                long mask = masks[positions[value] & 0xFF];
-                current = ((current << 1) | 1) & mask;
-                if ((current & success) == success) {
-                    return i - Long.numberOfTrailingZeros(success);
-                }
+            long mask = masks[positions[value] & 0xFF];
+            current = ((current << 1) | 1) & mask;
+            if ((current & success) == success) {
+                return i - Long.numberOfTrailingZeros(success);
             }
         }
         return -1;
