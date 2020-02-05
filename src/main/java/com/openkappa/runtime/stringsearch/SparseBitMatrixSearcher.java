@@ -28,7 +28,7 @@ public class SparseBitMatrixSearcher implements Searcher {
                 existence[value >>> 6] |= (1L << value);
             }
         }
-        this.masks = new long[cardinality + 1];
+        this.masks = new long[cardinality];
         this.positions = new byte[256];
         int index = 0;
         for (byte key : searchString) {
