@@ -31,21 +31,24 @@ public class SearchState {
             public Searcher compile(byte[] term) {
                 return new UnsafeBitMatrixSearcher(term);
             }
-        };
+        },
+        UNSAFE_SPARSE_BIT_MATRIX_SWAR {
+            @Override
+            public Searcher compile(byte[] term) {
+                return new UnsafeSWARSparseBitMatrixSearcher(term);
+            }
+        }
+        ;
         public abstract Searcher compile(byte[] term);
     }
 
     @Param({"100", "1000", "2000"})
     int dataLength;
 
-    @Param({ "3",  "9",
-            "13", "19",
-            "23", "29",
-            "33", "39",
-            "53", "59"})
+    @Param({ "3", "19", "40", "59"})
     int termLength;
 
-    @Param("7")
+    @Param({"7", "12"})
     int logVariety;
 
     @Param("90210")
@@ -110,7 +113,9 @@ public class SearchState {
         random.nextBytes(data);
         int startPosition = dataLength - termLength - random.nextInt(10);
         System.arraycopy(term, 0, data, startPosition, term.length);
-        if (searcher.find(data) != startPosition) {
+        int pos;
+        if ((pos = searcher.find(data)) != startPosition) {
+            System.out.println("Expected " + startPosition + " got " + pos);
             tryFill(data, random, term);
         }
     }
