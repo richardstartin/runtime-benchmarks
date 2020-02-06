@@ -1,7 +1,6 @@
 package com.openkappa.runtime.stringsearch;
 
 import org.openjdk.jmh.annotations.*;
-import org.openjdk.jol.info.GraphLayout;
 
 import java.util.SplittableRandom;
 
@@ -20,6 +19,18 @@ public class SearchState {
             public Searcher compile(byte[] term) {
                 return new SparseBitMatrixSearcher(term);
             }
+        },
+        UNSAFE_SPARSE_BIT_MATRIX {
+            @Override
+            public Searcher compile(byte[] term) {
+                return new UnsafeSparseBitMatrixSearcher(term);
+            }
+        },
+        UNSAFE_BIT_MATRIX {
+            @Override
+            public Searcher compile(byte[] term) {
+                return new UnsafeBitMatrixSearcher(term);
+            }
         };
         public abstract Searcher compile(byte[] term);
     }
@@ -34,7 +45,7 @@ public class SearchState {
             "53", "59"})
     int termLength;
 
-    @Param({"7", "9", "11", "12"})
+    @Param("7")
     int logVariety;
 
     @Param("90210")
@@ -63,7 +74,13 @@ public class SearchState {
         for (byte[] datum : data) {
             tryFill(datum, random, term);
         }
-        System.out.println(GraphLayout.parseInstance(searcher).toFootprint());
+    }
+
+    @TearDown(Level.Trial)
+    public void tearDown() throws Exception {
+        if (searcher instanceof AutoCloseable) {
+            ((AutoCloseable) searcher).close();
+        }
     }
 
     public static void main(String... args) {
@@ -77,6 +94,13 @@ public class SearchState {
             System.out.println(new String(searchState.term));
             for (byte[] datum : searchState.data) {
                 System.out.println(searchState.searcher.find(datum));
+            }
+            if (searchState.searcher instanceof AutoCloseable) {
+                try {
+                    ((AutoCloseable) searchState.searcher).close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

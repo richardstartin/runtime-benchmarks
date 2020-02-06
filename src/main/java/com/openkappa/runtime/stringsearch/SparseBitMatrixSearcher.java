@@ -34,7 +34,7 @@ public class SparseBitMatrixSearcher implements Searcher {
         Arrays.fill(positions, (byte)cardinality);
         int index = 0;
         for (byte key : searchString) {
-            int position = position(key, existence);
+            int position = rank(key, existence);
             positions[key & 0xFF] = (byte)position;
             masks[position] |= (1L << index);
             ++index;
@@ -55,7 +55,7 @@ public class SparseBitMatrixSearcher implements Searcher {
         return -1;
     }
 
-    private static int position(byte key, long[] existence) {
+    private static int rank(byte key, long[] existence) {
         int value = (key & 0xFF);
         int wi = value >>> 6;
         int i = 0;
