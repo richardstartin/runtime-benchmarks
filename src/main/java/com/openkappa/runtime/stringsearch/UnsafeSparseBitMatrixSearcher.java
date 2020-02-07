@@ -6,7 +6,6 @@ import java.lang.reflect.Field;
 
 public class UnsafeSparseBitMatrixSearcher implements Searcher, AutoCloseable {
 
-
     private static final Unsafe UNSAFE;
 
     static {
@@ -16,15 +15,6 @@ public class UnsafeSparseBitMatrixSearcher implements Searcher, AutoCloseable {
             UNSAFE = (Unsafe) f.get(null);
         } catch (Exception e) {
             throw new IllegalStateException(e);
-        }
-    }
-
-
-    public static void main(String... args) {
-        try (UnsafeSparseBitMatrixSearcher search = new UnsafeSparseBitMatrixSearcher("A12f".getBytes())) {
-            System.out.println("found it at " + search.find("ashhdipiqwhciqwipbqciwbecpiqwbecA12fFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
-            System.out.println("found it at " + search.find("ashhdipiqwhciqwipbqciwbecpiqwbecFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
-            System.out.println("found it at " + search.find("A12ashhdipiqwhciqwipbqciwbecpiqwbecFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
         }
     }
 

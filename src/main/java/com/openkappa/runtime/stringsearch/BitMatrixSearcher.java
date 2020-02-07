@@ -2,13 +2,6 @@ package com.openkappa.runtime.stringsearch;
 
 public class BitMatrixSearcher implements Searcher {
 
-    public static void main(String... args) {
-        BitMatrixSearcher search = new BitMatrixSearcher("A12f".getBytes());
-        System.out.println("found it at " + search.find("ashhdipiqwhciqwipbqciwbecpiqwbecA12fFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
-        System.out.println("found it at " + search.find("ashhdipiqwhciqwipbqciwbecpiqwbecFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
-        System.out.println("found it at " + search.find("A12ashhdipiqwhciqwipbqciwbecpiqwbecFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
-    }
-
     private final long[] masks = new long[256];
     private final long success;
 

@@ -18,14 +18,6 @@ public class UnsafeBitMatrixSearcher implements Searcher, AutoCloseable {
         }
     }
 
-    public static void main(String... args) {
-        try (UnsafeBitMatrixSearcher search = new UnsafeBitMatrixSearcher("A12f".getBytes())) {
-            System.out.println("found it at " + search.find("ashhdipiqwhciqwipbqciwbecpiqwbecA12fFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
-            System.out.println("found it at " + search.find("ashhdipiqwhciqwipbqciwbecpiqwbecFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
-            System.out.println("found it at " + search.find("A12ashhdipiqwhciqwipbqciwbecpiqwbecFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
-        }
-    }
-
     private final long masksOffset;
     private final long success;
 

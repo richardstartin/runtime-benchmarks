@@ -4,13 +4,6 @@ import java.util.Arrays;
 
 public class SparseBitMatrixSearcher implements Searcher {
 
-    public static void main(String... args) {
-        SparseBitMatrixSearcher search = new SparseBitMatrixSearcher("A12f".getBytes());
-        System.out.println("found it at " + search.find("ashhdipiqwhciqwipbqciwbecpiqwbecA12fFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
-        System.out.println("found it at " + search.find("ashhdipiqwhciqwipbqciwbecpiqwbecFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
-        System.out.println("found it at " + search.find("A12ashhdipiqwhciqwipbqciwbecpiqwbecFKJAsflgqweiffbibdlasbflagiofbwcdp".getBytes()));
-    }
-
     private final long[] masks;
     private byte[] positions;
     private final long success;
