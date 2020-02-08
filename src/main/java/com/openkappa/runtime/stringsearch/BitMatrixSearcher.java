@@ -1,5 +1,8 @@
 package com.openkappa.runtime.stringsearch;
 
+/**
+ * Adapted from https://github.com/linasm/string-search-algos
+ */
 public class BitMatrixSearcher implements Searcher {
 
     private final long[] masks = new long[256];

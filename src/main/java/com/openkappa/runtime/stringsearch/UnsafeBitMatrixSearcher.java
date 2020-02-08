@@ -4,6 +4,9 @@ import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
 
+/**
+ * Adapted from https://github.com/linasm/string-search-algos
+ */
 public class UnsafeBitMatrixSearcher implements Searcher, AutoCloseable {
 
     private static final Unsafe UNSAFE;
