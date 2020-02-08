@@ -42,9 +42,7 @@ public class SparseBitMatrixSearcher implements Searcher {
         long current = 0L;
         for (int i = 0; i < data.length; ++i) {
             int value = data[i] & 0xFF;
-            System.out.println(value);
             long mask = masks[positions[value] & 0xFF];
-            System.out.println(Long.toBinaryString(mask));
             current = ((current << 1) | 1) & mask;
             if ((current & success) == success) {
                 return i - Long.numberOfTrailingZeros(success);
