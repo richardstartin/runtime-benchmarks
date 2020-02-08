@@ -68,4 +68,14 @@ public class StringSearchers {
     public void verifyUnsafeSWARSparseBitMatrix() {
         assertEquals(expected, new UnsafeSWARSparseBitMatrixSearcher(term.getBytes()).find(data.getBytes()));
     }
+
+    @Test
+    public void verifyBitSliced() {
+        assertEquals(expected, new BitSlicedSearcher(term.getBytes()).find(data.getBytes()));
+    }
+
+    @Test
+    public void verifyUnsafeBitSliced() {
+        assertEquals(expected, new UnsafeBitSlicedSearcher(term.getBytes()).find(data.getBytes()));
+    }
 }

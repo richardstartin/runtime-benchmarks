@@ -37,6 +37,18 @@ public class SearchState {
             public Searcher compile(byte[] term) {
                 return new UnsafeSWARSparseBitMatrixSearcher(term);
             }
+        },
+        BIT_SLICED {
+            @Override
+            public Searcher compile(byte[] term) {
+                return new BitSlicedSearcher(term);
+            }
+        },
+        UNSAFE_BIT_SLICED {
+            @Override
+            public Searcher compile(byte[] term) {
+                return new UnsafeBitSlicedSearcher(term);
+            }
         }
         ;
         public abstract Searcher compile(byte[] term);
