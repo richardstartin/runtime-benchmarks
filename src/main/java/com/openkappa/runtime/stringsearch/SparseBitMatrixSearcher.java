@@ -1,7 +1,5 @@
 package com.openkappa.runtime.stringsearch;
 
-import java.util.Arrays;
-
 public class SparseBitMatrixSearcher implements Searcher {
 
     private final long[] masks;
@@ -24,7 +22,6 @@ public class SparseBitMatrixSearcher implements Searcher {
         }
         this.masks = new long[cardinality + 1];
         this.positions = new byte[256];
-        Arrays.fill(positions, (byte)cardinality);
         int index = 0;
         for (byte key : searchString) {
             int position = rank(key, existence);
@@ -52,7 +49,7 @@ public class SparseBitMatrixSearcher implements Searcher {
         int value = (key & 0xFF);
         int wi = value >>> 6;
         int i = 0;
-        int position = 0;
+        int position = 1;
         while (i < wi) {
             position += Long.bitCount(existence[i]);
             ++i;

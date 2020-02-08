@@ -48,7 +48,8 @@ public class UnsafeSWARSparseBitMatrixSearcher implements Searcher, AutoCloseabl
         for (byte key : searchString) {
             int position = rank(key, existence);
             UNSAFE.putByte(positionsOffset + (key & 0xFF), (byte)position);
-            UNSAFE.putLong(masksOffset + position, UNSAFE.getLong(masksOffset + position) | (1L << index));
+            UNSAFE.putLong(masksOffset + Long.BYTES * position,
+                UNSAFE.getLong(masksOffset + Long.BYTES * position) | (1L << index));
             ++index;
         }
         this.success = 1L << (searchString.length - 1);
@@ -67,7 +68,7 @@ public class UnsafeSWARSparseBitMatrixSearcher implements Searcher, AutoCloseabl
                 for (int k = i + j; k < data.length; ++k) {
                     int value = data[k] & 0xFF;
                     int position = UNSAFE.getByte(positionsOffset + value) & 0xFF;
-                    long mask = UNSAFE.getLong(masksOffset + position);
+                    long mask = UNSAFE.getLong(masksOffset + Long.BYTES * position);
                     current = ((current << 1) | 1) & mask;
                     if (current == 0 && (k & (Long.BYTES - 1)) == 0) {
                         break;
@@ -81,7 +82,7 @@ public class UnsafeSWARSparseBitMatrixSearcher implements Searcher, AutoCloseabl
         for (; i < data.length; ++i) {
             int value = data[i] & 0xFF;
             int position = UNSAFE.getByte(positionsOffset + value) & 0xFF;
-            long mask = UNSAFE.getLong(masksOffset + position);
+            long mask = UNSAFE.getLong(masksOffset + Long.BYTES * position);
             current = ((current << 1) | 1) & mask;
             if ((current & success) == success) {
                 return i - Long.numberOfTrailingZeros(success);
@@ -94,7 +95,7 @@ public class UnsafeSWARSparseBitMatrixSearcher implements Searcher, AutoCloseabl
         int value = (key & 0xFF);
         int wi = value >>> 6;
         int i = 0;
-        int position = 0;
+        int position = 1;
         while (i < wi) {
             position += Long.bitCount(existence[i]);
             ++i;
