@@ -1,7 +1,5 @@
 package com.openkappa.runtime.stringsearch.frequency;
 
-import com.lexicalscope.jewelcli.internal.lamdaj.util.iterator.$ResettableIterator;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.Writer;
@@ -82,7 +80,14 @@ public class ZipFileHistogram {
         }
         try (Writer writer = Files.newBufferedWriter(output.resolve("base256.csv"))) {
             for (int i = 0; i < byteHistogram.length; ++i) {
-                writer.write((char) i + "," + byteHistogram[i]+ "\n");
+                if (i == ',') {
+                    writer.write( "comma," + byteHistogram[i]+ "\n");
+                } if (i >= 0x20 && i <= 0x7e || i > 162) {
+                    writer.write((char) i + "," + byteHistogram[i]+ "\n");
+                }  else {
+                    writer.write(String.format("\\0x%02x", i) + "," + byteHistogram[i]+ "\n");
+                }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
