@@ -26,6 +26,7 @@ public class StringSearchers {
                 {"abcdefgh", "fgh1"},
                 {"1", "0"},
                 {"1", "1"},
+                {"011111110", "111111110"},
                 {"111111111111111111111111111111111111", "1"},
                 {"011111111111111111111111111111111111", "1"},
                 {"asjf;whfwqppiqweyqguifhwehdpqiwevpiqwhfnqwjnqpiwehdABC1lksjwhfo[whef[o", "ABC1"},
