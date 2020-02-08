@@ -4,6 +4,8 @@ import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
 
+import static com.openkappa.runtime.stringsearch.SparseUtil.rank;
+
 public class UnsafeSparseBitMatrixSearcher implements Searcher, AutoCloseable {
 
     private static final Unsafe UNSAFE;
@@ -39,13 +41,15 @@ public class UnsafeSparseBitMatrixSearcher implements Searcher, AutoCloseable {
         int masksStorage = (cardinality + 1) * Long.BYTES;
         int positionsStorage = 256;
         this.masksOffset = UNSAFE.allocateMemory(masksStorage + positionsStorage);
-        UNSAFE.setMemory(masksOffset, masksStorage + positionsStorage, (byte)0);
+        UNSAFE.setMemory(masksOffset, masksStorage, (byte)0);
+        UNSAFE.setMemory(masksOffset + masksStorage, positionsStorage, (byte)cardinality);
         this.positionsOffset = masksOffset + masksStorage;
         int index = 0;
         for (byte key : searchString) {
             int position = rank(key, existence);
-            UNSAFE.putByte(positionsOffset + (key & 0xFF), (byte)position);
-            UNSAFE.putLong(masksOffset + position, UNSAFE.getLong(masksOffset + position) | (1L << index));
+            UNSAFE.putByte(positionAddress(key & 0xFF), (byte)position);
+            UNSAFE.putLong(maskAddress(position),
+                    UNSAFE.getLong(maskAddress(position)) | (1L << index));
             ++index;
         }
         this.success = 1L << (searchString.length - 1);
@@ -55,8 +59,8 @@ public class UnsafeSparseBitMatrixSearcher implements Searcher, AutoCloseable {
         long current = 0L;
         for (int i = 0; i < data.length; ++i) {
             int value = data[i] & 0xFF;
-            int position = UNSAFE.getByte(positionsOffset + value) & 0xFF;
-            long mask = UNSAFE.getLong(masksOffset + position);
+            int position = UNSAFE.getByte(positionAddress(value)) & 0xFF;
+            long mask = UNSAFE.getLong(maskAddress(position));
             current = ((current << 1) | 1) & mask;
             if ((current & success) == success) {
                 return i - Long.numberOfTrailingZeros(success);
@@ -65,20 +69,16 @@ public class UnsafeSparseBitMatrixSearcher implements Searcher, AutoCloseable {
         return -1;
     }
 
-    private static int rank(byte key, long[] existence) {
-        int value = (key & 0xFF);
-        int wi = value >>> 6;
-        int i = 0;
-        int position = 0;
-        while (i < wi) {
-            position += Long.bitCount(existence[i]);
-            ++i;
-        }
-        return position + Long.bitCount(existence[wi] & ((1L << value) - 1));
-    }
-
     @Override
     public void close() {
         UNSAFE.freeMemory(masksOffset);
+    }
+
+    private long positionAddress(int value) {
+        return positionsOffset + value;
+    }
+
+    private long maskAddress(int position) {
+        return masksOffset + (position * Long.BYTES);
     }
 }
