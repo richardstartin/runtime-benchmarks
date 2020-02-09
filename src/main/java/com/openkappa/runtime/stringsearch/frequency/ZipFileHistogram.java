@@ -39,6 +39,9 @@ public class ZipFileHistogram {
     private final int[] nibbleHistogram = new int[16];
     private final int[] base64Histogram = new int[64];
     private final int[] byteHistogram = new int[256];
+    private final int[] pairHistogram = new int[1 << 16];
+    private byte lastByte;
+    private boolean first = true;
 
 
     private static final char[] BASE64 = {
@@ -79,15 +82,28 @@ public class ZipFileHistogram {
             e.printStackTrace();
         }
         try (Writer writer = Files.newBufferedWriter(output.resolve("base256.csv"))) {
+            StringBuilder sb = new StringBuilder(5);
             for (int i = 0; i < byteHistogram.length; ++i) {
-                if (i == ',') {
-                    writer.write( "comma," + byteHistogram[i]+ "\n");
-                } if (i >= 0x20 && i <= 0x7e || i > 162) {
-                    writer.write((char) i + "," + byteHistogram[i]+ "\n");
-                }  else {
-                    writer.write(String.format("\\0x%02x", i) + "," + byteHistogram[i]+ "\n");
-                }
-
+                sb.append("\"");
+                fill(i, sb);
+                sb.append("\"");
+                sb.append(",").append(byteHistogram[i]).append("\n");
+                writer.write(sb.toString());
+                sb.setLength(0);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (Writer writer = Files.newBufferedWriter(output.resolve("pairs.csv"))) {
+            StringBuilder sb = new StringBuilder(5);
+            for (int i = 0; i < pairHistogram.length; ++i) {
+                sb.append("\"");
+                fill(i >>> 8, sb);
+                fill(i & 0xFF, sb);
+                sb.append("\"");
+                sb.append(",").append(pairHistogram[i]).append("\n");
+                writer.write(sb.toString());
+                sb.setLength(0);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -109,7 +125,8 @@ public class ZipFileHistogram {
     }
 
     private void processBytes(byte[] buffer, int length) {
-        for (int i = 0; i + 2 < length; i += 3) {
+        int i = 0;
+        for (; i + 2 < length; i += 3) {
             nibbleHistogram[buffer[i] & 0xF]++;
             nibbleHistogram[(buffer[i] & 0xF0) >>> 4]++;
             nibbleHistogram[buffer[i + 1] & 0xF]++;
@@ -124,8 +141,23 @@ public class ZipFileHistogram {
             base64Histogram[(word >>> 12) & 0x3F]++;
             base64Histogram[(word >>> 6) & 0x3F]++;
             base64Histogram[word & 0x3F]++;
+            if (!first) {
+                pairHistogram[((lastByte & 0xFF) << 8) | (buffer[i] & 0xFF)]++;
+            } else {
+                first = false;
+            }
+            pairHistogram[((buffer[i] & 0xFF) << 8) | (buffer[i+1] & 0xFF)]++;
+            pairHistogram[((buffer[i+1] & 0xFF) << 8) | (buffer[i+2] & 0xFF)]++;
+            lastByte = buffer[i+2];
         }
-        // drop some at the end every now and then because who cares?
+        for (; i < length; ++i) {
+            nibbleHistogram[buffer[i] & 0xF]++;
+            nibbleHistogram[(buffer[i] & 0xF0) >>> 4]++;
+            byteHistogram[buffer[i] & 0xFF]++;
+            pairHistogram[((lastByte & 0xFF) << 8) | (buffer[i] & 0xFF)]++;
+            lastByte = buffer[i];
+            // drop some base 64 at the end every now and then because who cares?
+        }
     }
 
 
@@ -149,6 +181,14 @@ public class ZipFileHistogram {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void fill(int i, StringBuilder sb) {
+        if (i >= 0x20 && i <= 0x7e || i > 162) {
+            sb.append((char) i);
+        }  else {
+            sb.append(String.format("\"\\0x%02x\"", i));
         }
     }
 }

@@ -18,5 +18,7 @@ public class Layout {
         SparseBitMatrixSearcher worstCaseSparseBitMatrixSearcher = new SparseBitMatrixSearcher(term);
         System.out.println(GraphLayout.parseInstance(worstCaseSparseBitMatrixSearcher).toPrintable());
 
+        System.out.println(GraphLayout.parseInstance(new BitSlicedSearcher("colonoscopy".getBytes())).toPrintable());
+
     }
 }

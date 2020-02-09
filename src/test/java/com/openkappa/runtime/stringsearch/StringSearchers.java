@@ -29,6 +29,8 @@ public class StringSearchers {
                 {"011111110", "111111110"},
                 {"111111111111111111111111111111111111", "1"},
                 {"011111111111111111111111111111111111", "1"},
+                {"011111111111111111111111111111111111", "011111111111111111111111"},
+                {"101011010100100001", "0010"},
                 {"asjf;whfwqppiqweyqguifhwehdpqiwevpiqwhfnqwjnqpiwehdABC1lksjwhfo[whef[o", "ABC1"},
                 {"asjf;whfwqppiqweyqguifhwehdpqiwevpiqwhfnqwjnqpiwehdABC1lksjwhfo[whef[o", "ABC2"},
         };
@@ -77,5 +79,10 @@ public class StringSearchers {
     @Test
     public void verifyUnsafeBitSliced() {
         assertEquals(expected, new UnsafeBitSlicedSearcher(term.getBytes()).find(data.getBytes()));
+    }
+
+    @Test
+    public void verifyUnsafeBitSlicedSWAR() {
+        assertEquals(expected, new UnsafeBitSlicedSWARSearcher(term.getBytes()).find(data.getBytes()));
     }
 }

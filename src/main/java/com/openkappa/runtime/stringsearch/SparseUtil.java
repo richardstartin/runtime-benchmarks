@@ -13,4 +13,16 @@ public class SparseUtil {
         }
         return rank + Long.bitCount(bitmap[wi] & ((1L << value) - 1));
     }
+
+    public static long compilePattern(byte value) {
+        long pattern = value & 0xFFL;
+        return pattern
+                | (pattern << 8)
+                | (pattern << 16)
+                | (pattern << 24)
+                | (pattern << 32)
+                | (pattern << 40)
+                | (pattern << 48)
+                | (pattern << 56);
+    }
 }

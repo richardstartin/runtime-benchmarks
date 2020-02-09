@@ -8,5 +8,10 @@ public class IndexOfBenchmark {
     public int indexOfSearcher(SearchState searchState) {
         return searchState.searcher.find(searchState.next());
     }
+
+    @Benchmark
+    public int cycleTerms(CyclingTermSearchState searchState) {
+        return searchState.nextSearcher().find(searchState.next());
+    }
     
 }
