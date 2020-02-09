@@ -1,7 +1,12 @@
 package com.openkappa.runtime.stringsearch;
 
+import com.openkappa.runtime.stringsearch.generators.DataGenerator;
+import com.openkappa.runtime.stringsearch.generators.DataSets;
 import org.openjdk.jmh.annotations.*;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.SplittableRandom;
 
 @State(Scope.Thread)
@@ -75,6 +80,9 @@ public class SearchState {
     @Param
     SearcherType searcherType;
 
+    @Param
+    DataSets dataSet;
+
     Searcher searcher;
 
     private byte[][] data;
@@ -86,14 +94,16 @@ public class SearchState {
     }
 
     @Setup(Level.Trial)
-    public void init() {
+    public void init() throws IOException {
+        Path dataDir = Paths.get(System.getProperty("data.dir", System.getProperty("user.dir")));
         data = new byte[1 << logVariety][dataLength];
+        DataGenerator generator = dataSet.create(dataDir, seed);
         SplittableRandom random = new SplittableRandom(seed);
         term = new byte[termLength];
-        random.nextBytes(term);
+        generator.nextBytes(term);
         searcher = searcherType.compile(term);
         for (byte[] datum : data) {
-            tryFill(datum, random, term);
+            tryFill(datum, generator, random, term);
         }
     }
 
@@ -104,13 +114,14 @@ public class SearchState {
         }
     }
 
-    public static void main(String... args) {
+    public static void main(String... args) throws IOException {
         for (SearcherType type : SearcherType.values()) {
             SearchState searchState = new SearchState();
             searchState.logVariety = 10;
             searchState.searcherType = type;
             searchState.termLength = 8;
             searchState.dataLength = 1000;
+            searchState.dataSet = DataSets.KING_JAMES_BIBLE;
             searchState.init();
             System.out.println(new String(searchState.term));
             for (byte[] datum : searchState.data) {
@@ -127,14 +138,14 @@ public class SearchState {
     }
 
 
-    private void tryFill(byte[] data, SplittableRandom random, byte[] term) {
-        random.nextBytes(data);
+    private void tryFill(byte[] data, DataGenerator generator, SplittableRandom random, byte[] term) {
+        generator.nextBytes(data);
         int startPosition = dataLength - termLength - random.nextInt(10);
         System.arraycopy(term, 0, data, startPosition, term.length);
         int pos;
         if ((pos = searcher.find(data)) != startPosition) {
             System.out.println("Expected " + startPosition + " got " + pos);
-            tryFill(data, random, term);
+            tryFill(data, generator, random, term);
         }
     }
 
