@@ -33,6 +33,7 @@ public class StringSearchers {
                 {"101011010100100001", "0010"},
                 {"asjf;whfwqppiqweyqguifhwehdpqiwevpiqwhfnqwjnqpiwehdABC1lksjwhfo[whef[o", "ABC1"},
                 {"asjf;whfwqppiqweyqguifhwehdpqiwevpiqwhfnqwjnqpiwehdABC1lksjwhfo[whef[o", "ABC2"},
+                {"ababcdfeeeeeeeeeepopopopopopopoenoughaskljdl;aksjd", "enough"}
         };
     }
 
