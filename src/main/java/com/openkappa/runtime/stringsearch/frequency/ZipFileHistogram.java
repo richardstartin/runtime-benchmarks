@@ -84,10 +84,10 @@ public class ZipFileHistogram {
         try (Writer writer = Files.newBufferedWriter(output.resolve("base256.csv"))) {
             StringBuilder sb = new StringBuilder(5);
             for (int i = 0; i < byteHistogram.length; ++i) {
-                sb.append("\"");
-                fill(i, sb);
-                sb.append("\"");
-                sb.append(",").append(byteHistogram[i]).append("\n");
+                sb.append(i & 0xFF)
+                        .append(',')
+                        .append(byteHistogram[i])
+                        .append('\n');
                 writer.write(sb.toString());
                 sb.setLength(0);
             }
@@ -95,14 +95,14 @@ public class ZipFileHistogram {
             e.printStackTrace();
         }
         try (Writer writer = Files.newBufferedWriter(output.resolve("pairs.csv"))) {
-            StringBuilder sb = new StringBuilder(5);
+            StringBuilder sb = new StringBuilder(10);
             for (int i = 0; i < pairHistogram.length; ++i) {
-                sb.append("\"");
-                fill(i >>> 8, sb);
-                sb.append("\"").append(",\"");
-                fill(i & 0xFF, sb);
-                sb.append("\",");
-                sb.append(pairHistogram[i]).append("\n");
+                sb.append(i >>> 8)
+                        .append(',')
+                        .append(i & 0xFF)
+                        .append(',')
+                        .append(pairHistogram[i])
+                        .append('\n');
                 writer.write(sb.toString());
                 sb.setLength(0);
             }
@@ -182,14 +182,6 @@ public class ZipFileHistogram {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    private static void fill(int i, StringBuilder sb) {
-        if (i >= 0x20 && i <= 0x7e || i > 162) {
-            sb.append((char) i);
-        }  else {
-            sb.append(String.format("\\0x%02x", i));
         }
     }
 }
