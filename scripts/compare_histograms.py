@@ -48,6 +48,7 @@ def plot_group(g, key1, key2):
         summary['difference'] = summary[f'count_{key1}'] - summary[f'count_{key2}']
         summary['exists'] = summary[f'count_{key1}'] + summary[f'count_{key2}']
         ax = summary[summary['exists'] > 0].plot.bar(title=title,
+                                                     rot=0,
                                                      y=[f'count_{key1}', f'count_{key2}', 'difference'])
         ax.legend([LANGUAGES[key1], LANGUAGES[key2], 'Difference'])
         if meta[0] == 'base256':
