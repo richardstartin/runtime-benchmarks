@@ -44,11 +44,12 @@ def plot_group(g, key1, key2):
         title = f'{meta[0]} histogram'
         series1 = g[key1]
         series2 = g[key2]
-        summary = series1.join(series2, on='symbol', how='inner')
+        summary = series1.join(series2.set_index('symbol'), on='symbol', how='inner')
         summary['difference'] = summary[f'count_{key1}'] - summary[f'count_{key2}']
         summary['exists'] = summary[f'count_{key1}'] + summary[f'count_{key2}']
         ax = summary[summary['exists'] > 0].plot.bar(title=title,
                                                      rot=0,
+                                                     x='symbol',
                                                      y=[f'count_{key1}', f'count_{key2}', 'difference'])
         ax.legend([LANGUAGES[key1], LANGUAGES[key2], 'Difference'])
         if meta[0] == 'base256':
@@ -84,6 +85,33 @@ def plot_cdfs(g, key1, key2):
         fig.savefig(f'{filename}_cdf.png')
 
 
+def plot_language(group, key):
+    meta = group['classification']
+    if meta[0] != 'pairs':
+        filename = '_'.join(meta)
+        title = f'{LANGUAGES[key]} {meta[0]} ranked'
+        series = group[key].sort_values(by=f'count_{key}', ascending=False)
+        series['pct'] = series[f'count_{key}'].div(group[key][f'count_{key}'].sum() / 100)
+
+        def to_char(input):
+            if isinstance(input, int):
+                return str(chr(input))
+            else:
+                return input
+
+        print(series)
+        series['character'] = series['symbol'].apply(to_char)
+        ax = series[series[f'count_{key}'] > 0].plot.bar(title=title, rot=0, x='character', y='pct')
+        ax.legend(['Frequency'])
+        ax.yaxis.set_major_formatter(ticker.PercentFormatter())
+        if meta[0] == 'base256':
+            for n, label in enumerate(ax.xaxis.get_ticklabels()):
+                if n > 33 or n % 4 != 1:
+                    label.set_visible(False)
+        fig = ax.get_figure()
+        fig.savefig(f'{filename}_{key}_ranked.png')
+
+
 results_dir = '../results/'
 groups = {}
 
@@ -100,10 +128,12 @@ for root, subdirs, files in os.walk(results_dir):
         comparison = classification[len(classification) - 1]
         if base != 'pairs':
             group[comparison] = pd.read_csv(f'{root}{os.sep}{file}', header=None,
-                                            names=['symbol', f'count_{comparison}'], index_col='symbol')
+                                            names=['symbol', f'count_{comparison}'])
         else:
             group[comparison] = pd.read_csv(f'{root}{os.sep}{file}', header=None,
                                             names=['symbol1', 'symbol2', f'count_{comparison}'])
 for key in groups.keys():
     plot_group(groups[key], 'de', 'en')
     plot_cdfs(groups[key], 'de', 'en')
+    plot_language(groups[key], 'de')
+    plot_language(groups[key], 'en')
