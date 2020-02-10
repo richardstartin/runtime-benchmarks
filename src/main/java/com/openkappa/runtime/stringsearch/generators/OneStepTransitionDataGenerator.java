@@ -64,7 +64,6 @@ public class OneStepTransitionDataGenerator implements DataGenerator {
         byte current = next;
         var conditional = conditionals[next & 0xFF];
         next = conditional.nextByte();
-        System.out.print((char)next);
         return current;
     }
 
