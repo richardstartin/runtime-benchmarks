@@ -25,6 +25,6 @@ public enum DataSets {
     }
 
     public DataGenerator create(Path path, long seed) throws IOException {
-        return OneStepTransitionDataGenerator.from(path.resolve(relativePath), seed);
+        return MarkovChainDataGenerator.from(path.resolve(relativePath), seed);
     }
 }

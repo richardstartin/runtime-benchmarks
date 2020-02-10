@@ -7,7 +7,7 @@ import static com.openkappa.runtime.stringsearch.SparseUtil.rank;
 public class SparseBitMatrixSearcher implements Searcher {
 
     private final long[] masks;
-    private byte[] positions;
+    private final byte[] positions;
     private final long success;
 
     public SparseBitMatrixSearcher(byte[] searchString) {

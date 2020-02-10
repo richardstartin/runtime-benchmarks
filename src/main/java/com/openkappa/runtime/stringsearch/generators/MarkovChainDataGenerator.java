@@ -6,9 +6,9 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.SplittableRandom;
 
-public class OneStepTransitionDataGenerator implements DataGenerator {
+public class MarkovChainDataGenerator implements DataGenerator {
 
-    public static OneStepTransitionDataGenerator from(Path file, long seed) throws IOException {
+    public static MarkovChainDataGenerator from(Path file, long seed) throws IOException {
         double[][] frequency = new double[256][256];
         double[] distribution = new double[256];
         try (var reader = Files.newBufferedReader(file)) {
@@ -42,20 +42,18 @@ public class OneStepTransitionDataGenerator implements DataGenerator {
             }
         }
         int size = computeCDF(holders, distribution, order);
-        Distribution root = new Distribution(random, Arrays.copyOf(order, size), Arrays.copyOf(distribution, size));
+        int position = Arrays.binarySearch(distribution, 0, size, random.nextDouble());
 
-        return new OneStepTransitionDataGenerator(root, conditionals);
+        return new MarkovChainDataGenerator(order[position >= 0 ? position : Math.min(size, -position - 1)], conditionals);
     }
 
-    private final Distribution root;
     private final Distribution[] conditionals;
 
     private byte next;
 
-    public OneStepTransitionDataGenerator(Distribution root, Distribution[] conditionals) {
-        this.root = root;
+    public MarkovChainDataGenerator(byte first, Distribution[] conditionals) {
         this.conditionals = conditionals;
-        this.next = root.nextByte();
+        this.next = first;
     }
 
 
