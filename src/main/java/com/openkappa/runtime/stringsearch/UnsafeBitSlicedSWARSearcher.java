@@ -52,12 +52,10 @@ public class UnsafeBitSlicedSWARSearcher implements Searcher {
             tmp = ~(tmp | word | 0x7F7F7F7F7F7F7F7FL);
             int j = Long.numberOfTrailingZeros(tmp) >>> 3;
             if (j != Long.BYTES) { // found the first byte
-                for (int k = i + j; k + 1 < text.length; k += 2) {
-                    long h2 = UNSAFE.getLong(highAddress((text[k] >>> 4) & 0xF));
-                    long l2 = UNSAFE.getLong(lowAddress(text[k] & 0xF));
-                    long h1 = UNSAFE.getLong(highAddress((text[k+1] >>> 4) & 0xF));
-                    long l1 = UNSAFE.getLong(lowAddress(text[k+1] & 0xF));
-                    current = (((current << 1) | 1) & h1 & l1) | (((current << 2) | 2) & h2 & l2);
+                for (int k = i + j; k < text.length; ++k) {
+                    long highMask = UNSAFE.getLong(highAddress((text[k] >>> 4) & 0xF));
+                    long lowMask = UNSAFE.getLong(lowAddress(text[k] & 0xF));
+                    current = (((current << 1) | 1) & highMask & lowMask);
                     if (current == 0 && (k & (Long.BYTES - 1)) == 0) {
                         break;
                     }
