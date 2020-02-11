@@ -6,11 +6,20 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Map;
 import java.util.stream.Stream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class ZipFileHistogram {
+
+    private static final Map<String, String> ZIPS = Map.of(
+            "en", "eng-kjv2006_readaloud.zip",
+            "de", "deu1912_readaloud.zip",
+            "zh", "cmn-ncvt_readaloud.zip",
+            "ru", "russyn_readaloud.zip",
+            "sh", "srp1865_readaloud.zip"
+    );
 
     public static void main(String... args) throws IOException {
         Path wd = Paths.get(System.getProperty("user.dir"));
@@ -18,22 +27,16 @@ public class ZipFileHistogram {
         if (!Files.exists(results)) {
             Files.createDirectory(results);
         }
-        Path en = results.resolve("en");
-        Path de = results.resolve("de");
-        if (!Files.exists(en)) {
-            Files.createDirectory(en);
+        for (var pair : ZIPS.entrySet()) {
+            Path path = results.resolve(pair.getKey());
+            if (!Files.exists(path)) {
+                Files.createDirectory(path);
+            }
+            Path input = wd.resolve("src/data/text").resolve(pair.getValue());
+            Path output = path.resolve("bible");
+            prepareOutput(output);
+            new ZipFileHistogram(input, output).compute();
         }
-        if (!Files.exists(de)) {
-            Files.createDirectory(de);
-        }
-        Path enInput = wd.resolve("src/data/text/eng-kjv2006_readaloud.zip");
-        Path enOutput = en.resolve("bible");
-        prepareOutput(enOutput);
-        new ZipFileHistogram(enInput, enOutput).compute();
-        Path deInput = wd.resolve("src/data/text/deu1912_readaloud.zip");
-        Path deOutput = de.resolve("bible");
-        prepareOutput(deOutput);
-        new ZipFileHistogram(deInput, deOutput).compute();
     }
 
     private final int[] nibbleHistogram = new int[16];
