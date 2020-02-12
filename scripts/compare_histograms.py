@@ -9,6 +9,9 @@ from matplotlib.colors import LinearSegmentedColormap
 LANGUAGES = {
     'en': 'English',
     'de': 'German',
+    'zh': 'Chinese (Traditional)',
+    'sh': 'Serbian (Latin script)',
+    'ru': 'Russian'
 }
 
 
@@ -37,45 +40,53 @@ def plot_heatmap(df, key, value, filename):
     return series
 
 
-def plot_group(g, key1, key2):
+def plot_group(g, keys, suffix):
     meta = g['classification']
     filename = '_'.join(meta)
     if meta[0] != 'pairs':
         title = f'{meta[0]} histogram'
-        series1 = g[key1]
-        series2 = g[key2]
-        summary = series1.join(series2.set_index('symbol'), on='symbol', how='inner')
-        summary['difference'] = summary[f'count_{key1}'] - summary[f'count_{key2}']
-        summary['exists'] = summary[f'count_{key1}'] + summary[f'count_{key2}']
-        ax = summary[summary['exists'] > 0].plot.bar(title=title,
-                                                     rot=0,
-                                                     x='symbol',
-                                                     y=[f'count_{key1}', f'count_{key2}', 'difference'])
-        ax.legend([LANGUAGES[key1], LANGUAGES[key2], 'Difference'])
+        summary = None
+        counts = []
+        legend = []
+        for k in keys:
+            series = g[k]
+            if summary is None:
+                summary = series
+            else:
+                summary = summary.join(series.set_index('symbol'), on='symbol', how='inner')
+            counts.append(f'count_{k}')
+            legend.append(LANGUAGES[k])
+        ax = summary.plot.bar(title=title,
+                              rot=0,
+                              x='symbol',
+                              y=counts)
+        ax.legend(legend)
         if meta[0] == 'base256':
             for n, label in enumerate(ax.xaxis.get_ticklabels()):
                 label.set_visible(False)
         fig = ax.get_figure()
-        fig.savefig(f'{filename}_histogram.png')
+        fig.savefig(f'{filename}_histogram_{suffix}.png')
     else:
-        plot_heatmap(g[key1], key1, f'count_{key1}', filename)
-        plot_heatmap(g[key2], key2, f'count_{key2}', filename)
+        for k in keys:
+            plot_heatmap(g[k], k, f'count_{k}', filename)
 
 
-def plot_cdfs(g, key1, key2):
+def plot_cdfs(g, keys):
     meta = g['classification']
     if meta[0] != 'pairs':
         title = f'{meta[0]} cumulative ranked frequency'
-        series1 = g[key1][f'count_{key1}'].to_numpy()
-        series2 = g[key2][f'count_{key2}'].to_numpy()
-        cdf1 = np.divide(series1, series1.sum())
-        cdf1 = cdf1.cumsum()
-        cdf2 = np.divide(series2, series2.sum())
-        cdf2 = cdf2.cumsum()
+        cdfs = {}
+        widest = -1
+        for key in keys:
+            series = g[key][f'count_{key}'].to_numpy()
+            cdf = np.divide(series, series.sum())
+            cdf = cdf.cumsum()
+            cdfs[key] = cdf
+            widest = max(widest, series.size)
         fig, ax = plt.subplots()
-        x = np.linspace(0, series1.size, series1.size)
-        ax.plot(x, cdf1, label=LANGUAGES[key1])
-        ax.plot(x, cdf2, label=LANGUAGES[key2])
+        x = np.linspace(0, widest, widest)
+        for key in cdfs.keys():
+            ax.plot(x, cdfs[key], label=LANGUAGES[key])
         ax.set(xlabel='x', ylabel='cumulative ranked frequency', title=title)
         ax.set_ylim([0, 1.5])
         ax.set_xlim([x.min(), x.max()])
@@ -99,7 +110,6 @@ def plot_language(group, key):
             else:
                 return input
 
-        print(series)
         series['character'] = series['symbol'].apply(to_char)
         ax = series[series[f'count_{key}'] > 0].plot.bar(title=title, rot=0, x='character', y='pct')
         ax.legend(['Frequency'])
@@ -133,7 +143,11 @@ for root, subdirs, files in os.walk(results_dir):
             group[comparison] = pd.read_csv(f'{root}{os.sep}{file}', header=None,
                                             names=['symbol1', 'symbol2', f'count_{comparison}'])
 for key in groups.keys():
-    plot_group(groups[key], 'de', 'en')
-    plot_cdfs(groups[key], 'de', 'en')
+    plot_group(groups[key], ['de', 'en'], 'germanic')
+    plot_group(groups[key], ['zh', 'ru', 'sh'], 'others')
+    plot_cdfs(groups[key], ['de', 'en', 'zh', 'ru', 'sh'])
     plot_language(groups[key], 'de')
     plot_language(groups[key], 'en')
+    plot_language(groups[key], 'zh')
+    plot_language(groups[key], 'ru')
+    plot_language(groups[key], 'sh')
