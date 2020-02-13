@@ -7,6 +7,9 @@ public enum DataSets {
 
     KING_JAMES_BIBLE("results/en/bible/pairs.csv"),
     LUTHER_1912_BIBLE("results/de/bible/pairs.csv"),
+    SERBIAN_LATIN_SCRIPT("results/sh/bible/pairs.csv"),
+    RUSSIAN("results/ru/bible/pairs.csv"),
+    CHINESE_TRADITIONAL("results/zh/bible/pairs.csv"),
     RANDOM {
         @Override
         public DataGenerator create(Path path, long seed) {

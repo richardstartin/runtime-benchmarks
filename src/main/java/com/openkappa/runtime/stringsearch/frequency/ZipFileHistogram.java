@@ -43,7 +43,9 @@ public class ZipFileHistogram {
     private final int[] base64Histogram = new int[64];
     private final int[] byteHistogram = new int[256];
     private final int[] pairHistogram = new int[1 << 16];
+    private final int[] base64PairHistogram = new int[64 * 64];
     private byte lastByte;
+    private int lastBase64;
     private boolean first = true;
 
 
@@ -112,6 +114,21 @@ public class ZipFileHistogram {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        try (Writer writer = Files.newBufferedWriter(output.resolve("base64pairs.csv"))) {
+            StringBuilder sb = new StringBuilder(10);
+            for (int i = 0; i < base64PairHistogram.length; ++i) {
+                sb.append(i >>> 6)
+                        .append(',')
+                        .append(i & 0x3F)
+                        .append(',')
+                        .append(base64PairHistogram[i])
+                        .append('\n');
+                writer.write(sb.toString());
+                sb.setLength(0);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         try (Writer writer = Files.newBufferedWriter(output.resolve("base64.csv"))) {
             for (int i = 0; i < base64Histogram.length; ++i) {
                 writer.write(BASE64[i] + "," + base64Histogram[i]+ "\n");
@@ -141,11 +158,16 @@ public class ZipFileHistogram {
             byteHistogram[buffer[i + 1] & 0xFF]++;
             byteHistogram[buffer[i + 2] & 0xFF]++;
             int word = (buffer[i] & 0xFF) << 16 | (buffer[i + 1] & 0xFF) << 8 | (buffer[i + 2] & 0xFF);
-            base64Histogram[(word >>> 18) & 0x3F]++;
-            base64Histogram[(word >>> 12) & 0x3F]++;
-            base64Histogram[(word >>> 6) & 0x3F]++;
-            base64Histogram[word & 0x3F]++;
+            int p1 = (word >>> 18) & 0x3F;
+            int p2 = (word >>> 12) & 0x3F;
+            int p3 = (word >>> 6) & 0x3F;
+            int p4 = word & 0x3F;
+            base64Histogram[p1]++;
+            base64Histogram[p2]++;
+            base64Histogram[p3]++;
+            base64Histogram[p4]++;
             if (!first) {
+                base64PairHistogram[(lastBase64 << 6) | p1]++;
                 pairHistogram[((lastByte & 0xFF) << 8) | (buffer[i] & 0xFF)]++;
             } else {
                 first = false;
@@ -153,6 +175,10 @@ public class ZipFileHistogram {
             pairHistogram[((buffer[i] & 0xFF) << 8) | (buffer[i+1] & 0xFF)]++;
             pairHistogram[((buffer[i+1] & 0xFF) << 8) | (buffer[i+2] & 0xFF)]++;
             lastByte = buffer[i+2];
+            base64PairHistogram[(p1 << 6) | p2]++;
+            base64PairHistogram[(p2 << 6) | p3]++;
+            base64PairHistogram[(p3 << 6) | p4]++;
+            lastBase64 = p4;
         }
         for (; i < length; ++i) {
             nibbleHistogram[buffer[i] & 0xF]++;
