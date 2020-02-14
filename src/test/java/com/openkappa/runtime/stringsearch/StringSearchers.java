@@ -33,7 +33,8 @@ public class StringSearchers {
                 {"101011010100100001", "0010"},
                 {"asjf;whfwqppiqweyqguifhwehdpqiwevpiqwhfnqwjnqpiwehdABC1lksjwhfo[whef[o", "ABC1"},
                 {"asjf;whfwqppiqweyqguifhwehdpqiwevpiqwhfnqwjnqpiwehdABC1lksjwhfo[whef[o", "ABC2"},
-                {"ababcdfeeeeeeeeeepopopopopopopoenoughaskljdl;aksjd", "enough"}
+                {"ababcdfeeeeeeeeeepopopopopopopoenoughaskljdl;aksjd", "enough"},
+                {"ababcdfeeeeeeeeeepopopopopopopo_enough_enough_enough_askljdl;aksjd", "enough_enough_enough"},
         };
     }
 
@@ -85,5 +86,10 @@ public class StringSearchers {
     @Test
     public void verifyUnsafeBitSlicedSWAR() {
         assertEquals(expected, new UnsafeBitSlicedSWARSearcher(term.getBytes()).find(data.getBytes()));
+    }
+
+    @Test
+    public void verifyUnsafeBitSlicedSWARPair() {
+        assertEquals(expected, new UnsafeBitSlicedSWARPairSearcher(term.getBytes()).find(data.getBytes()));
     }
 }

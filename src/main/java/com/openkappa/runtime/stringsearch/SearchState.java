@@ -60,7 +60,13 @@ public class SearchState {
             public Searcher compile(byte[] term) {
                 return new UnsafeBitSlicedSWARSearcher(term);
             }
-        };
+        },
+        UNSAFE_BIT_SLICED_SWAR_PAIR {
+            @Override
+            public Searcher compile(byte[] term) {
+                return new UnsafeBitSlicedSWARPairSearcher(term);
+            }
+        }
         ;
         public abstract Searcher compile(byte[] term);
     }

@@ -15,14 +15,10 @@ public class SparseUtil {
     }
 
     public static long compilePattern(byte value) {
-        long pattern = value & 0xFFL;
-        return pattern
-                | (pattern << 8)
-                | (pattern << 16)
-                | (pattern << 24)
-                | (pattern << 32)
-                | (pattern << 40)
-                | (pattern << 48)
-                | (pattern << 56);
+        return (value & 0xFFL) * 0x101010101010101L;
+    }
+
+    public static long compilePattern(byte first, byte second) {
+        return ((first & 0xFFL) | ((second & 0xFFL) << 8)) * 0x0001000100010001L;
     }
 }
