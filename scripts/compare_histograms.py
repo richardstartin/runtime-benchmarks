@@ -43,7 +43,7 @@ def plot_heatmap(df, key, value, filename):
 def plot_group(g, keys, suffix):
     meta = g['classification']
     filename = '_'.join(meta)
-    if meta[0] != 'pairs':
+    if meta[0] != 'pairs' and meta[0] != 'base64pairs':
         title = f'{meta[0]} histogram'
         summary = None
         counts = []
@@ -136,7 +136,7 @@ for root, subdirs, files in os.walk(results_dir):
             groups[key] = {'classification': classification[0:len(classification) - 1].copy()}
         group = groups[key]
         comparison = classification[len(classification) - 1]
-        if base != 'pairs':
+        if base != 'pairs' and base != 'base64pairs':
             group[comparison] = pd.read_csv(f'{root}{os.sep}{file}', header=None,
                                             names=['symbol', f'count_{comparison}'])
         else:
@@ -145,9 +145,5 @@ for root, subdirs, files in os.walk(results_dir):
 for key in groups.keys():
     plot_group(groups[key], ['de', 'en'], 'germanic')
     plot_group(groups[key], ['zh', 'ru', 'sh'], 'others')
-    plot_cdfs(groups[key], ['de', 'en', 'zh', 'ru', 'sh'])
-    plot_language(groups[key], 'de')
-    plot_language(groups[key], 'en')
-    plot_language(groups[key], 'zh')
-    plot_language(groups[key], 'ru')
-    plot_language(groups[key], 'sh')
+    plot_cdfs(groups[key], ['de', 'en'])
+
