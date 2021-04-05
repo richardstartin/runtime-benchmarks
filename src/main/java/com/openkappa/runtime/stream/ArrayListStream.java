@@ -26,7 +26,7 @@ public class ArrayListStream {
 
 
   @Benchmark
-  public long parallelMapReduce() {
+  public long sortThenParallelMapReduce() {
     Collections.sort(list);
     return list.stream().parallel().mapToInt(String::length).sum();
   }

@@ -2,6 +2,7 @@ package com.openkappa.runtime.stream;
 
 import org.openjdk.jmh.annotations.*;
 
+import java.util.Collections;
 import java.util.TreeSet;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -36,6 +37,16 @@ public class TreeSetStream {
   @Benchmark
   public long distinctCount() {
     return set.stream().distinct().count();
+  }
+
+  @Benchmark
+  public long parallelMapReduce() {
+    return set.stream().parallel().mapToInt(String::length).sum();
+  }
+
+  @Benchmark
+  public long distinctParallelMapReduce() {
+    return set.stream().distinct().parallel().mapToInt(String::length).sum();
   }
 
 
