@@ -1,0 +1,3 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: seed","Param: size"
+"com.openkappa.runtime.enummap.EnumMapBenchmark.enumMap","avgt",1,5,65.225800,7.990521,"us/op",42,10000
+"com.openkappa.runtime.enummap.EnumMapBenchmark.hashMap","avgt",1,5,151.394872,3.564463,"us/op",42,10000

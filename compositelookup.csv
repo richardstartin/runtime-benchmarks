@@ -1,0 +1,19 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"com.openkappa.runtime.lookup.CompositeLookup.concatenate","avgt",1,5,158.160452,5.622590,"ns/op",1024
+"com.openkappa.runtime.lookup.CompositeLookup.concatenate:·gc.alloc.rate","avgt",1,5,479.175053,15.983696,"MB/sec",1024
+"com.openkappa.runtime.lookup.CompositeLookup.concatenate:·gc.alloc.rate.norm","avgt",1,5,120.000066,0.000010,"B/op",1024
+"com.openkappa.runtime.lookup.CompositeLookup.concatenate:·gc.churn.Eden_Space","avgt",1,5,485.658430,3.926715,"MB/sec",1024
+"com.openkappa.runtime.lookup.CompositeLookup.concatenate:·gc.churn.Eden_Space.norm","avgt",1,5,121.631243,4.301937,"B/op",1024
+"com.openkappa.runtime.lookup.CompositeLookup.concatenate:·gc.churn.Survivor_Space","avgt",1,5,0.002982,0.008310,"MB/sec",1024
+"com.openkappa.runtime.lookup.CompositeLookup.concatenate:·gc.churn.Survivor_Space.norm","avgt",1,5,0.000747,0.002079,"B/op",1024
+"com.openkappa.runtime.lookup.CompositeLookup.concatenate:·gc.count","avgt",1,5,55.000000,NaN,"counts",1024
+"com.openkappa.runtime.lookup.CompositeLookup.concatenate:·gc.time","avgt",1,5,9.000000,NaN,"ms",1024
+"com.openkappa.runtime.lookup.CompositeLookup.wrap","avgt",1,5,43.550144,0.932947,"ns/op",1024
+"com.openkappa.runtime.lookup.CompositeLookup.wrap:·gc.alloc.rate","avgt",1,5,348.086592,8.274059,"MB/sec",1024
+"com.openkappa.runtime.lookup.CompositeLookup.wrap:·gc.alloc.rate.norm","avgt",1,5,24.000018,0.000003,"B/op",1024
+"com.openkappa.runtime.lookup.CompositeLookup.wrap:·gc.churn.Eden_Space","avgt",1,5,344.007533,76.478917,"MB/sec",1024
+"com.openkappa.runtime.lookup.CompositeLookup.wrap:·gc.churn.Eden_Space.norm","avgt",1,5,23.713583,4.827023,"B/op",1024
+"com.openkappa.runtime.lookup.CompositeLookup.wrap:·gc.churn.Survivor_Space","avgt",1,5,0.002620,0.007263,"MB/sec",1024
+"com.openkappa.runtime.lookup.CompositeLookup.wrap:·gc.churn.Survivor_Space.norm","avgt",1,5,0.000180,0.000496,"B/op",1024
+"com.openkappa.runtime.lookup.CompositeLookup.wrap:·gc.count","avgt",1,5,39.000000,NaN,"counts",1024
+"com.openkappa.runtime.lookup.CompositeLookup.wrap:·gc.time","avgt",1,5,6.000000,NaN,"ms",1024

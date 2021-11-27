@@ -1,0 +1,19 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99.9%)","Unit","Param: size"
+"com.openkappa.runtime.fission.XorCount.fissured","avgt",1,5,146.876518,0.173394,"ns/op",256
+"com.openkappa.runtime.fission.XorCount.fissured","avgt",1,5,282.902995,0.089586,"ns/op",512
+"com.openkappa.runtime.fission.XorCount.fissured","avgt",1,5,562.755233,0.401768,"ns/op",1024
+"com.openkappa.runtime.fission.XorCount.fissured","avgt",1,5,1149.036928,4.616027,"ns/op",2048
+"com.openkappa.runtime.fission.XorCount.fissured","avgt",1,5,2809.042860,3.295478,"ns/op",4096
+"com.openkappa.runtime.fission.XorCount.fissured","avgt",1,5,5735.110506,34.372800,"ns/op",8192
+"com.openkappa.runtime.fission.XorCount.fissured","avgt",1,5,11651.007263,23.142700,"ns/op",16384
+"com.openkappa.runtime.fission.XorCount.fissured","avgt",1,5,27286.349038,45.544577,"ns/op",32768
+"com.openkappa.runtime.fission.XorCount.fissured","avgt",1,5,59097.246371,2087.779448,"ns/op",65536
+"com.openkappa.runtime.fission.XorCount.fused","avgt",1,5,229.691035,0.128044,"ns/op",256
+"com.openkappa.runtime.fission.XorCount.fused","avgt",1,5,461.529433,0.196391,"ns/op",512
+"com.openkappa.runtime.fission.XorCount.fused","avgt",1,5,906.419109,0.692212,"ns/op",1024
+"com.openkappa.runtime.fission.XorCount.fused","avgt",1,5,1797.408084,1.250523,"ns/op",2048
+"com.openkappa.runtime.fission.XorCount.fused","avgt",1,5,3577.588400,3.832344,"ns/op",4096
+"com.openkappa.runtime.fission.XorCount.fused","avgt",1,5,7160.283166,8.474106,"ns/op",8192
+"com.openkappa.runtime.fission.XorCount.fused","avgt",1,5,14489.733652,16.210703,"ns/op",16384
+"com.openkappa.runtime.fission.XorCount.fused","avgt",1,5,29206.093895,27.317701,"ns/op",32768
+"com.openkappa.runtime.fission.XorCount.fused","avgt",1,5,60659.464732,10980.814011,"ns/op",65536
