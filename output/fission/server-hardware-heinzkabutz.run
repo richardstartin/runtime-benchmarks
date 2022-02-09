@@ -1,0 +1,3414 @@
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.openjdk.jmh.util.Utils (file:/home/kabutz/git/forked/runtime-benchmarks/target/benchmarks.jar) to field java.io.PrintStream.charOut
+WARNING: Please consider reporting this to the maintainers of org.openjdk.jmh.util.Utils
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 8, length = 256)
+
+# Run progress: 0.00% complete, ETA 05:33:20
+# Fork: 1 of 5
+# Warmup Iteration   1: 49007761.208 ops/s
+# Warmup Iteration   2: 47940421.887 ops/s
+# Warmup Iteration   3: 50870630.390 ops/s
+# Warmup Iteration   4: 50804006.663 ops/s
+# Warmup Iteration   5: 50994542.289 ops/s
+Iteration   1: 51006096.110 ops/s
+Iteration   2: 50767493.939 ops/s
+Iteration   3: 50870062.943 ops/s
+Iteration   4: 50978507.808 ops/s
+Iteration   5: 50920682.861 ops/s
+
+# Run progress: 0.50% complete, ETA 05:32:30
+# Fork: 2 of 5
+# Warmup Iteration   1: 48827067.624 ops/s
+# Warmup Iteration   2: 47996760.910 ops/s
+# Warmup Iteration   3: 50899853.410 ops/s
+# Warmup Iteration   4: 50750858.139 ops/s
+# Warmup Iteration   5: 50754497.429 ops/s
+Iteration   1: 50732985.635 ops/s
+Iteration   2: 50719504.999 ops/s
+Iteration   3: 50691822.529 ops/s
+Iteration   4: 50696171.631 ops/s
+Iteration   5: 50248054.808 ops/s
+
+# Run progress: 1.00% complete, ETA 05:30:46
+# Fork: 3 of 5
+# Warmup Iteration   1: 48733711.394 ops/s
+# Warmup Iteration   2: 47868781.481 ops/s
+# Warmup Iteration   3: 50777506.263 ops/s
+# Warmup Iteration   4: 50808968.677 ops/s
+# Warmup Iteration   5: 50757384.513 ops/s
+Iteration   1: 50799811.127 ops/s
+Iteration   2: 50643061.748 ops/s
+Iteration   3: 50632481.696 ops/s
+Iteration   4: 50727944.788 ops/s
+Iteration   5: 50916857.015 ops/s
+
+# Run progress: 1.50% complete, ETA 05:29:05
+# Fork: 4 of 5
+# Warmup Iteration   1: 48397395.712 ops/s
+# Warmup Iteration   2: 47357684.147 ops/s
+# Warmup Iteration   3: 50363966.016 ops/s
+# Warmup Iteration   4: 50402519.757 ops/s
+# Warmup Iteration   5: 50360104.620 ops/s
+Iteration   1: 50354335.649 ops/s
+Iteration   2: 50339331.199 ops/s
+Iteration   3: 50398422.572 ops/s
+Iteration   4: 50330906.098 ops/s
+Iteration   5: 50328563.706 ops/s
+
+# Run progress: 2.00% complete, ETA 05:27:25
+# Fork: 5 of 5
+# Warmup Iteration   1: 48875893.960 ops/s
+# Warmup Iteration   2: 47834432.033 ops/s
+# Warmup Iteration   3: 50711224.734 ops/s
+# Warmup Iteration   4: 50613578.495 ops/s
+# Warmup Iteration   5: 50602556.329 ops/s
+Iteration   1: 50658305.117 ops/s
+Iteration   2: 50690917.110 ops/s
+Iteration   3: 50626770.392 ops/s
+Iteration   4: 50614283.859 ops/s
+Iteration   5: 50608938.091 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  50652092.537 ±(99.9%) 160730.225 ops/s [Average]
+  (min, avg, max) = (50248054.808, 50652092.537, 51006096.110), stdev = 214570.252
+  CI (99.9%): [50491362.312, 50812822.762] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 8, length = 512)
+
+# Run progress: 2.50% complete, ETA 05:25:44
+# Fork: 1 of 5
+# Warmup Iteration   1: 43622062.289 ops/s
+# Warmup Iteration   2: 43112735.412 ops/s
+# Warmup Iteration   3: 44850334.516 ops/s
+# Warmup Iteration   4: 44921281.620 ops/s
+# Warmup Iteration   5: 45020159.160 ops/s
+Iteration   1: 44869517.055 ops/s
+Iteration   2: 44993296.441 ops/s
+Iteration   3: 44880784.450 ops/s
+Iteration   4: 44935920.446 ops/s
+Iteration   5: 45009883.392 ops/s
+
+# Run progress: 3.00% complete, ETA 05:24:04
+# Fork: 2 of 5
+# Warmup Iteration   1: 43750235.780 ops/s
+# Warmup Iteration   2: 42910676.448 ops/s
+# Warmup Iteration   3: 45057298.704 ops/s
+# Warmup Iteration   4: 45012737.336 ops/s
+# Warmup Iteration   5: 44691100.097 ops/s
+Iteration   1: 44959676.569 ops/s
+Iteration   2: 45083925.320 ops/s
+Iteration   3: 45119756.989 ops/s
+Iteration   4: 44973295.748 ops/s
+Iteration   5: 44866639.968 ops/s
+
+# Run progress: 3.50% complete, ETA 05:22:24
+# Fork: 3 of 5
+# Warmup Iteration   1: 44013160.333 ops/s
+# Warmup Iteration   2: 43075787.468 ops/s
+# Warmup Iteration   3: 45087698.924 ops/s
+# Warmup Iteration   4: 45119200.616 ops/s
+# Warmup Iteration   5: 45119071.174 ops/s
+Iteration   1: 45134767.174 ops/s
+Iteration   2: 45120690.849 ops/s
+Iteration   3: 45098911.540 ops/s
+Iteration   4: 45249960.801 ops/s
+Iteration   5: 45132619.255 ops/s
+
+# Run progress: 4.00% complete, ETA 05:20:43
+# Fork: 4 of 5
+# Warmup Iteration   1: 43958796.578 ops/s
+# Warmup Iteration   2: 43123452.417 ops/s
+# Warmup Iteration   3: 44978205.366 ops/s
+# Warmup Iteration   4: 45151035.790 ops/s
+# Warmup Iteration   5: 45214457.711 ops/s
+Iteration   1: 45106075.256 ops/s
+Iteration   2: 45118719.151 ops/s
+Iteration   3: 45087823.916 ops/s
+Iteration   4: 45230975.404 ops/s
+Iteration   5: 45122503.298 ops/s
+
+# Run progress: 4.50% complete, ETA 05:19:03
+# Fork: 5 of 5
+# Warmup Iteration   1: 44017336.271 ops/s
+# Warmup Iteration   2: 43185026.127 ops/s
+# Warmup Iteration   3: 45168311.917 ops/s
+# Warmup Iteration   4: 45167533.554 ops/s
+# Warmup Iteration   5: 45110099.438 ops/s
+Iteration   1: 45148072.732 ops/s
+Iteration   2: 45090554.527 ops/s
+Iteration   3: 45053722.174 ops/s
+Iteration   4: 45165015.887 ops/s
+Iteration   5: 45027883.457 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  45063239.672 ±(99.9%) 78270.522 ops/s [Average]
+  (min, avg, max) = (44866639.968, 45063239.672, 45249960.801), stdev = 104488.908
+  CI (99.9%): [44984969.149, 45141510.194] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 8, length = 1024)
+
+# Run progress: 5.00% complete, ETA 05:17:22
+# Fork: 1 of 5
+# Warmup Iteration   1: 38010863.001 ops/s
+# Warmup Iteration   2: 37977994.459 ops/s
+# Warmup Iteration   3: 39395910.439 ops/s
+# Warmup Iteration   4: 39432260.074 ops/s
+# Warmup Iteration   5: 39432625.024 ops/s
+Iteration   1: 39421694.008 ops/s
+Iteration   2: 39408349.321 ops/s
+Iteration   3: 39408365.334 ops/s
+Iteration   4: 39369973.388 ops/s
+Iteration   5: 39489417.420 ops/s
+
+# Run progress: 5.50% complete, ETA 05:15:42
+# Fork: 2 of 5
+# Warmup Iteration   1: 37989329.456 ops/s
+# Warmup Iteration   2: 38075736.568 ops/s
+# Warmup Iteration   3: 39660060.619 ops/s
+# Warmup Iteration   4: 39700061.615 ops/s
+# Warmup Iteration   5: 39668662.121 ops/s
+Iteration   1: 39702199.370 ops/s
+Iteration   2: 39705847.416 ops/s
+Iteration   3: 39730198.943 ops/s
+Iteration   4: 39618388.858 ops/s
+Iteration   5: 39628870.943 ops/s
+
+# Run progress: 6.00% complete, ETA 05:14:02
+# Fork: 3 of 5
+# Warmup Iteration   1: 38288238.715 ops/s
+# Warmup Iteration   2: 38382538.834 ops/s
+# Warmup Iteration   3: 39826878.920 ops/s
+# Warmup Iteration   4: 39835672.899 ops/s
+# Warmup Iteration   5: 39833362.050 ops/s
+Iteration   1: 39862654.556 ops/s
+Iteration   2: 39869383.597 ops/s
+Iteration   3: 39854761.168 ops/s
+Iteration   4: 39873459.942 ops/s
+Iteration   5: 39762270.416 ops/s
+
+# Run progress: 6.50% complete, ETA 05:12:21
+# Fork: 4 of 5
+# Warmup Iteration   1: 37888232.147 ops/s
+# Warmup Iteration   2: 37944009.364 ops/s
+# Warmup Iteration   3: 39421963.338 ops/s
+# Warmup Iteration   4: 38741953.781 ops/s
+# Warmup Iteration   5: 39381601.548 ops/s
+Iteration   1: 39516212.998 ops/s
+Iteration   2: 39402292.462 ops/s
+Iteration   3: 38747766.268 ops/s
+Iteration   4: 39475189.650 ops/s
+Iteration   5: 39351347.547 ops/s
+
+# Run progress: 7.00% complete, ETA 05:10:41
+# Fork: 5 of 5
+# Warmup Iteration   1: 38445023.455 ops/s
+# Warmup Iteration   2: 38408229.427 ops/s
+# Warmup Iteration   3: 39845277.950 ops/s
+# Warmup Iteration   4: 39882320.804 ops/s
+# Warmup Iteration   5: 39824549.911 ops/s
+Iteration   1: 39804822.926 ops/s
+Iteration   2: 39789251.541 ops/s
+Iteration   3: 39797191.936 ops/s
+Iteration   4: 39880108.027 ops/s
+Iteration   5: 39803925.894 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  39610957.757 ±(99.9%) 193486.721 ops/s [Average]
+  (min, avg, max) = (38747766.268, 39610957.757, 39880108.027), stdev = 258299.236
+  CI (99.9%): [39417471.037, 39804444.478] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 8, length = 2048)
+
+# Run progress: 7.50% complete, ETA 05:09:01
+# Fork: 1 of 5
+# Warmup Iteration   1: 30505452.236 ops/s
+# Warmup Iteration   2: 30414739.082 ops/s
+# Warmup Iteration   3: 31398425.855 ops/s
+# Warmup Iteration   4: 31127702.169 ops/s
+# Warmup Iteration   5: 31248900.394 ops/s
+Iteration   1: 31314513.448 ops/s
+Iteration   2: 31205710.490 ops/s
+Iteration   3: 31199892.687 ops/s
+Iteration   4: 31358115.357 ops/s
+Iteration   5: 31309930.023 ops/s
+
+# Run progress: 8.00% complete, ETA 05:07:21
+# Fork: 2 of 5
+# Warmup Iteration   1: 30185704.705 ops/s
+# Warmup Iteration   2: 30062994.997 ops/s
+# Warmup Iteration   3: 30975198.666 ops/s
+# Warmup Iteration   4: 30942410.242 ops/s
+# Warmup Iteration   5: 30975713.934 ops/s
+Iteration   1: 30922252.836 ops/s
+Iteration   2: 30998718.412 ops/s
+Iteration   3: 30962137.493 ops/s
+Iteration   4: 30940475.870 ops/s
+Iteration   5: 30924868.668 ops/s
+
+# Run progress: 8.50% complete, ETA 05:05:40
+# Fork: 3 of 5
+# Warmup Iteration   1: 30325630.842 ops/s
+# Warmup Iteration   2: 30356702.624 ops/s
+# Warmup Iteration   3: 31059080.071 ops/s
+# Warmup Iteration   4: 31193121.114 ops/s
+# Warmup Iteration   5: 31036389.129 ops/s
+Iteration   1: 31303233.783 ops/s
+Iteration   2: 31164010.582 ops/s
+Iteration   3: 31158663.327 ops/s
+Iteration   4: 31175354.964 ops/s
+Iteration   5: 31130857.027 ops/s
+
+# Run progress: 9.00% complete, ETA 05:04:00
+# Fork: 4 of 5
+# Warmup Iteration   1: 30547711.289 ops/s
+# Warmup Iteration   2: 30550778.166 ops/s
+# Warmup Iteration   3: 31320634.207 ops/s
+# Warmup Iteration   4: 31275032.507 ops/s
+# Warmup Iteration   5: 31334228.616 ops/s
+Iteration   1: 31296573.363 ops/s
+Iteration   2: 31361856.681 ops/s
+Iteration   3: 31453243.112 ops/s
+Iteration   4: 31372604.518 ops/s
+Iteration   5: 31344540.684 ops/s
+
+# Run progress: 9.50% complete, ETA 05:02:20
+# Fork: 5 of 5
+# Warmup Iteration   1: 30461860.186 ops/s
+# Warmup Iteration   2: 30481807.402 ops/s
+# Warmup Iteration   3: 31421784.784 ops/s
+# Warmup Iteration   4: 31318759.944 ops/s
+# Warmup Iteration   5: 31304714.759 ops/s
+Iteration   1: 31352245.559 ops/s
+Iteration   2: 31318994.143 ops/s
+Iteration   3: 31278155.667 ops/s
+Iteration   4: 31355528.865 ops/s
+Iteration   5: 31294961.949 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  31219897.580 ±(99.9%) 118800.879 ops/s [Average]
+  (min, avg, max) = (30922252.836, 31219897.580, 31453243.112), stdev = 158595.775
+  CI (99.9%): [31101096.701, 31338698.459] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 8, length = 4096)
+
+# Run progress: 10.00% complete, ETA 05:00:39
+# Fork: 1 of 5
+# Warmup Iteration   1: 19928991.718 ops/s
+# Warmup Iteration   2: 19756961.473 ops/s
+# Warmup Iteration   3: 20182551.356 ops/s
+# Warmup Iteration   4: 20197081.623 ops/s
+# Warmup Iteration   5: 20201625.780 ops/s
+Iteration   1: 20202101.203 ops/s
+Iteration   2: 20196344.750 ops/s
+Iteration   3: 20191013.360 ops/s
+Iteration   4: 20194881.331 ops/s
+Iteration   5: 20199794.837 ops/s
+
+# Run progress: 10.50% complete, ETA 04:58:59
+# Fork: 2 of 5
+# Warmup Iteration   1: 19896483.763 ops/s
+# Warmup Iteration   2: 19764776.479 ops/s
+# Warmup Iteration   3: 20191398.722 ops/s
+# Warmup Iteration   4: 20177192.855 ops/s
+# Warmup Iteration   5: 20201490.546 ops/s
+Iteration   1: 20197717.045 ops/s
+Iteration   2: 20191521.814 ops/s
+Iteration   3: 20202103.642 ops/s
+Iteration   4: 20187145.375 ops/s
+Iteration   5: 20195199.983 ops/s
+
+# Run progress: 11.00% complete, ETA 04:57:19
+# Fork: 3 of 5
+# Warmup Iteration   1: 19903768.048 ops/s
+# Warmup Iteration   2: 19751592.456 ops/s
+# Warmup Iteration   3: 20183767.045 ops/s
+# Warmup Iteration   4: 20196324.774 ops/s
+# Warmup Iteration   5: 20198593.689 ops/s
+Iteration   1: 20194938.062 ops/s
+Iteration   2: 20182783.544 ops/s
+Iteration   3: 20206189.805 ops/s
+Iteration   4: 20198407.349 ops/s
+Iteration   5: 20196094.552 ops/s
+
+# Run progress: 11.50% complete, ETA 04:55:39
+# Fork: 4 of 5
+# Warmup Iteration   1: 19907449.003 ops/s
+# Warmup Iteration   2: 19746670.182 ops/s
+# Warmup Iteration   3: 20194433.978 ops/s
+# Warmup Iteration   4: 20199124.514 ops/s
+# Warmup Iteration   5: 20182959.346 ops/s
+Iteration   1: 20207022.122 ops/s
+Iteration   2: 20200104.186 ops/s
+Iteration   3: 20203382.314 ops/s
+Iteration   4: 20197783.104 ops/s
+Iteration   5: 20202041.799 ops/s
+
+# Run progress: 12.00% complete, ETA 04:53:58
+# Fork: 5 of 5
+# Warmup Iteration   1: 19945182.768 ops/s
+# Warmup Iteration   2: 19748424.091 ops/s
+# Warmup Iteration   3: 20203207.766 ops/s
+# Warmup Iteration   4: 20198255.160 ops/s
+# Warmup Iteration   5: 20180213.859 ops/s
+Iteration   1: 20193781.086 ops/s
+Iteration   2: 20191432.165 ops/s
+Iteration   3: 20191760.286 ops/s
+Iteration   4: 20179910.507 ops/s
+Iteration   5: 20195010.834 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  20195938.602 ±(99.9%) 4927.810 ops/s [Average]
+  (min, avg, max) = (20179910.507, 20195938.602, 20207022.122), stdev = 6578.485
+  CI (99.9%): [20191010.793, 20200866.412] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 64, length = 256)
+
+# Run progress: 12.50% complete, ETA 04:52:18
+# Fork: 1 of 5
+# Warmup Iteration   1: 3954673.865 ops/s
+# Warmup Iteration   2: 3992481.137 ops/s
+# Warmup Iteration   3: 4021935.292 ops/s
+# Warmup Iteration   4: 4019540.645 ops/s
+# Warmup Iteration   5: 4015306.632 ops/s
+Iteration   1: 4006741.998 ops/s
+Iteration   2: 4022174.004 ops/s
+Iteration   3: 4025011.471 ops/s
+Iteration   4: 4026160.003 ops/s
+Iteration   5: 4015481.647 ops/s
+
+# Run progress: 13.00% complete, ETA 04:50:38
+# Fork: 2 of 5
+# Warmup Iteration   1: 3976603.804 ops/s
+# Warmup Iteration   2: 3938599.407 ops/s
+# Warmup Iteration   3: 4027808.750 ops/s
+# Warmup Iteration   4: 4037741.568 ops/s
+# Warmup Iteration   5: 4034788.623 ops/s
+Iteration   1: 4039760.048 ops/s
+Iteration   2: 4042599.931 ops/s
+Iteration   3: 4030336.323 ops/s
+Iteration   4: 4036722.505 ops/s
+Iteration   5: 4040518.178 ops/s
+
+# Run progress: 13.50% complete, ETA 04:48:58
+# Fork: 3 of 5
+# Warmup Iteration   1: 3980239.353 ops/s
+# Warmup Iteration   2: 3028188.634 ops/s
+# Warmup Iteration   3: 3891676.770 ops/s
+# Warmup Iteration   4: 3889787.780 ops/s
+# Warmup Iteration   5: 3885136.658 ops/s
+Iteration   1: 3866939.070 ops/s
+Iteration   2: 3884835.722 ops/s
+Iteration   3: 3906751.860 ops/s
+Iteration   4: 3894089.807 ops/s
+Iteration   5: 3872023.254 ops/s
+
+# Run progress: 14.00% complete, ETA 04:47:18
+# Fork: 4 of 5
+# Warmup Iteration   1: 3951028.974 ops/s
+# Warmup Iteration   2: 4014390.962 ops/s
+# Warmup Iteration   3: 3992037.234 ops/s
+# Warmup Iteration   4: 3987043.583 ops/s
+# Warmup Iteration   5: 3996727.806 ops/s
+Iteration   1: 4006435.793 ops/s
+Iteration   2: 4002305.331 ops/s
+Iteration   3: 3987842.460 ops/s
+Iteration   4: 4017672.352 ops/s
+Iteration   5: 4005280.420 ops/s
+
+# Run progress: 14.50% complete, ETA 04:45:37
+# Fork: 5 of 5
+# Warmup Iteration   1: 4047491.810 ops/s
+# Warmup Iteration   2: 4055178.990 ops/s
+# Warmup Iteration   3: 4086623.819 ops/s
+# Warmup Iteration   4: 4074733.424 ops/s
+# Warmup Iteration   5: 4072372.663 ops/s
+Iteration   1: 4074466.859 ops/s
+Iteration   2: 4065371.477 ops/s
+Iteration   3: 4076446.771 ops/s
+Iteration   4: 4070141.131 ops/s
+Iteration   5: 4059519.842 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  4003025.130 ±(99.9%) 48613.860 ops/s [Average]
+  (min, avg, max) = (3866939.070, 4003025.130, 4076446.771), stdev = 64898.113
+  CI (99.9%): [3954411.270, 4051638.990] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 64, length = 512)
+
+# Run progress: 15.00% complete, ETA 04:43:57
+# Fork: 1 of 5
+# Warmup Iteration   1: 5267659.947 ops/s
+# Warmup Iteration   2: 3752220.713 ops/s
+# Warmup Iteration   3: 4486992.720 ops/s
+# Warmup Iteration   4: 4476008.576 ops/s
+# Warmup Iteration   5: 4497244.123 ops/s
+Iteration   1: 4494781.818 ops/s
+Iteration   2: 4492484.712 ops/s
+Iteration   3: 4492374.498 ops/s
+Iteration   4: 4498193.912 ops/s
+Iteration   5: 4493690.088 ops/s
+
+# Run progress: 15.50% complete, ETA 04:42:17
+# Fork: 2 of 5
+# Warmup Iteration   1: 4982600.324 ops/s
+# Warmup Iteration   2: 3665192.792 ops/s
+# Warmup Iteration   3: 4413645.758 ops/s
+# Warmup Iteration   4: 4411729.503 ops/s
+# Warmup Iteration   5: 4392969.059 ops/s
+Iteration   1: 4419713.320 ops/s
+Iteration   2: 4428499.634 ops/s
+Iteration   3: 4423618.527 ops/s
+Iteration   4: 4407323.297 ops/s
+Iteration   5: 4403448.344 ops/s
+
+# Run progress: 16.00% complete, ETA 04:40:37
+# Fork: 3 of 5
+# Warmup Iteration   1: 5297197.779 ops/s
+# Warmup Iteration   2: 3779964.388 ops/s
+# Warmup Iteration   3: 4378428.489 ops/s
+# Warmup Iteration   4: 4365145.095 ops/s
+# Warmup Iteration   5: 4369177.163 ops/s
+Iteration   1: 4391624.927 ops/s
+Iteration   2: 4414806.085 ops/s
+Iteration   3: 4443083.746 ops/s
+Iteration   4: 4402497.003 ops/s
+Iteration   5: 4393691.697 ops/s
+
+# Run progress: 16.50% complete, ETA 04:38:56
+# Fork: 4 of 5
+# Warmup Iteration   1: 5314832.811 ops/s
+# Warmup Iteration   2: 3757457.038 ops/s
+# Warmup Iteration   3: 4491027.061 ops/s
+# Warmup Iteration   4: 4499275.611 ops/s
+# Warmup Iteration   5: 4491659.997 ops/s
+Iteration   1: 4487863.097 ops/s
+Iteration   2: 4488444.793 ops/s
+Iteration   3: 4489147.707 ops/s
+Iteration   4: 4483750.845 ops/s
+Iteration   5: 4458413.652 ops/s
+
+# Run progress: 17.00% complete, ETA 04:37:16
+# Fork: 5 of 5
+# Warmup Iteration   1: 5125465.400 ops/s
+# Warmup Iteration   2: 3764054.338 ops/s
+# Warmup Iteration   3: 4492311.467 ops/s
+# Warmup Iteration   4: 4495148.734 ops/s
+# Warmup Iteration   5: 4492305.860 ops/s
+Iteration   1: 4481232.123 ops/s
+Iteration   2: 4481800.967 ops/s
+Iteration   3: 4445346.485 ops/s
+Iteration   4: 4485668.821 ops/s
+Iteration   5: 4443618.722 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  4453804.753 ±(99.9%) 28456.869 ops/s [Average]
+  (min, avg, max) = (4391624.927, 4453804.753, 4498193.912), stdev = 37989.106
+  CI (99.9%): [4425347.883, 4482261.622] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 64, length = 1024)
+
+# Run progress: 17.50% complete, ETA 04:35:36
+# Fork: 1 of 5
+# Warmup Iteration   1: 4810608.180 ops/s
+# Warmup Iteration   2: 3670218.639 ops/s
+# Warmup Iteration   3: 4297472.336 ops/s
+# Warmup Iteration   4: 4304651.549 ops/s
+# Warmup Iteration   5: 4288044.192 ops/s
+Iteration   1: 4284961.796 ops/s
+Iteration   2: 4274485.055 ops/s
+Iteration   3: 4309868.722 ops/s
+Iteration   4: 4300632.050 ops/s
+Iteration   5: 4284323.364 ops/s
+
+# Run progress: 18.00% complete, ETA 04:33:56
+# Fork: 2 of 5
+# Warmup Iteration   1: 5176998.445 ops/s
+# Warmup Iteration   2: 3681579.869 ops/s
+# Warmup Iteration   3: 4372915.459 ops/s
+# Warmup Iteration   4: 4399505.401 ops/s
+# Warmup Iteration   5: 4397698.148 ops/s
+Iteration   1: 4408460.365 ops/s
+Iteration   2: 4398460.072 ops/s
+Iteration   3: 4412805.705 ops/s
+Iteration   4: 4393297.229 ops/s
+Iteration   5: 4400258.416 ops/s
+
+# Run progress: 18.50% complete, ETA 04:32:15
+# Fork: 3 of 5
+# Warmup Iteration   1: 5235677.227 ops/s
+# Warmup Iteration   2: 3711212.234 ops/s
+# Warmup Iteration   3: 4421623.588 ops/s
+# Warmup Iteration   4: 4424222.390 ops/s
+# Warmup Iteration   5: 4424723.687 ops/s
+Iteration   1: 4431228.087 ops/s
+Iteration   2: 4421263.049 ops/s
+Iteration   3: 4424778.061 ops/s
+Iteration   4: 4423025.947 ops/s
+Iteration   5: 4392835.707 ops/s
+
+# Run progress: 19.00% complete, ETA 04:30:35
+# Fork: 4 of 5
+# Warmup Iteration   1: 5120075.890 ops/s
+# Warmup Iteration   2: 3691974.860 ops/s
+# Warmup Iteration   3: 4422960.553 ops/s
+# Warmup Iteration   4: 4419093.224 ops/s
+# Warmup Iteration   5: 4424237.487 ops/s
+Iteration   1: 4415596.579 ops/s
+Iteration   2: 4423238.313 ops/s
+Iteration   3: 4431985.554 ops/s
+Iteration   4: 4427362.786 ops/s
+Iteration   5: 4419488.299 ops/s
+
+# Run progress: 19.50% complete, ETA 04:28:55
+# Fork: 5 of 5
+# Warmup Iteration   1: 4828027.485 ops/s
+# Warmup Iteration   2: 3692381.767 ops/s
+# Warmup Iteration   3: 4312539.464 ops/s
+# Warmup Iteration   4: 4288199.319 ops/s
+# Warmup Iteration   5: 4292385.041 ops/s
+Iteration   1: 4284106.639 ops/s
+Iteration   2: 4283461.381 ops/s
+Iteration   3: 4302648.597 ops/s
+Iteration   4: 4295158.090 ops/s
+Iteration   5: 4280895.675 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  4364985.021 ±(99.9%) 47676.868 ops/s [Average]
+  (min, avg, max) = (4274485.055, 4364985.021, 4431985.554), stdev = 63647.255
+  CI (99.9%): [4317308.153, 4412661.890] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 64, length = 2048)
+
+# Run progress: 20.00% complete, ETA 04:27:15
+# Fork: 1 of 5
+# Warmup Iteration   1: 4946699.377 ops/s
+# Warmup Iteration   2: 3447224.507 ops/s
+# Warmup Iteration   3: 4278070.632 ops/s
+# Warmup Iteration   4: 4285040.560 ops/s
+# Warmup Iteration   5: 4289879.371 ops/s
+Iteration   1: 4273367.340 ops/s
+Iteration   2: 4268813.767 ops/s
+Iteration   3: 4274903.594 ops/s
+Iteration   4: 4286488.449 ops/s
+Iteration   5: 4284470.609 ops/s
+
+# Run progress: 20.50% complete, ETA 04:25:35
+# Fork: 2 of 5
+# Warmup Iteration   1: 5051931.534 ops/s
+# Warmup Iteration   2: 3590734.515 ops/s
+# Warmup Iteration   3: 4309731.397 ops/s
+# Warmup Iteration   4: 4321976.828 ops/s
+# Warmup Iteration   5: 4322028.427 ops/s
+Iteration   1: 4325257.148 ops/s
+Iteration   2: 4317620.992 ops/s
+Iteration   3: 4323246.545 ops/s
+Iteration   4: 4318564.936 ops/s
+Iteration   5: 4323905.338 ops/s
+
+# Run progress: 21.00% complete, ETA 04:23:54
+# Fork: 3 of 5
+# Warmup Iteration   1: 4948044.643 ops/s
+# Warmup Iteration   2: 3593291.538 ops/s
+# Warmup Iteration   3: 4321563.329 ops/s
+# Warmup Iteration   4: 4322794.192 ops/s
+# Warmup Iteration   5: 4316386.613 ops/s
+Iteration   1: 4311028.255 ops/s
+Iteration   2: 4322018.415 ops/s
+Iteration   3: 4321526.214 ops/s
+Iteration   4: 4313623.945 ops/s
+Iteration   5: 4317857.354 ops/s
+
+# Run progress: 21.50% complete, ETA 04:22:14
+# Fork: 4 of 5
+# Warmup Iteration   1: 4844620.005 ops/s
+# Warmup Iteration   2: 3607714.296 ops/s
+# Warmup Iteration   3: 4234051.157 ops/s
+# Warmup Iteration   4: 4313209.878 ops/s
+# Warmup Iteration   5: 4319105.288 ops/s
+Iteration   1: 4316647.996 ops/s
+Iteration   2: 4314416.056 ops/s
+Iteration   3: 4314190.782 ops/s
+Iteration   4: 4311702.340 ops/s
+Iteration   5: 4303459.614 ops/s
+
+# Run progress: 22.00% complete, ETA 04:20:34
+# Fork: 5 of 5
+# Warmup Iteration   1: 5046523.524 ops/s
+# Warmup Iteration   2: 3590937.197 ops/s
+# Warmup Iteration   3: 4271604.812 ops/s
+# Warmup Iteration   4: 4308857.101 ops/s
+# Warmup Iteration   5: 4302280.509 ops/s
+Iteration   1: 4290146.698 ops/s
+Iteration   2: 4256340.255 ops/s
+Iteration   3: 4304327.773 ops/s
+Iteration   4: 4298616.071 ops/s
+Iteration   5: 4305787.474 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  4303933.118 ±(99.9%) 14682.586 ops/s [Average]
+  (min, avg, max) = (4256340.255, 4303933.118, 4325257.148), stdev = 19600.833
+  CI (99.9%): [4289250.532, 4318615.705] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 64, length = 4096)
+
+# Run progress: 22.50% complete, ETA 04:18:54
+# Fork: 1 of 5
+# Warmup Iteration   1: 4498018.530 ops/s
+# Warmup Iteration   2: 3389956.037 ops/s
+# Warmup Iteration   3: 3976451.060 ops/s
+# Warmup Iteration   4: 3985320.760 ops/s
+# Warmup Iteration   5: 3999115.610 ops/s
+Iteration   1: 4002369.110 ops/s
+Iteration   2: 4003117.463 ops/s
+Iteration   3: 4005377.578 ops/s
+Iteration   4: 3997229.580 ops/s
+Iteration   5: 4004853.559 ops/s
+
+# Run progress: 23.00% complete, ETA 04:17:14
+# Fork: 2 of 5
+# Warmup Iteration   1: 4636661.312 ops/s
+# Warmup Iteration   2: 3308192.087 ops/s
+# Warmup Iteration   3: 3967293.523 ops/s
+# Warmup Iteration   4: 3906299.215 ops/s
+# Warmup Iteration   5: 3942249.008 ops/s
+Iteration   1: 3916022.306 ops/s
+Iteration   2: 3925733.154 ops/s
+Iteration   3: 3934641.607 ops/s
+Iteration   4: 3935676.177 ops/s
+Iteration   5: 3921506.200 ops/s
+
+# Run progress: 23.50% complete, ETA 04:15:33
+# Fork: 3 of 5
+# Warmup Iteration   1: 4609433.023 ops/s
+# Warmup Iteration   2: 3389351.810 ops/s
+# Warmup Iteration   3: 4004834.187 ops/s
+# Warmup Iteration   4: 3999230.374 ops/s
+# Warmup Iteration   5: 4000235.261 ops/s
+Iteration   1: 3998009.280 ops/s
+Iteration   2: 3996834.514 ops/s
+Iteration   3: 3999062.810 ops/s
+Iteration   4: 3997597.338 ops/s
+Iteration   5: 4002105.135 ops/s
+
+# Run progress: 24.00% complete, ETA 04:13:53
+# Fork: 4 of 5
+# Warmup Iteration   1: 4626945.926 ops/s
+# Warmup Iteration   2: 3393928.819 ops/s
+# Warmup Iteration   3: 3892151.553 ops/s
+# Warmup Iteration   4: 3935309.867 ops/s
+# Warmup Iteration   5: 3942411.704 ops/s
+Iteration   1: 3918695.680 ops/s
+Iteration   2: 3989395.745 ops/s
+Iteration   3: 3872222.520 ops/s
+Iteration   4: 3928157.636 ops/s
+Iteration   5: 3918296.647 ops/s
+
+# Run progress: 24.50% complete, ETA 04:12:13
+# Fork: 5 of 5
+# Warmup Iteration   1: 4555976.081 ops/s
+# Warmup Iteration   2: 3392934.837 ops/s
+# Warmup Iteration   3: 3986581.411 ops/s
+# Warmup Iteration   4: 3995406.920 ops/s
+# Warmup Iteration   5: 3992533.228 ops/s
+Iteration   1: 3997308.569 ops/s
+Iteration   2: 3997063.584 ops/s
+Iteration   3: 4002676.894 ops/s
+Iteration   4: 4005456.447 ops/s
+Iteration   5: 3959038.728 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  3969137.930 ±(99.9%) 30598.078 ops/s [Average]
+  (min, avg, max) = (3872222.520, 3969137.930, 4005456.447), stdev = 40847.559
+  CI (99.9%): [3938539.853, 3999736.008] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 128, length = 256)
+
+# Run progress: 25.00% complete, ETA 04:10:33
+# Fork: 1 of 5
+# Warmup Iteration   1: 3801144.022 ops/s
+# Warmup Iteration   2: 3666781.644 ops/s
+# Warmup Iteration   3: 3747970.301 ops/s
+# Warmup Iteration   4: 3739540.578 ops/s
+# Warmup Iteration   5: 3727162.086 ops/s
+Iteration   1: 3739923.085 ops/s
+Iteration   2: 3744565.025 ops/s
+Iteration   3: 3740202.188 ops/s
+Iteration   4: 3740045.023 ops/s
+Iteration   5: 3737098.616 ops/s
+
+# Run progress: 25.50% complete, ETA 04:08:52
+# Fork: 2 of 5
+# Warmup Iteration   1: 3822644.217 ops/s
+# Warmup Iteration   2: 3810007.831 ops/s
+# Warmup Iteration   3: 3723818.767 ops/s
+# Warmup Iteration   4: 3718633.238 ops/s
+# Warmup Iteration   5: 3733513.683 ops/s
+Iteration   1: 3724731.442 ops/s
+Iteration   2: 3730807.021 ops/s
+Iteration   3: 3739929.320 ops/s
+Iteration   4: 3743679.716 ops/s
+Iteration   5: 3759152.771 ops/s
+
+# Run progress: 26.00% complete, ETA 04:07:12
+# Fork: 3 of 5
+# Warmup Iteration   1: 3840982.312 ops/s
+# Warmup Iteration   2: 3750482.340 ops/s
+# Warmup Iteration   3: 3732781.486 ops/s
+# Warmup Iteration   4: 3726286.862 ops/s
+# Warmup Iteration   5: 3731827.700 ops/s
+Iteration   1: 3738125.226 ops/s
+Iteration   2: 3742934.060 ops/s
+Iteration   3: 3730990.728 ops/s
+Iteration   4: 3732248.580 ops/s
+Iteration   5: 3731125.952 ops/s
+
+# Run progress: 26.50% complete, ETA 04:05:32
+# Fork: 4 of 5
+# Warmup Iteration   1: 3827747.718 ops/s
+# Warmup Iteration   2: 3683609.289 ops/s
+# Warmup Iteration   3: 3743931.935 ops/s
+# Warmup Iteration   4: 3732798.740 ops/s
+# Warmup Iteration   5: 3736160.858 ops/s
+Iteration   1: 3741326.011 ops/s
+Iteration   2: 3729310.023 ops/s
+Iteration   3: 3707362.130 ops/s
+Iteration   4: 3716187.171 ops/s
+Iteration   5: 3716424.829 ops/s
+
+# Run progress: 27.00% complete, ETA 04:03:52
+# Fork: 5 of 5
+# Warmup Iteration   1: 3602628.159 ops/s
+# Warmup Iteration   2: 3813742.237 ops/s
+# Warmup Iteration   3: 3716287.393 ops/s
+# Warmup Iteration   4: 3724875.982 ops/s
+# Warmup Iteration   5: 3721155.765 ops/s
+Iteration   1: 3732700.708 ops/s
+Iteration   2: 3717636.473 ops/s
+Iteration   3: 3712661.409 ops/s
+Iteration   4: 3714331.864 ops/s
+Iteration   5: 3701173.341 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  3730586.909 ±(99.9%) 10274.913 ops/s [Average]
+  (min, avg, max) = (3701173.341, 3730586.909, 3759152.771), stdev = 13716.715
+  CI (99.9%): [3720311.995, 3740861.822] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 128, length = 512)
+
+# Run progress: 27.50% complete, ETA 04:02:11
+# Fork: 1 of 5
+# Warmup Iteration   1: 2027599.369 ops/s
+# Warmup Iteration   2: 2008878.938 ops/s
+# Warmup Iteration   3: 2017792.151 ops/s
+# Warmup Iteration   4: 2024419.422 ops/s
+# Warmup Iteration   5: 2022914.400 ops/s
+Iteration   1: 2026313.690 ops/s
+Iteration   2: 2013195.137 ops/s
+Iteration   3: 2024053.722 ops/s
+Iteration   4: 2021704.774 ops/s
+Iteration   5: 2021708.697 ops/s
+
+# Run progress: 28.00% complete, ETA 04:00:31
+# Fork: 2 of 5
+# Warmup Iteration   1: 2017665.599 ops/s
+# Warmup Iteration   2: 2039432.810 ops/s
+# Warmup Iteration   3: 1475988.902 ops/s
+# Warmup Iteration   4: 1434061.366 ops/s
+# Warmup Iteration   5: 1446186.981 ops/s
+Iteration   1: 1486105.899 ops/s
+Iteration   2: 1468397.644 ops/s
+Iteration   3: 1482488.527 ops/s
+Iteration   4: 1478714.452 ops/s
+Iteration   5: 1491062.334 ops/s
+
+# Run progress: 28.50% complete, ETA 03:58:51
+# Fork: 3 of 5
+# Warmup Iteration   1: 2050637.912 ops/s
+# Warmup Iteration   2: 2049257.456 ops/s
+# Warmup Iteration   3: 2001888.257 ops/s
+# Warmup Iteration   4: 1952701.135 ops/s
+# Warmup Iteration   5: 1994601.389 ops/s
+Iteration   1: 1992993.524 ops/s
+Iteration   2: 2015801.832 ops/s
+Iteration   3: 2016233.657 ops/s
+Iteration   4: 2019069.048 ops/s
+Iteration   5: 2021760.200 ops/s
+
+# Run progress: 29.00% complete, ETA 03:57:11
+# Fork: 4 of 5
+# Warmup Iteration   1: 2033644.190 ops/s
+# Warmup Iteration   2: 2022691.216 ops/s
+# Warmup Iteration   3: 1489195.322 ops/s
+# Warmup Iteration   4: 1487053.346 ops/s
+# Warmup Iteration   5: 1487471.296 ops/s
+Iteration   1: 1490418.753 ops/s
+Iteration   2: 1488892.537 ops/s
+Iteration   3: 1490038.634 ops/s
+Iteration   4: 1487680.189 ops/s
+Iteration   5: 1491793.450 ops/s
+
+# Run progress: 29.50% complete, ETA 03:55:31
+# Fork: 5 of 5
+# Warmup Iteration   1: 2026669.121 ops/s
+# Warmup Iteration   2: 2036683.534 ops/s
+# Warmup Iteration   3: 2034877.160 ops/s
+# Warmup Iteration   4: 2038985.453 ops/s
+# Warmup Iteration   5: 2023751.746 ops/s
+Iteration   1: 2034838.221 ops/s
+Iteration   2: 2033648.809 ops/s
+Iteration   3: 2016327.740 ops/s
+Iteration   4: 1992802.185 ops/s
+Iteration   5: 2020151.412 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  1805047.803 ±(99.9%) 199579.195 ops/s [Average]
+  (min, avg, max) = (1468397.644, 1805047.803, 2034838.221), stdev = 266432.515
+  CI (99.9%): [1605468.608, 2004626.998] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 128, length = 1024)
+
+# Run progress: 30.00% complete, ETA 03:53:50
+# Fork: 1 of 5
+# Warmup Iteration   1: 2263335.980 ops/s
+# Warmup Iteration   2: 2073776.934 ops/s
+# Warmup Iteration   3: 2262751.690 ops/s
+# Warmup Iteration   4: 2265095.362 ops/s
+# Warmup Iteration   5: 2270675.170 ops/s
+Iteration   1: 2259761.642 ops/s
+Iteration   2: 2249108.194 ops/s
+Iteration   3: 2254712.785 ops/s
+Iteration   4: 2254284.499 ops/s
+Iteration   5: 2252836.174 ops/s
+
+# Run progress: 30.50% complete, ETA 03:52:10
+# Fork: 2 of 5
+# Warmup Iteration   1: 2242890.210 ops/s
+# Warmup Iteration   2: 2093678.630 ops/s
+# Warmup Iteration   3: 2280705.551 ops/s
+# Warmup Iteration   4: 2291992.056 ops/s
+# Warmup Iteration   5: 2291467.025 ops/s
+Iteration   1: 2292895.712 ops/s
+Iteration   2: 2297169.662 ops/s
+Iteration   3: 2300935.028 ops/s
+Iteration   4: 2292651.113 ops/s
+Iteration   5: 2294059.815 ops/s
+
+# Run progress: 31.00% complete, ETA 03:50:30
+# Fork: 3 of 5
+# Warmup Iteration   1: 2259180.489 ops/s
+# Warmup Iteration   2: 2085413.704 ops/s
+# Warmup Iteration   3: 2278087.121 ops/s
+# Warmup Iteration   4: 2279723.644 ops/s
+# Warmup Iteration   5: 2277930.314 ops/s
+Iteration   1: 2275750.674 ops/s
+Iteration   2: 2278612.985 ops/s
+Iteration   3: 2278852.857 ops/s
+Iteration   4: 2278122.762 ops/s
+Iteration   5: 2287221.519 ops/s
+
+# Run progress: 31.50% complete, ETA 03:48:50
+# Fork: 4 of 5
+# Warmup Iteration   1: 2169222.591 ops/s
+# Warmup Iteration   2: 2094513.478 ops/s
+# Warmup Iteration   3: 2283674.379 ops/s
+# Warmup Iteration   4: 2285864.415 ops/s
+# Warmup Iteration   5: 2285978.032 ops/s
+Iteration   1: 2291081.225 ops/s
+Iteration   2: 2291637.091 ops/s
+Iteration   3: 2290802.881 ops/s
+Iteration   4: 2291539.634 ops/s
+Iteration   5: 2294777.958 ops/s
+
+# Run progress: 32.00% complete, ETA 03:47:10
+# Fork: 5 of 5
+# Warmup Iteration   1: 2286125.016 ops/s
+# Warmup Iteration   2: 2099337.593 ops/s
+# Warmup Iteration   3: 2296624.709 ops/s
+# Warmup Iteration   4: 2307180.129 ops/s
+# Warmup Iteration   5: 2304719.840 ops/s
+Iteration   1: 2307930.613 ops/s
+Iteration   2: 2307488.495 ops/s
+Iteration   3: 2305063.150 ops/s
+Iteration   4: 2308931.097 ops/s
+Iteration   5: 2302025.517 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  2285530.123 ±(99.9%) 13833.078 ops/s [Average]
+  (min, avg, max) = (2249108.194, 2285530.123, 2308931.097), stdev = 18466.764
+  CI (99.9%): [2271697.045, 2299363.201] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 128, length = 2048)
+
+# Run progress: 32.50% complete, ETA 03:45:29
+# Fork: 1 of 5
+# Warmup Iteration   1: 2197560.071 ops/s
+# Warmup Iteration   2: 2046944.801 ops/s
+# Warmup Iteration   3: 2228977.551 ops/s
+# Warmup Iteration   4: 2236179.834 ops/s
+# Warmup Iteration   5: 2225173.256 ops/s
+Iteration   1: 2227407.823 ops/s
+Iteration   2: 2230441.180 ops/s
+Iteration   3: 2246809.822 ops/s
+Iteration   4: 2248389.810 ops/s
+Iteration   5: 2247744.392 ops/s
+
+# Run progress: 33.00% complete, ETA 03:43:49
+# Fork: 2 of 5
+# Warmup Iteration   1: 2190673.620 ops/s
+# Warmup Iteration   2: 2045579.948 ops/s
+# Warmup Iteration   3: 2235719.211 ops/s
+# Warmup Iteration   4: 2240793.277 ops/s
+# Warmup Iteration   5: 2243706.066 ops/s
+Iteration   1: 2233755.781 ops/s
+Iteration   2: 2230396.244 ops/s
+Iteration   3: 2230852.846 ops/s
+Iteration   4: 2236243.050 ops/s
+Iteration   5: 2234541.213 ops/s
+
+# Run progress: 33.50% complete, ETA 03:42:09
+# Fork: 3 of 5
+# Warmup Iteration   1: 2176650.607 ops/s
+# Warmup Iteration   2: 2034784.956 ops/s
+# Warmup Iteration   3: 2242094.252 ops/s
+# Warmup Iteration   4: 2196734.910 ops/s
+# Warmup Iteration   5: 2186933.197 ops/s
+Iteration   1: 2219477.200 ops/s
+Iteration   2: 2226002.682 ops/s
+Iteration   3: 2228045.163 ops/s
+Iteration   4: 2221630.627 ops/s
+Iteration   5: 2216965.188 ops/s
+
+# Run progress: 34.00% complete, ETA 03:40:29
+# Fork: 4 of 5
+# Warmup Iteration   1: 2193096.689 ops/s
+# Warmup Iteration   2: 1956403.997 ops/s
+# Warmup Iteration   3: 2236498.702 ops/s
+# Warmup Iteration   4: 2235163.909 ops/s
+# Warmup Iteration   5: 2237068.702 ops/s
+Iteration   1: 2236283.722 ops/s
+Iteration   2: 2235960.242 ops/s
+Iteration   3: 2237099.474 ops/s
+Iteration   4: 2235502.481 ops/s
+Iteration   5: 2234835.002 ops/s
+
+# Run progress: 34.50% complete, ETA 03:38:48
+# Fork: 5 of 5
+# Warmup Iteration   1: 2221760.872 ops/s
+# Warmup Iteration   2: 2042538.057 ops/s
+# Warmup Iteration   3: 2219823.033 ops/s
+# Warmup Iteration   4: 2208537.989 ops/s
+# Warmup Iteration   5: 2213572.156 ops/s
+Iteration   1: 2210142.164 ops/s
+Iteration   2: 2219900.285 ops/s
+Iteration   3: 2225877.447 ops/s
+Iteration   4: 2221503.266 ops/s
+Iteration   5: 2219878.274 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  2230227.415 ±(99.9%) 7258.337 ops/s [Average]
+  (min, avg, max) = (2210142.164, 2230227.415, 2248389.810), stdev = 9689.673
+  CI (99.9%): [2222969.078, 2237485.753] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 128, length = 4096)
+
+# Run progress: 35.00% complete, ETA 03:37:08
+# Fork: 1 of 5
+# Warmup Iteration   1: 2043637.385 ops/s
+# Warmup Iteration   2: 1908580.684 ops/s
+# Warmup Iteration   3: 2022526.032 ops/s
+# Warmup Iteration   4: 2007664.507 ops/s
+# Warmup Iteration   5: 2049617.534 ops/s
+Iteration   1: 2057671.181 ops/s
+Iteration   2: 2071649.177 ops/s
+Iteration   3: 2057874.712 ops/s
+Iteration   4: 2054779.721 ops/s
+Iteration   5: 2051164.705 ops/s
+
+# Run progress: 35.50% complete, ETA 03:35:28
+# Fork: 2 of 5
+# Warmup Iteration   1: 2037242.846 ops/s
+# Warmup Iteration   2: 1903920.259 ops/s
+# Warmup Iteration   3: 2083320.913 ops/s
+# Warmup Iteration   4: 2073996.552 ops/s
+# Warmup Iteration   5: 2060627.547 ops/s
+Iteration   1: 2068817.914 ops/s
+Iteration   2: 2064979.226 ops/s
+Iteration   3: 2066609.862 ops/s
+Iteration   4: 2079379.921 ops/s
+Iteration   5: 2075127.718 ops/s
+
+# Run progress: 36.00% complete, ETA 03:33:48
+# Fork: 3 of 5
+# Warmup Iteration   1: 2028234.247 ops/s
+# Warmup Iteration   2: 1906841.234 ops/s
+# Warmup Iteration   3: 2090696.928 ops/s
+# Warmup Iteration   4: 2097914.770 ops/s
+# Warmup Iteration   5: 2097376.732 ops/s
+Iteration   1: 2099192.837 ops/s
+Iteration   2: 2107252.433 ops/s
+Iteration   3: 2106602.647 ops/s
+Iteration   4: 2104388.908 ops/s
+Iteration   5: 2109641.040 ops/s
+
+# Run progress: 36.50% complete, ETA 03:32:08
+# Fork: 4 of 5
+# Warmup Iteration   1: 2049740.596 ops/s
+# Warmup Iteration   2: 1911224.995 ops/s
+# Warmup Iteration   3: 2063672.034 ops/s
+# Warmup Iteration   4: 2061030.700 ops/s
+# Warmup Iteration   5: 2074104.524 ops/s
+Iteration   1: 2070511.371 ops/s
+Iteration   2: 2073804.130 ops/s
+Iteration   3: 2072590.292 ops/s
+Iteration   4: 2080441.467 ops/s
+Iteration   5: 2068062.855 ops/s
+
+# Run progress: 37.00% complete, ETA 03:30:27
+# Fork: 5 of 5
+# Warmup Iteration   1: 2019116.144 ops/s
+# Warmup Iteration   2: 1903760.866 ops/s
+# Warmup Iteration   3: 2074870.180 ops/s
+# Warmup Iteration   4: 2089926.077 ops/s
+# Warmup Iteration   5: 2085306.459 ops/s
+Iteration   1: 2093452.645 ops/s
+Iteration   2: 2087766.045 ops/s
+Iteration   3: 2090581.801 ops/s
+Iteration   4: 2095460.214 ops/s
+Iteration   5: 2083276.418 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  2079643.170 ±(99.9%) 13061.973 ops/s [Average]
+  (min, avg, max) = (2051164.705, 2079643.170, 2109641.040), stdev = 17437.361
+  CI (99.9%): [2066581.196, 2092705.143] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 8, length = 256)
+
+# Run progress: 37.50% complete, ETA 03:28:47
+# Fork: 1 of 5
+# Warmup Iteration   1: 10089859.212 ops/s
+# Warmup Iteration   2: 9989965.179 ops/s
+# Warmup Iteration   3: 10002717.430 ops/s
+# Warmup Iteration   4: 10034207.059 ops/s
+# Warmup Iteration   5: 10022014.180 ops/s
+Iteration   1: 10024435.570 ops/s
+Iteration   2: 10012682.077 ops/s
+Iteration   3: 10037454.324 ops/s
+Iteration   4: 10039039.094 ops/s
+Iteration   5: 10022235.119 ops/s
+
+# Run progress: 38.00% complete, ETA 03:27:07
+# Fork: 2 of 5
+# Warmup Iteration   1: 10075685.682 ops/s
+# Warmup Iteration   2: 10157736.802 ops/s
+# Warmup Iteration   3: 9922894.460 ops/s
+# Warmup Iteration   4: 9941268.370 ops/s
+# Warmup Iteration   5: 9977313.715 ops/s
+Iteration   1: 9947734.219 ops/s
+Iteration   2: 9961707.996 ops/s
+Iteration   3: 9951313.595 ops/s
+Iteration   4: 9941242.264 ops/s
+Iteration   5: 9928970.849 ops/s
+
+# Run progress: 38.50% complete, ETA 03:25:27
+# Fork: 3 of 5
+# Warmup Iteration   1: 10044064.405 ops/s
+# Warmup Iteration   2: 10125932.340 ops/s
+# Warmup Iteration   3: 10077132.754 ops/s
+# Warmup Iteration   4: 10125778.661 ops/s
+# Warmup Iteration   5: 10050142.569 ops/s
+Iteration   1: 10104981.490 ops/s
+Iteration   2: 10103029.983 ops/s
+Iteration   3: 10094027.395 ops/s
+Iteration   4: 10089661.475 ops/s
+Iteration   5: 10098655.003 ops/s
+
+# Run progress: 39.00% complete, ETA 03:23:47
+# Fork: 4 of 5
+# Warmup Iteration   1: 10096603.160 ops/s
+# Warmup Iteration   2: 10078296.058 ops/s
+# Warmup Iteration   3: 10080533.444 ops/s
+# Warmup Iteration   4: 10098662.895 ops/s
+# Warmup Iteration   5: 10108966.183 ops/s
+Iteration   1: 10102429.122 ops/s
+Iteration   2: 10109449.187 ops/s
+Iteration   3: 10092645.497 ops/s
+Iteration   4: 10103465.089 ops/s
+Iteration   5: 10106449.230 ops/s
+
+# Run progress: 39.50% complete, ETA 03:22:06
+# Fork: 5 of 5
+# Warmup Iteration   1: 10114571.681 ops/s
+# Warmup Iteration   2: 10120301.040 ops/s
+# Warmup Iteration   3: 10096260.643 ops/s
+# Warmup Iteration   4: 10111083.481 ops/s
+# Warmup Iteration   5: 10143036.779 ops/s
+Iteration   1: 10124417.319 ops/s
+Iteration   2: 10133246.828 ops/s
+Iteration   3: 10150596.582 ops/s
+Iteration   4: 10143928.262 ops/s
+Iteration   5: 10150749.721 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  10062981.892 ±(99.9%) 53137.972 ops/s [Average]
+  (min, avg, max) = (9928970.849, 10062981.892, 10150749.721), stdev = 70937.673
+  CI (99.9%): [10009843.919, 10116119.864] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 8, length = 512)
+
+# Run progress: 40.00% complete, ETA 03:20:26
+# Fork: 1 of 5
+# Warmup Iteration   1: 5667118.448 ops/s
+# Warmup Iteration   2: 5651738.181 ops/s
+# Warmup Iteration   3: 5654745.957 ops/s
+# Warmup Iteration   4: 5668370.276 ops/s
+# Warmup Iteration   5: 5659004.203 ops/s
+Iteration   1: 5660673.311 ops/s
+Iteration   2: 5640727.924 ops/s
+Iteration   3: 5653286.233 ops/s
+Iteration   4: 5664714.515 ops/s
+Iteration   5: 5654897.062 ops/s
+
+# Run progress: 40.50% complete, ETA 03:18:46
+# Fork: 2 of 5
+# Warmup Iteration   1: 5647686.576 ops/s
+# Warmup Iteration   2: 5635645.032 ops/s
+# Warmup Iteration   3: 5660035.107 ops/s
+# Warmup Iteration   4: 5666066.810 ops/s
+# Warmup Iteration   5: 5666094.705 ops/s
+Iteration   1: 5665413.430 ops/s
+Iteration   2: 5665265.817 ops/s
+Iteration   3: 5663012.496 ops/s
+Iteration   4: 5645119.540 ops/s
+Iteration   5: 5644820.212 ops/s
+
+# Run progress: 41.00% complete, ETA 03:17:06
+# Fork: 3 of 5
+# Warmup Iteration   1: 5659551.413 ops/s
+# Warmup Iteration   2: 5652845.823 ops/s
+# Warmup Iteration   3: 5670186.863 ops/s
+# Warmup Iteration   4: 5694296.765 ops/s
+# Warmup Iteration   5: 5709803.237 ops/s
+Iteration   1: 5708668.223 ops/s
+Iteration   2: 5712044.394 ops/s
+Iteration   3: 5709126.789 ops/s
+Iteration   4: 5679534.638 ops/s
+Iteration   5: 5699861.998 ops/s
+
+# Run progress: 41.50% complete, ETA 03:15:25
+# Fork: 4 of 5
+# Warmup Iteration   1: 5661950.056 ops/s
+# Warmup Iteration   2: 5644383.336 ops/s
+# Warmup Iteration   3: 5636991.468 ops/s
+# Warmup Iteration   4: 5654305.204 ops/s
+# Warmup Iteration   5: 5667078.870 ops/s
+Iteration   1: 5706009.269 ops/s
+Iteration   2: 5672214.217 ops/s
+Iteration   3: 5669066.440 ops/s
+Iteration   4: 5670450.738 ops/s
+Iteration   5: 5669432.387 ops/s
+
+# Run progress: 42.00% complete, ETA 03:13:45
+# Fork: 5 of 5
+# Warmup Iteration   1: 5621755.267 ops/s
+# Warmup Iteration   2: 5686346.243 ops/s
+# Warmup Iteration   3: 5573728.396 ops/s
+# Warmup Iteration   4: 5607190.697 ops/s
+# Warmup Iteration   5: 5579342.035 ops/s
+Iteration   1: 5603287.242 ops/s
+Iteration   2: 5588852.701 ops/s
+Iteration   3: 5607958.188 ops/s
+Iteration   4: 5587683.190 ops/s
+Iteration   5: 5646222.914 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  5659533.755 ±(99.9%) 26214.025 ops/s [Average]
+  (min, avg, max) = (5587683.190, 5659533.755, 5712044.394), stdev = 34994.973
+  CI (99.9%): [5633319.730, 5685747.780] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 8, length = 1024)
+
+# Run progress: 42.50% complete, ETA 03:12:05
+# Fork: 1 of 5
+# Warmup Iteration   1: 3008753.600 ops/s
+# Warmup Iteration   2: 3001556.528 ops/s
+# Warmup Iteration   3: 3019305.342 ops/s
+# Warmup Iteration   4: 3019294.156 ops/s
+# Warmup Iteration   5: 3024413.792 ops/s
+Iteration   1: 3007962.558 ops/s
+Iteration   2: 3020066.181 ops/s
+Iteration   3: 3019582.165 ops/s
+Iteration   4: 3007287.902 ops/s
+Iteration   5: 3021926.389 ops/s
+
+# Run progress: 43.00% complete, ETA 03:10:25
+# Fork: 2 of 5
+# Warmup Iteration   1: 3024147.634 ops/s
+# Warmup Iteration   2: 3027154.378 ops/s
+# Warmup Iteration   3: 3017313.745 ops/s
+# Warmup Iteration   4: 3021501.457 ops/s
+# Warmup Iteration   5: 3018134.400 ops/s
+Iteration   1: 3012186.472 ops/s
+Iteration   2: 3009816.908 ops/s
+Iteration   3: 3029694.263 ops/s
+Iteration   4: 3025425.373 ops/s
+Iteration   5: 3012441.399 ops/s
+
+# Run progress: 43.50% complete, ETA 03:08:44
+# Fork: 3 of 5
+# Warmup Iteration   1: 2993139.754 ops/s
+# Warmup Iteration   2: 3003620.129 ops/s
+# Warmup Iteration   3: 3024324.688 ops/s
+# Warmup Iteration   4: 3029814.827 ops/s
+# Warmup Iteration   5: 3014336.541 ops/s
+Iteration   1: 3004178.749 ops/s
+Iteration   2: 2992148.816 ops/s
+Iteration   3: 3005681.433 ops/s
+Iteration   4: 3020185.345 ops/s
+Iteration   5: 3019507.526 ops/s
+
+# Run progress: 44.00% complete, ETA 03:07:04
+# Fork: 4 of 5
+# Warmup Iteration   1: 3002983.408 ops/s
+# Warmup Iteration   2: 3014710.869 ops/s
+# Warmup Iteration   3: 3001830.065 ops/s
+# Warmup Iteration   4: 2994409.961 ops/s
+# Warmup Iteration   5: 3008847.562 ops/s
+Iteration   1: 2999928.660 ops/s
+Iteration   2: 3015977.735 ops/s
+Iteration   3: 3023579.764 ops/s
+Iteration   4: 3004050.406 ops/s
+Iteration   5: 2995976.266 ops/s
+
+# Run progress: 44.50% complete, ETA 03:05:24
+# Fork: 5 of 5
+# Warmup Iteration   1: 2995179.723 ops/s
+# Warmup Iteration   2: 3004020.895 ops/s
+# Warmup Iteration   3: 3001709.833 ops/s
+# Warmup Iteration   4: 3004843.798 ops/s
+# Warmup Iteration   5: 3002120.902 ops/s
+Iteration   1: 2992980.581 ops/s
+Iteration   2: 3000091.071 ops/s
+Iteration   3: 2997291.565 ops/s
+Iteration   4: 2999226.921 ops/s
+Iteration   5: 2994076.258 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  3009250.828 ±(99.9%) 8385.276 ops/s [Average]
+  (min, avg, max) = (2992148.816, 3009250.828, 3029694.263), stdev = 11194.104
+  CI (99.9%): [3000865.552, 3017636.105] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 8, length = 2048)
+
+# Run progress: 45.00% complete, ETA 03:03:44
+# Fork: 1 of 5
+# Warmup Iteration   1: 1539775.691 ops/s
+# Warmup Iteration   2: 1542453.997 ops/s
+# Warmup Iteration   3: 1546312.595 ops/s
+# Warmup Iteration   4: 1551567.372 ops/s
+# Warmup Iteration   5: 1546460.036 ops/s
+Iteration   1: 1545718.342 ops/s
+Iteration   2: 1551355.589 ops/s
+Iteration   3: 1551577.375 ops/s
+Iteration   4: 1553588.717 ops/s
+Iteration   5: 1552855.405 ops/s
+
+# Run progress: 45.50% complete, ETA 03:02:04
+# Fork: 2 of 5
+# Warmup Iteration   1: 1538799.964 ops/s
+# Warmup Iteration   2: 1541804.476 ops/s
+# Warmup Iteration   3: 1543616.578 ops/s
+# Warmup Iteration   4: 1557757.109 ops/s
+# Warmup Iteration   5: 1555302.933 ops/s
+Iteration   1: 1556619.102 ops/s
+Iteration   2: 1555216.528 ops/s
+Iteration   3: 1555871.627 ops/s
+Iteration   4: 1543543.430 ops/s
+Iteration   5: 1544568.936 ops/s
+
+# Run progress: 46.00% complete, ETA 03:00:23
+# Fork: 3 of 5
+# Warmup Iteration   1: 1544424.926 ops/s
+# Warmup Iteration   2: 1541454.945 ops/s
+# Warmup Iteration   3: 1551647.120 ops/s
+# Warmup Iteration   4: 1547462.937 ops/s
+# Warmup Iteration   5: 1550464.085 ops/s
+Iteration   1: 1551058.223 ops/s
+Iteration   2: 1548618.063 ops/s
+Iteration   3: 1552356.389 ops/s
+Iteration   4: 1555236.873 ops/s
+Iteration   5: 1546107.407 ops/s
+
+# Run progress: 46.50% complete, ETA 02:58:43
+# Fork: 4 of 5
+# Warmup Iteration   1: 1526543.758 ops/s
+# Warmup Iteration   2: 1542975.822 ops/s
+# Warmup Iteration   3: 1548395.758 ops/s
+# Warmup Iteration   4: 1553011.399 ops/s
+# Warmup Iteration   5: 1550527.285 ops/s
+Iteration   1: 1550276.471 ops/s
+Iteration   2: 1554048.795 ops/s
+Iteration   3: 1553736.663 ops/s
+Iteration   4: 1552610.146 ops/s
+Iteration   5: 1553500.053 ops/s
+
+# Run progress: 47.00% complete, ETA 02:57:03
+# Fork: 5 of 5
+# Warmup Iteration   1: 1540917.695 ops/s
+# Warmup Iteration   2: 1549662.710 ops/s
+# Warmup Iteration   3: 1549256.386 ops/s
+# Warmup Iteration   4: 1551090.673 ops/s
+# Warmup Iteration   5: 1556699.468 ops/s
+Iteration   1: 1549470.071 ops/s
+Iteration   2: 1556342.914 ops/s
+Iteration   3: 1550724.277 ops/s
+Iteration   4: 1552402.100 ops/s
+Iteration   5: 1552232.062 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  1551585.422 ±(99.9%) 2692.090 ops/s [Average]
+  (min, avg, max) = (1543543.430, 1551585.422, 1556619.102), stdev = 3593.863
+  CI (99.9%): [1548893.333, 1554277.512] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 8, length = 4096)
+
+# Run progress: 47.50% complete, ETA 02:55:23
+# Fork: 1 of 5
+# Warmup Iteration   1: 782850.712 ops/s
+# Warmup Iteration   2: 785822.064 ops/s
+# Warmup Iteration   3: 784685.160 ops/s
+# Warmup Iteration   4: 785522.392 ops/s
+# Warmup Iteration   5: 785111.613 ops/s
+Iteration   1: 785727.837 ops/s
+Iteration   2: 785442.032 ops/s
+Iteration   3: 784763.414 ops/s
+Iteration   4: 785836.107 ops/s
+Iteration   5: 783983.547 ops/s
+
+# Run progress: 48.00% complete, ETA 02:53:43
+# Fork: 2 of 5
+# Warmup Iteration   1: 780051.255 ops/s
+# Warmup Iteration   2: 787047.288 ops/s
+# Warmup Iteration   3: 784549.903 ops/s
+# Warmup Iteration   4: 786261.501 ops/s
+# Warmup Iteration   5: 786109.262 ops/s
+Iteration   1: 785813.176 ops/s
+Iteration   2: 784971.862 ops/s
+Iteration   3: 785354.811 ops/s
+Iteration   4: 784532.705 ops/s
+Iteration   5: 785540.644 ops/s
+
+# Run progress: 48.50% complete, ETA 02:52:02
+# Fork: 3 of 5
+# Warmup Iteration   1: 782810.536 ops/s
+# Warmup Iteration   2: 786045.605 ops/s
+# Warmup Iteration   3: 785470.237 ops/s
+# Warmup Iteration   4: 785001.739 ops/s
+# Warmup Iteration   5: 785993.753 ops/s
+Iteration   1: 785029.861 ops/s
+Iteration   2: 784987.822 ops/s
+Iteration   3: 785688.269 ops/s
+Iteration   4: 785302.012 ops/s
+Iteration   5: 785672.214 ops/s
+
+# Run progress: 49.00% complete, ETA 02:50:22
+# Fork: 4 of 5
+# Warmup Iteration   1: 782405.151 ops/s
+# Warmup Iteration   2: 784726.517 ops/s
+# Warmup Iteration   3: 784298.091 ops/s
+# Warmup Iteration   4: 785350.480 ops/s
+# Warmup Iteration   5: 786153.276 ops/s
+Iteration   1: 786703.961 ops/s
+Iteration   2: 786313.584 ops/s
+Iteration   3: 782637.241 ops/s
+Iteration   4: 785145.903 ops/s
+Iteration   5: 784509.367 ops/s
+
+# Run progress: 49.50% complete, ETA 02:48:42
+# Fork: 5 of 5
+# Warmup Iteration   1: 783730.527 ops/s
+# Warmup Iteration   2: 782583.078 ops/s
+# Warmup Iteration   3: 785851.325 ops/s
+# Warmup Iteration   4: 785920.120 ops/s
+# Warmup Iteration   5: 786267.422 ops/s
+Iteration   1: 785159.237 ops/s
+Iteration   2: 785305.747 ops/s
+Iteration   3: 784202.970 ops/s
+Iteration   4: 784606.836 ops/s
+Iteration   5: 785524.208 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  785150.215 ±(99.9%) 610.143 ops/s [Average]
+  (min, avg, max) = (782637.241, 785150.215, 786703.961), stdev = 814.524
+  CI (99.9%): [784540.071, 785760.358] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 64, length = 256)
+
+# Run progress: 50.00% complete, ETA 02:47:02
+# Fork: 1 of 5
+# Warmup Iteration   1: 5479921.368 ops/s
+# Warmup Iteration   2: 4597904.148 ops/s
+# Warmup Iteration   3: 5376287.909 ops/s
+# Warmup Iteration   4: 5389937.592 ops/s
+# Warmup Iteration   5: 5384930.635 ops/s
+Iteration   1: 5402726.688 ops/s
+Iteration   2: 5386305.461 ops/s
+Iteration   3: 5393722.468 ops/s
+Iteration   4: 5400946.079 ops/s
+Iteration   5: 5402125.504 ops/s
+
+# Run progress: 50.50% complete, ETA 02:45:21
+# Fork: 2 of 5
+# Warmup Iteration   1: 5500209.573 ops/s
+# Warmup Iteration   2: 5524044.812 ops/s
+# Warmup Iteration   3: 5374310.976 ops/s
+# Warmup Iteration   4: 5406806.233 ops/s
+# Warmup Iteration   5: 5354649.742 ops/s
+Iteration   1: 5308253.371 ops/s
+Iteration   2: 5345037.704 ops/s
+Iteration   3: 5310206.186 ops/s
+Iteration   4: 5370580.954 ops/s
+Iteration   5: 5318335.804 ops/s
+
+# Run progress: 51.00% complete, ETA 02:43:41
+# Fork: 3 of 5
+# Warmup Iteration   1: 5500491.682 ops/s
+# Warmup Iteration   2: 5506497.767 ops/s
+# Warmup Iteration   3: 5386110.403 ops/s
+# Warmup Iteration   4: 5395101.565 ops/s
+# Warmup Iteration   5: 5411273.823 ops/s
+Iteration   1: 5392125.059 ops/s
+Iteration   2: 5390335.158 ops/s
+Iteration   3: 5406396.453 ops/s
+Iteration   4: 5416178.811 ops/s
+Iteration   5: 5411652.618 ops/s
+
+# Run progress: 51.50% complete, ETA 02:42:01
+# Fork: 4 of 5
+# Warmup Iteration   1: 5488618.279 ops/s
+# Warmup Iteration   2: 4833005.786 ops/s
+# Warmup Iteration   3: 5348591.833 ops/s
+# Warmup Iteration   4: 5368981.155 ops/s
+# Warmup Iteration   5: 5372950.930 ops/s
+Iteration   1: 5334962.068 ops/s
+Iteration   2: 5364942.574 ops/s
+Iteration   3: 5416861.252 ops/s
+Iteration   4: 5402849.262 ops/s
+Iteration   5: 5390891.934 ops/s
+
+# Run progress: 52.00% complete, ETA 02:40:21
+# Fork: 5 of 5
+# Warmup Iteration   1: 5484150.249 ops/s
+# Warmup Iteration   2: 5344235.616 ops/s
+# Warmup Iteration   3: 5392892.286 ops/s
+# Warmup Iteration   4: 5395905.744 ops/s
+# Warmup Iteration   5: 5385529.035 ops/s
+Iteration   1: 5393617.528 ops/s
+Iteration   2: 5405917.427 ops/s
+Iteration   3: 5411109.089 ops/s
+Iteration   4: 5410117.076 ops/s
+Iteration   5: 5407232.430 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  5383737.158 ±(99.9%) 25331.366 ops/s [Average]
+  (min, avg, max) = (5308253.371, 5383737.158, 5416861.252), stdev = 33816.649
+  CI (99.9%): [5358405.792, 5409068.525] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 64, length = 512)
+
+# Run progress: 52.50% complete, ETA 02:38:41
+# Fork: 1 of 5
+# Warmup Iteration   1: 3131987.744 ops/s
+# Warmup Iteration   2: 3144099.956 ops/s
+# Warmup Iteration   3: 3499097.180 ops/s
+# Warmup Iteration   4: 3517817.182 ops/s
+# Warmup Iteration   5: 3515359.213 ops/s
+Iteration   1: 3502042.720 ops/s
+Iteration   2: 3496142.071 ops/s
+Iteration   3: 3509621.517 ops/s
+Iteration   4: 3503495.888 ops/s
+Iteration   5: 3500500.914 ops/s
+
+# Run progress: 53.00% complete, ETA 02:37:00
+# Fork: 2 of 5
+# Warmup Iteration   1: 3046279.261 ops/s
+# Warmup Iteration   2: 3312860.073 ops/s
+# Warmup Iteration   3: 3357463.307 ops/s
+# Warmup Iteration   4: 3381571.139 ops/s
+# Warmup Iteration   5: 3371329.651 ops/s
+Iteration   1: 3377020.683 ops/s
+Iteration   2: 3386152.314 ops/s
+Iteration   3: 3385336.801 ops/s
+Iteration   4: 3350121.265 ops/s
+Iteration   5: 3351654.524 ops/s
+
+# Run progress: 53.50% complete, ETA 02:35:20
+# Fork: 3 of 5
+# Warmup Iteration   1: 3120969.779 ops/s
+# Warmup Iteration   2: 3333072.350 ops/s
+# Warmup Iteration   3: 3426782.779 ops/s
+# Warmup Iteration   4: 3355787.493 ops/s
+# Warmup Iteration   5: 3401243.034 ops/s
+Iteration   1: 3325399.935 ops/s
+Iteration   2: 3328823.655 ops/s
+Iteration   3: 3325538.188 ops/s
+Iteration   4: 3285432.636 ops/s
+Iteration   5: 3432179.467 ops/s
+
+# Run progress: 54.00% complete, ETA 02:33:40
+# Fork: 4 of 5
+# Warmup Iteration   1: 3069875.909 ops/s
+# Warmup Iteration   2: 3287524.779 ops/s
+# Warmup Iteration   3: 3447655.316 ops/s
+# Warmup Iteration   4: 3438791.711 ops/s
+# Warmup Iteration   5: 3437786.311 ops/s
+Iteration   1: 3452507.311 ops/s
+Iteration   2: 3434815.251 ops/s
+Iteration   3: 3432654.811 ops/s
+Iteration   4: 3435165.691 ops/s
+Iteration   5: 3430465.963 ops/s
+
+# Run progress: 54.50% complete, ETA 02:32:00
+# Fork: 5 of 5
+# Warmup Iteration   1: 3305657.607 ops/s
+# Warmup Iteration   2: 3327710.684 ops/s
+# Warmup Iteration   3: 3455959.812 ops/s
+# Warmup Iteration   4: 3452942.090 ops/s
+# Warmup Iteration   5: 3450863.567 ops/s
+Iteration   1: 3451963.947 ops/s
+Iteration   2: 3450134.228 ops/s
+Iteration   3: 3446816.580 ops/s
+Iteration   4: 3430040.626 ops/s
+Iteration   5: 3432976.670 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  3418280.146 ±(99.9%) 47578.668 ops/s [Average]
+  (min, avg, max) = (3285432.636, 3418280.146, 3509621.517), stdev = 63516.161
+  CI (99.9%): [3370701.478, 3465858.814] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 64, length = 1024)
+
+# Run progress: 55.00% complete, ETA 02:30:19
+# Fork: 1 of 5
+# Warmup Iteration   1: 2196625.294 ops/s
+# Warmup Iteration   2: 2243393.063 ops/s
+# Warmup Iteration   3: 2112863.450 ops/s
+# Warmup Iteration   4: 2143612.517 ops/s
+# Warmup Iteration   5: 2222447.673 ops/s
+Iteration   1: 1699307.651 ops/s
+Iteration   2: 1877570.598 ops/s
+Iteration   3: 1726483.604 ops/s
+Iteration   4: 1709178.267 ops/s
+Iteration   5: 2080739.383 ops/s
+
+# Run progress: 55.50% complete, ETA 02:28:39
+# Fork: 2 of 5
+# Warmup Iteration   1: 2143798.945 ops/s
+# Warmup Iteration   2: 2178197.920 ops/s
+# Warmup Iteration   3: 2217439.901 ops/s
+# Warmup Iteration   4: 2209789.761 ops/s
+# Warmup Iteration   5: 2242322.122 ops/s
+Iteration   1: 2231919.853 ops/s
+Iteration   2: 2236594.142 ops/s
+Iteration   3: 2229480.701 ops/s
+Iteration   4: 2222024.599 ops/s
+Iteration   5: 2231081.195 ops/s
+
+# Run progress: 56.00% complete, ETA 02:26:59
+# Fork: 3 of 5
+# Warmup Iteration   1: 2169819.000 ops/s
+# Warmup Iteration   2: 2009662.262 ops/s
+# Warmup Iteration   3: 2236757.405 ops/s
+# Warmup Iteration   4: 2237161.522 ops/s
+# Warmup Iteration   5: 2235094.310 ops/s
+Iteration   1: 2239842.747 ops/s
+Iteration   2: 2243006.173 ops/s
+Iteration   3: 2236102.573 ops/s
+Iteration   4: 2241728.893 ops/s
+Iteration   5: 2232544.169 ops/s
+
+# Run progress: 56.50% complete, ETA 02:25:19
+# Fork: 4 of 5
+# Warmup Iteration   1: 2248614.029 ops/s
+# Warmup Iteration   2: 2251082.295 ops/s
+# Warmup Iteration   3: 1735949.482 ops/s
+# Warmup Iteration   4: 1929000.505 ops/s
+# Warmup Iteration   5: 1631573.968 ops/s
+Iteration   1: 1708561.185 ops/s
+Iteration   2: 1791899.467 ops/s
+Iteration   3: 2131708.045 ops/s
+Iteration   4: 1884980.964 ops/s
+Iteration   5: 1394512.690 ops/s
+
+# Run progress: 57.00% complete, ETA 02:23:39
+# Fork: 5 of 5
+# Warmup Iteration   1: 2190835.073 ops/s
+# Warmup Iteration   2: 2168098.494 ops/s
+# Warmup Iteration   3: 2217516.218 ops/s
+# Warmup Iteration   4: 2221193.594 ops/s
+# Warmup Iteration   5: 2221248.184 ops/s
+Iteration   1: 2213833.092 ops/s
+Iteration   2: 2216932.045 ops/s
+Iteration   3: 2212984.774 ops/s
+Iteration   4: 2214549.417 ops/s
+Iteration   5: 2213173.864 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  2056829.604 ±(99.9%) 186993.567 ops/s [Average]
+  (min, avg, max) = (1394512.690, 2056829.604, 2243006.173), stdev = 249631.062
+  CI (99.9%): [1869836.037, 2243823.170] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 64, length = 2048)
+
+# Run progress: 57.50% complete, ETA 02:21:58
+# Fork: 1 of 5
+# Warmup Iteration   1: 1299009.916 ops/s
+# Warmup Iteration   2: 1294607.767 ops/s
+# Warmup Iteration   3: 1163485.519 ops/s
+# Warmup Iteration   4: 1152977.397 ops/s
+# Warmup Iteration   5: 1145856.109 ops/s
+Iteration   1: 1150361.974 ops/s
+Iteration   2: 1150974.531 ops/s
+Iteration   3: 1149170.377 ops/s
+Iteration   4: 1150310.599 ops/s
+Iteration   5: 1150984.580 ops/s
+
+# Run progress: 58.00% complete, ETA 02:20:18
+# Fork: 2 of 5
+# Warmup Iteration   1: 1299008.843 ops/s
+# Warmup Iteration   2: 1283438.792 ops/s
+# Warmup Iteration   3: 690938.479 ops/s
+# Warmup Iteration   4: 684706.979 ops/s
+# Warmup Iteration   5: 684673.745 ops/s
+Iteration   1: 747407.485 ops/s
+Iteration   2: 703641.612 ops/s
+Iteration   3: 684221.783 ops/s
+Iteration   4: 686692.092 ops/s
+Iteration   5: 684580.243 ops/s
+
+# Run progress: 58.50% complete, ETA 02:18:38
+# Fork: 3 of 5
+# Warmup Iteration   1: 1297823.001 ops/s
+# Warmup Iteration   2: 1223309.463 ops/s
+# Warmup Iteration   3: 1160246.858 ops/s
+# Warmup Iteration   4: 1158821.819 ops/s
+# Warmup Iteration   5: 1157516.917 ops/s
+Iteration   1: 1158516.383 ops/s
+Iteration   2: 1159199.908 ops/s
+Iteration   3: 1159421.826 ops/s
+Iteration   4: 1159578.107 ops/s
+Iteration   5: 1158208.768 ops/s
+
+# Run progress: 59.00% complete, ETA 02:16:58
+# Fork: 4 of 5
+# Warmup Iteration   1: 1297307.205 ops/s
+# Warmup Iteration   2: 1295038.518 ops/s
+# Warmup Iteration   3: 1166855.578 ops/s
+# Warmup Iteration   4: 1167076.452 ops/s
+# Warmup Iteration   5: 1168144.923 ops/s
+Iteration   1: 1169042.080 ops/s
+Iteration   2: 1170776.344 ops/s
+Iteration   3: 1170781.448 ops/s
+Iteration   4: 1170768.466 ops/s
+Iteration   5: 1171148.335 ops/s
+
+# Run progress: 59.50% complete, ETA 02:15:17
+# Fork: 5 of 5
+# Warmup Iteration   1: 1294924.243 ops/s
+# Warmup Iteration   2: 1278295.059 ops/s
+# Warmup Iteration   3: 699870.548 ops/s
+# Warmup Iteration   4: 694928.289 ops/s
+# Warmup Iteration   5: 700436.741 ops/s
+Iteration   1: 772290.185 ops/s
+Iteration   2: 684255.713 ops/s
+Iteration   3: 1152732.102 ops/s
+Iteration   4: 717800.082 ops/s
+Iteration   5: 685917.995 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  996751.321 ±(99.9%) 166566.970 ops/s [Average]
+  (min, avg, max) = (684221.783, 996751.321, 1171148.335), stdev = 222362.140
+  CI (99.9%): [830184.351, 1163318.291] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 64, length = 4096)
+
+# Run progress: 60.00% complete, ETA 02:13:37
+# Fork: 1 of 5
+# Warmup Iteration   1: 705403.446 ops/s
+# Warmup Iteration   2: 712667.462 ops/s
+# Warmup Iteration   3: 718964.234 ops/s
+# Warmup Iteration   4: 719075.417 ops/s
+# Warmup Iteration   5: 718538.453 ops/s
+Iteration   1: 719032.805 ops/s
+Iteration   2: 719326.127 ops/s
+Iteration   3: 719443.144 ops/s
+Iteration   4: 718668.392 ops/s
+Iteration   5: 719585.268 ops/s
+
+# Run progress: 60.50% complete, ETA 02:11:57
+# Fork: 2 of 5
+# Warmup Iteration   1: 704491.209 ops/s
+# Warmup Iteration   2: 714606.148 ops/s
+# Warmup Iteration   3: 720184.754 ops/s
+# Warmup Iteration   4: 720694.741 ops/s
+# Warmup Iteration   5: 720321.470 ops/s
+Iteration   1: 720769.535 ops/s
+Iteration   2: 720159.530 ops/s
+Iteration   3: 720758.739 ops/s
+Iteration   4: 720703.200 ops/s
+Iteration   5: 721858.161 ops/s
+
+# Run progress: 61.00% complete, ETA 02:10:17
+# Fork: 3 of 5
+# Warmup Iteration   1: 705396.241 ops/s
+# Warmup Iteration   2: 711790.215 ops/s
+# Warmup Iteration   3: 720363.477 ops/s
+# Warmup Iteration   4: 719195.135 ops/s
+# Warmup Iteration   5: 716288.423 ops/s
+Iteration   1: 716547.125 ops/s
+Iteration   2: 716150.850 ops/s
+Iteration   3: 716986.321 ops/s
+Iteration   4: 716130.634 ops/s
+Iteration   5: 717940.257 ops/s
+
+# Run progress: 61.50% complete, ETA 02:08:37
+# Fork: 4 of 5
+# Warmup Iteration   1: 705362.309 ops/s
+# Warmup Iteration   2: 713003.825 ops/s
+# Warmup Iteration   3: 719159.540 ops/s
+# Warmup Iteration   4: 718798.354 ops/s
+# Warmup Iteration   5: 719525.938 ops/s
+Iteration   1: 718778.448 ops/s
+Iteration   2: 719066.576 ops/s
+Iteration   3: 720344.870 ops/s
+Iteration   4: 722336.227 ops/s
+Iteration   5: 717273.641 ops/s
+
+# Run progress: 62.00% complete, ETA 02:06:56
+# Fork: 5 of 5
+# Warmup Iteration   1: 706323.433 ops/s
+# Warmup Iteration   2: 715786.885 ops/s
+# Warmup Iteration   3: 717587.379 ops/s
+# Warmup Iteration   4: 717097.814 ops/s
+# Warmup Iteration   5: 716079.610 ops/s
+Iteration   1: 716519.980 ops/s
+Iteration   2: 715960.577 ops/s
+Iteration   3: 716496.808 ops/s
+Iteration   4: 715467.540 ops/s
+Iteration   5: 714850.096 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  718446.194 ±(99.9%) 1578.710 ops/s [Average]
+  (min, avg, max) = (714850.096, 718446.194, 722336.227), stdev = 2107.532
+  CI (99.9%): [716867.484, 720024.904] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 128, length = 256)
+
+# Run progress: 62.50% complete, ETA 02:05:16
+# Fork: 1 of 5
+# Warmup Iteration   1: 4716897.082 ops/s
+# Warmup Iteration   2: 4742859.247 ops/s
+# Warmup Iteration   3: 4777767.642 ops/s
+# Warmup Iteration   4: 4799570.358 ops/s
+# Warmup Iteration   5: 4797819.275 ops/s
+Iteration   1: 4804216.295 ops/s
+Iteration   2: 4793006.513 ops/s
+Iteration   3: 4796403.612 ops/s
+Iteration   4: 4794219.425 ops/s
+Iteration   5: 4789800.774 ops/s
+
+# Run progress: 63.00% complete, ETA 02:03:36
+# Fork: 2 of 5
+# Warmup Iteration   1: 4742235.855 ops/s
+# Warmup Iteration   2: 4619091.528 ops/s
+# Warmup Iteration   3: 4564438.425 ops/s
+# Warmup Iteration   4: 4569575.584 ops/s
+# Warmup Iteration   5: 4494513.679 ops/s
+Iteration   1: 4549537.651 ops/s
+Iteration   2: 4527608.166 ops/s
+Iteration   3: 4534032.141 ops/s
+Iteration   4: 4548388.007 ops/s
+Iteration   5: 4534262.589 ops/s
+
+# Run progress: 63.50% complete, ETA 02:01:56
+# Fork: 3 of 5
+# Warmup Iteration   1: 4587439.310 ops/s
+# Warmup Iteration   2: 4600324.670 ops/s
+# Warmup Iteration   3: 4608062.567 ops/s
+# Warmup Iteration   4: 4675341.114 ops/s
+# Warmup Iteration   5: 4723814.901 ops/s
+Iteration   1: 4741642.879 ops/s
+Iteration   2: 4758492.562 ops/s
+Iteration   3: 4749902.756 ops/s
+Iteration   4: 4741213.554 ops/s
+Iteration   5: 4705277.859 ops/s
+
+# Run progress: 64.00% complete, ETA 02:00:16
+# Fork: 4 of 5
+# Warmup Iteration   1: 4703600.569 ops/s
+# Warmup Iteration   2: 4472551.042 ops/s
+# Warmup Iteration   3: 4602676.291 ops/s
+# Warmup Iteration   4: 4664898.468 ops/s
+# Warmup Iteration   5: 4662505.978 ops/s
+Iteration   1: 4652073.042 ops/s
+Iteration   2: 4642997.306 ops/s
+Iteration   3: 4653044.515 ops/s
+Iteration   4: 4652009.998 ops/s
+Iteration   5: 4693325.802 ops/s
+
+# Run progress: 64.50% complete, ETA 01:58:35
+# Fork: 5 of 5
+# Warmup Iteration   1: 4787611.789 ops/s
+# Warmup Iteration   2: 4756848.198 ops/s
+# Warmup Iteration   3: 4710209.505 ops/s
+# Warmup Iteration   4: 4685539.131 ops/s
+# Warmup Iteration   5: 4731982.319 ops/s
+Iteration   1: 4731132.568 ops/s
+Iteration   2: 4726004.879 ops/s
+Iteration   3: 4709416.466 ops/s
+Iteration   4: 4718211.528 ops/s
+Iteration   5: 4721873.239 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  4690723.765 ±(99.9%) 67688.624 ops/s [Average]
+  (min, avg, max) = (4527608.166, 4690723.765, 4804216.295), stdev = 90362.376
+  CI (99.9%): [4623035.141, 4758412.389] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 128, length = 512)
+
+# Run progress: 65.00% complete, ETA 01:56:55
+# Fork: 1 of 5
+# Warmup Iteration   1: 2739101.963 ops/s
+# Warmup Iteration   2: 2672503.248 ops/s
+# Warmup Iteration   3: 2758779.362 ops/s
+# Warmup Iteration   4: 2760471.435 ops/s
+# Warmup Iteration   5: 2741026.225 ops/s
+Iteration   1: 2739156.367 ops/s
+Iteration   2: 2746922.793 ops/s
+Iteration   3: 2748534.660 ops/s
+Iteration   4: 2741275.634 ops/s
+Iteration   5: 2487948.482 ops/s
+
+# Run progress: 65.50% complete, ETA 01:55:15
+# Fork: 2 of 5
+# Warmup Iteration   1: 2769851.865 ops/s
+# Warmup Iteration   2: 2671372.544 ops/s
+# Warmup Iteration   3: 2517064.314 ops/s
+# Warmup Iteration   4: 2138886.482 ops/s
+# Warmup Iteration   5: 2141973.849 ops/s
+Iteration   1: 2184442.480 ops/s
+Iteration   2: 2152756.766 ops/s
+Iteration   3: 2165490.243 ops/s
+Iteration   4: 2165163.002 ops/s
+Iteration   5: 2167451.459 ops/s
+
+# Run progress: 66.00% complete, ETA 01:53:35
+# Fork: 3 of 5
+# Warmup Iteration   1: 2703890.905 ops/s
+# Warmup Iteration   2: 2274052.125 ops/s
+# Warmup Iteration   3: 2732937.348 ops/s
+# Warmup Iteration   4: 2757760.698 ops/s
+# Warmup Iteration   5: 2739345.535 ops/s
+Iteration   1: 2619742.890 ops/s
+Iteration   2: 2745093.638 ops/s
+Iteration   3: 2740138.379 ops/s
+Iteration   4: 2731941.517 ops/s
+Iteration   5: 2745983.861 ops/s
+
+# Run progress: 66.50% complete, ETA 01:51:54
+# Fork: 4 of 5
+# Warmup Iteration   1: 2693929.376 ops/s
+# Warmup Iteration   2: 2247476.947 ops/s
+# Warmup Iteration   3: 2776042.974 ops/s
+# Warmup Iteration   4: 2774157.668 ops/s
+# Warmup Iteration   5: 2791918.180 ops/s
+Iteration   1: 2790505.878 ops/s
+Iteration   2: 2783765.386 ops/s
+Iteration   3: 2783674.374 ops/s
+Iteration   4: 2782953.675 ops/s
+Iteration   5: 2788356.838 ops/s
+
+# Run progress: 67.00% complete, ETA 01:50:14
+# Fork: 5 of 5
+# Warmup Iteration   1: 2770621.194 ops/s
+# Warmup Iteration   2: 2740529.228 ops/s
+# Warmup Iteration   3: 2730369.468 ops/s
+# Warmup Iteration   4: 2274611.347 ops/s
+# Warmup Iteration   5: 2284343.239 ops/s
+Iteration   1: 2294427.682 ops/s
+Iteration   2: 2284739.864 ops/s
+Iteration   3: 2407335.724 ops/s
+Iteration   4: 2741732.314 ops/s
+Iteration   5: 2741727.403 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  2571250.452 ±(99.9%) 189452.395 ops/s [Average]
+  (min, avg, max) = (2152756.766, 2571250.452, 2790505.878), stdev = 252913.526
+  CI (99.9%): [2381798.058, 2760702.847] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 128, length = 1024)
+
+# Run progress: 67.50% complete, ETA 01:48:34
+# Fork: 1 of 5
+# Warmup Iteration   1: 1670215.346 ops/s
+# Warmup Iteration   2: 1623050.333 ops/s
+# Warmup Iteration   3: 1707390.441 ops/s
+# Warmup Iteration   4: 1706075.284 ops/s
+# Warmup Iteration   5: 1710522.767 ops/s
+Iteration   1: 1709808.923 ops/s
+Iteration   2: 1711551.608 ops/s
+Iteration   3: 1712958.888 ops/s
+Iteration   4: 1714007.719 ops/s
+Iteration   5: 1713036.103 ops/s
+
+# Run progress: 68.00% complete, ETA 01:46:54
+# Fork: 2 of 5
+# Warmup Iteration   1: 1691697.318 ops/s
+# Warmup Iteration   2: 1661957.399 ops/s
+# Warmup Iteration   3: 1712622.836 ops/s
+# Warmup Iteration   4: 1731505.659 ops/s
+# Warmup Iteration   5: 1733038.015 ops/s
+Iteration   1: 1731357.329 ops/s
+Iteration   2: 1733806.655 ops/s
+Iteration   3: 1727181.456 ops/s
+Iteration   4: 1728404.937 ops/s
+Iteration   5: 1726134.247 ops/s
+
+# Run progress: 68.50% complete, ETA 01:45:14
+# Fork: 3 of 5
+# Warmup Iteration   1: 1662160.661 ops/s
+# Warmup Iteration   2: 1456131.025 ops/s
+# Warmup Iteration   3: 1717970.964 ops/s
+# Warmup Iteration   4: 1723083.107 ops/s
+# Warmup Iteration   5: 1719107.395 ops/s
+Iteration   1: 1718174.838 ops/s
+Iteration   2: 1718100.254 ops/s
+Iteration   3: 1725312.067 ops/s
+Iteration   4: 1724742.341 ops/s
+Iteration   5: 1722901.695 ops/s
+
+# Run progress: 69.00% complete, ETA 01:43:33
+# Fork: 4 of 5
+# Warmup Iteration   1: 1666687.402 ops/s
+# Warmup Iteration   2: 1663609.771 ops/s
+# Warmup Iteration   3: 1630581.153 ops/s
+# Warmup Iteration   4: 1714677.201 ops/s
+# Warmup Iteration   5: 1712429.903 ops/s
+Iteration   1: 1714813.493 ops/s
+Iteration   2: 1714827.323 ops/s
+Iteration   3: 1714759.211 ops/s
+Iteration   4: 1714890.705 ops/s
+Iteration   5: 1713502.318 ops/s
+
+# Run progress: 69.50% complete, ETA 01:41:53
+# Fork: 5 of 5
+# Warmup Iteration   1: 1638539.118 ops/s
+# Warmup Iteration   2: 1155019.574 ops/s
+# Warmup Iteration   3: 1702870.867 ops/s
+# Warmup Iteration   4: 1708804.188 ops/s
+# Warmup Iteration   5: 1707810.475 ops/s
+Iteration   1: 1706916.082 ops/s
+Iteration   2: 1702590.088 ops/s
+Iteration   3: 1708924.903 ops/s
+Iteration   4: 1708080.362 ops/s
+Iteration   5: 1709162.449 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  1717037.840 ±(99.9%) 6194.662 ops/s [Average]
+  (min, avg, max) = (1702590.088, 1717037.840, 1733806.655), stdev = 8269.696
+  CI (99.9%): [1710843.178, 1723232.501] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 128, length = 2048)
+
+# Run progress: 70.00% complete, ETA 01:40:13
+# Fork: 1 of 5
+# Warmup Iteration   1: 1114770.851 ops/s
+# Warmup Iteration   2: 1090879.801 ops/s
+# Warmup Iteration   3: 1139917.737 ops/s
+# Warmup Iteration   4: 1142524.761 ops/s
+# Warmup Iteration   5: 1139401.220 ops/s
+Iteration   1: 1141580.713 ops/s
+Iteration   2: 1096508.814 ops/s
+Iteration   3: 1057727.753 ops/s
+Iteration   4: 1138618.149 ops/s
+Iteration   5: 1141588.131 ops/s
+
+# Run progress: 70.50% complete, ETA 01:38:33
+# Fork: 2 of 5
+# Warmup Iteration   1: 757523.792 ops/s
+# Warmup Iteration   2: 1133078.036 ops/s
+# Warmup Iteration   3: 1052707.183 ops/s
+# Warmup Iteration   4: 1029192.815 ops/s
+# Warmup Iteration   5: 1034979.184 ops/s
+Iteration   1: 1035028.794 ops/s
+Iteration   2: 1038093.377 ops/s
+Iteration   3: 1033142.300 ops/s
+Iteration   4: 1035717.428 ops/s
+Iteration   5: 1036529.345 ops/s
+
+# Run progress: 71.00% complete, ETA 01:36:52
+# Fork: 3 of 5
+# Warmup Iteration   1: 685474.145 ops/s
+# Warmup Iteration   2: 1086537.221 ops/s
+# Warmup Iteration   3: 1054960.137 ops/s
+# Warmup Iteration   4: 1050718.724 ops/s
+# Warmup Iteration   5: 1049535.022 ops/s
+Iteration   1: 1050386.195 ops/s
+Iteration   2: 1049452.468 ops/s
+Iteration   3: 1050444.923 ops/s
+Iteration   4: 1050490.080 ops/s
+Iteration   5: 1049022.014 ops/s
+
+# Run progress: 71.50% complete, ETA 01:35:12
+# Fork: 4 of 5
+# Warmup Iteration   1: 1124255.686 ops/s
+# Warmup Iteration   2: 1060759.854 ops/s
+# Warmup Iteration   3: 1100360.786 ops/s
+# Warmup Iteration   4: 1056793.938 ops/s
+# Warmup Iteration   5: 1074021.943 ops/s
+Iteration   1: 1057302.077 ops/s
+Iteration   2: 1054130.457 ops/s
+Iteration   3: 1099734.623 ops/s
+Iteration   4: 1054666.967 ops/s
+Iteration   5: 1054927.526 ops/s
+
+# Run progress: 72.00% complete, ETA 01:33:32
+# Fork: 5 of 5
+# Warmup Iteration   1: 1113779.031 ops/s
+# Warmup Iteration   2: 1109089.824 ops/s
+# Warmup Iteration   3: 1130490.174 ops/s
+# Warmup Iteration   4: 1117821.909 ops/s
+# Warmup Iteration   5: 1078796.649 ops/s
+Iteration   1: 1049764.859 ops/s
+Iteration   2: 1052402.908 ops/s
+Iteration   3: 1052307.651 ops/s
+Iteration   4: 1044999.093 ops/s
+Iteration   5: 1049552.960 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  1062964.784 ±(99.9%) 24803.172 ops/s [Average]
+  (min, avg, max) = (1033142.300, 1062964.784, 1141588.131), stdev = 33111.526
+  CI (99.9%): [1038161.612, 1087767.957] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 128, length = 4096)
+
+# Run progress: 72.50% complete, ETA 01:31:52
+# Fork: 1 of 5
+# Warmup Iteration   1: 664557.135 ops/s
+# Warmup Iteration   2: 620561.491 ops/s
+# Warmup Iteration   3: 649277.316 ops/s
+# Warmup Iteration   4: 647152.991 ops/s
+# Warmup Iteration   5: 644998.372 ops/s
+Iteration   1: 647038.707 ops/s
+Iteration   2: 648557.503 ops/s
+Iteration   3: 647237.754 ops/s
+Iteration   4: 647466.431 ops/s
+Iteration   5: 649095.023 ops/s
+
+# Run progress: 73.00% complete, ETA 01:30:12
+# Fork: 2 of 5
+# Warmup Iteration   1: 663966.732 ops/s
+# Warmup Iteration   2: 337595.733 ops/s
+# Warmup Iteration   3: 647810.828 ops/s
+# Warmup Iteration   4: 648115.079 ops/s
+# Warmup Iteration   5: 647500.422 ops/s
+Iteration   1: 648832.293 ops/s
+Iteration   2: 649245.995 ops/s
+Iteration   3: 648954.149 ops/s
+Iteration   4: 648625.887 ops/s
+Iteration   5: 648809.260 ops/s
+
+# Run progress: 73.50% complete, ETA 01:28:31
+# Fork: 3 of 5
+# Warmup Iteration   1: 661481.882 ops/s
+# Warmup Iteration   2: 536086.764 ops/s
+# Warmup Iteration   3: 652215.057 ops/s
+# Warmup Iteration   4: 652957.774 ops/s
+# Warmup Iteration   5: 654440.977 ops/s
+Iteration   1: 654692.222 ops/s
+Iteration   2: 653416.085 ops/s
+Iteration   3: 655015.555 ops/s
+Iteration   4: 653489.273 ops/s
+Iteration   5: 654560.586 ops/s
+
+# Run progress: 74.00% complete, ETA 01:26:51
+# Fork: 4 of 5
+# Warmup Iteration   1: 662239.100 ops/s
+# Warmup Iteration   2: 627602.020 ops/s
+# Warmup Iteration   3: 652696.606 ops/s
+# Warmup Iteration   4: 652359.059 ops/s
+# Warmup Iteration   5: 651508.768 ops/s
+Iteration   1: 650278.825 ops/s
+Iteration   2: 653234.802 ops/s
+Iteration   3: 652887.556 ops/s
+Iteration   4: 652195.327 ops/s
+Iteration   5: 651908.380 ops/s
+
+# Run progress: 74.50% complete, ETA 01:25:11
+# Fork: 5 of 5
+# Warmup Iteration   1: 665851.703 ops/s
+# Warmup Iteration   2: 629628.690 ops/s
+# Warmup Iteration   3: 644556.212 ops/s
+# Warmup Iteration   4: 648189.649 ops/s
+# Warmup Iteration   5: 646563.611 ops/s
+Iteration   1: 652671.304 ops/s
+Iteration   2: 649690.978 ops/s
+Iteration   3: 649304.250 ops/s
+Iteration   4: 650117.135 ops/s
+Iteration   5: 650486.197 ops/s
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  650712.459 ±(99.9%) 1850.614 ops/s [Average]
+  (min, avg, max) = (647038.707, 650712.459, 655015.555), stdev = 2470.517
+  CI (99.9%): [648861.845, 652563.073] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.XorCount.fissured
+# Parameters: (size = 256)
+
+# Run progress: 75.00% complete, ETA 01:23:31
+# Fork: 1 of 5
+# Warmup Iteration   1: 11612418.530 ops/s
+# Warmup Iteration   2: 11639081.519 ops/s
+# Warmup Iteration   3: 11479673.728 ops/s
+# Warmup Iteration   4: 11477267.815 ops/s
+# Warmup Iteration   5: 11478832.496 ops/s
+Iteration   1: 11479971.480 ops/s
+Iteration   2: 11481356.159 ops/s
+Iteration   3: 11479427.463 ops/s
+Iteration   4: 11477008.504 ops/s
+Iteration   5: 11483201.939 ops/s
+
+# Run progress: 75.50% complete, ETA 01:21:50
+# Fork: 2 of 5
+# Warmup Iteration   1: 11604187.440 ops/s
+# Warmup Iteration   2: 11639965.129 ops/s
+# Warmup Iteration   3: 11474067.761 ops/s
+# Warmup Iteration   4: 11489784.734 ops/s
+# Warmup Iteration   5: 11488642.800 ops/s
+Iteration   1: 11494325.644 ops/s
+Iteration   2: 11464194.127 ops/s
+Iteration   3: 11471617.519 ops/s
+Iteration   4: 11488181.709 ops/s
+Iteration   5: 11487793.504 ops/s
+
+# Run progress: 76.00% complete, ETA 01:20:10
+# Fork: 3 of 5
+# Warmup Iteration   1: 11610664.095 ops/s
+# Warmup Iteration   2: 11626080.495 ops/s
+# Warmup Iteration   3: 11464301.188 ops/s
+# Warmup Iteration   4: 11477865.646 ops/s
+# Warmup Iteration   5: 11476516.354 ops/s
+Iteration   1: 11479418.578 ops/s
+Iteration   2: 11481436.166 ops/s
+Iteration   3: 11479337.877 ops/s
+Iteration   4: 11479940.331 ops/s
+Iteration   5: 11481832.648 ops/s
+
+# Run progress: 76.50% complete, ETA 01:18:30
+# Fork: 4 of 5
+# Warmup Iteration   1: 11610686.043 ops/s
+# Warmup Iteration   2: 11644286.078 ops/s
+# Warmup Iteration   3: 11476789.484 ops/s
+# Warmup Iteration   4: 11479722.620 ops/s
+# Warmup Iteration   5: 11481332.374 ops/s
+Iteration   1: 11481312.711 ops/s
+Iteration   2: 11477469.977 ops/s
+Iteration   3: 11481321.388 ops/s
+Iteration   4: 11480326.618 ops/s
+Iteration   5: 11476429.362 ops/s
+
+# Run progress: 77.00% complete, ETA 01:16:50
+# Fork: 5 of 5
+# Warmup Iteration   1: 11599814.372 ops/s
+# Warmup Iteration   2: 11649582.456 ops/s
+# Warmup Iteration   3: 11474042.325 ops/s
+# Warmup Iteration   4: 11476267.382 ops/s
+# Warmup Iteration   5: 11473733.247 ops/s
+Iteration   1: 11477344.579 ops/s
+Iteration   2: 11381314.586 ops/s
+Iteration   3: 11478131.731 ops/s
+Iteration   4: 11475299.902 ops/s
+Iteration   5: 11476643.328 ops/s
+
+
+Result "com.openkappa.runtime.fission.XorCount.fissured":
+  11475785.513 ±(99.9%) 15322.568 ops/s [Average]
+  (min, avg, max) = (11381314.586, 11475785.513, 11494325.644), stdev = 20455.190
+  CI (99.9%): [11460462.945, 11491108.081] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.XorCount.fissured
+# Parameters: (size = 512)
+
+# Run progress: 77.50% complete, ETA 01:15:10
+# Fork: 1 of 5
+# Warmup Iteration   1: 5857767.226 ops/s
+# Warmup Iteration   2: 5891828.834 ops/s
+# Warmup Iteration   3: 5841922.658 ops/s
+# Warmup Iteration   4: 5842369.920 ops/s
+# Warmup Iteration   5: 5842510.143 ops/s
+Iteration   1: 5842158.571 ops/s
+Iteration   2: 5842249.895 ops/s
+Iteration   3: 5843626.765 ops/s
+Iteration   4: 5842941.279 ops/s
+Iteration   5: 5841698.875 ops/s
+
+# Run progress: 78.00% complete, ETA 01:13:29
+# Fork: 2 of 5
+# Warmup Iteration   1: 5866228.520 ops/s
+# Warmup Iteration   2: 5891328.041 ops/s
+# Warmup Iteration   3: 5843141.779 ops/s
+# Warmup Iteration   4: 5847435.550 ops/s
+# Warmup Iteration   5: 5843164.619 ops/s
+Iteration   1: 5843226.204 ops/s
+Iteration   2: 5842989.844 ops/s
+Iteration   3: 5843338.494 ops/s
+Iteration   4: 5843037.096 ops/s
+Iteration   5: 5843466.494 ops/s
+
+# Run progress: 78.50% complete, ETA 01:11:49
+# Fork: 3 of 5
+# Warmup Iteration   1: 5871153.216 ops/s
+# Warmup Iteration   2: 5892618.398 ops/s
+# Warmup Iteration   3: 5842390.398 ops/s
+# Warmup Iteration   4: 5842515.937 ops/s
+# Warmup Iteration   5: 5842110.662 ops/s
+Iteration   1: 5842642.611 ops/s
+Iteration   2: 5843091.701 ops/s
+Iteration   3: 5842951.116 ops/s
+Iteration   4: 5842887.447 ops/s
+Iteration   5: 5842899.924 ops/s
+
+# Run progress: 79.00% complete, ETA 01:10:09
+# Fork: 4 of 5
+# Warmup Iteration   1: 5829104.046 ops/s
+# Warmup Iteration   2: 5847847.572 ops/s
+# Warmup Iteration   3: 5811068.588 ops/s
+# Warmup Iteration   4: 5812409.436 ops/s
+# Warmup Iteration   5: 5813399.680 ops/s
+Iteration   1: 5813779.680 ops/s
+Iteration   2: 5808062.077 ops/s
+Iteration   3: 5813649.215 ops/s
+Iteration   4: 5812205.254 ops/s
+Iteration   5: 5811349.953 ops/s
+
+# Run progress: 79.50% complete, ETA 01:08:29
+# Fork: 5 of 5
+# Warmup Iteration   1: 5869255.873 ops/s
+# Warmup Iteration   2: 5892835.239 ops/s
+# Warmup Iteration   3: 5844190.885 ops/s
+# Warmup Iteration   4: 5844145.272 ops/s
+# Warmup Iteration   5: 5844799.582 ops/s
+Iteration   1: 5844254.683 ops/s
+Iteration   2: 5844827.958 ops/s
+Iteration   3: 5844382.576 ops/s
+Iteration   4: 5844395.082 ops/s
+Iteration   5: 5844009.059 ops/s
+
+
+Result "com.openkappa.runtime.fission.XorCount.fissured":
+  5836964.874 ±(99.9%) 9657.423 ops/s [Average]
+  (min, avg, max) = (5808062.077, 5836964.874, 5844827.958), stdev = 12892.383
+  CI (99.9%): [5827307.451, 5846622.297] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.XorCount.fissured
+# Parameters: (size = 1024)
+
+# Run progress: 80.00% complete, ETA 01:06:48
+# Fork: 1 of 5
+# Warmup Iteration   1: 2915104.143 ops/s
+# Warmup Iteration   2: 2919838.924 ops/s
+# Warmup Iteration   3: 2910208.566 ops/s
+# Warmup Iteration   4: 2909333.919 ops/s
+# Warmup Iteration   5: 2910433.360 ops/s
+Iteration   1: 2909470.402 ops/s
+Iteration   2: 2909028.820 ops/s
+Iteration   3: 2909474.258 ops/s
+Iteration   4: 2909386.569 ops/s
+Iteration   5: 2906585.354 ops/s
+
+# Run progress: 80.50% complete, ETA 01:05:08
+# Fork: 2 of 5
+# Warmup Iteration   1: 2912383.135 ops/s
+# Warmup Iteration   2: 2919352.797 ops/s
+# Warmup Iteration   3: 2901574.089 ops/s
+# Warmup Iteration   4: 2898755.651 ops/s
+# Warmup Iteration   5: 2910299.540 ops/s
+Iteration   1: 2910251.338 ops/s
+Iteration   2: 2910243.759 ops/s
+Iteration   3: 2910099.943 ops/s
+Iteration   4: 2910285.788 ops/s
+Iteration   5: 2910386.094 ops/s
+
+# Run progress: 81.00% complete, ETA 01:03:28
+# Fork: 3 of 5
+# Warmup Iteration   1: 2890197.564 ops/s
+# Warmup Iteration   2: 2921238.262 ops/s
+# Warmup Iteration   3: 2911163.635 ops/s
+# Warmup Iteration   4: 2911143.493 ops/s
+# Warmup Iteration   5: 2911369.526 ops/s
+Iteration   1: 2911568.395 ops/s
+Iteration   2: 2911616.220 ops/s
+Iteration   3: 2911665.755 ops/s
+Iteration   4: 2911625.773 ops/s
+Iteration   5: 2911434.883 ops/s
+
+# Run progress: 81.50% complete, ETA 01:01:48
+# Fork: 4 of 5
+# Warmup Iteration   1: 2910959.316 ops/s
+# Warmup Iteration   2: 2919322.331 ops/s
+# Warmup Iteration   3: 2911175.382 ops/s
+# Warmup Iteration   4: 2911714.205 ops/s
+# Warmup Iteration   5: 2911707.575 ops/s
+Iteration   1: 2911274.446 ops/s
+Iteration   2: 2879168.092 ops/s
+Iteration   3: 2911505.448 ops/s
+Iteration   4: 2911622.142 ops/s
+Iteration   5: 2911653.743 ops/s
+
+# Run progress: 82.00% complete, ETA 01:00:08
+# Fork: 5 of 5
+# Warmup Iteration   1: 2909316.618 ops/s
+# Warmup Iteration   2: 2918072.283 ops/s
+# Warmup Iteration   3: 2909620.588 ops/s
+# Warmup Iteration   4: 2909105.064 ops/s
+# Warmup Iteration   5: 2908026.937 ops/s
+Iteration   1: 2905295.567 ops/s
+Iteration   2: 2907072.219 ops/s
+Iteration   3: 2907122.730 ops/s
+Iteration   4: 2906271.163 ops/s
+Iteration   5: 2906167.777 ops/s
+
+
+Result "com.openkappa.runtime.fission.XorCount.fissured":
+  2908411.067 ±(99.9%) 4812.913 ops/s [Average]
+  (min, avg, max) = (2879168.092, 2908411.067, 2911665.755), stdev = 6425.102
+  CI (99.9%): [2903598.154, 2913223.981] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.XorCount.fissured
+# Parameters: (size = 2048)
+
+# Run progress: 82.50% complete, ETA 00:58:27
+# Fork: 1 of 5
+# Warmup Iteration   1: 1457478.329 ops/s
+# Warmup Iteration   2: 1459372.362 ops/s
+# Warmup Iteration   3: 1454936.746 ops/s
+# Warmup Iteration   4: 1456981.864 ops/s
+# Warmup Iteration   5: 1457017.932 ops/s
+Iteration   1: 1456156.550 ops/s
+Iteration   2: 1456540.854 ops/s
+Iteration   3: 1451822.048 ops/s
+Iteration   4: 1455971.016 ops/s
+Iteration   5: 1456708.227 ops/s
+
+# Run progress: 83.00% complete, ETA 00:56:47
+# Fork: 2 of 5
+# Warmup Iteration   1: 1457356.635 ops/s
+# Warmup Iteration   2: 1460917.620 ops/s
+# Warmup Iteration   3: 1455778.192 ops/s
+# Warmup Iteration   4: 1455596.580 ops/s
+# Warmup Iteration   5: 1456327.695 ops/s
+Iteration   1: 1455968.684 ops/s
+Iteration   2: 1456617.254 ops/s
+Iteration   3: 1457386.740 ops/s
+Iteration   4: 1455683.506 ops/s
+Iteration   5: 1456682.487 ops/s
+
+# Run progress: 83.50% complete, ETA 00:55:07
+# Fork: 3 of 5
+# Warmup Iteration   1: 1457722.918 ops/s
+# Warmup Iteration   2: 1461065.895 ops/s
+# Warmup Iteration   3: 1456099.741 ops/s
+# Warmup Iteration   4: 1456100.114 ops/s
+# Warmup Iteration   5: 1456817.278 ops/s
+Iteration   1: 1456097.241 ops/s
+Iteration   2: 1455410.360 ops/s
+Iteration   3: 1456019.880 ops/s
+Iteration   4: 1454543.665 ops/s
+Iteration   5: 1454665.514 ops/s
+
+# Run progress: 84.00% complete, ETA 00:53:27
+# Fork: 4 of 5
+# Warmup Iteration   1: 1454748.495 ops/s
+# Warmup Iteration   2: 1459463.305 ops/s
+# Warmup Iteration   3: 1452595.323 ops/s
+# Warmup Iteration   4: 1451933.255 ops/s
+# Warmup Iteration   5: 1452897.109 ops/s
+Iteration   1: 1452001.105 ops/s
+Iteration   2: 1452201.455 ops/s
+Iteration   3: 1452956.994 ops/s
+Iteration   4: 1450485.956 ops/s
+Iteration   5: 1450986.290 ops/s
+
+# Run progress: 84.50% complete, ETA 00:51:46
+# Fork: 5 of 5
+# Warmup Iteration   1: 1456752.692 ops/s
+# Warmup Iteration   2: 1458473.189 ops/s
+# Warmup Iteration   3: 1450532.331 ops/s
+# Warmup Iteration   4: 1450947.523 ops/s
+# Warmup Iteration   5: 1436625.629 ops/s
+Iteration   1: 1450649.318 ops/s
+Iteration   2: 1450855.251 ops/s
+Iteration   3: 1453398.873 ops/s
+Iteration   4: 1449941.211 ops/s
+Iteration   5: 1451135.218 ops/s
+
+
+Result "com.openkappa.runtime.fission.XorCount.fissured":
+  1454035.428 ±(99.9%) 1849.948 ops/s [Average]
+  (min, avg, max) = (1449941.211, 1454035.428, 1457386.740), stdev = 2469.628
+  CI (99.9%): [1452185.480, 1455885.376] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.XorCount.fissured
+# Parameters: (size = 4096)
+
+# Run progress: 85.00% complete, ETA 00:50:06
+# Fork: 1 of 5
+# Warmup Iteration   1: 659816.430 ops/s
+# Warmup Iteration   2: 660068.380 ops/s
+# Warmup Iteration   3: 666644.142 ops/s
+# Warmup Iteration   4: 666361.727 ops/s
+# Warmup Iteration   5: 666268.513 ops/s
+Iteration   1: 667100.197 ops/s
+Iteration   2: 667853.579 ops/s
+Iteration   3: 666155.651 ops/s
+Iteration   4: 666375.114 ops/s
+Iteration   5: 669572.953 ops/s
+
+# Run progress: 85.50% complete, ETA 00:48:26
+# Fork: 2 of 5
+# Warmup Iteration   1: 661080.508 ops/s
+# Warmup Iteration   2: 662357.599 ops/s
+# Warmup Iteration   3: 669829.144 ops/s
+# Warmup Iteration   4: 669866.797 ops/s
+# Warmup Iteration   5: 669849.418 ops/s
+Iteration   1: 669883.245 ops/s
+Iteration   2: 669808.924 ops/s
+Iteration   3: 669789.198 ops/s
+Iteration   4: 669944.441 ops/s
+Iteration   5: 669764.794 ops/s
+
+# Run progress: 86.00% complete, ETA 00:46:46
+# Fork: 3 of 5
+# Warmup Iteration   1: 661186.390 ops/s
+# Warmup Iteration   2: 662453.722 ops/s
+# Warmup Iteration   3: 670301.927 ops/s
+# Warmup Iteration   4: 670059.837 ops/s
+# Warmup Iteration   5: 670253.124 ops/s
+Iteration   1: 670330.694 ops/s
+Iteration   2: 670485.903 ops/s
+Iteration   3: 670565.957 ops/s
+Iteration   4: 670583.309 ops/s
+Iteration   5: 670244.883 ops/s
+
+# Run progress: 86.50% complete, ETA 00:45:06
+# Fork: 4 of 5
+# Warmup Iteration   1: 656998.776 ops/s
+# Warmup Iteration   2: 658521.847 ops/s
+# Warmup Iteration   3: 667280.684 ops/s
+# Warmup Iteration   4: 667314.384 ops/s
+# Warmup Iteration   5: 667443.184 ops/s
+Iteration   1: 667280.623 ops/s
+Iteration   2: 667438.494 ops/s
+Iteration   3: 667229.991 ops/s
+Iteration   4: 667194.164 ops/s
+Iteration   5: 667147.029 ops/s
+
+# Run progress: 87.00% complete, ETA 00:43:25
+# Fork: 5 of 5
+# Warmup Iteration   1: 660863.564 ops/s
+# Warmup Iteration   2: 662006.055 ops/s
+# Warmup Iteration   3: 670620.380 ops/s
+# Warmup Iteration   4: 670828.802 ops/s
+# Warmup Iteration   5: 670990.968 ops/s
+Iteration   1: 670927.104 ops/s
+Iteration   2: 671105.330 ops/s
+Iteration   3: 670863.387 ops/s
+Iteration   4: 670836.554 ops/s
+Iteration   5: 670647.345 ops/s
+
+
+Result "com.openkappa.runtime.fission.XorCount.fissured":
+  669165.155 ±(99.9%) 1246.895 ops/s [Average]
+  (min, avg, max) = (666155.651, 669165.155, 671105.330), stdev = 1664.569
+  CI (99.9%): [667918.259, 670412.050] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.XorCount.fused
+# Parameters: (size = 256)
+
+# Run progress: 87.50% complete, ETA 00:41:45
+# Fork: 1 of 5
+# Warmup Iteration   1: 10105131.363 ops/s
+# Warmup Iteration   2: 10191103.411 ops/s
+# Warmup Iteration   3: 10206859.968 ops/s
+# Warmup Iteration   4: 10212451.564 ops/s
+# Warmup Iteration   5: 10215737.043 ops/s
+Iteration   1: 10213044.228 ops/s
+Iteration   2: 10215841.890 ops/s
+Iteration   3: 10217064.974 ops/s
+Iteration   4: 10220149.770 ops/s
+Iteration   5: 10217316.313 ops/s
+
+# Run progress: 88.00% complete, ETA 00:40:05
+# Fork: 2 of 5
+# Warmup Iteration   1: 10133489.073 ops/s
+# Warmup Iteration   2: 10231820.325 ops/s
+# Warmup Iteration   3: 10247824.572 ops/s
+# Warmup Iteration   4: 10196981.709 ops/s
+# Warmup Iteration   5: 10213065.942 ops/s
+Iteration   1: 10212210.739 ops/s
+Iteration   2: 10211747.736 ops/s
+Iteration   3: 10211164.656 ops/s
+Iteration   4: 10211652.243 ops/s
+Iteration   5: 10209877.982 ops/s
+
+# Run progress: 88.50% complete, ETA 00:38:25
+# Fork: 3 of 5
+# Warmup Iteration   1: 10104274.893 ops/s
+# Warmup Iteration   2: 10187172.154 ops/s
+# Warmup Iteration   3: 10206379.584 ops/s
+# Warmup Iteration   4: 10204823.731 ops/s
+# Warmup Iteration   5: 10203964.898 ops/s
+Iteration   1: 10200670.151 ops/s
+Iteration   2: 10200057.950 ops/s
+Iteration   3: 10202897.461 ops/s
+Iteration   4: 10196848.906 ops/s
+Iteration   5: 10202650.482 ops/s
+
+# Run progress: 89.00% complete, ETA 00:36:44
+# Fork: 4 of 5
+# Warmup Iteration   1: 10142020.815 ops/s
+# Warmup Iteration   2: 10229849.732 ops/s
+# Warmup Iteration   3: 10244089.714 ops/s
+# Warmup Iteration   4: 10242318.878 ops/s
+# Warmup Iteration   5: 10247441.676 ops/s
+Iteration   1: 10246104.788 ops/s
+Iteration   2: 10246042.672 ops/s
+Iteration   3: 10247002.232 ops/s
+Iteration   4: 10243343.377 ops/s
+Iteration   5: 10243961.866 ops/s
+
+# Run progress: 89.50% complete, ETA 00:35:04
+# Fork: 5 of 5
+# Warmup Iteration   1: 10125677.398 ops/s
+# Warmup Iteration   2: 10218268.589 ops/s
+# Warmup Iteration   3: 10243306.083 ops/s
+# Warmup Iteration   4: 10244025.466 ops/s
+# Warmup Iteration   5: 10130461.182 ops/s
+Iteration   1: 10241663.742 ops/s
+Iteration   2: 10236932.302 ops/s
+Iteration   3: 10240443.579 ops/s
+Iteration   4: 10240142.129 ops/s
+Iteration   5: 10235557.889 ops/s
+
+
+Result "com.openkappa.runtime.fission.XorCount.fused":
+  10222575.602 ±(99.9%) 12996.990 ops/s [Average]
+  (min, avg, max) = (10196848.906, 10222575.602, 10247002.232), stdev = 17350.610
+  CI (99.9%): [10209578.612, 10235572.592] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.XorCount.fused
+# Parameters: (size = 512)
+
+# Run progress: 90.00% complete, ETA 00:33:24
+# Fork: 1 of 5
+# Warmup Iteration   1: 5172699.733 ops/s
+# Warmup Iteration   2: 5236184.673 ops/s
+# Warmup Iteration   3: 5145715.012 ops/s
+# Warmup Iteration   4: 5130017.518 ops/s
+# Warmup Iteration   5: 5146863.934 ops/s
+Iteration   1: 5113543.299 ops/s
+Iteration   2: 5122797.359 ops/s
+Iteration   3: 5122168.418 ops/s
+Iteration   4: 5126639.942 ops/s
+Iteration   5: 5119620.687 ops/s
+
+# Run progress: 90.50% complete, ETA 00:31:44
+# Fork: 2 of 5
+# Warmup Iteration   1: 5129946.276 ops/s
+# Warmup Iteration   2: 5069961.365 ops/s
+# Warmup Iteration   3: 5283818.512 ops/s
+# Warmup Iteration   4: 5286726.515 ops/s
+# Warmup Iteration   5: 5285937.720 ops/s
+Iteration   1: 5282606.380 ops/s
+Iteration   2: 5283209.836 ops/s
+Iteration   3: 5278138.224 ops/s
+Iteration   4: 5278649.176 ops/s
+Iteration   5: 5262432.604 ops/s
+
+# Run progress: 91.00% complete, ETA 00:30:04
+# Fork: 3 of 5
+# Warmup Iteration   1: 5145121.804 ops/s
+# Warmup Iteration   2: 5200897.602 ops/s
+# Warmup Iteration   3: 5130382.204 ops/s
+# Warmup Iteration   4: 5142095.332 ops/s
+# Warmup Iteration   5: 5146138.632 ops/s
+Iteration   1: 5123194.028 ops/s
+Iteration   2: 5124453.249 ops/s
+Iteration   3: 5128617.050 ops/s
+Iteration   4: 5113353.581 ops/s
+Iteration   5: 5112728.076 ops/s
+
+# Run progress: 91.50% complete, ETA 00:28:23
+# Fork: 4 of 5
+# Warmup Iteration   1: 5147825.859 ops/s
+# Warmup Iteration   2: 5233507.966 ops/s
+# Warmup Iteration   3: 5156313.712 ops/s
+# Warmup Iteration   4: 5128909.822 ops/s
+# Warmup Iteration   5: 5126728.056 ops/s
+Iteration   1: 5118616.432 ops/s
+Iteration   2: 5124728.757 ops/s
+Iteration   3: 5140023.807 ops/s
+Iteration   4: 5128299.096 ops/s
+Iteration   5: 5139142.438 ops/s
+
+# Run progress: 92.00% complete, ETA 00:26:43
+# Fork: 5 of 5
+# Warmup Iteration   1: 5092566.904 ops/s
+# Warmup Iteration   2: 5205722.696 ops/s
+# Warmup Iteration   3: 5142550.268 ops/s
+# Warmup Iteration   4: 5285104.483 ops/s
+# Warmup Iteration   5: 5199587.797 ops/s
+Iteration   1: 5128237.483 ops/s
+Iteration   2: 5285677.948 ops/s
+Iteration   3: 5280156.363 ops/s
+Iteration   4: 5286595.945 ops/s
+Iteration   5: 5283696.020 ops/s
+
+
+Result "com.openkappa.runtime.fission.XorCount.fused":
+  5180293.048 ±(99.9%) 57525.576 ops/s [Average]
+  (min, avg, max) = (5112728.076, 5180293.048, 5286595.945), stdev = 76794.999
+  CI (99.9%): [5122767.472, 5237818.624] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.XorCount.fused
+# Parameters: (size = 1024)
+
+# Run progress: 92.50% complete, ETA 00:25:03
+# Fork: 1 of 5
+# Warmup Iteration   1: 2655256.742 ops/s
+# Warmup Iteration   2: 2678070.119 ops/s
+# Warmup Iteration   3: 2670242.955 ops/s
+# Warmup Iteration   4: 2666530.780 ops/s
+# Warmup Iteration   5: 2664695.794 ops/s
+Iteration   1: 2665498.953 ops/s
+Iteration   2: 2666685.211 ops/s
+Iteration   3: 2665682.214 ops/s
+Iteration   4: 2665936.934 ops/s
+Iteration   5: 2665786.569 ops/s
+
+# Run progress: 93.00% complete, ETA 00:23:23
+# Fork: 2 of 5
+# Warmup Iteration   1: 2631343.459 ops/s
+# Warmup Iteration   2: 2670819.227 ops/s
+# Warmup Iteration   3: 2633721.171 ops/s
+# Warmup Iteration   4: 2612515.400 ops/s
+# Warmup Iteration   5: 2631011.219 ops/s
+Iteration   1: 2631002.392 ops/s
+Iteration   2: 2631741.864 ops/s
+Iteration   3: 2630979.246 ops/s
+Iteration   4: 2631907.745 ops/s
+Iteration   5: 2631883.173 ops/s
+
+# Run progress: 93.50% complete, ETA 00:21:42
+# Fork: 3 of 5
+# Warmup Iteration   1: 2632975.465 ops/s
+# Warmup Iteration   2: 2695405.894 ops/s
+# Warmup Iteration   3: 2673747.745 ops/s
+# Warmup Iteration   4: 2668866.647 ops/s
+# Warmup Iteration   5: 2673778.160 ops/s
+Iteration   1: 2667043.806 ops/s
+Iteration   2: 2627955.966 ops/s
+Iteration   3: 2654107.946 ops/s
+Iteration   4: 2673322.602 ops/s
+Iteration   5: 2671924.593 ops/s
+
+# Run progress: 94.00% complete, ETA 00:20:02
+# Fork: 4 of 5
+# Warmup Iteration   1: 2658093.635 ops/s
+# Warmup Iteration   2: 2695472.633 ops/s
+# Warmup Iteration   3: 2671096.565 ops/s
+# Warmup Iteration   4: 2670934.113 ops/s
+# Warmup Iteration   5: 2669347.377 ops/s
+Iteration   1: 2669203.942 ops/s
+Iteration   2: 2670863.404 ops/s
+Iteration   3: 2670978.554 ops/s
+Iteration   4: 2667491.212 ops/s
+Iteration   5: 2671976.077 ops/s
+
+# Run progress: 94.50% complete, ETA 00:18:22
+# Fork: 5 of 5
+# Warmup Iteration   1: 2649985.271 ops/s
+# Warmup Iteration   2: 2675517.087 ops/s
+# Warmup Iteration   3: 2669767.852 ops/s
+# Warmup Iteration   4: 2669878.507 ops/s
+# Warmup Iteration   5: 2665763.281 ops/s
+Iteration   1: 2668226.493 ops/s
+Iteration   2: 2666173.339 ops/s
+Iteration   3: 2667172.789 ops/s
+Iteration   4: 2665644.070 ops/s
+Iteration   5: 2669570.600 ops/s
+
+
+Result "com.openkappa.runtime.fission.XorCount.fused":
+  2658750.388 ±(99.9%) 12263.492 ops/s [Average]
+  (min, avg, max) = (2627955.966, 2658750.388, 2673322.602), stdev = 16371.411
+  CI (99.9%): [2646486.895, 2671013.880] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.XorCount.fused
+# Parameters: (size = 2048)
+
+# Run progress: 95.00% complete, ETA 00:16:42
+# Fork: 1 of 5
+# Warmup Iteration   1: 1330766.243 ops/s
+# Warmup Iteration   2: 1322441.960 ops/s
+# Warmup Iteration   3: 1323119.865 ops/s
+# Warmup Iteration   4: 1333600.339 ops/s
+# Warmup Iteration   5: 1323537.099 ops/s
+Iteration   1: 1323578.847 ops/s
+Iteration   2: 1325103.508 ops/s
+Iteration   3: 1327126.851 ops/s
+Iteration   4: 1326192.365 ops/s
+Iteration   5: 1323730.405 ops/s
+
+# Run progress: 95.50% complete, ETA 00:15:02
+# Fork: 2 of 5
+# Warmup Iteration   1: 1330536.232 ops/s
+# Warmup Iteration   2: 1327224.235 ops/s
+# Warmup Iteration   3: 1322570.904 ops/s
+# Warmup Iteration   4: 1330858.423 ops/s
+# Warmup Iteration   5: 1324093.868 ops/s
+Iteration   1: 1323436.467 ops/s
+Iteration   2: 1323112.749 ops/s
+Iteration   3: 1327132.399 ops/s
+Iteration   4: 1325398.492 ops/s
+Iteration   5: 1321999.099 ops/s
+
+# Run progress: 96.00% complete, ETA 00:13:21
+# Fork: 3 of 5
+# Warmup Iteration   1: 1329991.683 ops/s
+# Warmup Iteration   2: 1328515.172 ops/s
+# Warmup Iteration   3: 1326049.267 ops/s
+# Warmup Iteration   4: 1325448.849 ops/s
+# Warmup Iteration   5: 1324813.589 ops/s
+Iteration   1: 1323859.332 ops/s
+Iteration   2: 1324972.213 ops/s
+Iteration   3: 1330642.976 ops/s
+Iteration   4: 1339252.263 ops/s
+Iteration   5: 1323455.002 ops/s
+
+# Run progress: 96.50% complete, ETA 00:11:41
+# Fork: 4 of 5
+# Warmup Iteration   1: 1330632.904 ops/s
+# Warmup Iteration   2: 1330393.253 ops/s
+# Warmup Iteration   3: 1324057.499 ops/s
+# Warmup Iteration   4: 1333251.068 ops/s
+# Warmup Iteration   5: 1325199.605 ops/s
+Iteration   1: 1324139.400 ops/s
+Iteration   2: 1325398.390 ops/s
+Iteration   3: 1330013.766 ops/s
+Iteration   4: 1327808.650 ops/s
+Iteration   5: 1324282.257 ops/s
+
+# Run progress: 97.00% complete, ETA 00:10:01
+# Fork: 5 of 5
+# Warmup Iteration   1: 1331616.180 ops/s
+# Warmup Iteration   2: 1330548.948 ops/s
+# Warmup Iteration   3: 1323591.998 ops/s
+# Warmup Iteration   4: 1333144.221 ops/s
+# Warmup Iteration   5: 1323470.281 ops/s
+Iteration   1: 1324182.408 ops/s
+Iteration   2: 1322634.807 ops/s
+Iteration   3: 1324617.943 ops/s
+Iteration   4: 1324376.404 ops/s
+Iteration   5: 1324106.875 ops/s
+
+
+Result "com.openkappa.runtime.fission.XorCount.fused":
+  1325622.155 ±(99.9%) 2649.824 ops/s [Average]
+  (min, avg, max) = (1321999.099, 1325622.155, 1339252.263), stdev = 3537.439
+  CI (99.9%): [1322972.331, 1328271.978] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 11.0.12, OpenJDK 64-Bit Server VM, 11.0.12+7-LTS
+# VM invoker: /opt/zulu11.50.19-ca-jdk11.0.12-linux_x64/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 10 s each
+# Measurement: 5 iterations, 10 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.openkappa.runtime.fission.XorCount.fused
+# Parameters: (size = 4096)
+
+# Run progress: 97.50% complete, ETA 00:08:21
+# Fork: 1 of 5
+# Warmup Iteration   1: 625198.991 ops/s
+# Warmup Iteration   2: 624305.918 ops/s
+# Warmup Iteration   3: 626420.292 ops/s
+# Warmup Iteration   4: 626298.914 ops/s
+# Warmup Iteration   5: 626334.226 ops/s
+Iteration   1: 626349.016 ops/s
+Iteration   2: 626170.080 ops/s
+Iteration   3: 626214.184 ops/s
+Iteration   4: 625694.576 ops/s
+Iteration   5: 626156.693 ops/s
+
+# Run progress: 98.00% complete, ETA 00:06:40
+# Fork: 2 of 5
+# Warmup Iteration   1: 624593.717 ops/s
+# Warmup Iteration   2: 623943.194 ops/s
+# Warmup Iteration   3: 626222.935 ops/s
+# Warmup Iteration   4: 626165.882 ops/s
+# Warmup Iteration   5: 626151.467 ops/s
+Iteration   1: 626145.768 ops/s
+Iteration   2: 625947.078 ops/s
+Iteration   3: 625986.555 ops/s
+Iteration   4: 625753.910 ops/s
+Iteration   5: 626035.473 ops/s
+
+# Run progress: 98.50% complete, ETA 00:05:00
+# Fork: 3 of 5
+# Warmup Iteration   1: 624554.255 ops/s
+# Warmup Iteration   2: 624537.548 ops/s
+# Warmup Iteration   3: 626584.008 ops/s
+# Warmup Iteration   4: 626201.426 ops/s
+# Warmup Iteration   5: 626146.289 ops/s
+Iteration   1: 626125.482 ops/s
+Iteration   2: 626351.781 ops/s
+Iteration   3: 626614.824 ops/s
+Iteration   4: 626200.111 ops/s
+Iteration   5: 626461.940 ops/s
+
+# Run progress: 99.00% complete, ETA 00:03:20
+# Fork: 4 of 5
+# Warmup Iteration   1: 627417.162 ops/s
+# Warmup Iteration   2: 626820.036 ops/s
+# Warmup Iteration   3: 629075.678 ops/s
+# Warmup Iteration   4: 629172.990 ops/s
+# Warmup Iteration   5: 629077.350 ops/s
+Iteration   1: 629147.337 ops/s
+Iteration   2: 629042.623 ops/s
+Iteration   3: 629049.983 ops/s
+Iteration   4: 628675.796 ops/s
+Iteration   5: 629151.184 ops/s
+
+# Run progress: 99.50% complete, ETA 00:01:40
+# Fork: 5 of 5
+# Warmup Iteration   1: 627981.144 ops/s
+# Warmup Iteration   2: 627251.404 ops/s
+# Warmup Iteration   3: 629190.781 ops/s
+# Warmup Iteration   4: 629099.623 ops/s
+# Warmup Iteration   5: 629132.314 ops/s
+Iteration   1: 629198.164 ops/s
+Iteration   2: 628900.554 ops/s
+Iteration   3: 629027.781 ops/s
+Iteration   4: 628523.002 ops/s
+Iteration   5: 629217.719 ops/s
+
+
+Result "com.openkappa.runtime.fission.XorCount.fused":
+  627285.665 ±(99.9%) 1080.466 ops/s [Average]
+  (min, avg, max) = (625694.576, 627285.665, 629217.719), stdev = 1442.391
+  CI (99.9%): [626205.199, 628366.131] (assumes normal distribution)
+
+
+# Run complete. Total time: 05:34:04
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark            (groups)  (length)  (size)   Mode  Cnt         Score        Error  Units
+GroupCount.fissured         8       256     N/A  thrpt   25  50652092.537 ± 160730.225  ops/s
+GroupCount.fissured         8       512     N/A  thrpt   25  45063239.672 ±  78270.522  ops/s
+GroupCount.fissured         8      1024     N/A  thrpt   25  39610957.757 ± 193486.721  ops/s
+GroupCount.fissured         8      2048     N/A  thrpt   25  31219897.580 ± 118800.879  ops/s
+GroupCount.fissured         8      4096     N/A  thrpt   25  20195938.602 ±   4927.810  ops/s
+GroupCount.fissured        64       256     N/A  thrpt   25   4003025.130 ±  48613.860  ops/s
+GroupCount.fissured        64       512     N/A  thrpt   25   4453804.753 ±  28456.869  ops/s
+GroupCount.fissured        64      1024     N/A  thrpt   25   4364985.021 ±  47676.868  ops/s
+GroupCount.fissured        64      2048     N/A  thrpt   25   4303933.118 ±  14682.586  ops/s
+GroupCount.fissured        64      4096     N/A  thrpt   25   3969137.930 ±  30598.078  ops/s
+GroupCount.fissured       128       256     N/A  thrpt   25   3730586.909 ±  10274.913  ops/s
+GroupCount.fissured       128       512     N/A  thrpt   25   1805047.803 ± 199579.195  ops/s
+GroupCount.fissured       128      1024     N/A  thrpt   25   2285530.123 ±  13833.078  ops/s
+GroupCount.fissured       128      2048     N/A  thrpt   25   2230227.415 ±   7258.337  ops/s
+GroupCount.fissured       128      4096     N/A  thrpt   25   2079643.170 ±  13061.973  ops/s
+GroupCount.fused            8       256     N/A  thrpt   25  10062981.892 ±  53137.972  ops/s
+GroupCount.fused            8       512     N/A  thrpt   25   5659533.755 ±  26214.025  ops/s
+GroupCount.fused            8      1024     N/A  thrpt   25   3009250.828 ±   8385.276  ops/s
+GroupCount.fused            8      2048     N/A  thrpt   25   1551585.422 ±   2692.090  ops/s
+GroupCount.fused            8      4096     N/A  thrpt   25    785150.215 ±    610.143  ops/s
+GroupCount.fused           64       256     N/A  thrpt   25   5383737.158 ±  25331.366  ops/s
+GroupCount.fused           64       512     N/A  thrpt   25   3418280.146 ±  47578.668  ops/s
+GroupCount.fused           64      1024     N/A  thrpt   25   2056829.604 ± 186993.567  ops/s
+GroupCount.fused           64      2048     N/A  thrpt   25    996751.321 ± 166566.970  ops/s
+GroupCount.fused           64      4096     N/A  thrpt   25    718446.194 ±   1578.710  ops/s
+GroupCount.fused          128       256     N/A  thrpt   25   4690723.765 ±  67688.624  ops/s
+GroupCount.fused          128       512     N/A  thrpt   25   2571250.452 ± 189452.395  ops/s
+GroupCount.fused          128      1024     N/A  thrpt   25   1717037.840 ±   6194.662  ops/s
+GroupCount.fused          128      2048     N/A  thrpt   25   1062964.784 ±  24803.172  ops/s
+GroupCount.fused          128      4096     N/A  thrpt   25    650712.459 ±   1850.614  ops/s
+XorCount.fissured         N/A       N/A     256  thrpt   25  11475785.513 ±  15322.568  ops/s
+XorCount.fissured         N/A       N/A     512  thrpt   25   5836964.874 ±   9657.423  ops/s
+XorCount.fissured         N/A       N/A    1024  thrpt   25   2908411.067 ±   4812.913  ops/s
+XorCount.fissured         N/A       N/A    2048  thrpt   25   1454035.428 ±   1849.948  ops/s
+XorCount.fissured         N/A       N/A    4096  thrpt   25    669165.155 ±   1246.895  ops/s
+XorCount.fused            N/A       N/A     256  thrpt   25  10222575.602 ±  12996.990  ops/s
+XorCount.fused            N/A       N/A     512  thrpt   25   5180293.048 ±  57525.576  ops/s
+XorCount.fused            N/A       N/A    1024  thrpt   25   2658750.388 ±  12263.492  ops/s
+XorCount.fused            N/A       N/A    2048  thrpt   25   1325622.155 ±   2649.824  ops/s
+XorCount.fused            N/A       N/A    4096  thrpt   25    627285.665 ±   1080.466  ops/s
