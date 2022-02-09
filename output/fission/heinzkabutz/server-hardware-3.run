@@ -1,0 +1,1331 @@
+java -jar target/benchmarks.jar com.openkappa.runtime.fissio -f 1 -w 1 -wi 5 -i 5 -r 1
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 8, length = 256)
+
+# Run progress: 0.00% complete, ETA 00:06:40
+# Fork: 1 of 1
+# Warmup Iteration   1: 22.034 ns/op
+# Warmup Iteration   2: 22.409 ns/op
+# Warmup Iteration   3: 21.024 ns/op
+# Warmup Iteration   4: 21.319 ns/op
+# Warmup Iteration   5: 21.045 ns/op
+Iteration   1: 20.989 ns/op
+Iteration   2: 20.967 ns/op
+Iteration   3: 21.035 ns/op
+Iteration   4: 20.982 ns/op
+Iteration   5: 21.006 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  20.996 ±(99.9%) 0.100 ns/op [Average]
+  (min, avg, max) = (20.967, 20.996, 21.035), stdev = 0.026
+  CI (99.9%): [20.896, 21.096] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 8, length = 512)
+
+# Run progress: 2.50% complete, ETA 00:06:39
+# Fork: 1 of 1
+# Warmup Iteration   1: 25.123 ns/op
+# Warmup Iteration   2: 24.862 ns/op
+# Warmup Iteration   3: 23.922 ns/op
+# Warmup Iteration   4: 24.161 ns/op
+# Warmup Iteration   5: 23.975 ns/op
+Iteration   1: 24.013 ns/op
+Iteration   2: 23.985 ns/op
+Iteration   3: 24.001 ns/op
+Iteration   4: 24.130 ns/op
+Iteration   5: 24.031 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  24.032 ±(99.9%) 0.221 ns/op [Average]
+  (min, avg, max) = (23.985, 24.032, 24.130), stdev = 0.057
+  CI (99.9%): [23.811, 24.253] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 8, length = 1024)
+
+# Run progress: 5.00% complete, ETA 00:06:28
+# Fork: 1 of 1
+# Warmup Iteration   1: 27.914 ns/op
+# Warmup Iteration   2: 27.848 ns/op
+# Warmup Iteration   3: 26.505 ns/op
+# Warmup Iteration   4: 26.486 ns/op
+# Warmup Iteration   5: 26.570 ns/op
+Iteration   1: 26.600 ns/op
+Iteration   2: 26.487 ns/op
+Iteration   3: 26.670 ns/op
+Iteration   4: 27.872 ns/op
+Iteration   5: 26.899 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  26.906 ±(99.9%) 2.160 ns/op [Average]
+  (min, avg, max) = (26.487, 26.906, 27.872), stdev = 0.561
+  CI (99.9%): [24.746, 29.066] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 8, length = 2048)
+
+# Run progress: 7.50% complete, ETA 00:06:18
+# Fork: 1 of 1
+# Warmup Iteration   1: 48.788 ns/op
+# Warmup Iteration   2: 34.402 ns/op
+# Warmup Iteration   3: 33.006 ns/op
+# Warmup Iteration   4: 33.049 ns/op
+# Warmup Iteration   5: 33.154 ns/op
+Iteration   1: 33.072 ns/op
+Iteration   2: 32.959 ns/op
+Iteration   3: 32.904 ns/op
+Iteration   4: 33.028 ns/op
+Iteration   5: 33.010 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  32.995 ±(99.9%) 0.249 ns/op [Average]
+  (min, avg, max) = (32.904, 32.995, 33.072), stdev = 0.065
+  CI (99.9%): [32.746, 33.244] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 8, length = 4096)
+
+# Run progress: 10.00% complete, ETA 00:06:07
+# Fork: 1 of 1
+# Warmup Iteration   1: 82.488 ns/op
+# Warmup Iteration   2: 81.896 ns/op
+# Warmup Iteration   3: 80.019 ns/op
+# Warmup Iteration   4: 80.018 ns/op
+# Warmup Iteration   5: 80.021 ns/op
+Iteration   1: 80.016 ns/op
+Iteration   2: 80.014 ns/op
+Iteration   3: 80.018 ns/op
+Iteration   4: 80.012 ns/op
+Iteration   5: 80.017 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  80.015 ±(99.9%) 0.009 ns/op [Average]
+  (min, avg, max) = (80.012, 80.015, 80.018), stdev = 0.002
+  CI (99.9%): [80.007, 80.024] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 64, length = 256)
+
+# Run progress: 12.50% complete, ETA 00:05:57
+# Fork: 1 of 1
+# Warmup Iteration   1: 285.618 ns/op
+# Warmup Iteration   2: 243.766 ns/op
+# Warmup Iteration   3: 246.479 ns/op
+# Warmup Iteration   4: 246.530 ns/op
+# Warmup Iteration   5: 246.368 ns/op
+Iteration   1: 246.483 ns/op
+Iteration   2: 246.847 ns/op
+Iteration   3: 246.578 ns/op
+Iteration   4: 246.952 ns/op
+Iteration   5: 247.679 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  246.908 ±(99.9%) 1.817 ns/op [Average]
+  (min, avg, max) = (246.483, 246.908, 247.679), stdev = 0.472
+  CI (99.9%): [245.091, 248.725] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 64, length = 512)
+
+# Run progress: 15.00% complete, ETA 00:05:47
+# Fork: 1 of 1
+# Warmup Iteration   1: 271.640 ns/op
+# Warmup Iteration   2: 270.995 ns/op
+# Warmup Iteration   3: 231.864 ns/op
+# Warmup Iteration   4: 232.263 ns/op
+# Warmup Iteration   5: 234.314 ns/op
+Iteration   1: 234.634 ns/op
+Iteration   2: 231.744 ns/op
+Iteration   3: 229.936 ns/op
+Iteration   4: 231.259 ns/op
+Iteration   5: 231.253 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  231.765 ±(99.9%) 6.696 ns/op [Average]
+  (min, avg, max) = (229.936, 231.765, 234.634), stdev = 1.739
+  CI (99.9%): [225.069, 238.462] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 64, length = 1024)
+
+# Run progress: 17.50% complete, ETA 00:05:37
+# Fork: 1 of 1
+# Warmup Iteration   1: 275.601 ns/op
+# Warmup Iteration   2: 274.304 ns/op
+# Warmup Iteration   3: 233.345 ns/op
+# Warmup Iteration   4: 235.585 ns/op
+# Warmup Iteration   5: 233.072 ns/op
+Iteration   1: 231.675 ns/op
+Iteration   2: 232.639 ns/op
+Iteration   3: 232.984 ns/op
+Iteration   4: 235.926 ns/op
+Iteration   5: 235.855 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  233.816 ±(99.9%) 7.525 ns/op [Average]
+  (min, avg, max) = (231.675, 233.816, 235.926), stdev = 1.954
+  CI (99.9%): [226.291, 241.341] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 64, length = 2048)
+
+# Run progress: 20.00% complete, ETA 00:05:26
+# Fork: 1 of 1
+# Warmup Iteration   1: 297.024 ns/op
+# Warmup Iteration   2: 296.155 ns/op
+# Warmup Iteration   3: 252.483 ns/op
+# Warmup Iteration   4: 251.711 ns/op
+# Warmup Iteration   5: 252.244 ns/op
+Iteration   1: 252.225 ns/op
+Iteration   2: 251.762 ns/op
+Iteration   3: 252.690 ns/op
+Iteration   4: 250.575 ns/op
+Iteration   5: 251.141 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  251.678 ±(99.9%) 3.242 ns/op [Average]
+  (min, avg, max) = (250.575, 251.678, 252.690), stdev = 0.842
+  CI (99.9%): [248.437, 254.920] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 64, length = 4096)
+
+# Run progress: 22.50% complete, ETA 00:05:16
+# Fork: 1 of 1
+# Warmup Iteration   1: 301.210 ns/op
+# Warmup Iteration   2: 298.424 ns/op
+# Warmup Iteration   3: 253.494 ns/op
+# Warmup Iteration   4: 253.722 ns/op
+# Warmup Iteration   5: 253.845 ns/op
+Iteration   1: 254.160 ns/op
+Iteration   2: 253.729 ns/op
+Iteration   3: 254.678 ns/op
+Iteration   4: 253.559 ns/op
+Iteration   5: 253.483 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  253.922 ±(99.9%) 1.916 ns/op [Average]
+  (min, avg, max) = (253.483, 253.922, 254.678), stdev = 0.497
+  CI (99.9%): [252.006, 255.838] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 128, length = 256)
+
+# Run progress: 25.00% complete, ETA 00:05:06
+# Fork: 1 of 1
+# Warmup Iteration   1: 268.757 ns/op
+# Warmup Iteration   2: 270.691 ns/op
+# Warmup Iteration   3: 257.407 ns/op
+# Warmup Iteration   4: 256.200 ns/op
+# Warmup Iteration   5: 255.916 ns/op
+Iteration   1: 255.521 ns/op
+Iteration   2: 257.084 ns/op
+Iteration   3: 255.910 ns/op
+Iteration   4: 263.029 ns/op
+Iteration   5: 257.567 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  257.822 ±(99.9%) 11.660 ns/op [Average]
+  (min, avg, max) = (255.521, 257.822, 263.029), stdev = 3.028
+  CI (99.9%): [246.162, 269.482] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 128, length = 512)
+
+# Run progress: 27.50% complete, ETA 00:04:56
+# Fork: 1 of 1
+# Warmup Iteration   1: 498.755 ns/op
+# Warmup Iteration   2: 499.694 ns/op
+# Warmup Iteration   3: 669.987 ns/op
+# Warmup Iteration   4: 667.919 ns/op
+# Warmup Iteration   5: 669.577 ns/op
+Iteration   1: 666.868 ns/op
+Iteration   2: 662.150 ns/op
+Iteration   3: 664.557 ns/op
+Iteration   4: 664.099 ns/op
+Iteration   5: 664.245 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  664.384 ±(99.9%) 6.470 ns/op [Average]
+  (min, avg, max) = (662.150, 664.384, 666.868), stdev = 1.680
+  CI (99.9%): [657.913, 670.854] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 128, length = 1024)
+
+# Run progress: 30.00% complete, ETA 00:04:45
+# Fork: 1 of 1
+# Warmup Iteration   1: 501.718 ns/op
+# Warmup Iteration   2: 499.196 ns/op
+# Warmup Iteration   3: 329.072 ns/op
+# Warmup Iteration   4: 325.493 ns/op
+# Warmup Iteration   5: 325.165 ns/op
+Iteration   1: 326.532 ns/op
+Iteration   2: 328.879 ns/op
+Iteration   3: 329.367 ns/op
+Iteration   4: 329.791 ns/op
+Iteration   5: 336.490 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  330.212 ±(99.9%) 14.359 ns/op [Average]
+  (min, avg, max) = (326.532, 330.212, 336.490), stdev = 3.729
+  CI (99.9%): [315.853, 344.570] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 128, length = 2048)
+
+# Run progress: 32.50% complete, ETA 00:04:35
+# Fork: 1 of 1
+# Warmup Iteration   1: 528.238 ns/op
+# Warmup Iteration   2: 512.791 ns/op
+# Warmup Iteration   3: 341.513 ns/op
+# Warmup Iteration   4: 352.601 ns/op
+# Warmup Iteration   5: 349.867 ns/op
+Iteration   1: 345.277 ns/op
+Iteration   2: 348.718 ns/op
+Iteration   3: 346.459 ns/op
+Iteration   4: 346.981 ns/op
+Iteration   5: 345.690 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  346.625 ±(99.9%) 5.176 ns/op [Average]
+  (min, avg, max) = (345.277, 346.625, 348.718), stdev = 1.344
+  CI (99.9%): [341.449, 351.800] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fissured
+# Parameters: (groups = 128, length = 4096)
+
+# Run progress: 35.00% complete, ETA 00:04:25
+# Fork: 1 of 1
+# Warmup Iteration   1: 551.740 ns/op
+# Warmup Iteration   2: 522.915 ns/op
+# Warmup Iteration   3: 360.838 ns/op
+# Warmup Iteration   4: 358.600 ns/op
+# Warmup Iteration   5: 357.876 ns/op
+Iteration   1: 358.781 ns/op
+Iteration   2: 359.211 ns/op
+Iteration   3: 358.640 ns/op
+Iteration   4: 357.914 ns/op
+Iteration   5: 356.088 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fissured":
+  358.127 ±(99.9%) 4.742 ns/op [Average]
+  (min, avg, max) = (356.088, 358.127, 359.211), stdev = 1.231
+  CI (99.9%): [353.385, 362.869] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 8, length = 256)
+
+# Run progress: 37.50% complete, ETA 00:04:15
+# Fork: 1 of 1
+# Warmup Iteration   1: 104.920 ns/op
+# Warmup Iteration   2: 102.186 ns/op
+# Warmup Iteration   3: 103.203 ns/op
+# Warmup Iteration   4: 104.004 ns/op
+# Warmup Iteration   5: 104.438 ns/op
+Iteration   1: 104.271 ns/op
+Iteration   2: 102.066 ns/op
+Iteration   3: 102.620 ns/op
+Iteration   4: 101.670 ns/op
+Iteration   5: 100.661 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  102.258 ±(99.9%) 5.137 ns/op [Average]
+  (min, avg, max) = (100.661, 102.258, 104.271), stdev = 1.334
+  CI (99.9%): [97.121, 107.394] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 8, length = 512)
+
+# Run progress: 40.00% complete, ETA 00:04:04
+# Fork: 1 of 1
+# Warmup Iteration   1: 185.495 ns/op
+# Warmup Iteration   2: 177.937 ns/op
+# Warmup Iteration   3: 180.849 ns/op
+# Warmup Iteration   4: 179.170 ns/op
+# Warmup Iteration   5: 178.830 ns/op
+Iteration   1: 180.336 ns/op
+Iteration   2: 179.140 ns/op
+Iteration   3: 180.966 ns/op
+Iteration   4: 179.107 ns/op
+Iteration   5: 179.382 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  179.786 ±(99.9%) 3.184 ns/op [Average]
+  (min, avg, max) = (179.107, 179.786, 180.966), stdev = 0.827
+  CI (99.9%): [176.602, 182.971] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 8, length = 1024)
+
+# Run progress: 42.50% complete, ETA 00:03:54
+# Fork: 1 of 1
+# Warmup Iteration   1: 345.065 ns/op
+# Warmup Iteration   2: 334.473 ns/op
+# Warmup Iteration   3: 332.063 ns/op
+# Warmup Iteration   4: 333.869 ns/op
+# Warmup Iteration   5: 333.661 ns/op
+Iteration   1: 332.000 ns/op
+Iteration   2: 332.502 ns/op
+Iteration   3: 331.568 ns/op
+Iteration   4: 331.691 ns/op
+Iteration   5: 332.484 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  332.049 ±(99.9%) 1.673 ns/op [Average]
+  (min, avg, max) = (331.568, 332.049, 332.502), stdev = 0.435
+  CI (99.9%): [330.376, 333.722] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 8, length = 2048)
+
+# Run progress: 45.00% complete, ETA 00:03:44
+# Fork: 1 of 1
+# Warmup Iteration   1: 667.328 ns/op
+# Warmup Iteration   2: 652.788 ns/op
+# Warmup Iteration   3: 651.658 ns/op
+# Warmup Iteration   4: 651.901 ns/op
+# Warmup Iteration   5: 648.925 ns/op
+Iteration   1: 647.195 ns/op
+Iteration   2: 653.072 ns/op
+Iteration   3: 652.065 ns/op
+Iteration   4: 653.452 ns/op
+Iteration   5: 648.880 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  650.933 ±(99.9%) 10.614 ns/op [Average]
+  (min, avg, max) = (647.195, 650.933, 653.452), stdev = 2.756
+  CI (99.9%): [640.319, 661.547] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 8, length = 4096)
+
+# Run progress: 47.50% complete, ETA 00:03:34
+# Fork: 1 of 1
+# Warmup Iteration   1: 1307.342 ns/op
+# Warmup Iteration   2: 1288.369 ns/op
+# Warmup Iteration   3: 1275.731 ns/op
+# Warmup Iteration   4: 1273.816 ns/op
+# Warmup Iteration   5: 1276.273 ns/op
+Iteration   1: 1274.270 ns/op
+Iteration   2: 1336.359 ns/op
+Iteration   3: 1274.951 ns/op
+Iteration   4: 1339.263 ns/op
+Iteration   5: 1271.119 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  1299.192 ±(99.9%) 135.922 ns/op [Average]
+  (min, avg, max) = (1271.119, 1299.192, 1339.263), stdev = 35.298
+  CI (99.9%): [1163.271, 1435.114] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 64, length = 256)
+
+# Run progress: 50.00% complete, ETA 00:03:24
+# Fork: 1 of 1
+# Warmup Iteration   1: 203.086 ns/op
+# Warmup Iteration   2: 197.130 ns/op
+# Warmup Iteration   3: 194.342 ns/op
+# Warmup Iteration   4: 195.293 ns/op
+# Warmup Iteration   5: 196.435 ns/op
+Iteration   1: 196.703 ns/op
+Iteration   2: 195.597 ns/op
+Iteration   3: 196.592 ns/op
+Iteration   4: 195.772 ns/op
+Iteration   5: 195.160 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  195.965 ±(99.9%) 2.553 ns/op [Average]
+  (min, avg, max) = (195.160, 195.965, 196.703), stdev = 0.663
+  CI (99.9%): [193.412, 198.517] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 64, length = 512)
+
+# Run progress: 52.50% complete, ETA 00:03:13
+# Fork: 1 of 1
+# Warmup Iteration   1: 310.524 ns/op
+# Warmup Iteration   2: 296.070 ns/op
+# Warmup Iteration   3: 341.264 ns/op
+# Warmup Iteration   4: 340.076 ns/op
+# Warmup Iteration   5: 349.816 ns/op
+Iteration   1: 341.952 ns/op
+Iteration   2: 393.139 ns/op
+Iteration   3: 398.469 ns/op
+Iteration   4: 359.650 ns/op
+Iteration   5: 357.004 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  370.043 ±(99.9%) 94.490 ns/op [Average]
+  (min, avg, max) = (341.952, 370.043, 398.469), stdev = 24.539
+  CI (99.9%): [275.553, 464.532] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 64, length = 1024)
+
+# Run progress: 55.00% complete, ETA 00:03:03
+# Fork: 1 of 1
+# Warmup Iteration   1: 490.687 ns/op
+# Warmup Iteration   2: 477.772 ns/op
+# Warmup Iteration   3: 530.510 ns/op
+# Warmup Iteration   4: 534.244 ns/op
+# Warmup Iteration   5: 534.474 ns/op
+Iteration   1: 531.596 ns/op
+Iteration   2: 531.114 ns/op
+Iteration   3: 531.759 ns/op
+Iteration   4: 531.110 ns/op
+Iteration   5: 532.158 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  531.547 ±(99.9%) 1.721 ns/op [Average]
+  (min, avg, max) = (531.110, 531.547, 532.158), stdev = 0.447
+  CI (99.9%): [529.827, 533.268] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 64, length = 2048)
+
+# Run progress: 57.50% complete, ETA 00:02:53
+# Fork: 1 of 1
+# Warmup Iteration   1: 798.913 ns/op
+# Warmup Iteration   2: 766.823 ns/op
+# Warmup Iteration   3: 801.954 ns/op
+# Warmup Iteration   4: 803.114 ns/op
+# Warmup Iteration   5: 801.702 ns/op
+Iteration   1: 801.990 ns/op
+Iteration   2: 802.074 ns/op
+Iteration   3: 803.103 ns/op
+Iteration   4: 802.435 ns/op
+Iteration   5: 802.000 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  802.320 ±(99.9%) 1.825 ns/op [Average]
+  (min, avg, max) = (801.990, 802.320, 803.103), stdev = 0.474
+  CI (99.9%): [800.495, 804.146] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 64, length = 4096)
+
+# Run progress: 60.00% complete, ETA 00:02:43
+# Fork: 1 of 1
+# Warmup Iteration   1: 1413.513 ns/op
+# Warmup Iteration   2: 1391.843 ns/op
+# Warmup Iteration   3: 1646.715 ns/op
+# Warmup Iteration   4: 1637.452 ns/op
+# Warmup Iteration   5: 1638.482 ns/op
+Iteration   1: 1637.775 ns/op
+Iteration   2: 1644.732 ns/op
+Iteration   3: 1646.969 ns/op
+Iteration   4: 1650.877 ns/op
+Iteration   5: 1650.015 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  1646.074 ±(99.9%) 20.200 ns/op [Average]
+  (min, avg, max) = (1637.775, 1646.074, 1650.877), stdev = 5.246
+  CI (99.9%): [1625.873, 1666.274] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 128, length = 256)
+
+# Run progress: 62.50% complete, ETA 00:02:33
+# Fork: 1 of 1
+# Warmup Iteration   1: 232.744 ns/op
+# Warmup Iteration   2: 224.695 ns/op
+# Warmup Iteration   3: 241.848 ns/op
+# Warmup Iteration   4: 243.271 ns/op
+# Warmup Iteration   5: 240.801 ns/op
+Iteration   1: 242.605 ns/op
+Iteration   2: 242.938 ns/op
+Iteration   3: 241.067 ns/op
+Iteration   4: 240.024 ns/op
+Iteration   5: 240.860 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  241.499 ±(99.9%) 4.740 ns/op [Average]
+  (min, avg, max) = (240.024, 241.499, 242.938), stdev = 1.231
+  CI (99.9%): [236.758, 246.239] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 128, length = 512)
+
+# Run progress: 65.00% complete, ETA 00:02:22
+# Fork: 1 of 1
+# Warmup Iteration   1: 379.581 ns/op
+# Warmup Iteration   2: 382.740 ns/op
+# Warmup Iteration   3: 436.009 ns/op
+# Warmup Iteration   4: 432.946 ns/op
+# Warmup Iteration   5: 433.394 ns/op
+Iteration   1: 432.350 ns/op
+Iteration   2: 434.052 ns/op
+Iteration   3: 435.160 ns/op
+Iteration   4: 434.477 ns/op
+Iteration   5: 433.223 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  433.852 ±(99.9%) 4.216 ns/op [Average]
+  (min, avg, max) = (432.350, 433.852, 435.160), stdev = 1.095
+  CI (99.9%): [429.636, 438.068] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 128, length = 1024)
+
+# Run progress: 67.50% complete, ETA 00:02:12
+# Fork: 1 of 1
+# Warmup Iteration   1: 596.072 ns/op
+# Warmup Iteration   2: 624.920 ns/op
+# Warmup Iteration   3: 617.148 ns/op
+# Warmup Iteration   4: 615.169 ns/op
+# Warmup Iteration   5: 616.218 ns/op
+Iteration   1: 617.676 ns/op
+Iteration   2: 617.507 ns/op
+Iteration   3: 618.686 ns/op
+Iteration   4: 616.437 ns/op
+Iteration   5: 615.818 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  617.225 ±(99.9%) 4.312 ns/op [Average]
+  (min, avg, max) = (615.818, 617.225, 618.686), stdev = 1.120
+  CI (99.9%): [612.912, 621.537] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 128, length = 2048)
+
+# Run progress: 70.00% complete, ETA 00:02:02
+# Fork: 1 of 1
+# Warmup Iteration   1: 946.892 ns/op
+# Warmup Iteration   2: 906.573 ns/op
+# Warmup Iteration   3: 975.372 ns/op
+# Warmup Iteration   4: 969.406 ns/op
+# Warmup Iteration   5: 983.798 ns/op
+Iteration   1: 983.461 ns/op
+Iteration   2: 983.072 ns/op
+Iteration   3: 981.699 ns/op
+Iteration   4: 983.287 ns/op
+Iteration   5: 982.137 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  982.731 ±(99.9%) 2.968 ns/op [Average]
+  (min, avg, max) = (981.699, 982.731, 983.461), stdev = 0.771
+  CI (99.9%): [979.763, 985.699] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.GroupCount.fused
+# Parameters: (groups = 128, length = 4096)
+
+# Run progress: 72.50% complete, ETA 00:01:52
+# Fork: 1 of 1
+# Warmup Iteration   1: 1598.775 ns/op
+# Warmup Iteration   2: 1557.155 ns/op
+# Warmup Iteration   3: 1578.600 ns/op
+# Warmup Iteration   4: 1578.810 ns/op
+# Warmup Iteration   5: 1579.814 ns/op
+Iteration   1: 1581.882 ns/op
+Iteration   2: 1581.063 ns/op
+Iteration   3: 1580.467 ns/op
+Iteration   4: 1582.206 ns/op
+Iteration   5: 1580.383 ns/op
+
+
+Result "com.openkappa.runtime.fission.GroupCount.fused":
+  1581.200 ±(99.9%) 3.165 ns/op [Average]
+  (min, avg, max) = (1580.383, 1581.200, 1582.206), stdev = 0.822
+  CI (99.9%): [1578.035, 1584.365] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.XorCount.fissured
+# Parameters: (size = 256)
+
+# Run progress: 75.00% complete, ETA 00:01:42
+# Fork: 1 of 1
+# Warmup Iteration   1: 89.516 ns/op
+# Warmup Iteration   2: 88.711 ns/op
+# Warmup Iteration   3: 89.013 ns/op
+# Warmup Iteration   4: 89.121 ns/op
+# Warmup Iteration   5: 89.159 ns/op
+Iteration   1: 97.183 ns/op
+Iteration   2: 89.198 ns/op
+Iteration   3: 89.414 ns/op
+Iteration   4: 88.703 ns/op
+Iteration   5: 88.667 ns/op
+
+
+Result "com.openkappa.runtime.fission.XorCount.fissured":
+  90.633 ±(99.9%) 14.153 ns/op [Average]
+  (min, avg, max) = (88.667, 90.633, 97.183), stdev = 3.676
+  CI (99.9%): [76.479, 104.786] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.XorCount.fissured
+# Parameters: (size = 512)
+
+# Run progress: 77.50% complete, ETA 00:01:31
+# Fork: 1 of 1
+# Warmup Iteration   1: 175.666 ns/op
+# Warmup Iteration   2: 173.023 ns/op
+# Warmup Iteration   3: 172.712 ns/op
+# Warmup Iteration   4: 172.732 ns/op
+# Warmup Iteration   5: 172.736 ns/op
+Iteration   1: 172.749 ns/op
+Iteration   2: 172.757 ns/op
+Iteration   3: 172.763 ns/op
+Iteration   4: 172.584 ns/op
+Iteration   5: 172.694 ns/op
+
+
+Result "com.openkappa.runtime.fission.XorCount.fissured":
+  172.709 ±(99.9%) 0.290 ns/op [Average]
+  (min, avg, max) = (172.584, 172.709, 172.763), stdev = 0.075
+  CI (99.9%): [172.419, 172.999] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.XorCount.fissured
+# Parameters: (size = 1024)
+
+# Run progress: 80.00% complete, ETA 00:01:21
+# Fork: 1 of 1
+# Warmup Iteration   1: 349.742 ns/op
+# Warmup Iteration   2: 344.477 ns/op
+# Warmup Iteration   3: 343.861 ns/op
+# Warmup Iteration   4: 343.761 ns/op
+# Warmup Iteration   5: 343.625 ns/op
+Iteration   1: 343.553 ns/op
+Iteration   2: 343.482 ns/op
+Iteration   3: 343.446 ns/op
+Iteration   4: 343.573 ns/op
+Iteration   5: 343.609 ns/op
+
+
+Result "com.openkappa.runtime.fission.XorCount.fissured":
+  343.532 ±(99.9%) 0.258 ns/op [Average]
+  (min, avg, max) = (343.446, 343.532, 343.609), stdev = 0.067
+  CI (99.9%): [343.274, 343.791] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.XorCount.fissured
+# Parameters: (size = 2048)
+
+# Run progress: 82.50% complete, ETA 00:01:11
+# Fork: 1 of 1
+# Warmup Iteration   1: 698.736 ns/op
+# Warmup Iteration   2: 689.131 ns/op
+# Warmup Iteration   3: 686.367 ns/op
+# Warmup Iteration   4: 686.435 ns/op
+# Warmup Iteration   5: 686.377 ns/op
+Iteration   1: 686.395 ns/op
+Iteration   2: 686.388 ns/op
+Iteration   3: 686.390 ns/op
+Iteration   4: 686.736 ns/op
+Iteration   5: 686.445 ns/op
+
+
+Result "com.openkappa.runtime.fission.XorCount.fissured":
+  686.471 ±(99.9%) 0.579 ns/op [Average]
+  (min, avg, max) = (686.388, 686.471, 686.736), stdev = 0.150
+  CI (99.9%): [685.892, 687.050] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.XorCount.fissured
+# Parameters: (size = 4096)
+
+# Run progress: 85.00% complete, ETA 00:01:01
+# Fork: 1 of 1
+# Warmup Iteration   1: 1544.095 ns/op
+# Warmup Iteration   2: 1499.381 ns/op
+# Warmup Iteration   3: 1491.764 ns/op
+# Warmup Iteration   4: 1491.761 ns/op
+# Warmup Iteration   5: 1490.578 ns/op
+Iteration   1: 1490.653 ns/op
+Iteration   2: 1490.412 ns/op
+Iteration   3: 1490.254 ns/op
+Iteration   4: 1490.046 ns/op
+Iteration   5: 1490.190 ns/op
+
+
+Result "com.openkappa.runtime.fission.XorCount.fissured":
+  1490.311 ±(99.9%) 0.894 ns/op [Average]
+  (min, avg, max) = (1490.046, 1490.311, 1490.653), stdev = 0.232
+  CI (99.9%): [1489.417, 1491.205] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.XorCount.fused
+# Parameters: (size = 256)
+
+# Run progress: 87.50% complete, ETA 00:00:51
+# Fork: 1 of 1
+# Warmup Iteration   1: 104.484 ns/op
+# Warmup Iteration   2: 103.680 ns/op
+# Warmup Iteration   3: 102.515 ns/op
+# Warmup Iteration   4: 102.484 ns/op
+# Warmup Iteration   5: 102.462 ns/op
+Iteration   1: 102.485 ns/op
+Iteration   2: 102.492 ns/op
+Iteration   3: 102.517 ns/op
+Iteration   4: 102.507 ns/op
+Iteration   5: 102.476 ns/op
+
+
+Result "com.openkappa.runtime.fission.XorCount.fused":
+  102.496 ±(99.9%) 0.064 ns/op [Average]
+  (min, avg, max) = (102.476, 102.496, 102.517), stdev = 0.017
+  CI (99.9%): [102.432, 102.560] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.XorCount.fused
+# Parameters: (size = 512)
+
+# Run progress: 90.00% complete, ETA 00:00:40
+# Fork: 1 of 1
+# Warmup Iteration   1: 205.271 ns/op
+# Warmup Iteration   2: 199.448 ns/op
+# Warmup Iteration   3: 201.538 ns/op
+# Warmup Iteration   4: 200.864 ns/op
+# Warmup Iteration   5: 200.627 ns/op
+Iteration   1: 200.635 ns/op
+Iteration   2: 200.564 ns/op
+Iteration   3: 200.474 ns/op
+Iteration   4: 200.525 ns/op
+Iteration   5: 200.934 ns/op
+
+
+Result "com.openkappa.runtime.fission.XorCount.fused":
+  200.627 ±(99.9%) 0.699 ns/op [Average]
+  (min, avg, max) = (200.474, 200.627, 200.934), stdev = 0.182
+  CI (99.9%): [199.927, 201.326] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.XorCount.fused
+# Parameters: (size = 1024)
+
+# Run progress: 92.50% complete, ETA 00:00:30
+# Fork: 1 of 1
+# Warmup Iteration   1: 399.587 ns/op
+# Warmup Iteration   2: 389.735 ns/op
+# Warmup Iteration   3: 394.997 ns/op
+# Warmup Iteration   4: 394.849 ns/op
+# Warmup Iteration   5: 393.863 ns/op
+Iteration   1: 396.860 ns/op
+Iteration   2: 394.921 ns/op
+Iteration   3: 395.257 ns/op
+Iteration   4: 390.622 ns/op
+Iteration   5: 392.812 ns/op
+
+
+Result "com.openkappa.runtime.fission.XorCount.fused":
+  394.094 ±(99.9%) 9.310 ns/op [Average]
+  (min, avg, max) = (390.622, 394.094, 396.860), stdev = 2.418
+  CI (99.9%): [384.784, 403.405] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.XorCount.fused
+# Parameters: (size = 2048)
+
+# Run progress: 95.00% complete, ETA 00:00:20
+# Fork: 1 of 1
+# Warmup Iteration   1: 799.204 ns/op
+# Warmup Iteration   2: 788.060 ns/op
+# Warmup Iteration   3: 782.571 ns/op
+# Warmup Iteration   4: 782.782 ns/op
+# Warmup Iteration   5: 783.125 ns/op
+Iteration   1: 783.101 ns/op
+Iteration   2: 782.942 ns/op
+Iteration   3: 783.054 ns/op
+Iteration   4: 782.760 ns/op
+Iteration   5: 782.777 ns/op
+
+
+Result "com.openkappa.runtime.fission.XorCount.fused":
+  782.927 ±(99.9%) 0.601 ns/op [Average]
+  (min, avg, max) = (782.760, 782.927, 783.101), stdev = 0.156
+  CI (99.9%): [782.326, 783.527] (assumes normal distribution)
+
+
+# JMH version: 1.21
+# VM version: JDK 17, OpenJDK 64-Bit Server VM, 17+35-2724
+# VM invoker: /opt/jdk-17/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.openkappa.runtime.fission.XorCount.fused
+# Parameters: (size = 4096)
+
+# Run progress: 97.50% complete, ETA 00:00:10
+# Fork: 1 of 1
+# Warmup Iteration   1: 1703.372 ns/op
+# Warmup Iteration   2: 1672.292 ns/op
+# Warmup Iteration   3: 1666.467 ns/op
+# Warmup Iteration   4: 1666.089 ns/op
+# Warmup Iteration   5: 1666.821 ns/op
+Iteration   1: 1670.688 ns/op
+Iteration   2: 1666.931 ns/op
+Iteration   3: 1666.955 ns/op
+Iteration   4: 1667.222 ns/op
+Iteration   5: 1666.688 ns/op
+
+
+Result "com.openkappa.runtime.fission.XorCount.fused":
+  1667.697 ±(99.9%) 6.480 ns/op [Average]
+  (min, avg, max) = (1666.688, 1667.697, 1670.688), stdev = 1.683
+  CI (99.9%): [1661.217, 1674.177] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:06:48
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark            (groups)  (length)  (size)  Mode  Cnt     Score     Error  Units
+GroupCount.fissured         8       256     N/A  avgt    5    20.996 ±   0.100  ns/op
+GroupCount.fissured         8       512     N/A  avgt    5    24.032 ±   0.221  ns/op
+GroupCount.fissured         8      1024     N/A  avgt    5    26.906 ±   2.160  ns/op
+GroupCount.fissured         8      2048     N/A  avgt    5    32.995 ±   0.249  ns/op
+GroupCount.fissured         8      4096     N/A  avgt    5    80.015 ±   0.009  ns/op
+GroupCount.fissured        64       256     N/A  avgt    5   246.908 ±   1.817  ns/op
+GroupCount.fissured        64       512     N/A  avgt    5   231.765 ±   6.696  ns/op
+GroupCount.fissured        64      1024     N/A  avgt    5   233.816 ±   7.525  ns/op
+GroupCount.fissured        64      2048     N/A  avgt    5   251.678 ±   3.242  ns/op
+GroupCount.fissured        64      4096     N/A  avgt    5   253.922 ±   1.916  ns/op
+GroupCount.fissured       128       256     N/A  avgt    5   257.822 ±  11.660  ns/op
+GroupCount.fissured       128       512     N/A  avgt    5   664.384 ±   6.470  ns/op
+GroupCount.fissured       128      1024     N/A  avgt    5   330.212 ±  14.359  ns/op
+GroupCount.fissured       128      2048     N/A  avgt    5   346.625 ±   5.176  ns/op
+GroupCount.fissured       128      4096     N/A  avgt    5   358.127 ±   4.742  ns/op
+GroupCount.fused            8       256     N/A  avgt    5   102.258 ±   5.137  ns/op
+GroupCount.fused            8       512     N/A  avgt    5   179.786 ±   3.184  ns/op
+GroupCount.fused            8      1024     N/A  avgt    5   332.049 ±   1.673  ns/op
+GroupCount.fused            8      2048     N/A  avgt    5   650.933 ±  10.614  ns/op
+GroupCount.fused            8      4096     N/A  avgt    5  1299.192 ± 135.922  ns/op
+GroupCount.fused           64       256     N/A  avgt    5   195.965 ±   2.553  ns/op
+GroupCount.fused           64       512     N/A  avgt    5   370.043 ±  94.490  ns/op
+GroupCount.fused           64      1024     N/A  avgt    5   531.547 ±   1.721  ns/op
+GroupCount.fused           64      2048     N/A  avgt    5   802.320 ±   1.825  ns/op
+GroupCount.fused           64      4096     N/A  avgt    5  1646.074 ±  20.200  ns/op
+GroupCount.fused          128       256     N/A  avgt    5   241.499 ±   4.740  ns/op
+GroupCount.fused          128       512     N/A  avgt    5   433.852 ±   4.216  ns/op
+GroupCount.fused          128      1024     N/A  avgt    5   617.225 ±   4.312  ns/op
+GroupCount.fused          128      2048     N/A  avgt    5   982.731 ±   2.968  ns/op
+GroupCount.fused          128      4096     N/A  avgt    5  1581.200 ±   3.165  ns/op
+XorCount.fissured         N/A       N/A     256  avgt    5    90.633 ±  14.153  ns/op
+XorCount.fissured         N/A       N/A     512  avgt    5   172.709 ±   0.290  ns/op
+XorCount.fissured         N/A       N/A    1024  avgt    5   343.532 ±   0.258  ns/op
+XorCount.fissured         N/A       N/A    2048  avgt    5   686.471 ±   0.579  ns/op
+XorCount.fissured         N/A       N/A    4096  avgt    5  1490.311 ±   0.894  ns/op
+XorCount.fused            N/A       N/A     256  avgt    5   102.496 ±   0.064  ns/op
+XorCount.fused            N/A       N/A     512  avgt    5   200.627 ±   0.699  ns/op
+XorCount.fused            N/A       N/A    1024  avgt    5   394.094 ±   9.310  ns/op
+XorCount.fused            N/A       N/A    2048  avgt    5   782.927 ±   0.601  ns/op
+XorCount.fused            N/A       N/A    4096  avgt    5  1667.697 ±   6.480  ns/op
+
