@@ -19,8 +19,8 @@ import java.util.concurrent.TimeUnit;
 
 @State(Scope.Benchmark)
 @Fork(5)
-@Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
-@Warmup(iterations = 20, time = 1, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 30, time = 1, timeUnit = TimeUnit.SECONDS)
+@Warmup(iterations = 100, time = 1, timeUnit = TimeUnit.SECONDS)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 public class GroupCount {
